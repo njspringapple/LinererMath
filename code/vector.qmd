@@ -6,6 +6,8 @@ format:
         toc: true
         page-layout: full
         embed-resources: true
+execute:
+    echo: false  # 隐藏所有代码块
 date: today
 ---
 
@@ -402,7 +404,7 @@ if (status_code(response) == 200) {
 
         # 添加标题和标签
         labs(
-            title = "交道口车位占用时间变化及平均占用率",
+            title = "地坛南门车位占用时间变化及平均占用率",
             subtitle = paste(
                 "数据时间范围:", format(min(slotseizesequence$time_point), "%Y-%m-%d"),
                 "至", format(max(slotseizesequence$time_point), "%Y-%m-%d"),
@@ -590,7 +592,7 @@ if (status_code(response) == 200) {
 
         # 添加标题和标签
         labs(
-            title = "交道口车位占用时间变化及平均占用率",
+            title = "和平里车位占用时间变化及平均占用率",
             subtitle = paste(
                 "数据时间范围:", format(min(slotseizesequence$time_point), "%Y-%m-%d"),
                 "至", format(max(slotseizesequence$time_point), "%Y-%m-%d"),
