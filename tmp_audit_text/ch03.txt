@@ -1,0 +1,945 @@
+3 Vektorräume
+Wir entwickeln nun einen neuen Blickwinkel auf lineare Gleichungssysteme und
+Abbildungen. Insbesondere wollen wir damit verwandte Räume genauer untersu-
+chen. Solche Räume entstehen beispielsweise als Lösungsmenge eines LGS oder
+durch lineare Transformation des Rn . Wir lernen dabei nicht nur etwas über die
+Räume selbst, sondern auch über die Abbildungen zwischen ihnen.
+
+
+3.1 Definition
+Unser Fokus war bisher auf Abbildungen von Vektoren zwischen euklidischen
+Räumen. Wir haben dabei lediglich ein paar Rechenregeln für reelle Zahlen
+benutzt und diese Komponentenweise angewandt. Indem wir uns auf diese Ei-
+genschaften beschränken, können wir euklidische Vektorräume zu allgemeinen
+Vektorräumen verallgemeinern.
+
+ Definition 3.1.1. Ein Vektorraum ist eine nichtleere Menge V von Objekten,
+ die wir Vektoren nennen. Auf der Menge V gibt es zwei Operationen, Addition
+ und Multiplikation mit Skalaren (reellen Zahlen). Dabei sind die folgenden
+ Axiome für alle u, v, w ∈ V und Skalare c, d ∈ R erfüllt:
+
+   (i) u + v ∈ V .
+
+  (ii) u + v = v + u.
+
+ (iii) (u + v) + w = u + (v + w).
+
+  (iv) Es gibt einen Nullvektor 0, sodass u + 0 = u.
+
+  (v) Für jedes u ∈ V , gibt es ein −u ∈ V , sodass u + (−u) = 0.
+
+  (vi) cu ∈ V .
+
+ (vii) c(u + v) = cu + cv.
+
+(viii) (c + d)u = cu + du.
+
+  (ix) c(du) = (cd)u.
+
+  (x) 1u = u.
+
+  Es lässt sich leicht überprüfen, dass Rn ein Vektorraum ist. Dass wir uns im
+Folgenden mit abstrakten Vektorräumen beschäftigen hat mehrere Gründe. Im
+
+
+                                       56
+                                       3 Vektorräume
+
+
+ersten Moment scheint es vielleicht, als würden wir die Angelegenheit unnötig
+verkomplizieren. Genau genommen haben wir es uns aber einfacher gemacht. Alles,
+was wir über Vektorräume zeigen, fußt ausschließlich auf den Eigenschaften in
+Definition 3.1.1. Um alle anderen Besonderheiten des Rn brauchen wir uns nicht
+mehr weiter kümmern. Außerdem gibt es auch andere interessante Vektorräume,
+wie die folgenden Beispiele zeigen. (Die Axiome zu überprüfen ist eine nette
+Übung.)
+
+Beispiel 3.1.2. Die Menge V = {0} mit den Operationen 0 + 0 = 0 und c0 = 0
+ist ein Vektorraum.
+
+
+Beispiel 3.1.3. Sei V die Menge aller Folgen v = (v1 , v2 , . . . ) = (vi )∞i=1 von
+reellen Zahlen v1 , v2 , . . . ∈ R. Wir definieren Addition und Skalarmultiplikation
+Komponentenweise als
+
+           u + v = (u1 , u2 , . . . ) + (v1 , v2 , . . . ) = (u1 + v1 , u2 + v2 , . . . )
+              cu = (cu1 , cu2 , . . . ).
+
+Dann ist V ein Vektorraum mit Nullvektor 0 = (0, 0, 0, . . . ).
+
+
+Beispiel 3.1.4. Die Menge aller (m × n)-Matrizen mit den üblichen Operatio-
+nen für Addition und Skalarmultiplikation ist ein Vektorraum. Der Nullvektor
+entspricht hier der Nullmatrix 0 ∈ Rm×n .
+
+
+Beispiel 3.1.5. Die Menge aller Funktionen f : R → R ist ein Vektorraum, wenn
+wir Addition und Skalarmultiplikation wie folgt definieren:
+
+                  (f + g)(x) = f (x) + g(x),               (cf )(x) = cf (x).
+
+Der Nullvektor ist die konstate Funktion mit f (x) = 0 für alle x ∈ R.
+
+In solchen Räumen haben wir viel weniger Intuition als in euklidischen Räumen.
+Weil wir uns bei Vektorräumen auf die wichtigsten Eigenschaften des Rn be-
+schränken, können jetzt aber intuitiv alle Beispiele so behandeln, als wären wir
+im Rn .
+
+
+3.2 Unterräume
+Oft ist der Vektorraum W , der uns interessiert, Teil von einem größeren Vektor-
+raum V . Dann nennen wir W einen Unterraum von V . Ein Teil der Axiome ergibt
+sich dann automatisch. Wir belassen es deshalb bei der folgenden Definition.
+
+
+
+
+                                                57
+                                  3 Vektorräume
+
+
+ Definition 3.2.1. Eine nichtleere Teilmenge W ⊂ V ist ein Unterraum
+ eines Vektorraums V , wenn die folgenden zwei Eigenschaften erfüllt sind:
+
+   (i) Für alle u, v ∈ W gilt u + v ∈ W .
+
+  (ii) Für jedes c ∈ R und v ∈ W , gilt cv ∈ W .
+
+Für die zwei Eigenschaften sagen wir, dass W geschlossen ist unter Addition und
+Skalarmultiplikation. Außerdem ist bemerkenswert, dass (ii) 0 ∈ W impliziert.
+Betrachten wir ein paar Beispiele. Als Übung kann man die zwei Eigenschaften
+verifizieren.
+
+Beispiel 3.2.2. Die Menge W = {0} ⊂ V ist ein Unterraum.
+
+
+Beispiel 3.2.3. Jede Ebene in R3 durch den Nullpunkt ist ein Unterraum von
+R3 . Sie lässt sich durch ein LGS Ax = 0 darstellen (dazu gleich mehr). Eine
+Ebene in R3 , die nicht den Nullpunkt 0 enthält, kann kein Unterraum sein.
+
+
+Beispiel 3.2.4. R2 ist kein Unterraum von R3 . Genauer gesagt ist R2 nicht mal
+eine Teilmenge von R3 : Jedes x ∈ R2 besteht aus zwei Komponenten, ein y ∈ R3
+aus drei.
+
+
+Beispiel 3.2.5. Sei V = Rn×n , der Raum aller (n × n)-Matrizen. Dann ist die
+Menge aller symmetrischen Matrizen W = {A ∈ V : A = A⊤ } ein Unterraum
+von V .
+
+
+Beispiel 3.2.6. Die Menge aller Polynome n-ten Grades
+
+                  Pn = {a0 + a1 x + · · · an xn : a0 , . . . , an ∈ R}
+
+ist ein Unterraum des Raums aller Funktionen f : R → R (sh. Beispiel 3.1.5).
+
+  Beispiel 3.2.3 ist wichtig genug, um eine Verallgemeinerung zu beweisen.
+
+ Theorem 3.2.7. Für jedes A ∈ Rm×n ist die Lösungsmenge des homogenen
+ LGS Ax = 0 ein Unterraum von Rn .
+
+
+Beweis. Sei W die Lösungsmenge von Ax = 0. Offensichtlich ist 0 ∈ W . Wir
+müssen zeigen, dass W geschlossen unter Addition und Skalarmultiplikation ist.
+Seien x, y ∈ W , dann gilt
+
+                      A(x + y) = Ax + Ay = 0 + 0 = 0,
+
+
+
+                                          58
+                                       3 Vektorräume
+
+
+also x + y ∈ W . Ebenso gilt für jedes c ∈ R, x ∈ W ,
+
+                                 A(cx) = cAx = c0 = 0,
+
+also cx ∈ W .
+  Wenn wir die Definition von Linearkombination und Spann auf allgemeine
+Vektorräume erweitern, erhalten wir ein weiteres wichtiges Beispiel.
+
+ Definition 3.2.8. Wir nennen einen Vektor v ∈ V eine Linearkombination
+ von Vektoren v1 , . . . , vk ∈ V , wenn er sich als
+
+                                   v = c1 v1 + · · · + ck vk
+
+ mit c1 , . . . , ck ∈ R schreiben lässt.
+
+
+
+ Definition 3.2.9. Die Menge aller Linearkombinationen von gegeben Vek-
+ toren v1 , . . . , vk ∈ V bezeichnen wir als Spann oder den von den Vektoren
+ aufgespannten oder erzeugten Raum.
+
+
+Beispiel 3.2.10. Die Einheitsvektoren e1 , . . . , en ∈ Rn erzeugen Rn : für jedes
+x ∈ Rn gilt x = x1 e1 + · · · + xn en .
+
+
+Beispiel 3.2.11. Die Polynome 1, x, x2 , . . . , xn erzeugen die Polynome Pn aus
+Beispiel 3.2.6, denn jedes Polynom p ∈ Pn können wir als
+
+                               p = a0 1 + a1 x + · · · + an x n
+
+schreiben. Also gilt Pn = span{1, x, x2 , . . . , xn }.
+
+  Die Bezeichnung erzeugter Raum“ lässt sich wie folgt rechtfertigen.
+                           ”
+ Theorem 3.2.12. Für alle Vektoren u1 , . . . , un in einem Vektorraum V , ist
+ W = span{u1 , . . . , un } ein Unterraum von V .
+
+
+Beweis. Für alle v, w ∈ span{u1 , . . . , un } gilt
+
+                 v = c1 u1 + · · · + cn un ,        w = d1 u1 + · · · + dn un .
+
+Natürlich gilt 0 ∈ span{u1 , . . . , un } (wähle c1 = · · · = cn = 0), also ist W nicht
+leer. Außerdem ist
+
+                    v + w = (c1 + d1 )u1 + · · · + (cn + dn )un ∈ W.
+
+
+
+                                               59
+                                   3 Vektorräume
+
+
+und
+
+              cv = c(c1 u1 + · · · + cn un ) = cc1 u1 + · · · + ccn un ∈ W.
+
+  Außerdem ist span{u1 , . . . , un } der kleinste Unterraum von V , der die Vektoren
+u1 , . . . , un enthält. In jedem anderen Vektorraum W ′ , der sie enthält, müssen
+auch alle Linearkombinationen enthalten sein. Also ist span{u1 , . . . , un } ⊆ W ′ .
+Zu guter Letzt zeigen wir noch, dass Schnittmengen von Unterräumen selbst
+Unterräume sind.
+
+ Theorem 3.2.13. Sei V ein Vektorraum und W1 , . . . , Wn ⊂ V Unterräume.
+ Dann ist W = W1 ∩ · · · ∩ Wn auch ein Unterraum von V .
+
+
+Beweis. Die Menge W ist nicht leer, weil in jedem Wi der Nullvektor 0 enthalten
+ist. Also ist auch 0 ∈ W . Seien nun u, v ∈ W . Weil die Vektoren in W enthalten
+sind, gilt auch u, v ∈ Wi für alle i = 1, . . . , n. Weil jedes Wi ein Vektorraum ist,
+liegt dann auch u + v in jedem Wi — und damit auch in deren Schnittmenge W .
+Also ist u + v ∈ W . Mit dem gleichen Argument kann man auch cu ∈ W für
+jedes c ∈ R zeigen.
+
+
+3.3 Basis und Dimension
+3.3.1 Definitionen
+Wenn V = span{v1 , . . . , vn }, charakterisieren die Vektoren gewissermaßen den
+Raum V . Es kann aber sein, dass wir ein oder mehrere Vektoren weglassen
+können. Ist V = Rn , haben wir dafür bereits einen Namen (sh. Definition 1.9.1
+und Theorem 1.9.2).
+
+ Definition 3.3.1. Eine Menge von Vektoren v1 , . . . , vk in einem Vektorraum
+ V nennen wir linear unabhängig, wenn die Vektorgleichung
+
+                               x1 v1 + · · · + xk vk = 0
+
+ nur die triviale Lösung x = 0 besitzt. Andernfalls nennen wir die Vektoren
+ linear abhängig.
+
+Die Beweise von Theorem 1.9.2 und Theorem 1.9.10 verwenden ausschließlich die
+Vektorraumaxiome. Die Resultate gelten also nicht nur für Rn , sondern für alle
+Vektorräume.
+  Eine Menge {v1 , . . . , vn }, die einen Vektorraum V aufspannt, aber nicht weiter
+reduzierbar ist, nennen wir Basis.
+
+
+
+
+                                           60
+                                    3 Vektorräume
+
+
+ Definition 3.3.2. Eine Menge B = {v1 , . . . , vn } von Vektoren in einem Vek-
+ torraum V nennen wir Basis von V , wenn
+
+   (i) B linear unabhängig ist,
+
+  (ii) V = span(B).
+
+  Die Anzahl der Vektoren in einer Basis bezeichnen wir als Dimension des
+zugehörigen Vektorraums.
+
+ Definition 3.3.3. Sei {v1 , . . . , vn } eine Basis für den Vektorraum V . Dann
+ nennen wir n die Dimension von V und schreiben dim(V ) = n. Für den
+ Nullraum definieren wir dim({0}) = 0.
+
+  Ein Vektorraum V kann viele Basen haben. Die Definition der Dimension
+macht nur Sinn, wenn alle Basen die gleiche Anzahl an Vektoren haben. Wir
+werden später beweisen, dass das immer der Fall ist.
+
+Beispiel 3.3.4. Die Standardbasis von Rn besteht aus den Vektoren e1 , . . . , en ∈
+Rn . Es gilt also dim(Rn ) = n.
+
+
+Beispiel 3.3.5. Eine andere Basis für R3 ist zum Beispiel v1 = (1, 1, 0), v2 =
+(0, 1, 1), v3 = (0, 0, −1).
+
+
+Beispiel 3.3.6. Seien Eij ∈ Rm×n Matrizen, die in der (i, j)-Komponente eine 1
+und sonst überall Nullen haben. Dann ist {Eij : i = 1, . . . , m; j = 1, . . . , n} eine
+Basis des Rm×n . Also ist dim(Rm×n ) = mn.
+
+
+Beispiel 3.3.7. Die Menge B = {1, x, x2 , . . . , xn } ist eine Basis für die Polynome
+Pn = {a0 + a1 x + a2 x2 + · · · + an xn : a0 , . . . , an ∈ R}. Jedes Element in der
+Basis wird hier als Funktion fj (x) = xj−1 verstanden. Um einen Raum von
+Funktionen zu erzeugen, muss auch die Basis aus Funktionen bestehen. Also gilt
+dim(Pn ) = n + 1.
+
+
+Beispiel 3.3.8. Die Menge aller Folgen (x1 , x2 , · · · ) ∈ R∞ lässt sich aus der
+Basis e1 = (1, 0, 0, . . . ), e2 = (0, 1, 0, . . . ) etc. erzeugen. Man braucht unendlich
+viele Basisvektoren, also ist der Raum unendlichdimensional.
+
+
+3.3.2 Koordinaten
+Jeden Vektor x ∈ Rn können wir in der Standardbasis darstellen:
+
+                               x = x1 e1 + · · · + xn en .
+
+
+                                           61
+                                       3 Vektorräume
+
+
+
+
+Abbildung 3.1: Der Vektor x = (1, 6) in verschiedenen Basen. Links die Standard-
+               basis B = {e1 , e2 }, rechts die Basis B = {b1 , b2 }. (Abb. 4.4.1–4.4.2
+               in [LLM])
+
+
+Wir nennen dann x1 , . . . , xn die Koordinaten von x bezüglich der Basis {e1 , . . . , en }.
+Das Konzept können wir auch auf andere Basen erweitern.
+
+ Definition 3.3.9. Sei B = {v1 , . . . , vn } eine Basis eines Vektorraums V und
+
+                                v = x1 v1 + · · · + xn vn ,
+
+ dann nennen wir (x1 , . . . , xn ) die Koordinaten von v in der Basis B und
+ schreiben [v]B = (x1 , . . . , xn ).
+
+
+
+Beispiel 3.3.10. Sei x = (1, 3, 3) in Standardkoordinaten. Die Koordinaten in
+der Basis aus Beispiel 3.3.5 sind [x]B = (1, 2, −1), denn
+
+                           1       1       0        0
+                                                        
+
+                          3 = 1 1 + 2 1 − 1  0 
+                                               
+
+                           3       0       1       −1
+
+Wir können also den gleichen Vektor in verschieden Koordinatensystemen darstel-
+len. Intuitiv verändern wir dabei das Raster, auf dem die Koordinaten gemessen
+werden. Die Basisvektoren geben dabei die Richtung und Abstände der Raster-
+linien vor. In Abbildung 3.1 ist dies illustriert. Links sehen wir das Raster des
+üblichen Koordinatensystems entlang der Vektoren e1 und e2 . Wir können davon
+ablesen, dass x = (1, 6), b1 = (1, 0) und b2 = (1, 2). Rechts sehen wir das Raster
+bezüglich der Basis B = {b1 , b2 }. Die Rasterlinien zeigen in Richtung der Basis-
+vektoren und deren Distanz zum Nullpunkt bestimmt die Abstände. In diesen
+neuen Koordinaten ist [x]B = (−2, 3). Das können wir sowohl vom Graph ablesen
+als auch rechnerisch überprüfen:
+
+                                 1      1    1
+                                   !           !         !
+                                   = −2   +3   .
+                                 6      0    2
+
+
+
+                                             62
+                                       3 Vektorräume
+
+
+    Gewissermaßen sind alle Basen eines Vektorraums äquivalent. Jeder Vektor
+lässt sich in jeder Basis eindeutig darstellen.
+
+ Theorem 3.3.11. Sei B = {v1 , . . . , vn } eine Basis des Vektorraums V . Dann
+ lässt sich jedes v ∈ V eindeutig als
+
+                                  v = c1 v1 + · · · + cn vn
+
+ mit c1 , . . . , cn ∈ R darstellen.
+
+
+Beweis. Weil B eine Basis ist, lässt sich jeder Vektor als v = c1 v1 + · · · + cn vn
+darstellen. Angenommen v = d1 v1 + · · · + dn vn ist eine weitere Darstellung. Dann
+gilt
+                 0 = v − v = (c1 − d1 )v1 + · · · + (cn − dn )vn .
+Weil B = {v1 , . . . , vn } linear unabhängig ist, muss gelten cj − dj = 0 bzw. cj = dj
+für alle j = 1, . . . , n. Also ist die Darstellung eindeutig.
+   In Abschnitt 3.1 habe ich behauptet, wir können intuitiv alle Vektorräume wie
+den Rn betrachten. Theorem 3.3.11 gibt uns eine erste mathematische Rechtferti-
+gung dafür. Angenommen V ist ein (endlichdimensionaler) Vektorraum — beste-
+hend aus Folgen, Matrizen, Funktionen oder was auch immer. Sei B = {b1 , . . . , bn }
+irgendeine Basis für den Raum. Dann können wir die Elemente v ∈ V immer in
+Koordinaten [v]B ∈ Rn darstellen. Auch wenn es nicht direkt offensichtlich ist,
+bleiben viele Eigenschaften dabei erhalten. Das liegt daran, dass die Umwandlung
+in B-Koordinaten eine lineare Transformation ist.
+
+ Theorem 3.3.12. Sei V ein Vektorraum und B = {b1 , . . . , bn } eine Basis für
+ V . Dann ist die Koordinatentransformation TB : V → Rn mit TB (v) =
+ [v]B linear.
+
+
+Beweis. Seien [v]B = (c1 , . . . , cn ) die B-Koordinaten von v ∈ V . Dann gilt
+   • Für jedes a ∈ R gilt:
+
+                     av = a(c1 b1 + · · · + cn bn ) = ac1 b1 + · · · + acn bn .
+
+      Die B-Koordinaten von av sind also [av]B = (ac1 , . . . , acn ) = a[v]B . Damit
+      gilt TB (av) = aTB (v).
+   • Seien (d1 , . . . , dn ) die B-Koordinaten von w ∈ V . Dann gilt
+
+                       v + w = c1 b1 + · · · + cn bn + d1 b1 + · · · + dn bn
+                             = (c1 + d1 )b1 + · · · + (cn + dn )bn .
+
+      Die B-Koordinaten von v + w sind also (c1 + d1 , . . . , cn + dn ) = [v]B + [w]B .
+      Damit gilt TB (v + w) = T (v)B + T (w)B .
+
+
+                                             63
+                                       3 Vektorräume
+
+
+  Insbesondere gilt auch [0]B = TB (0) = 0n , wobei 0 der Nullvektor in V und
+0n der Nullvektor in Rn ist. Außerdem bleibt auch lineare Unabhängigkeit über
+verschiedene Basen hinweg erhalten.
+
+Theorem 3.3.13. Sie V ein Vektorraum und B eine beliebige Basis für V .
+Vektoren v1 , . . . , vn ∈ V sind genau dann linear unabhängig, wenn die Koordi-
+natenvektoren [v1 ]B , . . . , [vn ]B linear unabhängig sind.
+
+
+Beweis. Weil die Koordinatentransformation eindeutig ist (Theorem 3.3.11), gilt
+
+                                   c1 v1 + · · · + cn vn = 0
+
+genau dann, wenn
+
+                                [c1 v1 + · · · + cn vn ]B = [0]B .
+
+Weil die Koordinatentransformation linear ist, können wir die letzte Gleichung
+auch so schreiben:
+
+                                 c1 [v1 ]B + · · · + cn [vn ] = 0.
+
+Wir haben gezeigt, dass
+
+                c1 v1 + · · · + cn vn = 0    ⇔       c1 [v1 ]B + · · · + cn [vn ] = 0.
+
+Also haben entweder beide Gleichungen eine triviale Lösung oder keine. Das zeigt
+nach Definition 3.3.1 die geforderte Äquivalenz.
+  Wir sagen dann, dass V isomorph 1 ist zu Rn . Die lineare (!) Abbildung, die
+die Elemente eindeutig (!) zuordnet, nennen wir einen Isomorphismus. Solche
+Abbildungen lohnt es sich ein bisschen ausführlicher zu besprechen.
+
+3.3.3 Basiswechsel
+Weil die Koordinatentransformation TB eindeutig ist (Theorem 3.3.11), muss es
+eine Umkehrfunktion TB−1 geben. Auch die ist linear, wie das folgende Resultat
+zeigt.
+
+ Theorem 3.3.14. Sei T : V → W linear und T −1 : W → V eine Umkehrfunk-
+ tion. Dann ist auch T −1 linear.
+
+
+Beweis.
+
+ 1
+     Aus dem Griechischen: isos = gleich, morphe = Form, Gestalt.
+
+
+
+                                                64
+                                    3 Vektorräume
+
+
+   • Sei c ∈ R, v ∈ V und w = T (v) ∈ W . Dann gilt auch T −1 (w) = v. Weil T
+     linear ist, ist dann
+
+                T −1 (cw) = T −1 (cT (v)) = T −1 (T (cv)) = cv = cT −1 (w).
+
+   • Sei v1 , v2 ∈ V und w1 = T (v1 ), w2 = T (v2 ). Weil T linear ist, ist dann
+
+               T −1 (w1 + w2 ) = T −1 (T (v1 ) + T (v2 )) = T −1 (T (v1 + v2 ))
+                               = v1 + v2 = T −1 (w1 ) + T −1 (w2 ).
+
+  Nehmen wir jetzt zwei Basen A = {a1 , . . . , am } und B = {b1 , . . . , bn } eines
+Vektorraums V und TA und TB die zugehörigen Koordinatentransformationen.
+Dann ist
+                 [v]B = (TB ◦ TA−1 )([v]A ) = TB (TA−1 ([v]A )).
+Der Vorgang lässt sich durch folgendes Diagramm verstehen:
+                                      −1
+                                     TA          TB
+                             [v]A          v          [v]B .
+
+Die Abbildung TA→B = TB ◦ TA−1 geht von Rm nach Rn . Weil die Verknüpfung
+linearer Funktion linear ist, lässt sich die Abbildung TA→B durch ein Matrix
+PA→B ∈ Rn×m darstellen. Aus unserem Wissen über lineare Gleichungssysteme
+können wir nun endlich die Eindeutigkeit der Dimension beweisen.
+
+Theorem 3.3.15. Sei B eine Basis von einem Vektorraum V, die aus n
+Vektoren besteht. Dann muss auch jede weitere Basis aus n Vektoren bestehen.
+
+
+Beweis. Sei A eine weitere Basis mit m Vektoren. Weil die Koordinatentransfor-
+mationen eindeutig ist, darf das LGS PA→B x = b für jedes b ∈ Rm nur genau
+eine Lösung x ∈ Rn haben. Wir können o.B.d.A annehmen, dass m ≤ n. (Sonst
+vertauschen wir die Rollen von A und B.) Gilt m < n, dann gibt es mindestens
+eine freie Variable. Dann kann die Lösung des LGS wegen Theorem 1.8.2 und
+Theorem 1.8.6 nicht eindeutig sein. Also muss m = n gelten.
+   Es stellt sich die Frage, wie die Matrix PA→B ∈ Rn×n konkret aussieht. Für den
+Fall V = Rn können wir das relativ leicht beantworten. Sei A = {a1 , . . . , an }, B =
+{b1 , . . . , bn } und A, B ∈ Rn×n Matrizen die jeweils die Spalten a1 , . . . , an und
+b1 , . . . , bn enthalten. Es gilt dann
+
+                                v = A[v]A = B[v]B ,
+
+Weil die Basisvektoren unabhängig sind, müssen A und B invertierbar sein. Also
+gilt
+
+                         PA→B = B −1 A,         PB→A = A−1 B
+
+
+
+                                           65
+                                         3 Vektorräume
+
+
+und damit auch
+
+                                         PA→B = PB→A
+                                                 −1
+                                                     .
+
+Das können wir auch anders interpretieren. Bei B −1 A transformiert B −1 die
+Spalten von A in B-Koordinaten. Das gilt auch allgemeiner.
+
+ Theorem 3.3.16. Seien A = {a1 , . . . , an } und B = {b1 , . . . , bn } zwei Basen
+ eines Vektorraums V . Dann ist PA→B die Matrix mit Spalten ([a1 ]B · · · [an ]B ).
+
+
+Beweis. Sei x ∈ V , PA→B die Matrix mit Spalten ([a1 ]B · · · [an ]B ) und c := [x]A
+der Koordinatenvektor von x in der Basis A. Wegen Linearität der Koordinaten-
+transformation gilt dann
+
+    PA→B [x]A = PA→B c = ([a1 ]B · · · [an ]B )c = [c1 a1 + · · · + cn an ]B = [x]B ,
+
+wie gewünscht.
+
+Beispiel 3.3.17. Sei E = {e1 , e2 } die Standardbasis des R2 und B = {b1 , b2 }
+eine weitere Basis mit
+                                     1                        1
+                                            !                  !
+                                b1 =   ,                b2 =    .
+                                     1                       −1
+
+Sei E = (e1 e2 ) ∈ R2×2 und B = (b1 b2 ) ∈ R2 . Dann ist
+
+                                                   1 −1 −1   1 1 1
+                                                               !                 !
+            E   −1
+                     = E = I2 ,         B   −1
+                                                 =         =        .
+                                                   −2 −1 1   2 1 −1
+
+Sei zum Beispiel x = [x]E = (2, 1), dann gilt
+
+                                           1 1 1                            2   1 3
+                                                                        !   !        !
+     [x]B = PE←B [x]E = B E[x]E = B [x]E =
+                                  −1               −1
+                                                                              =     .
+                                           2 1 −1                           1   2 1
+
+Und tatsächlich sehen wir, dass das der Koordinatenvektor in der Basis B ist,
+denn
+                                       3     1     2
+                                                          !
+                                         b1 + b2 =   = x.
+                                       2     2     1
+
+Andersherum gilt auch
+
+                                               1 1 1                3   2
+                                                               !    !        !
+       PB→E [x]B = E      −1
+                               B[x]B = B[x]B =                        =   = [x]E .
+                                               2 1 −1               1   1
+
+
+
+
+                                                  66
+                                 3 Vektorräume
+
+
+3.3.4 Nützliche Eigenschaften
+Die Dimension ist charakteristisch für den Raum. Insbesondere können wir fol-
+gende Eigenschaften zeigen.
+
+ Theorem 3.3.18. Sei V ein n-dimensionaler Vektorraum.
+
+  (i) Wenn eine Menge M ⊂ V mehr als n Vektoren enthält, ist sie linear
+      abhängig.
+
+  (ii) Wenn eine Menge M ⊂ V weniger als n Vektoren enthält, spannt sie V
+       nicht auf.
+
+Beweis.
+ (i) Stellen wir M in B-Koordinaten dar, folgt die Aussage direkt aus Theo-
+     rem 1.9.5 und Theorem 3.3.13.
+ (ii) Sei M = {u1 , . . . , um } eine Menge von Vektoren mit span(M ) = V und
+      m < n. Wir nehmen o.b.d.A. an, dass die Vektoren in M unabhängig sind.
+      (Ansonsten können wir Vektoren entfernen, ohne den Spann zu verändern.)
+      Dann wäre M auch eine Basis für V und V damit m-dimensional. Weil
+      m ̸= n, ist dies ein Widerspruch zu Theorem 3.3.15. Es muss deshalb
+      span(M ) ̸= V gelten.
+  Das können wir nutzen, um Basen einfacher zu charakterisieren. Hat die Men-
+ge die richtige Anzahl an Vektoren, reicht es aus, wenn nur eine der beiden
+Eigenschaften in Definition 3.3.3 erfüllt ist.
+
+ Theorem 3.3.20. Sei V ein n-dimensionaler Vektorraum und M ⊂ V eine
+ Menge mit genau n Vektoren.
+
+  (i) Ist M linear unabhängig, ist M eine Basis.
+
+  (ii) Gilt span(M ) = V , ist M eine Basis.
+
+Beweis.
+ (i) Angenommen M ist linear unabhängig, aber keine Basis. Dann gilt span(M ) ⊊
+     V . Es gibt also ein v ∈ V , sodass v ∈
+                                           / span(M ). Damit muss die Menge
+     M ∪ {v} auch linear unabhängig sein. Diese Menge enthält aber mehr als
+     n Vektoren, was ein Widerspruch zu Theorem 3.3.18 (i) ist. Also muss M
+     eine Basis sein.
+ (ii) Angenommen span(M ) = V . Wir müssen zeigen, dass M linear unabhängig
+      ist. Angenommen M wäre linear abhängig. Dan könnten wir Vektoren aus
+      M entfernen, ohne den Spann zu verändern. Die reduzierte Menge spannt
+      dann V , aber besteht aus weniger als n Vektoren. Das ist ein Widerspruch zu
+      Theorem 3.3.18 (ii). Also ist M linear unabhängig und damit eine Basis.
+
+
+                                       67
+                                      3 Vektorräume
+
+
+3.4 Die Untervektorräume eines LGS
+In der linearen Algebra entstehen Unterräume oft in zwei Varianten:
+
+   • Als Lösungsmenge eines LGS Ax = 0.
+
+   • Als Spann von gegebenen Vektoren span{v1 , . . . , vn }.
+
+Tatsächlich sind die beiden Varianten miteinander verbunden. Eigentlich haben
+wir, ohne es zu wissen, schon die ganze Zeit mit solchen Unterräumen hantiert.
+Wir kannten nur das Konzept noch nicht. Lasst uns also sehen, was wir aus
+der Perspektive von Unterräumen über LGS oder Linearkombinationen lernen
+können.
+
+3.4.1 Spaltenraum
+Sei W die Menge aller Vektoren b ∈ Rn , für die Ax = b eine Lösung hat. Jeder
+solche Vektor b ∈ W lässt sich also als Linearkombination der Spalten a1 , . . . , an
+der Matrix A schreiben. Anders ausgedrückt ist die Menge aller möglichen Vek-
+toren b mit Ax = b gleich W = span{a1 , . . . , an }. Das bezeichnen wir als den
+Spaltenraum von A.
+
+ Definition 3.4.1. Sei A ∈ Rm×n eine Matrix mit Spalten a1 , . . . , an ∈ Rm .
+ Dann bezeichnen wir mit
+
+                               col(A) = span{a1 , . . . , an }
+
+ den Spaltenrauma von A.
+  a
+      Die Notation col(A) kommt aus dem Englischen: column = Spalte.
+
+
+Der Spaltenraum col(A) entspricht der Bildmenge der linearen Transformati-
+on T : x 7→ Ax. Er enthält alle möglichen Vektoren in Rm , die wir aus der
+Transformation x 7→ Ax bekommen könnten.
+
+Beispiel 3.4.2. Sei
+                                         1 2
+                                                    !
+                                      A=      .
+                                         0 −2
+In Abbildung 3.2 sehen wir links ein paar Punkte im R2 . Wir betrachten nun die
+Bildmenge col(A) der Transformation x 7→ Ax. In der Mitte sehen wir die selben
+Punkte wie links, aber transformiert durch
+
+                                                   1 2
+                                                                 !
+                            x 7→ Ax        mit A =      .
+                                                   0 −1
+
+Natürlich ist col(A) = span{a1 , a2 } = R2 , deshalb spannen die Punkte in der
+Mitte den ganzen R2 und dim(col(A)) = 2.
+
+
+                                             68
+                                             3 Vektorräume
+
+
+
+      1                                 1                                   1
+
+
+
+x2                                x2                                  x2
+      0                                 0                                   0
+
+
+
+
+                                                                           −1
+     −1                                −1
+          −1    0        1                  −1   0        1   2   3             −1   0        1   2
+                    x1                                x1                                 x1
+
+
+Abbildung 3.2: Illustration von Spaltenräumen. Links ist eine Ausgangsmenge
+               von fünf Punkten. In der Mitte und rechts wurden diese Punkte
+               jeweils durch eine Matrixtransformation verschoben.
+
+
+Beispiel 3.4.3. Sei
+                                                2 −2
+                                                              !
+                                            A=       .
+                                               −1 1
+Dann ist span{a1 , a2 } = span{a1 }. Die Bildmenge der Transformation x 7→ Ax
+ist rechts in Abbildung 3.2 dargestellt. Alle Punkte befinden sich auf einer Geraden
+und es gilt dim(col(A)) = 1.
+
+     Die Dimension des Spaltenraums nennen wir Rang der Matrix.
+
+ Definition 3.4.4. Der Rang einer Matrix A ist definiert als rang(A) =
+ dim(col(A)).
+
+Die Dimension von col(A) können wir aus der Zeilenstufenform bestimmen. Man
+kann als Übung überprüfen, dass elementare Zeilenoperationen keinen Einfluss
+darauf haben, ob Spalten linear (un)abhängig sind. In der reduzierten Zeilen-
+stufenform bilden die Pivotspalten eine unabhängige Menge. Also müssen auch
+in A die zugehörigen Spalten unabhängig sein. Jede weitere Spalte wäre linear
+abhängig. Also bilden die Pivotspalten von A eine Basis von col(A).2 Wir haben
+das folgende Resultat gezeigt.
+
+ Lemma 3.4.5. Die Dimension des Spaltenraums, dim(col(A)), ist gleich der
+ Anzahl an gebundenen Variablen in A.
+
+Der Zeilenraum von A ist der Spann der Zeilen in A oder, äquivalent dazu,
+col(A⊤ ). Elementare Zeilenoperationen sind lediglich Linearkombinationen der
+Zeilen von A. Also wird der Zeilenraum col(A⊤ ) dadurch nicht vergrößert. Weil
+wir Zeilen nie mit 0 multiplizieren, wird der Zeilenraum dadurch aber auch nicht
+ 2
+     Die Basis wird aus Spalten der Matrix A gebildet. Die Zeilenstufenform U wird nur zum
+      Identifizieren, der Pivotspalten verwendet. Die Pivotspalten der Matrix U sind i.A. keine
+      Basis für col(A) — sondern für col(U )!
+
+
+
+                                                     69
+                                          3 Vektorräume
+
+
+
+                  1                                       1
+
+
+
+            x2                                      x2
+                  0                                       0
+
+
+
+
+                 −1                                      −1
+                      −1   0          1                       −1   0        1
+                               x1                                      x1
+
+
+Abbildung 3.3: Illustration des Kerns. Links ist eine Ausgangsmenge von Punkten,
+               die alle Ax = 0 erfüllen. Rechts die Bildmenge {0}.
+
+
+verkleinert. Die Nicht-Nullzeilen der Zeilenstufenform bilden dann eine Basis für
+col(A⊤ ). Davon gibt es genau so viele, wie es gebundene Variablen gibt.
+
+ Lemma 3.4.6. Die Dimension des Zeilenraums, dim(col(A⊤ )), ist gleich der
+ Anzahl an gebundenen Variablen in A.
+
+Insbesondere gilt also:
+
+ Korollar 3.4.7. rang(A) = dim(col(A)) = dim(col(A⊤ )) = rang(A⊤ ).
+
+
+3.4.2 Kern
+Andersherum gibt uns jede freie Variable eine unabhängige Richtung für die
+Lösungsmenge von Ax = 0. Aus Theorem 3.2.7 wissen wir bereits, dass die
+Lösungsmenge eines homogenen LGS Ax = 0 einen Vektorraum bildet. Diesen
+Vektorraum nennen wir den Kern der Matrix A.
+
+ Definition 3.4.8. Der Kern einer Matrix A ∈ Rm×n ist die Menge
+
+                                    ker(A) = {x : Ax = 0}.
+
+
+Beispiel 3.4.9. Die Spalten von
+
+                                             1 2
+                                                          !
+                                          A=
+                                             0 −1
+
+sind linear unabhängig. Also hat nach Theorem 2.2.15 das homogene LGS Ax = 0
+nur die triviale Lösung. Deshalb ist ker(A) = {0} und dim(ker(A)) = 0.
+
+
+
+
+                                               70
+                                  3 Vektorräume
+
+
+Beispiel 3.4.10. Sei
+                                     2 −2
+                                                  !
+                                 A=       .
+                                    −1 1
+In Beispiel 3.4.3 haben wir gesehen, dass alle Punkte in col(A) auf einer Geraden
+liegen. Außerdem lässt sich die Matrix leicht zu
+
+                                       1 −1
+                                              !
+
+                                       0 0
+
+reduzieren. Insbesondere ist dann ker(A) = {λ · (1, 1) : λ ∈ R} eine Gerade und
+dim(ker(A)) = 1. Diese Gerade ist links in Abbildung 3.3 zu sehen; rechts ist die
+zugehörige Bildmenge {0}.
+
+  In den Beispielen oben gilt dim(col(A)) + dim(ker(A)) = n = 2. Das ist
+kein Zufall. Weil uns jede freie Variable eine unabhängige Richtung für die
+Lösungsmenge von Ax = 0 gibt (sh. Beispiel 1.8.4), gilt auch das folgende
+Resultat:
+
+ Lemma 3.4.11. Die Dimension des Kerns, dim(ker(A)), ist gleich der Anzahl
+ an freien Variablen in A.
+
+Insgesamt git es n Variablen, davon sind rang(A) gebunden und dim(ker(A)) frei.
+Daraus folgt ein fundamentaler Zusammenhang der Dimensionen von col(A) und
+ker(A).
+
+ Theorem 3.4.12. Für jedes A ∈ Rm×n gilt
+
+                           rang(A) + dim(ker(A)) = n.
+
+Diese Eigenschaft lässt sich leicht in den obigen Beispielen verifizieren. Kennen wir
+die Dimension des Kerns, können wir durch rang(A) = n − dim(ker(A)) auf die
+Dimension des Spaltenraums schließen. Genauso funktioniert es andersherum mit
+dim(ker(A)) = n − rang(A). Gewissermaßen ergänzen sich die Räume col(A) und
+ker(A) also. Allerdings sind sie im Allgemeinen Unterräume von verschiedenen
+Vektorräumen. Es gilt col(A) ⊂ Rm , aber ker(A) ⊂ Rn .
+  Um eine Verbindung herzustellen, können wir das Resultat auch auf A⊤ an-
+wenden. Dann gilt
+                           rang(A⊤ ) + dim(ker(A⊤ )) = m
+und wegen Korollar 3.4.7 auch
+
+                        dim(col(A)) + dim(ker(A⊤ )) = m.
+
+Später werden wir zeigen, dass col(A) und ker(A⊤ ) zusammen Rm erzeugen. Was
+also wirklich komplementär ist, sind der Spaltenraum von A und der Kern von A⊤ .
+Genauso gilt dim(col(A⊤ )) + dim(ker(A)) = n und col(A⊤ ) und ker(A) erzeugen
+gemeinsam Rn .
+
+
+                                         71
+                                3 Vektorräume
+
+
+3.4.3 Äquivalenzen
+Mit den gewonnenen Erkenntnissen können wir jetzt unsere Querverbindungen
+erweitern.
+
+ Theorem 3.4.13 (Äquivalenzen). Sei A ∈ Rn×n . Dann sind die folgenden
+ Aussagen äquivalent:
+
+ (a) A ist invertierbar.
+
+ (b) A⊤ ist invertierbar.
+
+ (c) Die reduzierte Zeilenstufenform von A ist In .
+
+ (d) Das LGS Ax = 0 hat nur die triviale Lösung.
+
+ (e) Das LGS Ax = b hat genau eine Lösung für jedes b ∈ Rn .
+
+ (f) Das LGS Ax = b hat eine Lösung für jedes b ∈ Rn .
+
+ (g) Die Spalten von A sind linear unabhängig.
+
+ (h) Die Zeilen von A sind linear unabhängig.
+
+ (i) Die Spalten von A spannen Rn .
+
+ (j) Die Zeilen von A spannen Rn .
+
+ (k) det(A) ̸= 0.
+
+ (l) rang(A) = n.
+
+(m) ker(A) = {0}.
+
+
+Beweis. Äquivalenz der Teile (a)–(k) haben wir bereits bewiesen. Aus (g) und
+(i) folgt, dass die Spalten von A eine Basis von Rn sind. Also ist rang(A) =
+dim(col(A)) = n. Nach Theorem 3.4.12 ist dann dim(ker(A)) = n − rang(A) = 0.
+Also hat das LGS Ax = 0 nur die triviale Lösung. Wir haben den Ringschluss
+(g) ∧ (i) ⇒ (l) ⇒ (m) ⇒ (d) geführt.
+
+3.4.4 Allgemeine lineare Abbildungen
+Wir können die Konzepte des letzten Abschnitts auch auf allgemeine lineare
+Abbildungen T : D → W zwischen zwei Vektorräumen D und W erweitern.
+
+
+
+
+                                       72
+                                 3 Vektorräume
+
+
+Definition 3.4.14. Sei T : V → W eine lineare Abbildung zwischen zwei
+Vektorräumen V und W .
+
+    • Die Bildmenge ist
+
+                     Im(T ) = {w ∈ W : T (v) = w für ein v ∈ V }.
+
+    • Der Kern ist
+                            ker(T ) = {v ∈ V : T (v) = 0}.
+
+Sind die Vektorräume endlichdimensional, können wir diese allgemeinen Kon-
+zepte aber verstehen wie im Rn . Sind D und W zugehörige Basen und D und
+W endlichdimensional mit n = dim(D) und m = dim(W ). Dann sind D und
+W jeweils isomorph zu Rn und Rm . Wir können jedes v ∈ D eindeutig als [v]D
+und jedes w ∈ W eindeutig als [w]W darstellen. Weil die Abbildung T linear
+ist, ist sie in den Koordinaten von B und W eine Matrix-Vektor-Multiplikation
+(sh. Theorem 1.10.2). Nun sind wir in gewohntem Territorium. Kern und Bild-
+menge der Abbildung T können wir jetzt aus den entsprechenden Eigenschaften
+der Matrix ableiten.
+
+
+
+
+                                       73
+

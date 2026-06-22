@@ -1,0 +1,359 @@
+6 Quadratische Formen und die
+  Singulärwertzerlegung
+6.1 Quadratische Formen
+6.1.1 Definition und Motivation
+Bisher haben wir uns im Wesentlichen um lineare Funktionen x 7→ Ax gekümmert.
+Sie sind das höher-dimensionale Äquivalent zu einer Geraden f (x) = ax im
+Falle R → R. Quadratische Formen verallgemeinern quadratische Funktionen
+f (x) = ax2 = xax in höhere Dimensionen. Die folgende Definition sollte euch
+bereits aus der Analysis geläufig sein.
+
+ Definition 6.1.1. Eine quadratische Form auf Rn ist eine Funktion
+ Q : Rn → R gegeben durch Q(x) = x⊤ Ax, wobei A ∈ Rn×n eine symme-
+ trische Matrix ist.
+
+   Eine wichtige Anwendung finden quadratische Formen beim Maximieren bzw. Mi-
+nimieren einer Funktion. Wir erinnern uns zum Beispiel an die linearen Modelle
+in Abschnitt 5.8.3. Hier versuchen wir, einen Parameter zu finden, der die Sum-
+me der quadratischen Fehler minimiert. Ein verallgemeinertes Prinzip dazu, die
+Maximum-Likelihood-Methode, darf getrost als das Herz der modernen Stati-
+stik betrachtet werden und wird im nächsten Semester ausführlich besprochen.
+Hierbei passen wir die Parameter eines statistischen Modells an, indem wir die
+sogenannte Likelihood-Funktion maximieren. Selbst beim Trainieren von moder-
+nen neuronalen Netzen mit Billionen von Parametern kommt dieses Prinzip zum
+Einsatz.
+   Der Zusammenhang lässt sich über Taylor’s Theorem herstellen. Sei f : Rn → R
+eine hinreichend glatte Funktion und x∗ der Punkt, der diese Funktion minimiert.
+Dann können wir in einer Umgebung von x∗ die Funktion durch
+                                              1
+         f (x) ≈ f (x∗ ) + ∇f (x∗ )(x − x∗ ) + (x − x∗ )⊤ H(x∗ )(x − x∗ )
+                                              2
+approximieren, wobei ∇f (x∗ ) der Gradient und H(x∗ ) = ∇2 f (x∗ ) die Hesse-
+Matrix am Punkt x∗ ist. Der Term f (x∗ ) ist eine Konstante und, da f an x∗
+ein Minimum hat, gilt ∇f (x∗ ) = 0. Die Funktion f lässt sich also lokal durch
+die quadratische Form Q(z) = z ⊤ H(x∗ )z approximieren, wobei wir z = x − x∗
+definieren. Die Funktion Q ist meist viel einfacher zu verstehen als die beliebig
+
+
+
+                                       132
+             6 Quadratische Formen und die Singulärwertzerlegung
+
+
+komplizierte Funktion f selbst. Die Matrix H(x∗ ) beschreibt dabei die Krümmung
+von f in die verschiedenen Richtungen vom Punkt x∗ aus gesehen.
+  Auch wenn das alles bereits bekannt ist, lohnt es sich durchaus, quadratische
+Formen auch aus dem Blickwinkel der linearen Algebra zu betrachten. Insbeson-
+dere werden uns die bisher entwickelten Werkzeuge weiteren Aufschluss bezüglich
+deren Definitheit geben.
+
+6.1.2 Hauptachsentheorem
+Eine quadratische Form
+                                      n                  n X
+                    Q(x) = x⊤ Ax =           aii x2i +
+                                      X                  X
+                                                                     aij xi xj ,
+                                       i=1               i=1 j̸=i
+
+
+beinhaltet sowohl rein quadratische Terme aii x2i und gemischte Terme aij xi xj .
+Besonders die gemischten Terme machen es schwer, die Funktion Q zu interpre-
+tieren. Da A symmetrisch ist, ist sie orthogonal diagonalisierbar zu A = P ΛP ⊤ ,
+wobei P = (p1 · · · pn ) orthonormale Eigenvektoren in den Spalten hat. Es gilt
+also
+
+                     x⊤ Ax = x⊤ P ΛP ⊤ x = (P ⊤ x)⊤ Λ(P ⊤ x).
+
+Durch den Koordinatenwechsel in die Eigenvektorbasis y = P ⊤ x, können wir die
+quadratische Form also in rein quadratischen Termen darstellen.
+
+ Theorem 6.1.2 (Hauptachsentheorem). Sei A ∈ Rn×n eine symmetrische
+ Matrix, die durch P orthogonal zur Matrix Λ = diag(λ1 , . . . , λn ) diagonalisiert
+ wird. Dann gilt für y = P ⊤ x,
+                                                   n
+                            x⊤ Ax = y ⊤ Λy =              λi yi2 .
+                                                   X
+
+                                                   i=1
+
+
+Das erleichtert weiter die Interpretation. In Richtung pi entspricht die Funktion Q
+einer simplen Parabel λi yi2 . Der Eigenwert λi gibt dabei die Stärke und Richtung
+der Krümmung vor. Die gesamte Funktion Q lässt sich dann als Summe von
+solchen einfachen Parabeln in zueinander orthogonalen Richtungen zusammen-
+setzen.
+
+6.1.3 Definitheit
+Aus der Analysis wisst ihr bereits, dass sich anhand der Definitheit feststellen
+lässt, ob ein kritischer Punkt ein Maximum, Minimum oder Sattelpunkt ist. Wir
+wiederholen zunächst die Definition.
+
+
+
+
+                                        133
+             6 Quadratische Formen und die Singulärwertzerlegung
+
+
+
+
+Abbildung 6.1: Graphen von quadratischen Formen Q : R2 → R. (Fig 7.2.4 in
+               [LLM].)
+
+
+ Definition 6.1.3. Sei A ∈ Rn×n symmetrisch und Q(x) = x⊤ Ax die zu-
+ gehörige quadratische Form. Dann nennen wir A und Q
+
+    • positiv definit, wenn Q(x) > 0 für alle x ̸= 0;
+
+    • positiv semidefinit, wenn Q(x) ≥ 0 für alle x ̸= 0;
+
+    • negativ definit, wenn Q(x) < 0 für alle x ̸= 0;
+
+    • negativ semidefinit, wenn Q(x) ≤ 0 für alle x ̸= 0;
+
+    • indefinit, wenn sowohl Q(x) > 0 für ein x ∈ Rn also auch Q(x) < 0
+      für ein anderes x ∈ Rn .
+
+  Visuell ist die Definitheit an den Graphen in Abbildung 6.1 illustriert.
+
+(a) Es gilt Q(x) = 3x21 + 7x22 > 0 für alle x ̸= 0, also ist die Form positiv definit
+    und besitzt ein globales Minimum.
+
+(b) Es gilt Q(x) = 3x21 ≥ 0, also ist die Form positiv semidefinit. Es gilt aber
+    zum Beispiel Q((0, 2)) = 0, also ist sie nicht positiv definit. Die Funktion hat
+    entsprechend ein Minimum, das aber nicht strikt ist.
+
+(c) Es gilt Q(x) = 3x21 − 7x22 > 0 für x = (1, 0) und Q(x) < 0 für x = (0, 1).
+    Also ist Q indefinit und es gibt weder ein Minimum noch ein Maximum.
+
+(d) Es gilt Q(x) = −3x21 − 7x22 < 0 für alle x ̸= 0, also ist die Form negativ
+    definit und besitzt ein globales Maximum.
+
+  Die Definitheit lässt sich am besten über die Eigenwerte bestimmen.
+
+
+
+
+                                         134
+             6 Quadratische Formen und die Singulärwertzerlegung
+
+
+ Theorem 6.1.4. Sei A ∈ Rn×n symmetrisch. Dann ist die quadratische Form
+ Q(x) = x⊤ Ax genau dann . . .
+
+   (i) positiv definit, wenn alle Eigenwerte strikt positiv sind;
+
+  (ii) positiv semidefinit, wenn alle Eigenwerte nichtnegativ sind;
+
+ (iii) negativ definit, wenn alle Eigenwerte strikt negativ sind;
+
+ (iv) negativ semidefinit, wenn alle Eigenwerte nichtpositiv sind;
+
+  (v) indefinit, wenn es einen strikt positiven und einen strikt negativen Eigen-
+      wert gibt.
+
+Beweis. Aus dem Hauptachsentheorem (Theorem 6.1.2) bekommen wir
+                                                           n
+                       Q(x) = x Ax = y Λy =
+                                   ⊤          ⊤
+                                                                 λi yi2 ,
+                                                           X
+
+                                                           i=1
+
+wobei y = P ⊤ x und λ1 , . . . , λn die Eigenwerte von A sind. Da P invertierbar
+ist, gibt es zu jedem x genau ein y, sodass y = P ⊤ x. Deshalb nimmt Q(x)
+für x ̸= 0 genau die gleichen Werte an wie ni=1 λi yi2 . Das Vorzeichen dieser
+                                                P
+
+Summe lässt sich dann offensichtlich durch die im Theorem genannten Fälle
+charakterisieren.
+
+6.1.4 Variationelle Charakterisierung von Eigenwerten
+Quadratische Formen geben uns auch einen überraschenden, neuen Blickwinkel
+auf die Eigenwerte einer Matrix. Wir können sie nämlich als das Resultat einer
+Maximierung/Minimierung von Q(x) = x⊤ Ax unter Einschränkung des Definiti-
+onsbereiches charakterisieren. Dies wird auch variationelle Charakterisierung der
+Eigenwerte genannt. Zunächst charakterisieren wir nur den größten und kleinsten
+Eigenwert:
+
+ Theorem 6.1.5. Sei A ∈ Rn×n symmetrisch mit der Größe nach geordneten
+ Eigenwerten λ1 ≥ λ2 ≥ · · · ≥ λn . Dann gilt
+
+                      λn = min x⊤ Ax ≤ max x⊤ Ax = λ1 .
+                           ∥x∥=1            ∥x∥=1
+
+
+ Das Minimum wird für einen Eigenvektor zu λn , das Maximum für einen
+ Eigenvektor zu λ1 angenommen.
+
+Beweis. Wie im Hauptachsentheorem (Theorem 6.1.2) gilt
+                                            n
+                                   Q(x) =         λi yi2
+                                            X
+
+                                            i=1
+
+
+
+
+                                        135
+            6 Quadratische Formen und die Singulärwertzerlegung
+
+
+
+
+Abbildung 6.2: Graph der quadratischen Form Q(x) = 3x21 + 7x22 (links) und die
+               Einschränkung auf ∥x∥ = 1 (rechts). Das Maximum des rechten
+               Graphen ist der größte Eigenwert (λ1 = 7), das Minimum der
+               kleinste Eigenwert λ2 = 3. (Fig 7.3.1–2 in [LLM].)
+
+
+mit y = P ⊤ x. Weil P orthogonal ist, gilt ∥y∥ = ∥P ⊤ x∥ = ∥x∥ = 1 (Übung!).
+Da alle yi2 positiv sind, ist dann
+                           n                   n
+                  Q(x) =         λi yi2 ≤ λ1         yi2 = λ1 ∥y∥2 = λ1 .
+                           X                   X
+
+                           i=1                 i=1
+
+Außerdem ist Q(x) = λ1 für y = e1 bzw. x = P e1 = p1 . Der größte Eigenwert
+erfüllt also
+
+                        λ1 = max Q(x) = max x⊤ Ax.
+                                 ∥x∥=1               ∥x∥=1
+
+
+Mit dem gleichen Argument (aber Abschätzung nach unten) können wir außerdem
+zeigen, dass
+
+                        λn = min Q(x) = min x⊤ Ax.
+                                 ∥x∥=1               ∥x∥=1
+
+
+
+Beispiel 6.1.6. Theorem 6.1.5 ist grafisch in Abbildung 6.2 illustriert. Links
+sehen wir den Graphen der quadratischen Form
+
+                                                         3 0
+                                                             !
+                        Q(x) = x Ax = x
+                                      ⊤              ⊤
+                                                             x.
+                                                         0 7
+
+Weil A diagonal ist, können wir die Eigenwerte 3 und 7 einfach ablesen. Rechts
+sehen wir den Graphen, wenn die Funktion Q(x) auf den Bereich ∥x∥ = 1
+eingeschränkt wird (das ist die Schnittmenge von Q mit dem Einheitszylinder).
+
+
+
+                                          136
+              6 Quadratische Formen und die Singulärwertzerlegung
+
+
+Wie erwartet, ist das Maximum dieser Funktion 7 und das Minimum 3.
+
+  Das Argument lässt sich noch verfeinern und so auf alle anderen Eigenwerte
+ausweiten.
+
+ Theorem 6.1.7. Sei A ∈ Rn×n symmetrisch mit der Größe nach geordneten
+ Eigenwerten λ1 ≥ λ2 ≥ · · · ≥ λn und zugehörigen orthonormalen Eigenvekto-
+ ren p1 , . . . , pn . Dann gilt für alle k = 1, . . . , n:
+
+               λk =          max              x⊤ Ax =             min              x⊤ Ax.
+                           ∥x∥=1                                 ∥x∥=1
+                      x⊥span{p1 ,...,pk−1 }                x⊥span{pk+1 ,...,pn }
+
+
+ Das Maximum/Minimum wird jeweils für einen Eigenvektor zu λk angenom-
+ men.
+
+
+Beweisidee. Für x ⊥ span{p1 , . . . , pk−1 } und y = P ⊤ x gilt y1 , . . . , yk−1 = 0 und
+deshalb
+                                n                   n
+                      Q(x) =          λi yi2 ≤ λk         yi2 = λk ∥y∥2 = λk ,
+                                X                   X
+
+                                i=k                 i=1
+
+
+wobei Q(x) = λk für y = ek bzw. x = P ek = pk . Ähnlich geht das Argument für
+das Minimum (hier mit Abschätzung nach unten).
+  Diese Charakterisierung hilft uns zum Beispiel bei der Interpretation der PCA.
+Angenommen ein Zufallsvektor Y ∈ Rn hat Kovarianzmatrix Cov(Y ) = Σ.
+Dann folgt aus der Linearität der Kovarianz, dass Var(x⊤ Y ) = x⊤ Σx für jede
+(deterministische) Richtung x ∈ Rn , ∥x∥ = 1. Die erste Hauptkompente p1 von
+Σ ist also die Richtung mit der größten Varianz und diese Varianz ist gleich λ1 .
+Danach suchen wir die zweite Hauptkomponente im Raum orthogonal zu p1 und
+maximieren die Varianz unter den verbleibenden Richtungen, etc.
+  Eine weitere, verwandte Charakterisierung ist der folgende Satz von Courant-
+Fischer.
+
+ Theorem 6.1.8 (Minimum-Maximum-Prinzip). Sei A ∈ Rn×n symmetrisch
+ mit der Größe nach geordneten Eigenwerten λ1 ≥ λ2 ≥ · · · ≥ λn . Dann gilt
+ für alle k = 1, . . . , n:
+
+                             λk = max             min x⊤ Ax
+                                      dim(V )=k    x∈V
+                                                  ∥x∥=1
+
+                                 =        min             max x⊤ Ax,
+                                      dim(V )=n−k+1        x∈V
+                                                          ∥x∥=1
+
+
+ wobei V jeweils ein Untervektorraum des Rn ist. Das Maximum/Minimum
+ wird jeweils für einen Eigenvektor zu λk angenommen.
+
+
+
+                                                  137
+            6 Quadratische Formen und die Singulärwertzerlegung
+
+
+Beweis (optional). Wir folgen der Notation der vorherigen Beweise und beginnen
+mit der zweiten Gleichheit. Zunächst bemerken wir, dass
+
+                 V := span{pk , . . . , pn } = span{p1 , . . . , pk−1 }⊥
+
+ein Unterraum mit dim(V ) = n − k + 1 ist. Nach Theorem 6.1.7 gilt
+
+                                                 x⊤ Ax
+                         max       x⊤ Ax = max         = λk .
+                       x∈V,∥x∥=1             x∈V x⊤ x
+
+
+Sei nun V ein beliebiger anderer Unterraum mit dim(V ) = n − k + 1. Dann ist die
+Schnittmenge von V und span{p1 , . . . , pk } nicht leer. (Denn sonst hätte deren
+Spann die Dimension n + 1.) Also gibt es ein Element v ∈ V , dass wir darstellen
+können als v = ki=1 ci pi . Für dieses Element gilt dann
+                P
+
+                                       k
+                             v ⊤ Av          2
+                                         P
+                                       i=1 ci λi
+                                    =    k       ≥ λk .
+                              v⊤v              2
+                                      P
+                                         i=1 ci
+
+Und da es ein solches Element in jedem Unterraum mit dim(V ) = n − k + 1 gibt,
+erhalten wir
+
+                         λk =        min         max x⊤ Ax.
+                                dim(V )=n−k+1     x∈V
+                                                 ∥x∥=1
+
+
+Die erste Gleichheit folgt aus der zweiten angewandt auf die Matrix Ã = −A,
+wessen Eigenwerte −λn ≥ −λn−1 ≥ · · · ≥ −λ1 sind.
+
+
+
+
+                                           138
+
