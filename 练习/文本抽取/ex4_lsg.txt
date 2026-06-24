@@ -1,0 +1,336 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                                        Prof. Dr. Thomas Nagler
+Blatt 4                                                                               Tobias Brock
+
+Recap - Invertierbarkeit
+  1. Das Matrix Produkt verhält sich ähnlich (Theorem 2.1.8), unterscheidet sich aber grund-
+     legend in zwei Eigenschaften: es ist nicht kommutativ (d.h. AB ̸= BA i.A.) und besitzt
+     im Allgemeinen kein Inverses (d.h. ∄B s.d. AB = 1 i.A.)
+
+  2. Dass ein Inverses (d.h. A−1 ) existiert, ist (unter anderem) äquivalent zur eindeutigen
+     Lösbarkeit des LGS Ax = b für beliebige b (Theorem 2.2.15)
+
+  3. Schränken wir uns auf invertierbare Matrizen ein, so gelten analoge Rechenregeln wie
+     (AB)−1 = B −1 A−1 (Theorem 2.2.3)
+
+  4. Matrixaddition entspricht der Addition von linearen Abbildungen. Matrixmultiplikation
+     entspricht der Komposition von linearen Abbildungen: seien A, B darstellende Matrizen
+     von f, g, dann ist AB die darstellende Matrix von f ◦ g = f (g(x)). Matrixinvertierung
+     entspricht der Invertierung von linearen Funktionen.
+
+
+Fingerübungen
+  1. Wenn das LGS Ax = b eine Lösung besitzt und B eine invertierbare Matrix ist, besitzt
+     dann das LGS (AB)x = b eine Lösung?
+
+
+Übungsaufgaben
+Aufgabe 1 (Das Inverse einer linearen Abbildung ist linear)
+Sei f eine lineare Abbildung. Zeige (ohne Nutzung von f −1 (x) = A−1 x mit A darstellender
+Matrix von f ): Wenn f eine invertierbare Abbildung ist, d.h. es existiert eine Abbildung f −1
+mit f ◦ f −1 (x) = x = f −1 ◦ f (x) für alle x, dann ist f −1 linear.
+
+
+
+Lösungsskizze zu Aufgabe 1
+Sei f linear und invertierbar. Für f −1 gilt unter Nutzung der Linearität von f
+
+  f −1 (x + y) = f −1 (f [f −1 (x)] + f [f −1 (x)]) = f −1 (f [f −1 (x) + f −1 (x)]) = f −1 (x) + f −1 (x)
+
+und
+                    f −1 (cx) = f −1 (cf [f −1 (x)]) = f −1 (f [cf −1 (x)]) = cf −1 (x).
+Somit ist f −1 eine lineare Abbildung.
+Aufgabe 2 (Im Allgemeinen besitzen Matrizen kein Inverses)
+Seien 0n×n ̸= A, B zwei von Null verschiedene n × n-Matrizen mit AB = 0.
+Zeige: A besitzt kein (links-)Inverses bezüglich des Matrix Produkts, d.h. es existiert keine
+Matrix C mit CA = 1n×n .
+
+
+Lösungsskizze zu Aufgabe 2
+Beweis durch Widerspruch: Wir nehmen an, dass eine Matrix C existiert mit CA = 1n×n .
+Dann gilt (CA)B = 1n×n B = B ̸= 0, aber C(AB) = C · 0 = 0. Das ist ein Widerspruch, da für
+Matrixmultiplikation (CA)B = C(AB) gilt. Also kann es keine solche Matrix C geben.
+
+
+
+
+                                                   –1–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                                           Prof. Dr. Thomas Nagler
+Blatt 4                                                                                  Tobias Brock
+
+Aufgabe 3 (Invertierbarkeit und bijektive Abbildungen)
+Sei f : Rn → Rn eine lineare Abbildung.
+
+   • Wir nennen f injektiv, genau dann wenn für alle x ∈ Rn mit f (x) = 0 schon x = 0
+     folgt.1
+
+   • Wir nennen f surjektiv, genau dann wenn für alle y ∈ Rn ein x ∈ Rn existiert mit
+     f (x) = y.
+
+   • f ist bijektiv, wenn f sowohl injektiv als auch surjektiv ist. Eine Funktion ist invertierbar
+     genau dann, wenn sie bijektiv ist.
+
+Zeige: f ist invertierbar ⇔ f ist injektiv ⇔ f ist surjektiv.
+Hinweis: Nutze die Darstellung von f über eine Matrix A. Was bedeutet es für A, wenn f
+injektiv bzw. surjektiv ist? Nutze dann Theorem 2.2.15.
+
+
+Lösungsskizze zu Aufgabe 3
+Die Aussagen (f invertierbar =⇒ f injektiv) und (f invertierbar =⇒ f surjektiv) folgen
+direkt aus (f invertierbar ⇔ f bijektiv). Es bleibt zu zeigen: (f injektiv =⇒ f invertierbar)
+und (f surjektiv =⇒ f invertierbar).
+Sei A die darstellende Matrix von f . Wenn A invertierbar ist, dann ist auch f invertierbar,
+wobei A−1 die darstellende Matrix von f −1 ist.
+Sei f injektiv. Aus der obigen Definition folgt, dass das LGS Ax = 0 nur die triviale Lösung
+x = 0 hat. Laut Theorem 2.2.15 ist A dann invertierbar und somit ist f invertierbar.
+Sei f surjektiv. Aus der obigen Definition folgt, dass das LGS Ax = y für jedes y ∈ Rn eine
+Lösung hat. Laut Theorem 2.2.15 ist A dann invertierbar und somit ist f invertierbar.
+
+
+
+
+   1
+    Die aus Analysis bekannte Definition lautet: f injektiv ⇔ ∀x1 , x2 : (f (x1 ) = f (x2 ) =⇒ x1 = x2 ), d.h. für
+jedes Element y im Wertebereich gibt es höchstens ein x im Definitionsbereich, sodass f (x) = y. Für lineare
+Abbildungen ist die obige Definition äquivalent:
+   – f injektiv =⇒ ∀x : (f (x) = 0 =⇒ x = 0) gilt, da für lineare Abbildungen immer f (0) = 0 gilt. Wenn
+     f gleichzeitig injektiv ist, kann nur 0 auf 0 abgebildet werden.
+   – ∀x : (f (x) = 0 =⇒ x = 0) =⇒ f injektiv: Beweis durch Widerspruch. Sei f nicht injektiv und
+     ∀x : (f (x) = 0 =⇒ x = 0). Da f nicht injektiv, gibt es x1 ̸= x2 , sodass f (x1 ) = f (x2 ). Aus der
+     Linearität von f folgt f (x1 − x2 ) = f (x1 ) − f (x2 ) = 0, aber x1 − x2 ̸= 0, was ein Widerspruch zu
+     ∀x : (f (x) = 0 =⇒ x = 0) ist.
+
+
+                                                      –2–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                                                    Prof. Dr. Thomas Nagler
+Blatt 4                                                                                           Tobias Brock
+
+Hausaufgaben
+
+Aufgabe 4 (Inverse einer 2x2 Matrix)
+Gegeben sei                                                      !
+                                                         a b
+                                                 A=                  .
+                                                         c d
+
+ (a) Gebe an, wann die Matrix
+                                                  1
+                                                                               !
+                                                                 d −b
+                                            B=
+                                               ad − bc           −c a
+      existiert.
+
+ (b) Zeige, dass B die inverse Matrix zu A ist.
+
+
+
+Lösungsskizze zu Aufgabe 4
+
+ (a) Die Matrix B existiert genau dann, wenn
+
+                                                 ad − bc ̸= 0 ⇔ ad ̸= bc
+
+      gilt.
+
+ (b) Um zu zeigen, dass B die inverse Matrix von A ist, genügt es zu zeigen, dass AB = I2 .
+     Also
+                                          1                           1
+                                   !                         !                               !          !
+                           a b                      d −b                               a b       d −b
+                   AB =                                          =
+                           c d         ad − bc      −c a           ad − bc             c d       −c a
+                          1                        0                     1 0
+                                                             !                 !
+                                        ad − bc
+                     =                                           =                 .
+                       ad − bc             0    ad − bc                  0 1
+
+      Somit ist B die eindeutige inverse Matrix zu A.
+
+
+Aufgabe 5 (Produkt stochastischer Matrix)
+Eine Matrix A ∈ Rn×n ist eine stochastische Matrix, wenn
+
+  (i) für alle i, j ∈ {1, . . . , n} gilt aij ≥ 0 und
+
+ (ii) für alle j ∈ {1, . . . n},    i=1 aij = 1
+                                   Pn
+
+
+erfüllt sind.
+
+ (a) Gebe an (mit Begründung) welche der folgenden Matrizen stochastisch ist.
+
+                1.5 0.3                   0.55 −0.45                      0.4 0.3                     0.4 0.6
+                          !                              !                              !                       !
+        A=                    ,B=                            ,C=                            und D =                 .
+                0.8 0.2                   0.3   0.7                       0.6 0.7                     0.3 0.7
+
+ (b) Sei A, B ∈ Rn×n zwei stochastische Matrizen und λ, µ ≥ 0 mit λ + µ = 1. Zeige, dass
+     C = λA + µB wieder eine stochastische Matrix ist.
+
+
+
+                                                       –3–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                                                         Prof. Dr. Thomas Nagler
+Blatt 4                                                                                                Tobias Brock
+
+ (c) Sei A, B ∈ Rn×n zwei stochastische Matrizen. Zeige, dass C = A · B wieder eine stochas-
+     tische Matrix ist.
+       Tipp: Der Eintrag in der iten Zeile und jten Spalte der Matrix C = A · B sieht wie folgt
+       aus
+                                                               n
+                                                     cij =
+                                                               X
+                                                                     aik bkj .
+                                                               k=1
+
+
+
+
+Lösungsskizze zu Aufgabe 5
+
+ (a)     • A ist keine stochastische Matrix, da                  i=1 ai1 = 1.5 + 0.8 ̸= 1.
+                                                             P2
+
+         • B ist keine stochastische Matrix, da b12 = −0.45 < 0
+         • C ist eine stochastische Matrix, da
+             (i) 0.4, 0.6, 0.3, 0.7 ≥ 0 und somit die erste Bedingung erfüllt ist.
+            (ii) 2i=1 ai1 = 0.4 + 0.6 = 1 und 2i=1 ai2 = 0.3 + 0.7 = 1 ist und dies die Bedingung
+                 P                              P
+
+                 (ii) erfüllt.
+         • D ist keine stochastische Matrix, da                    i=1 ai1 = 0.4 + 0.3 ̸= 1.
+                                                               P2
+
+
+ (b) Sei λ, µ ≥ 0 und seien A, B ∈ Rn×n zwei stochastische Matrizen. Dann gilt für C =
+     λA + µB
+        (i) Für alle i, j ∈ {1, . . . , n}, cij = λaij + µbij ≥ 0, da A, B stochastische Matrizen sind
+            (d.h. die Einträge sind größer gleich 0) und λ, µ ≥ 0.
+       (ii) Für alle j ∈ {1, . . . n} gilt
+                                 n             n                                 n                 n
+                                       cij =         (λaik + µbkj ) = λ                aik + µ
+                                 X             X                                 X                 X
+                                                                                                         bkj
+                                 i=1           i=1                               i=1               i=1
+                                  A,B stoch. Matrix, Eigenschaft (i)
+                                                     =                     λ+µ=1
+
+       Daher ist λA + µB eine stochastische Matrix.
+ (c) Seien A, B ∈ Rn×n zwei stochastische Matrizen.
+        (i) Für alle i, j ∈ {1, . . . , n}, cij = nj=1 nk=1 aik bkj , da A, B stochastische Matrizen
+                                                         P       P
+
+            (d.h. die Einträge sind größer gleich 0) und das Produkt/die Summer nicht negativer
+            Zahlen nicht negativ ist.
+       (ii) Für alle j ∈ {1, . . . n} gilt
+                                        n                n X
+                                                           n                     n X
+                                                                                   n
+                                               cij =               aik bkj =
+                                        X                X                       X
+                                                                                            aik bkj
+                                        i=1              i=1 k=1                 k=1 i=1
+                                                                  n                n
+                                         bkj ist unabhängig von i X
+                                                       =
+                                                                                  X
+                                                                             bkj         aik
+                                                                       k=1         i=1
+                                                                                    n
+                                         A stoch. Matrix, Eigenschaft (ii)
+                                                           =                             bkj · 1
+                                                                                   X
+
+                                                                                 k=1
+                                              n
+                                         =
+                                              X
+                                                bkj
+                                            k=1
+                                         B stoch. Matrix, Eigenschaft (ii)
+                                                           =                       1
+
+                                                           –4–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                                                 Prof. Dr. Thomas Nagler
+Blatt 4                                                                                        Tobias Brock
+
+        Daher ist A · B eine stochastische Matrix.
+
+
+Aufgabe 6 (Interpolation)
+Finde ein Polynom f vom Grad 3 für das
+
+                       f (2) = 27,            f (1) = 5,     f (0) = 1 und f (−1) = −3
+
+gilt.
+
+
+Lösungsskizze zu Aufgabe 6
+Wir suchen eine Funktion f der Form
+
+                                         f : R → R, x 7→ a + bx + cx2 + dx3
+
+mit a, b, c, d ∈ R sodass
+
+                        f (2) = 27,           f (1) = 5,      f (0) = 1 und f (−1) = 3
+
+gilt. Dafür gehen wir analog wie in Kapitel 2.3.1 aus dem Skript vor und stellen ein LGS auf:
+
+          1 2   22    23   27     1 2                             4 8 27
+                                                                            
+         1 1   1 2
+                      13
+                            5   1 1
+                                                                1 1  5 
+                              =
+                                                                         
+         1 0   02    03    1   1 0                             0 0  1 
+                                                                         
+
+          1 −1 (−1)2 (−1)3 −3     1 −1                            1 −1 −3
+                                          1 2  4  8  27            1 2  4  8  27
+                                                                                                   
+
+        (2)−(1) und (3)−(1) und (4)−(1)  0 −1 −3 −7 −22  −1(2)  0  1 3  7  22 
+                                                               
+                       ∼                                  ∼ 
+                                                                                  
+                                         0 −2 −4 −8 −26         0 −2 −4 −8 −26 
+                                                                                 
+
+                                          0 −3 −3 −9 −30           0 −3 −3 −9 −30
+                                 1   2       4 8    27               1     2   4 8   27
+                                                                                        
+
+        (3)+2(2) und (4)+3(2))  0   1       3 7    22  (4)−3(3))  0     1   3 7   22 
+                                                                 
+                  ∼                                         ∼ 
+                                                                                        
+                                0   0       2 6    18             0     0   2 6   18 
+                                                                                      
+
+                                 0   0       6 12   36               0     0   0 −6 −18
+
+Damit ergibt sich:
+
+                                             d(−6) = −18 ⇔ d = 3
+                                             6c + 3 · 6 = 18 ⇔ c = 0
+                                             b + 0 · 3 + 3 · 7 = 22 ⇔ b = 1
+                                             a + 1 · 2 + 3 · 8 = 27 ⇔ a = 1.
+
+Also ist die gesuchte Funktion
+
+                                             f : R → R, x 7→ 1 + x + 3x3 .
+
+
+
+
+                                                            –5–
+

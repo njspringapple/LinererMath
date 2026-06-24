@@ -1,0 +1,370 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                               Prof. Dr. Thomas Nagler
+Blatt 1                                                                      Tobias Brock
+
+Recap - Lineare Gleichungssysteme
+  1. Die Anzahl von Lösungen eines LGS ist entweder 0,1 oder unendlich (Theorem 1.3.1)
+
+
+Übungsaufgaben
+Aufgabe 1 (Induktion)
+Zeige mit vollständiger Induktion:
+
+ (a) Für alle n ≥ 2 gilt:
+                                  1   1         1        2
+                              1 + √ + √ + ··· + √ < 3 − √ .
+                                 2 2 3 3       n n        n
+
+ (b) Für alle n ≥ 2 und alle x > −1 mit x ̸= 0 gilt:
+
+                                          (1 + x)n > 1 + nx.
+
+
+
+Lösungsskizze zu Aufgabe 1
+(a) Wir schreiben
+                                       1   1           1
+                             Sn := 1 + √ + √ + · · · + √ .
+                                      2 2 3 3         n n
+Induktionsanfang: Für n = 2 gilt S2 = 1 + 2√1 2 . Offensichtlicherweise gilt
+
+                                1       2     1      2
+                            1 + √ < 3 − √ ⇐⇒ √ < 2 − √ .
+                               2 2       2   2 2      2
+
+Induktionsvoraussetzung: Sei n ≥ 2 und es gelte Sn < 3 − √2n .
+                                             2
+Induktionsschritt: Zu zeigen ist Sn+1 < 3 − √n+1 . Es gilt
+
+                                        1            2        1
+                   Sn+1 = Sn +           √      <3− √ +        √
+                                  (n + 1) n + 1       n (n + 1) n + 1
+
+nach Induktionsvoraussetzung. Es genügt also zu zeigen, dass
+           2        1              2      2     2          1
+       3− √ +        √      ≤3− √     ⇐⇒ √ − √     ≥        √      .
+            n (n + 1) n + 1       n+1      n   n+1   (n + 1) n + 1
+
+gilt. Die linke Seite lässt sich umformen zu
+                                     √       √
+                  2         2      2( n + 1 − n)           2
+                 √ −√            =    √ √        =√ √      √       √ .
+                   n      n+1          n n+1       n n + 1( n + 1 + n)
+
+Daher genügt es zu zeigen, dass
+                2                 1                2         1
+       √ √      √       √ ≥        √      ⇐⇒ √ √        √ ≥     .
+        n n + 1( n + 1 + n) (n + 1) n + 1     n( n + 1 + n) n+1
+
+gilt. Multiplikation mit den positiven Termen liefert
+                                     √ √        √    q
+                       2(n + 1) ≥     n( n + 1 + n) = n(n + 1) + n.
+
+                                              –1–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                                   Prof. Dr. Thomas Nagler
+Blatt 1                                                                          Tobias Brock
+            q
+Da n + 2 ≥ n(n + 1) gilt, ist die Behauptung gezeigt für alle n ≥ 2.
+Alternativer Rechenweg:
+
+                       2                2              1
+              √ √      √       √ > √ √    √    >        √      .
+               n n + 1( n + 1 + n) 2 n n+1 n+1   (n + 1) n + 1
+
+(b) Bernoulli-Ungleichung:
+Induktionsanfang: Für n = 2 gilt (1 + x)2 = 1 + 2x + x2 . Da x ̸= 0, gilt x2 > 0. Also folgt
+(1 + x)2 = 1 + 2x + x2 > 1 + 2x, womit die Behauptung für n = 2 gezeigt ist.
+Induktionsvoraussetzung: Sei n ≥ 2 und es gelte (1 + x)n > 1 + nx.
+Induktionsschritt: Zu zeigen ist (1 + x)n+1 > 1 + (n + 1)x. Da x > −1, ist 1 + x > 0. Daher
+dürfen wir die Induktionsvoraussetzung mit (1 + x) multiplizieren und erhalten
+
+                                  (1 + x)n+1 = (1 + x)n (1 + x)
+                                             > (1 + nx)(1 + x)
+                                             = 1 + (n + 1)x + nx2 .
+
+Da x ̸= 0, gilt x2 > 0, also auch nx2 > 0. Somit folgt
+
+                              1 + (n + 1)x + nx2 > 1 + (n + 1)x,
+
+fwomit die Behauptung für alle n ≥ 2 gezeigt ist.
+Aufgabe 2 (Gleichungssystem)
+Bestimme die Lösungsmenge des folgenden Gleichungssystems in Abhängigkeit von dem fixen
+Wert a ∈ R. Verwende dazu das Gauß-Jordan Verfahren.
+
+
+                                            x1 + x 2 − x 3 = 1
+                                         2x1 + 3x2 + ax3 = 3
+                                          x1 + ax2 + 3x3 = 2
+
+
+
+Lösungsskizze zu Aufgabe 2
+Aufstellen der erweiterten Koeffizientenmatrix:
+                                                                          
+                    1 1 −1 1                          1  1   −1 1
+                              (2)−2(1) und (3)−(1) 
+                   2 3 a 3 
+                  
+                                        ∼            0  1  a+2 1 
+                                                                  
+                    1 a 3 2                           0 a−1  4  1
+
+                                                                        
+                                  1 1         −1              1
+                   (3)−(a−1)(2) 
+                        ∼        0 1        a+2              1      
+                                                                     
+                                  0 0 4 − (a − 1)(a + 2) 1 − (a − 1)
+
+                                                       
+                      1 1      −1          1
+                   = 0 1     a+2          1  .
+                    
+
+                      0 0 (2 − a)(a + 3) 2 − a
+
+Fall 1: a ̸= 2 und a ̸= −3
+Dann ist (2 − a)(a + 3) ̸= 0, also gibt es genau eine Lösung.
+                                                                               1
+Schritt 1 : Finde x3 sodass (2 − a)(a + 3)x3 = 2 − a. gilt. Daraus folgt x3 = a+3 .
+
+                                                 –2–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                                       Prof. Dr. Thomas Nagler
+Blatt 1                                                                              Tobias Brock
+
+Schritt 2 : Finde x2 sodass x2 + (a + 2)x3 = 1 gilt. Einsetzen von x3 = a+3 1
+                                                                              liefert x2 + a+2
+                                                                                           a+3
+                                                                                               =
+             1
+1 ⇔ x2 = a+3 .
+Schritt 3 : Finde x1 sodass x1 + x2 − x3 = 1 gilt. Da x2 = x3 , folgt x1 = 1.
+Damit hat das lineare Gleichungssystem für a ̸= 2, −3 genau eine Lösung:
+                                               1   1
+                                                           
+                                           1,    ,    .
+                                              a+3 a+3
+Fall 2: a = 2
+Dann wird die letzte Zeile zu 0 = 0, also gibt es unendlich viele Lösungen. Die Matrix hat dann
+die Form
+                                                           
+                                         1 1 −1 1
+                                        0 1 4 1 .
+                                                 
+
+                                         0 0 0 0
+
+Setze x3 = t mit t ∈ R. Dann gilt x2 + 4x3 = 1 ⇔ x2 = 1 − 4t, und aus x1 + x2 − x3 = 1 folgt
+x1 + (1 − 4t) − t = 1 ⇔ x1 = 5t. Damit ist die Lösungsmenge:
+
+                                    {(5t, 1 − 4t, t) | t ∈ R} .
+
+Fall 3: a = −3
+Dann wird die letzte Zeile zu 0 = 5, also entsteht ein Widerspruch. Daher hat das lineare
+Gleichungssystem in diesem Fall keine Lösung.
+
+Insgesamt gilt also:
+                            n              o
+                                    1     1
+                            
+                            
+                               1, a+3
+                                       , a+3
+                                                ,               falls a ̸= 2, −3,
+                            
+                            
+                            
+                       L=     {(5t, 1 − 4t, t) | t ∈ R} ,       falls a = 2,
+                            
+                            
+                            
+                            
+                            
+                            
+                              ∅,                                falls a = −3.
+
+
+
+
+                                                –3–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                              Prof. Dr. Thomas Nagler
+Blatt 1                                                                     Tobias Brock
+
+Hausaufgaben
+
+Aufgabe 3 (Quantoren)
+Entscheide, ob die folgenden Aussagen wahr oder falsch sind
+
+ (a) ∀x ∈ N ∃y ∈ N sodass x = y.
+
+ (b) ∃y ∈ N ∀x ∈ N sodass x = y.
+
+ (c) ∄y ∈ N ∀x ∈ N sodass x = y.
+
+
+Lösungsskizze zu Aufgabe 3
+
+ (a) Ausformuliert besagt die Aussage: “Für alle x in den natürlichen Zahlen existiert ein y in
+     den natürlichen Zahlen sodass x = y wahr ist.”
+     Diese Aussage ist wahr (setze y gleich y).
+
+ (b) Ausformuliert besagt die Aussage: “Es existiert ein y in den natürlichen Zahlen, sodass
+     für alle x in den natürlichen Zahlen x = y gilt.
+     Diese Aussage ist falsch.
+
+ (c) Ausformuliert besagt die Aussage: “Es existiert kein y in den natürlichen Zahlen, sodass
+     für alle x in den natürlichen Zahlen x = y gilt.
+     Diese Aussage ist wahr.
+
+Aufgabe 4 (Beweistechniken)
+Zeige, dass die folgenden Aussagen wahr sind. Verwende hierfür das jeweils angegebene “Be-
+weisverfahren".
+
+  1. Seien a, b, c ∈ N mit a Teiler von b und b Teiler von c. Dann ist auch a Teiler von c.
+     (direkter Beweise)
+
+  2. Sei a, b ∈ N. Ist a + b ungerade, so muss entweder a oder b gerade sein. (Beweis durch
+     Kontraposition)
+
+  3. Sei n ∈ N mit n3 gerade. Dann ist auch n gerade. (Widerspruchsbeweis)
+
+  4. Sei n ∈ N ungerade. Dann gibt es zwei Zahlen a, b ∈ N0 sodass
+
+                                    a + b = n und a2 − b2 = n
+
+     gilt. (konstruktiver Existenzbeweis)
+
+Hinweis: Wenn wir schreiben dass a ein Teiler von b ist, so meinen wir hier Teilen ohne Rest.
+
+
+Lösungsskizze zu Aufgabe 4
+
+  1. Schritt 1: zu zeigen: a, b, c ∈ N mit a teilt b und b teilt c ⇒ a teilt c.
+     Schritt 2: Eine Zahl d teilt eine Zahl e (ohne Rest) genau dann, wenn ein n ∈ N existiert
+     sodass e = nd gilt.
+
+
+
+                                             –4–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                            Prof. Dr. Thomas Nagler
+Blatt 1                                                                   Tobias Brock
+
+    Schritt 3: (direkter Beweis)
+    Da a teilt b und b teilt c, existieren m, n ∈ N sodass
+
+                                        b = ma und c = nb
+
+    gilt. Nun setzen wir b = ma in c = nb ein und erhalten c = n(ma). Da n, m ∈ N ⇒
+    n · m ∈ N. Daraus folgt:
+
+                            ∃k ∈ N (genauer: k = mn) sodass c = ka.
+                            ⇒ a teilt c
+
+  2. Schritt 1: zu zeigen: a, b ∈ N mit a + b ungerade ⇒ entweder a oder b ungerade.
+     Schritt 2: Eine Zahl k ∈ N ist genau dann ungerade, wenn eine Zahl m ∈ N existiert
+     sodass k = 2m + 1. Eine Zahl k ∈ N ist genau dann gerade, wenn eine Zahl m ∈ N
+     existiert sodass k = 2m.
+     Schritt 3: (Beweis durch Kontraposition)
+     Wir zeigen: ¬ (entweder a oder b ungerade) ⇒ ¬ (a + b ungerade).
+    Verneinung von “entweder a oder b ungerade”: “Entweder (a und b gerade) oder (a und
+    b ungerade)”.
+
+    Fall 1: (a und b ungerade)
+    ⇒ ∃m, n ∈ N sodass a = 2m und b = 2n.
+    ⇒ a + b = 2m + 2n = 2(m + n) und da m, n ∈ N ist auch m + n ∈ N. Daher ist a + b
+    wieder gerade.
+    Fall 2: (a und b ungerade)
+    ⇒ ∃m, n ∈ N sodass a = 2m + 1 und b = 2n + 1.
+    ⇒ a + b = (2m + 1) + (2n + 1) = 2(m + n + 1) und da m, n ∈ N ist auch m + n + 1 ∈ N.
+    Daher ist a + b wieder gerade.
+
+    Damit haben wir nun gezeigt, dass “Entweder (a und b gerade) oder (a und b ungerade)”
+    ⇒ “a + b gerade” wahr ist. Und somit folgt die Behauptung über Kontraposition.
+
+  3. Schritt 1: zu zeigen: n ∈ N mit n3 gerade ⇒ n gerade.
+     Schritt 2: Eine Zahl k ∈ N ist genau dann ungerade, wenn eine Zahl m ∈ N existiert
+     sodass k = 2m + 1. Eine Zahl k ∈ N ist genau dann gerade, wenn eine Zahl m ∈ N
+     existiert sodass k = 2m.
+     Schritt 3: (Beweis durch Widerspruch)
+     Wir nehmen an, dass n3 gerade ist und n ungerade. Da n ungerade ist existiert ein m ∈ N
+     sodass n = 2m + 1. Betrachte
+
+         n3 = (2m + 1)3 = 8m3 + 4m2 + 8m2 + 4m + 1 = 2(4m3 + 2m2 + 4m2 + 2m) + 1
+
+    Da m ∈ N gilt auch 4m3 + 2m2 + 4m2 + 2m ∈ N und somit ist n3 ungerade was ein
+    Widerspruch zur Annahme ist. Damit folgt die Behauptung.
+
+  4. Schritt 1: zu zeigen: n ∈ N mit n ungerade ⇒ existieren a, b ∈ N sodass a + b =
+     n und a2 − b2 = n.
+     Schritt 2: Eine Zahl k ∈ N ist genau dann ungerade, wenn eine Zahl m ∈ N existiert
+     sodass k = 2m + 1. Eine Zahl k ∈ N ist genau dann gerade, wenn eine Zahl m ∈ N
+     existiert sodass k = 2m.
+
+
+                                             –5–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                                    Prof. Dr. Thomas Nagler
+Blatt 1                                                                           Tobias Brock
+
+     Schritt 3: (konstruktiver Existenzbeweis)
+     Da n ungerade ⇒ ∃m ∈ N sodass n = 2m + 1. Betrachte nun
+                             n = 2m + 1         und        n2 = 4m2 + 4m + 1
+     Wir wählen
+                                        b = m,         a = m + 1.
+     Dann gilt n = a + b und a − b = m + 2m + 1 − m2 = 2m + 1.
+                               2    2       2
+
+     Wie kommt man auf die Wahl von a, b? Anhand von Beispielen n = 5 = 3 + 2, 32 − 22 = 5,
+     n = 7 = 4 + 3, 42 − 32 = 7 etc. kann man auf die obige Wahl kommen. Oder man sieht
+     n = a2 − b2 = (a + b)(a − b) = n(a − b). Dann muss a − b = 1, also a = b + 1 gelten. Das
+     gilt unabhängig davon, ob n gerade oder ungerade ist, aber nur wenn n ungerade ist, sind
+     a, b ∈ N0 , wie man durch die obige Wahl sieht.
+Aufgabe 5 (Gleichungssystem)
+Bestimme die Lösungsmenge des folgenden Gleichungssystems. Verwende dazu das Gauß-Jordan
+Verfahren.
+
+                                        2x − 2z − 4y = 8
+                                        −3y + 2x + z = 10
+                                        11z − x + 5y = 3
+Überprüfe das Ergebnis in R: Eine Matrix erzeugt man mit dem Befehl matrix(), dabei muss
+man die Einträge sowie die Anzahl an Zeilen oder Spalten spezifizieren. Das LGS Ax = b kann
+man dann mit solve(A, b) lösen.
+
+
+Lösungsskizze zu Aufgabe 5
+Aufstellen der erweiterten Koeffizientenmatrix (Achtung: x, y, z sind oben durcheinander. Hier
+verwenden wir die Reihenfolge x, y, z.)
+                                                                            
+                 2 −4 −2 8                     2 −4 −2 8
+                             −1(2) und 2(3) 
+              
+               2  −3  1 10        ∼         −2  3 −1 −10 
+                                                            
+                −1 5 11 3                      −2 10 22  6
+
+                                                                                
+                                    2 −4 −2 8               2 −4 −2 8
+              (2)+(1) und (3)+(1)              (3)+6(2) 
+                       ∼           0 −1 −3 −2  ∼  0 −1 −3 −2 
+                                                                      
+
+                                    0 6 20 14               0 0  2  2
+Schritt 1: Finde z sodass 2z = 2 ⇔ z = 1
+Schritt 2: Finde y sodass −y + (−3) · 1 = −2 ⇔ y = −1
+Schritt 3: Finde x sodass 2x + (−4) · (−1) − 2 = 8 ⇔ x = 3.
+
+
+Das lineare Gleichungssystem hat genau eine Lösung:
+                                    (3, −1, 1) = (x, y, z).
+In R:
+A <- matrix(data = c(2, -4, -2, 2, -3, 1, -1, 5, 11), nrow = 3, byrow = TRUE)
+b <- c(8, 10, 3)
+solve(A, b)
+
+
+                                                 –6–
+

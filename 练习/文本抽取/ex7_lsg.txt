@@ -1,0 +1,297 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                                      Prof. Dr. Thomas Nagler
+Blatt 7                                                                             Tobias Brock
+
+Recap - Basis und Dimension
+  1. Jeder Vektorraum hat eine Basis (d.h. ein linear unabhängiges Erzeugendensystem). Kon-
+     kreter: maximal linear unabhängige Teilmengen bzw. minimale Erzeugendensysteme sind
+     Basen ((i) bzw (ii) aus Theorem 3.3.20)
+
+  2. Jede Basis hat gleich viele Elemente. D.h. die Dimension eines Vektorraums ist wohldefi-
+     niert (Theorem 3.3.18)
+
+  3. Jeder Vektor lässt sich eindeutig als Linearkombination von Basisvektoren schreiben
+     (Theorem 3.3.11)
+
+
+Fingerübungen
+  1. Sei V ein Vektorraum. Ist V ⊂ V eine Basis?
+
+  2. Seien v1 , ..., vk ∈ V linear unabhängige Vektoren. Ist dann {v1 , ..., vk } ⊂ V eine Basis für
+     V?
+
+  3. Seien v1 , ..., vk ∈ V linear unabhängige Vektoren. Ist {v1 , ..., vk } eine Basis des UVRs
+     U = span({v1 , ..., vk })?
+
+
+
+Lösungsskizze zu Aufgabe 0
+
+  1. Nein, denn 0 ∈ V per Definition eines Vektorraums, und eine Menge, die die 0 enthält,
+     ist nie linear unabhängig. Also kann V keine Basis sein.
+
+  2. Wenn dim(V ) = k, ist die Menge eine Basis (Th. 3.3.20). Wenn dim(V ) > k, kann
+     {v1 , ..., vk } V nicht aufspannen (Th. 3.3.18). dim(V ) < k ist nicht möglich, dann kann
+     {v1 , ..., vk } nicht linear unabhängig sein (Th. 3.3.18)
+
+  3. Ja, denn {v1 , ..., vk } is linear unabhängig und span({v1 , ..., vk }) = U .
+
+
+Übungsaufgaben
+Aufgabe 1 (Universelle Eigenschaft von Vektorräumen)
+Sei V ein Vektorraum mit Basis {v1 , ..., vn } und W ein zweiter Vektorraum mit w1 , ..., wn ∈ W .
+Zeige:
+
+  1. Sind f, g : V → W lineare Abbildungen mit f (vi ) = g(vi ) für i = 1, ..., n, so folgt
+     f (v) = g(v) für alle v ∈ V . Hinweis: Mit Theorem 3.3.11 können wir v = ni=1 λi vi
+                                                                                 P
+
+     schreiben.
+                                        Pn               Pn
+  2. Die Abbildung f : V → W, v =         i=1 λi vi 7→    i=1 λi wi ist linear.
+
+Folgere: Für alle w1 , ..., wn ∈ W existiert genau eine lineare Abbildung f : V → W mit
+f (vi ) = wi für alle i = 1, ..., n.
+
+
+Lösungsskizze zu Aufgabe 1
+
+
+
+                                                 –1–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                                                                  Prof. Dr. Thomas Nagler
+Blatt 7                                                                                                         Tobias Brock
+
+Anschauung/Beispiel: Sei V = R2 mit der Standardbasis {e1 , e2 }. W kann ein anderer
+Vektorraum sein und die w1 , . . . , wn sind einfach beliebige Elemente daraus, müssen also ins-
+besondere keine Basis oder linear unabhängig sein. Zwei Beispiele, was die Abbildung f in
+2. macht:
+   1. Sei W = R2 und w1 = (1, 0), w2 = (2, 0). Für beliebige v = (a, b) ∈ R2 gilt v = ae1 + be2 ,
+      somit ist die Abbildung f für die gegebenen w1 , w2 definiert als f (v) = a ∗ (1, 0) + b ∗
+      (2, 0) = (a + 2b, 0) und somit f (e1 ) = (1, 0) = w1 , f (e2 ) = (2, 0) = w2 .
+
+   2. Sei W die Menge aller Polynome vom Grad 2 und w1 = x2 , w2 = x (die “Vektoren” in W
+      sind Funktionen). (Nebenbemerkung: w1 , w2 sind linear unabhängig, aber keine Basis.)
+      Nun ist f (v) = ax2 + bx und f (e1 ) = x2 = w1 , f (e2 ) = x = w2 .
+In beiden Fällen ist f eine lineare Abbildung. In der zweiten Teilaufgabe zeigen wir, dass immer
+der Fall ist. f ist zudem die einzige lineare Abbildung, die vi auf wi abbildet.
+In der ersten Teilaufgabe zeigen wir, dass es, um eine lineare Abbildung komplett zu definie-
+ren, schon ausreicht, sie nur auf einer Basis zu definieren. Dementsprechend sind zwei lineare
+Abbildungen, die auf einer Basis übereinstimmen, gleich.
+Beispiel: in R2 kann man f (v) für beliebige v ∈ R2 berechnen, wenn man nur f (e1 ) und f (e2 )
+kennt, denn f (v) = f ((a, b)) = f (ae1 + be2 ) = af (e1 ) + bf (e2 ), da f linear. Und wenn für eine
+weitere lineare Abbildung g gilt, dass g(e1 ) = f (e1 ), g(e2 ) = f (e2 ), dann muss f = g gelten.
+Lösung:
+                                                                                        Pn
+   1. Sei v ∈ V beliebig. Nach Th. 3.3.11 können wir v =                                     i=1 λi vi schreiben. Es gilt
+
+                         n                        n                                 n                                 n
+                         X               f linear X                  f (vi )=g(vi ) X                 g linear        X
+           f (v) = f (         λi vi )     =            λi f (vi )         =            λi g(vi )       =        g(         λi vi ) = g(v).
+                         i=1                      i=1                             i=1                                 i=1
+
+      Also sind f und g schon gleich, wenn sie auf einer Basis von V übereinstimmen.
+                                                                                                            Pn                  ′       Pn    ′
+   2. Es gilt für beliebige v, v ′ ∈ V mit eindeutigen Darstellungen v =                                         i=1 λi vi v        =    i=1 λi vi
+      und c ∈ R
+                                               n               n                      n
+                  f (cv + v ′ ) = f (c                               λ′i vi ) = f (         (cλi + λ′i )vi )
+                                               X               X                      X
+                                                     λi vi +
+                                               i=1             i=1                    i=1
+                                         n                              n                   n
+                                               (cλi + λ′i )wi = c                                 λ′i wi = cf (v) + f (v ′ ).
+                                         X                              X                   X
+                                    =                                          λi wi +
+                                         i=1                            i=1                 i=1
+
+      Somit ist f eine lineare Abbildung.
+Folgerung: Die oben geforderte lineare Abbildung ist in 2. gegeben, denn f (vi ) = wi für alle
+i = 1, . . . , n per Definition von f (da die eindeutige Darstellung von vi gegeben ist durch
+Pn
+  i=1 λi vi mit λi = 1, λj = 0 für alle j ̸= i). Die Eindeutigkeit der Abbildung folgt aus 1.:
+Angenommen, es gäbe eine weitere Abbildung g mit g(vi ) = wi . Dann folgt aus 1., dass g und
+f gleich sind, da sie auf einer Basis übereinstimmen.
+
+Aufgabe 2 (Anwendungen der universellen Eigenschaft von Vektorräumen)
+Sei {u1 , ..., um } eine zweite Basis von V mit n ≤ m. Nach Aufgabe 1 existieren eindeutige
+lineare Abbildungen f, f˜ : V → V mit f (vi ) = ui , f˜(ui ) = vi für i = 1, ..., n und f˜(ui ) = 0 für
+i = n + 1, ..., m.
+   1. Zeige f˜(f (vi )) = vi für alle i = 1, ..., n.
+
+   2. Nutze Aufgabe 1 um f˜(f (v)) = v für alle v ∈ V zu zeigen. Hinweis: g = id in Aufgabe 1.
+
+                                                                     –2–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                                         Prof. Dr. Thomas Nagler
+Blatt 7                                                                                Tobias Brock
+
+   3. Zeige n = m.
+
+Bonusaufgabe: Wende Aufgabe 1 auf W = Rn , wi = ei an, um Theorem 3.3.12 (Linearität
+der Koordinatentransformation) zu folgern.
+
+
+Lösungsskizze zu Aufgabe 2
+Anschauung/Beispiel: Sei wieder V = R2 mit der Standardbasis. Wir nehmen an, dass
+{(0, 1), (1, 0), (1, 1)} eine weitere Basis sei (was natürlich nicht der Fall ist, da die Menge linear
+abhängig ist. Deshalb werden wir Widersprüche erzeugen).
+Nach Aufgabe 1 gibt es lineare Abbildungen f , f˜ mit
+
+                                 f ((1, 0)) = (0, 1), f ((0, 1)) = (1, 0)
+
+(d.h. die Einheitsvektoren werden durch f vertauscht) und
+
+                      f˜((0, 1)) = (1, 0), f˜((1, 0)) = (0, 1) sowie f˜((1, 1)) = 0
+
+(hier ist schon ein Widerspruch zur Linearität von f˜, da f˜((1, 1)) = f˜((1, 0)) + f˜((0, 1)) gelten
+muss).
+Aus f ((1, 0)) = (0, 1), f ((0, 1)) = (1, 0) folgt durch die Linearität, dass f definiert ist als
+f ((a, b)) = (b, a) (d.h. f vertauscht die beiden Einträge). f˜ macht (hier in diesem Beispiel)
+genau das gleiche, f˜((a, b)) = (b, a) (auch hier wieder ein Widerspruch zu f˜((1, 1)) = 0).
+Allgemein gilt, dass f˜ die Wirkung von f rückgängig macht, also f˜(f (v)) = v (Teilaufgabe
+1). Bei uns: f˜(f ((a, b))) = f˜((b, a)) = (a, b). Da dann auch f (f˜(v)) = v gilt, erhalten wir
+f (f˜((1, 1))) = f (0) = 0 ̸= (1, 1), was ein Widerspruch ist. Also kann {(0, 1), (1, 0), (1, 1)} keine
+Basis von R2 sein. Das gilt allgemein für jede Menge mit mehr als 2 Elementen.
+Lösung:
+
+   1. Es gilt f˜(f (vi )) = f˜(ui ) = vi per Definition.
+
+   2. Bemerke, dass f˜ ◦ f linear ist als Komposition linearer Abbildungen. Es gilt f˜(f (vi )) =
+      f˜(ui ) = vi = id(vi ) für alle i. Nach Aufgabe 1. muss dann schon f˜ ◦ f = id gelten. In
+      anderen Worten, f˜(f (v)) = id(v) = v für alle v ∈ V .
+
+   3. Nach 2. ist f invertierbar, d.h. f (f˜(v)) = v. Angenommen m > n. Dann gilt für alle
+      i = n + 1, ..., m ui = f (f˜(ui )) = f (0) = 0. Da {u1 , ..., um } eine Basis ist, ist das ein
+      Widerspruch. Wir folgern n = m.
+
+Bonusaufgabe: Die Koordinatentransformation (d.h. die Abbildung von einem Vektorraum
+V nach Rn , wobei v auf die Koordinaten seiner Basisdarstellung (mit gegebener Basis B)
+abgebildet wird) kann man schreiben als v = ni=1 λi vi → ni=1 λi ei = (λ1 , . . . , λn ). Nach
+                                            P             P
+
+Aufgabe 1 ist diese Abbildung linear.
+
+
+
+
+                                                  –3–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                                   Prof. Dr. Thomas Nagler
+Blatt 7                                                                          Tobias Brock
+
+Hausaufgaben
+
+Aufgabe 3 (Basen und Maximal linear unabhängige Systeme)
+Sei V ein Vektorraum und v1 , ..., vn ∈ V linear unabhängige Vektoren. Zeige: ist {v1 , ..., vn+1 }
+linear abhängig für alle vn+1 ∈ V , so ist {v1 , ..., vn } eine Basis von V .
+
+
+Lösungsskizze zu Aufgabe 3
+Dass {v1 , ..., vn+1 } linear abhängig ist, bedeutet vn+1 = ni=1 λi vi für bestimmte λi ∈ R. In an-
+                                                           P
+
+deren Worten, vn+1 ∈ span({v1 , ..., vn }). Gilt das für alle vn+1 ∈ V , folgt span({v1 , ..., vn }) =
+V . Per Definition ist damit {v1 , ..., vn } eine Basis.
+
+Aufgabe 4 (Funktionenraum ist Vektorraum)
+
+Zeige, dass der Raum aller Funktionen von R nach R mit der in Beispiel 3.1.5 definierten
+Addition und Skalarmultiplikation ein Vektorraum ist. Beweise hierfür die Eigenschaften aus
+Definition 3.1.1.
+
+
+Lösungsskizze zu Aufgabe 4
+Sei im folgenden F der Funktionenraum
+
+                                        F := {f : R → R}.
+
+Dieser Raum ist nicht leer, da z.b. N : R → R, x 7→ 0 ein Element aus F ist. Ein Vektorraum
+benötigt eine Addition und eine Multiplikation, die wie folgt definiert sind:
+   1. Sei f, g ∈ F dann setzen wir (f + g) : R → R, x 7→ f (x) + g(x).
+   2. Sei f ∈ F und c ∈ R, dann definieren wir cf : R → R, x 7→ cf (x).
+Nun müssen wir alle Eigenschaften der der Definition 3.1.1 durchgehen: Seien dazu f, g, h ∈ F
+und d, c ∈ R.
+  (i) (f + g) definiert wieder eine Funktion zwischen R und R und somit ist f + g ∈ F.
+ (ii) Für alle x ∈ R gilt (R ist kommutativ):
+
+                         (f + g)(x) = f (x) + g(x) = g(x) + f (x) = (g + f )(x).
+
+      Daher gilt f + g = g + f .
+(iii) Für alle x ∈ R gilt (R ist assoziativ):
+
+                      ((f + g) + h)(x) = (f + g)(x) + h(x) = f (x) + g(x) + h(x)
+                       = f (x) + (g + h)(x) = (f + (g + h))(x).
+
+ (iv) Die Funktion N von oben entspricht dem Nullvektor. Da für alle x ∈ R gilt
+
+                             (f + N )(x) = f (x) + N (x) = f (x) + 0 = f (x).
+
+ (v) Sei f ∈ F. Dann ist −f ∈ F (ist wieder eine Funktion zwischen R und R) und es gilt für
+     alle x ∈ R:
+
+                     (f + (−f ))(x) = f (x) + (−f (x)) = f (x) − f (x) = 0 = N (x).
+
+                                                 –4–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                                               Prof. Dr. Thomas Nagler
+Blatt 7                                                                                      Tobias Brock
+
+ (vi) cf definiert wieder eine Funktion zwischen R und R und somit ist cf ∈ F.
+
+(vii) Für alle x ∈ R gilt
+
+                              (c(f + g))(x) = cf (x) + cg(x) = (cf + cg)(x)
+
+(viii) Für alle x ∈ R gilt
+
+           ((c + d)f )(x) = (c + d)f (x) = cf (x) + df (x) = (cf )(x) + (df )(x) = (cf + df )(x).
+
+ (ix) Für alle x ∈ R gilt
+
+                              (c(df ))(x) = cdf (x) = (cd)f (x) = ((cd)f )(x).
+
+  (x) Für alle x ∈ R gilt
+
+                                          (1f )(x) = 1f (x) = f (x).
+
+Damit folgt mit Definition 3.1.1, dass F mit der oben definierten Addition und Skalarmulitpli-
+kation ein Vektorraum ist.
+
+Aufgabe 5 (Beispiele für Untervektorräume)
+
+Welcher der angegeben Räume ist ein Untervektorraum zu dem jeweilig angegebenen Vektor-
+raum.
+
+  (a) M1 = {(x1 , x2 ) | x21 + x22 ≤ 1} ⊆ R2 ,
+
+ (b) M3 = {A ∈ Rn×n | A ist in Zeilenstufenform} ⊆ Rn×n .
+
+
+Lösungsskizze zu Aufgabe 5
+                                                         !
+                                                     1
+  (a) M1 ist kein Untervektorraum, da x =                    ∈ M1 aber für c = 2
+                                                     0
+                                                     !              !
+                                                 1              2
+                                       cx = 2            =              ̸∈ M1 .
+                                                 0              0
+
+      Also ist nach Definition 3.2.1 ist M1 kein Untervektorraum.
+
+ (b) M3 ist kein Untervektorraum, denn die Summe zweier Matrizen in Zeilenstufenform ist
+     nicht notwendigerweise wieder in Zeilenstufenform:
+                                             !                !              !
+                                        1 0   −1 0   0 0
+                                            +      =
+                                        0 1   0 0    0 1
+
+      Also ist nach Definition 3.2.1 ist M3 kein Untervektorraum.
+
+
+
+
+                                                  –5–
+

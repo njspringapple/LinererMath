@@ -1,0 +1,263 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                             Prof. Dr. Thomas Nagler
+Blatt 6                                                                    Tobias Brock
+
+Recap - Vektorräume
+  1. Bisher haben wir LGS und alle Resultate für Teilmengen für Vektoren im Rn betrachtet.
+     Bemerken wir aber, dass LGS und alle Resultate nur eine lineare Struktur voraussetzen
+     so gelangen wir zur Definition eines (Unter)-Vektorraums ((U)VR).
+  2. Das Konzept eines Vektorraums ist deutlich allgemeiner als der Rn . Z.B. bilden Polyno-
+     me n-ten Grades, glatte Abbildungen und Matrizen Vektorräume. Gepaart mit unseren
+     bisherigen Resultaten macht dieser Fakt LA zu einer bemerkenswert mächtigen Theorie.
+  3. Um dann in der Praxis eine (U)VR Struktur zu zeigen, schreiben wir sie häufig als Kern
+     einer linearen Abbildung (d.h. als die Menge {x ∈ V : f (x) = 0} für eine lineare Abbil-
+     dung f ). (Theorem 3.2.7)
+
+
+Übungsaufgaben
+Aufgabe 1 (Schnitt zweier Untervektorräume)
+Seien U, W zwei Untervektorräume des Vektorraums V mit endlicher Dimension. Zeige, dass
+die folgenden Aussagen äquivalent sind
+  (i) U ∩ W = {0}
+ (ii) Jedes Element v ∈ U + W hat eine eindeutige Darstellung. D.h. falls für u1 , u2 ∈ U und
+      w1 , w2 ∈ W, u1 + w1 = u2 + w2 gilt so folgt direkt u1 = u2 und w1 = w2 .
+(iii) Gilt für zwei Vektoren u ∈ U und w ∈ W , dass u + w = 0, so folgt u = 0 und w = 0.
+Tipp: Führe einen Ringschluss durch und zeige dazu
+  • (i) ⇒ (ii): Nehme hier an es gäbe zwei Darstellungen und führe das dann zum Widerspruch
+    zu Annahme (i).
+  • (ii) ⇒ (iii): Nach Annahme (ii) wird auch die Null eindeutig dargestellt.
+  • (iii) ⇒ (i): Nehme ein beliebiges Element aus U ∩ W und zeige, dass diese die Null sein
+    muss.
+
+
+Lösungsskizze zu Aufgabe 1
+Wir beweisen dies über einen Ringschluss:
+  • (i) ⇒ (ii): Sei also U ∩ W = {0} und sei x ∈ U + W beliebig. Wir nehmen an, dass es
+    zwei Darstellungen von x gibt, d.h es existieren u1 , u2 ∈ U und w1 , w2 ∈ W sodass
+                                     u1 + w1 = x = u2 + w2
+     gilt. Dann folgt
+                           u1 + w1 = u2 + w2 ⇔ u1 − u2 = w1 − w2
+     Da U und W Untervektorräume sind, muss mit Definition 3.2.1(i) u1 − u2 ∈ U und
+     w1 − w2 ∈ W gelten. Also
+                                  u1 − u2 = w1 − w2 ∈ U ∩ W.
+     Da aber nach Annahme U ∩ W = {0}, muss u1 = u2 und w1 = w2 sein und somit ist
+     Darstellung von x eindeutig.
+
+                                            –1–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                            Prof. Dr. Thomas Nagler
+Blatt 6                                                                   Tobias Brock
+
+  • (ii) ⇒ (iii): Wir nehmen nun an, dass jeder Vektor in U + W eine eindeutige Darstellung
+    besitzt. Seien nun u ∈ U und w ∈ W sodass u + w = 0. Nach (ii) hat 0 ∈ U + W eine
+    eindeutige Darstellung und da 0 ∈ W und 0 ∈ W gilt 0 + 0 = 0 und somit muss aus der
+    Eindeutigkeit u = 0 und w = 0 gelten.
+
+  • (iii) ⇒ (i): Wir nehmen nun an, dass für zwei Vektoren u ∈ U und w ∈ W mit u + w = 0
+    direkt folgt, dass u = 0 und w = 0. Nehme nun ein beliebiges Element aus x ∈ U ∩ W .
+    Da nach Theorem 3.2.13 U ∩ W wieder ein Untervektorraum ist, muss −x ∈ U ∩ W liegen
+    (also insbesondere liegt x, −x ∈ U und x, −x ∈ W ). Daraus folgt
+
+                                    0 = x + (−x) ∈ U + W
+
+     mit x ∈ U und −x ∈ W . Nach (iii) muss dann aber x = 0 = −x gelten und somit kann
+     nur die Null in W ∩ U enthalten sein.
+
+
+Aufgabe 2 (Der Span und die Struktur eines UVR)
+Sei W ⊂ V eine Teilmenge eines Vektorraums V . Zeige: W ⊂ V ist ein Untervektorraum (UVR)
+genau dann wenn W = span(W ) gilt. Hinweis: Nutze Theorem 3.2.12.
+
+
+Lösungsskizze zu Aufgabe 2
+
+  • Die Aussage W = span(W ) =⇒ W UVR folgt direkt aus Th. 3.2.12 (jeder Spann einer
+    Menge von Vektororen ist ein UVR). Alternativ kann man auch direkt zeigen, dass für
+    u, v ∈ W folgt, dass u + v ∈ W , wenn W = span(W ), analog für cu.
+
+  • Es bleibt zu zeigen: W UVR =⇒ W = span(W ). Sei W ein UVR. W ⊆ span(W ) gilt
+    per Definition für jede Menge W . Jedes Element von span(W ) lässt sich per Definition
+    des Spann als Linearkombination von Vektoren ∈ W schreiben. Aus der Definition des
+    UVR folgt, dass jede Linearkombination von Vektoren aus W wieder in W liegt, somit
+    muss jedes Element von span(W ) in W liegen, also span(W ) ⊆ W .
+
+
+Aufgabe 3 (Symmetrische Matrizen bilden einen UVR)
+Sei Mn (R) der Vektorraum der quadratischen n × n Matrizen. Zeige, dass die Abbildung
+Mn (R) → Mn (R), A 7→ A − AT linear ist. Gehe wie folgt vor:
+
+  1. Begründe warum die Abbildungen A 7→ A und A 7→ −AT linear sind (Regeln für trans-
+     ponierte Matrizen: Theorem 2.1.15).
+
+  2. Nutze dann Aufgabe 1 auf Blatt 2.
+
+Folgere dann mithilfe von Theorem 3.2.7, dass die Teilmenge der symmetrischen Matrizen
+{A ∈ Rn×n : AT = A} ⊂ Mn (R) ein Untervektorraum ist.
+
+
+Lösungsskizze zu Aufgabe 3
+
+  1. Wir müssen f (cA + B) = cf (A) + f (B) zeigen für beliebige c ∈ R, n × n Matrizen A, B,
+     und die Abbildungen f1 (A) = A und f2 (A) = −AT . Es gilt f1 (cA + B) = cA + B =
+     cf1 (A) + f1 (B) und f2 (cA + B) = −(cA + B)T = −cAT − B T = cf2 (A) + f2 (B).
+
+
+
+                                           –2–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                            Prof. Dr. Thomas Nagler
+Blatt 6                                                                   Tobias Brock
+
+  2. In Aufgabe 1 auf Blatt 2 haben wir gezeigt, dass die Summe zweier linearer Abbildungen
+     von Rn → Rm wieder linear ist. Das gilt auch allgemein für lineare Abbildungen zwischen
+     zwei Vektorräumen. Somit ist die Abbildung f : Mn (R) → Mn (R), A 7→ A − AT als
+     Summe zweier linearer Abbildungen linear.
+
+Th. 3.2.7 besagt, dass der Kern einer linearen Abbildung von Rn → Rm ein Untervektor-
+raum von Rn ist. Auch das gilt allgemein für lineare Abbildungen zwischen Vektorräumen. Die
+Menge der symmetrischen Matrizen lässt sich schreiben als {A ∈ Rn×n : AT = A} = {A ∈
+Rn×n : A − AT = 0} und ist somit der Kern der linearen Abbildung A 7→ A − AT und damit
+ein Untervektorraum von Mn (R).
+Anmerkung: Man könnte auch direkt die Eigenschaften eines UVR zeigen, also dass für A, B
+symmetrisch, c ∈ R auch A + B und cA symmetrisch sind.
+
+
+
+
+                                           –3–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                                                    Prof. Dr. Thomas Nagler
+Blatt 6                                                                                           Tobias Brock
+
+Hausaufgaben
+
+Aufgabe 4 (Unterschied Vereinigung und Addition zweier Untervektorräume)
+Sei V ein Vektorraum und seien W1 , W2 ⊆ V zwei Untervektorräume. Betrachte die Vereinigung
+der beiden Untervektorräume W1 ∪ W2 und die Addition
+
+                         W := W1 + W2 = {v1 + v2 | v1 ∈ W1 , v2 ∈ W2 }.
+
+Finde nun jeweils zwei Untervektorräume W1 , W2 ⊆ R2 sodass
+
+  (a) W1 ∪ W2 kein Vektorraum ist und sodass W1 + W2 ̸= W1 ∪ W2 ,
+
+ (b) W1 + W2 = W1 ∪ W2 .
+
+gilt.
+
+
+Lösungsskizze zu Aufgabe 4
+
+  (a) Wir betrachten die Mengen
+                                                 (            !               )
+                                                      a
+                                       W1 :=                      |a∈R
+                                                      0
+                                                      0
+                                                 (            !               )
+                                       W1 :=                      |a∈R .
+                                                      a
+
+        Beides sind nicht leere Mengen mit 0 ∈ W1 und 0 ∈ W2 und es gilt
+
+         (i) W1 und W2 sind Untervektorräume:
+              • Seien v, u ∈ W1 beliebig, dann existieren a1 , a2 ∈ R sodass
+                                                      !                                      !
+                                                 a1                                     a2
+                                       v=                                 u=                     .
+                                                 0                                      0
+
+                Somit gilt
+
+                                                                                  a1 + a 2
+                                                 !                 !                           !
+                                            a1                a2
+                                u+v =                 +                   =                          ∈ W1 .
+                                            0                 0                      0
+
+              • Sei u ∈ W1 und sei c ∈ R beliebig. Dann existiert a ∈ R sodass
+                                                                          !
+                                                                      a
+                                                      u=                      .
+                                                                      0
+
+                Somit gilt
+                                                              !                   !
+                                                          a               ca
+                                         cu = c                   =                   ∈ W1 .
+                                                          0                0
+
+            Also ist W1 nach Definition 3.2.1 ein Untervektorraum. Analog kann man zeigen,
+            dass W2 ein Untervektorraum ist.
+
+
+
+
+                                                 –4–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                                                      Prof. Dr. Thomas Nagler
+Blatt 6                                                                                             Tobias Brock
+
+      (ii) W1 ∪ W2 ist kein Untervektorraum:
+
+                        1                            0                       1           0
+                            !                            !                       !            !
+                                ∈ W1 und                     ∈ W2 ⇒                  ,            ∈ W1 ∪ W2 ,
+                        0                            1                       0           1
+
+          aber
+                                 1               0                       1                0
+                                     !               !                           !            !
+                                         +               ̸∈ W1 und                   +            ̸∈ W2
+                                 0               1                       0                1
+                                     1               0
+                                         !               !
+                                ⇒            +               ̸∈ W1 ∪ W2
+                                     0               1
+
+     (iii) W1 + W2 = R2 :
+         „⊆“ folgt aus der Definition von W1 + W2 und das R2 ein Vektorraum ist.
+                                                                      0
+                      !                                 !               !
+                    a                                 a
+         „⊇“ Sei        ∈ R beliebig. Dann gilt mit
+                            2
+                                                          ∈ W1 und        ∈ W2 :
+                    b                                 0               b
+
+                                                                         0
+                                                 !               !           !
+                                             a               a
+                                                     =               +           ∈ W1 + W2 .
+                                             b               0           b
+
+                                                     1                                                    1
+                                                         !                                                    !
+     (iv) Es gilt W1 + W2 ̸= W1 ∪ W2 4:                      ∈ W1 + W2 , aber nach (ii) ist                       ̸∈ W1 ∪ W2 .
+                                                     1                                                    1
+
+ (b) Setze
+                                                         (         !             )
+                                                               a
+                                             W1 :=                     |a∈R
+                                                               0
+                                             W2 := R2 .
+
+     Dann gilt nach Teilaufgabe (a):
+
+      (a) W1 , W2 sind Untervektorräume (R2 wurde in der Vorlesung besprochen)
+      (b) W1 ∪ W2 = W2 = R2 ist ein Vektorraum
+      (c) W1 + W2 = R2
+
+
+
+Anmerkung: Allgemein kann man die folgende Aussage zeigen:
+Sei V ein Vektorraum und seien W1 , W2 ⊆ V derart, dass W1 ∪ W2 wieder ein Untervektorraum
+ist. Dann muss W1 ⊆ W2 oder W2 ⊆ W1 gelten. (siehe z.B. G. Fischer (2011): Lernbuch Lineare
+Algebra und Analytische Geometrie(4 Auflage), Seite 183, Springer)
+
+
+
+
+                                                         –5–
+

@@ -1,0 +1,269 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                                                 Prof. Dr. Thomas Nagler
+Blatt 3                                                                                        Tobias Brock
+
+Recap - Lineare Abbildungen und Matrixoperationen
+  1. Die charakterisierende Eigenschaft von LGS, d.h. von Matrizen, ist, dass sie lineare Ab-
+     bildungen definieren. Mathematisch ausgedrückt: jede Matrix definiert eine (eindeutige)
+     lineare Abbildung und umgekehrt. (Theorem 1.10.2)
+  2. In anderen Worten: das Studium von LGS ist das Studium von linearen Abbildungen.
+  3. Wie für die reelen Zahlen können wir auch Matrizen addieren und multiplizieren
+  4. Matrizen zu addieren hat alle analogen Eigenschaften wie Zahlen zu addieren (Theorem
+     2.1.3)
+
+
+Fingerübungen
+  1. Wenn zwei lineare Abbildungen dieselbe darstellende Matrix haben, sind sie dann gleich?
+     (Theorem 1.10.2)
+  2. Wenn die Matrix A eine lineare Abbildung f darstellt und Ax = 0 gilt, was ist dann
+     f (x)?
+  3. Für Matrizen A, B, s.d. AT + B definiert ist, was ist (AT + B)T ? (Theorem 2.1.15)
+
+
+Übungsaufgaben
+Aufgabe 1 (Die Menge der Linearen Abbildungen ist linear)
+Seien f, g : Rn → Rm lineare Abbildungen und a, b ∈ R. Zeige, dass dann auch
+
+                                         h = af + bg : Rn → Rm
+
+definiert durch h(x) = af (x) + bg(x) linear ist.
+
+
+Lösungsskizze zu Aufgabe 1
+Zu zeigen: h(x + y) = h(x) + h(y) und h(c x) = c h(x) für alle x, y ∈ Rn , c ∈ R. Es gilt
+              Def. von h                                    f, g linear
+   h(x + y)     =     af (x + y) + bg(x + y) = a(f (x) + f (y) + b(g(x) + g(y))
+              = af (x) + bg(x) + af (y) + bg(y) = h(x) + h(y),
+              Def. von h                      f, g linear
+      h(cx)      =         af (cx) + bg(cx)       =          acf (x) + bcg(x) = c(af (x) + bg(x)) = c h(x).
+
+Somit ist h eine lineare Abbildung.
+
+
+Aufgabe 2 (Lineare Abbildungen auf Funktionsräumen)
+Seien d, p ∈ N und seien F = C([0, 1]d ), G = C([0, 1]p ) die Räume der stetigen Funktionen auf
+[0, 1]d beziehungsweise [0, 1]p . Sei außerdem k : [0, 1]p × [0, 1]d → R≥0 eine stetige Funktion mit
+                                              Z
+                                                        k(x, y) dy = 1
+                                               [0,1]d
+
+für alle x ∈ [0, 1]p . Definiere T : F → G durch
+                                                        Z
+                                     (T f )(x) =                 f (y)k(x, y) dy.
+                                                        [0,1]d
+
+
+                                                             –1–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                                                      Prof. Dr. Thomas Nagler
+Blatt 3                                                                                             Tobias Brock
+
+Zeige, dass T eine lineare Abbildung ist. Welche Interpretation hat T aus stochastischer Sicht?
+Hinweis: Für Funktionenräume werden Addition und Skalarmultiplikation punktweise definiert,
+also gilt: (af + bg)(x) = af (x) + bg(x).
+
+
+
+Lösungsskizze zu Aufgabe 2
+Zunächst ist T wohldefiniert: Ist f ∈ F , so ist f stetig auf [0, 1]d . Da auch k stetig ist, ist die
+Funktion
+                                     (x, y) 7→ f (y)k(x, y)
+stetig auf [0, 1]p × [0, 1]d . Damit ist
+                                                       Z
+                                              x 7→                 f (y)k(x, y) dy
+                                                        [0,1]d
+
+wieder stetig. Also gilt T f ∈ G.
+Zu zeigen: Für alle f, g ∈ F und a, b ∈ R gilt
+
+                                             T (af + bg) = aT f + bT g.
+
+Seien also f, g ∈ F , a, b ∈ R und x ∈ [0, 1]p . Dann gilt
+                                        Z
+                           Def. von T
+       (T (af + bg))(x)        =                     (af + bg)(y)k(x, y) dy
+                                            [0,1]d
+                               Z                                   
+                           =                af (y) + bg(y) k(x, y) dy
+                               [0,1]d
+                               Z                                                    
+                           =                af (y)k(x, y) + bg(y)k(x, y) dy
+                               [0,1]d
+                                                               Z                              Z
+                           Linearität des Integrals
+                                        =                  a            f (y)k(x, y) dy + b            g(y)k(x, y) dy
+                                                               [0,1]d                         [0,1]d
+                           Def. von T
+                              =    a(T f )(x) + b(T g)(x)
+                           = (aT f + bT g)(x).
+
+Da dies für alle x ∈ [0, 1]p gilt, folgt
+
+                                             T (af + bg) = aT f + bT g.
+
+Somit ist T eine lineare Abbildung.
+
+Stochastisch kann man k(x, y) als bedingte Dichte von y gegeben x interpretieren. Die Bedin-
+gungen                                          Z
+                       k(x, y) ≥ 0     und           k(x, y) dy = 1
+                                                                          [0,1]d
+
+bedeuten, dass k(x, ·) für jedes feste x eine Wahrscheinlichkeitsdichte auf [0, 1]d ist. Dann
+entspricht                                 Z
+                               (T f )(x) =     f (y)k(x, y) dy
+                                                               [0,1]d
+
+dem bedingten Erwartungswert
+
+                                            (T f )(x) = E[f (Y ) | X = x].
+
+
+
+                                                                   –2–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                              Prof. Dr. Thomas Nagler
+Blatt 3                                                     Tobias Brock
+
+
+
+
+Bitte wenden!
+
+
+
+
+                                      –3–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                                                                    Prof. Dr. Thomas Nagler
+Blatt 3                                                                                                           Tobias Brock
+
+Hausaufgaben
+
+Aufgabe 3 (Lineare Abbildung)
+Untersuche welche der folgenden Abbildungen eine lineare Abbildung ist.
+                              !                              !
+                          x                    3x + 2y
+ (a) f : R2 → R2 ,                    7→                         .
+                          y                    4x + y
+
+ (b) h : R → R, x 7→ x3 .
+
+
+Lösungsskizze zu Aufgabe 3
+                              !                !
+                         x1            x2
+ (a)     1. Seien                 ,                 ∈ R2 beliebig. Dann gilt
+                         y1            y2
+                         !                     !!                           !!                                                 !
+                    x1                x2                         x1 + x 2                 3(x1 + x2 ) + 2(y1 + y2)
+            f                 +                     =f                            =
+                    y1                y2                         y1 + y 2                  4(x1 + x2 ) + (y1 + y2 )
+                                                                                              !                        !                       !
+                                                            3x1 + 2y1 + 3x2 + 2y2                        3x1 + 2y1                 3x2 + 2y2
+                                                    =                                              =                       +
+                                                             4x1 + y1 + 4x2 + y2                          4x1 + y1                 4x2 + y2
+                                                                      !!                      !!
+                                                                 x1                   x2
+                                                    =f                     +f                      .
+                                                                 y1                   y2
+                                               !
+                                           x
+         2. Sei λ ∈ R und                          ∈ R2 beliebig. Dann gilt
+                                           y
+                                                            !!                   !!                           !
+                                                        x                   λx                 3λx + 2λy
+                                       f λ                       =f                   =
+                                                        y                   λy                  4λx + λy
+                                                                                          !                       !
+                                                                        λ(3x + 2y)                      3x + 2y
+                                                                 =                            =λ
+                                                                        λ(4x + y)                        4x + y
+                                                                                 !!
+                                                                             x
+                                                                 = λf
+                                                                             y
+
+       Damit folgt aus 1. und 2., dass f eine lineare Abbildung ist.
+                                                                            !                      !!             !
+                                              3 2                                              x           x
+       Alternativ kann man zeigen: mit A =                                       gilt f                 =A            für alle x, y, ∈ R,
+                                              4 1                                              y           y
+       somit muss f eine lineare Abbildung sein.
+
+ (b) Nein, h ist keine lineare Abbildung, da beispielsweise für λ = 2 und x = 5 gilt:
+
+                                  h(λx) = λ3 x3 = 23 53 = 1000 ̸= 253 = 2h(5) = λh(x).
+
+Aufgabe 4 (Matrixoperationen)
+Sei f : R3 → R3 eine lineare Funktion, die durch Matrix A gegeben ist, sei g : R4 → R3 eine
+lineare Funktion, die gegeben ist durch Matrix B und h : R3 → R3 eine weiter lineare Funktion,
+die gegeben ist durch Matrix C.
+                                                                                                                      
+                1 2 1                                      1 0 1 0             2 3 4
+            A= 1 0 1                               B =  1 1 0 1  und C =  3 4 5  .
+                                                                                
+
+                0 1 −1                                     0 0 −1 1            4 5 6
+
+                                                                      –4–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                                       Prof. Dr. Thomas Nagler
+Blatt 3                                                                              Tobias Brock
+
+ (a) Geben Sie die Funktion f + h an, indem die Funktion als Matrix dargestellt wird.
+ (b) Geben Sie die Funktionen f + f und 2f an, indem die Funktion als Matrix dargestellt
+     wird.
+ (c) Existiert die Funktion f ◦ g oder/und g ◦ f ? Falls ja, gebe die zugehörige Matrix an.
+
+
+Lösungsskizze zu Aufgabe 4
+ (a) Da g und f den selben Definitionsbereich und Wertebereich besitzen, ist f + g wohldefi-
+     niert. Für alle x ∈ R3 gilt
+                                                                   T h.2.1.3
+                      (f + g)(x) = f (x) + g(x) = Ax + Cx             =        (A + C)x
+     Damit wird die Funktion f + g beschrieben durch
+                                                                            
+                             1 2 1       2 3 4        3 5 5
+                        =  1 0 1  +  3 4 5  =  4 4 6  .
+                                                     
+
+                             0 1 −1      4 5 6        4 6 5
+
+ (b) Für alle x ∈ R3 gilt
+               (f + f )(x) = f (x) + f (x) = Ax + Ax = (A + A)x = 2Ax = 2f (x).
+     Damit wird die Funktion f +f und die Funktion 2f durch die folgende Matrix beschrieben:
+                                                                            
+                                          1 2 1       2 4 2
+                                         1 0 1  =  2 0 2 .
+                                 2A = 2                   
+
+                                          0 1 −1      0 2 −2
+
+ (c) Es gilt
+                                              f : R3 → R3 ,
+                                              g : R4 → R3 .
+     Damit die Funktion g ◦ f wohldefiniert ist, muss das Bild der Funktion f eine Teilmenge
+     des Definitionsbereichs von g sein. Aber da das Bild von f
+                       f (R3 ) = {y ∈ R3 | ∃x ∈ R3 sodass f (x) = y} ⊆ R3
+     eine Teilmenge von R3 ist und der Definitionsbereich der Funktion g aber R4 ist, existiert
+     die Verknüpfung g ◦ f nicht.
+
+     Dagegen gilt für f ◦ g, dass das Bild von g
+                      g(R4 ) = {y ∈ R3 | ∃x ∈ R4 such that f (x) = y} ⊆ R3
+     eine Teilmenge von R3 ist und damit auch eine Teilmenge des Definitionsbereichs von f .
+     Im nächsten Schritt wollen wir nun die Matrix bestimmen, die f ◦ g definiert. Es gilt für
+     alle x ∈ R4 , dass
+                                                                    T h.2.1.3
+                        f ◦ g(x) = f (g(x)) = f (Bx) = ABx             =        (AB)x
+     Damit ist die zugehörige Matrix gegeben durch
+                                                                                   
+                           1 2 1     1 0 1 0       3 2 0 3
+                    AB =  1 0 1   1 1 0 1  =  1 0 0 1  .
+                                                      
+
+                           0 1 −1    0 0 −1 1      1 1 1 0
+
+
+
+                                               –5–
+

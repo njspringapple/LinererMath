@@ -1,0 +1,74 @@
+           Exercises on projection matrices and least squares
+
+
+Problem 16.1: (4.3 #17. Introduction to Linear Algebra: Strang) Write down
+three equations for the line b = C + Dt to go through b = 7 at t = −1,
+b = 7 at t = 1, and b = 21 at t = 2. Find the least squares solution
+x̂ = (C, D ) and draw the closest line.
+            ⎡       ⎤       ⎡ ⎤
+              1 −1 � �         7
+                       C
+Solution: 1 ⎣     1 ⎦    = 7⎦.
+                            ⎣
+                       D
+              1   2� �        21 �       �� � � �
+                     9               3 2 C         35
+The solution x̂ =      comes from               =      .
+                     4               2 6 D         42
+
+Problem 16.2: (4.3 #18.) Find the projection p = Ax̂ in the previous prob­
+lem. This gives the three heights of the closest line. Show that the error
+vector is e = (2, −6, 4). Why is Pe = 0?
+
+Solution: p = Ax̂ = (5, 13, 17) gives the heights of the closest line. The
+error is b − p = (2, −6, 4). This error e has Pe = Pb − Pp = p − p = 0.
+
+Problem 16.3: (4.3 #19.) Suppose the measurements at t = −1, 1, 2 are
+the errors 2, -6, 4 in the previous problem. Compute x̂ and the closest
+line to these new measurements. Explain the answer: b = (2, −6, 4) is
+perpendicular to              so the projection is p = 0.
+
+Solution: If b = error e then b is perpendicular to the column space of A.
+Projection p = 0.
+
+Problem 16.4: (4.3 #20.) Suppose the measurements at t = −1, 1, 2 are
+b = (5, 13, 17). Compute x̂ and the closest line and e. The error is e = 0
+because this b is          .
+
+Solution: If b = Ax̂ = (5, 13, 17) then x̂ = (9, 4) and e = 0 since b is in the
+column space of A.
+
+Problem 16.5: (4.3 #21.) Which of the four subspaces contains the error
+vector e? Which contains p? Which contains x̂? What is the nullspace of
+A?
+
+                                      1
+Solution: e is in N( A T ); p is in C( A); x̂ is in C( A T ); N( A) = {0} = zero
+vector only.
+
+Problem 16.6: (4.3 #22.) Find the best line C + Dt to ﬁt b = 4, 2, −1, 0, 0 at
+times t = −2, −1, 0, 1, 2.
+                                         �     �� � �          �
+                                           5 0 C             5
+Solution: The least squares equation is               =          .
+                                           0 10 D         −10
+Solution: C = 1, D = −1. Line 1 − t. Symmetric t’s ⇒ diagonal A T A
+
+
+
+
+                                       2
+MIT OpenCourseWare
+http://ocw.mit.edu
+
+
+
+
+18.06SC Linear Algebra
+Fall 2011
+
+
+
+
+For information about citing these materials or our Terms of Use, visit: http://ocw.mit.edu/terms.
+

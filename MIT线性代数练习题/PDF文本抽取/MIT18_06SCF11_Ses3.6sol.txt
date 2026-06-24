@@ -1,0 +1,94 @@
+         Exercises on linear transformations and their matrices
+
+
+Problem 30.1: Consider the transformation T that doubles the distance
+between each point and the origin without changing the direction from
+the origin to the points. In polar coordinates this is described by
+
+                             T (r, θ ) = (2r, θ ).
+
+a) Yes or no: is T a linear transformation?
+
+b) Describe T using Cartesian (xy) coordinates. Check your work by con­
+   ﬁrming that the transformation doubles the lengths of vectors.
+
+c) If your answer to (a) was ”yes”, ﬁnd the matrix of T. If your answer to
+   (a) was ”no”, explain why the T isn’t linear.
+
+Solution:
+
+a) Yes. In terms of vectors, T (v) = 2v, so T (v1 + v2 ) = 2v1 + 2v2 =
+   T (v1 ) + T (v2 ) and T (cv) = 2cv = cT (v).
+                                   �� ��
+                                   � x � �
+b) T ( x, y) = (2x, 2y). We know ��     � = x2 + y2 and can calculate
+                                     y  �
+            � �� ��� ��  ��                     �� ��
+                x  � � 2x � �
+                          � = 4( x 2 + y2 ) = 2 � x � .
+            �                                   �   �
+            �T     �=�
+            �   y  � � 2y �                     � y �
+
+   This conﬁrms that T doubles the lengths of vectors.
+                                                                 �         �
+                                                                     2 0
+c) We can use our answer to (b) to ﬁnd that the matrix of T is                 .
+                                                                     0 2
+
+
+Problem 30.2: Describe a transformation which leaves the zero vector
+ﬁxed but which is not a linear transformation.
+
+Solution: If we limit ourselves to “simple” transformations, this is not an
+easy task!
+
+
+
+                                         1
+   One way to solve this is to ﬁnd��
+                                   a transformation
+                                        �� �       �that acts differently
+                                                        x                 x
+on different parts of the plane. If T                            =                   then
+                                                        y                |y|
+                               ��       �       �           ��       �       �
+                                    1                1                   2
+                           T                +                    =
+                                    1               −1                   0
+
+is not equal to           ��       ��           ��           ��          �       �
+                               1                         1                   2
+                      T                 +T                           =               .
+                               1                        −1                   2
+   Another approach
+           �� �� is to
+                     � use�a nonlinear
+                                   � �function
+                                         �� to� deﬁne� the transfor­
+                  x                 x                            x                        cx
+mation: if T       =                        then T c                         =                   is not equal
+              y         y2                                       y                       c2 y2
+      �� �� �       �
+         x      cx
+to cT        =    2   .
+          y           cy
+
+
+
+
+                                                    2
+MIT OpenCourseWare
+http://ocw.mit.edu
+
+
+
+
+18.06SC Linear Algebra
+Spring 2011
+
+
+
+
+For information about citing these materials or our Terms of Use, visit: http://ocw.mit.edu/terms.
+
