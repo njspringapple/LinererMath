@@ -1,0 +1,1559 @@
+2 Matrixalgebra
+Wie wir gesehen haben, hängt die Lösungsmenge eines LGS Ax = b im We-
+sentlichen von der Beschaffenheit der Matrix A ab. Es liegt deshalb nahe, sich
+tiefergehend mit solchen Matrizen auseinanderzusetzen. Insbesondere definieren
+wir nützliche Operationen auf solchen Matrizen, wie zum Beispiel die Summe A+B
+oder das Produkt AB. Dies wird es uns erheblich erleichtern, Lösungsmengen zu
+analysieren und lineare Probleme zu verstehen.
+
+
+2.1 Matrixoperationen
+2.1.1 Addition und Skalarmultiplikation
+
+ Definition 2.1.1. Für Matrizen A, B ∈ Rm×n und c ∈ R definieren wir
+
+                                a11 + b11                a1n + b1n
+                                                                    
+                                                 ···
+                   A+B =
+                                                 ..                 
+                                                  .                 
+                                                                     
+                         am1 + bm1 · · ·                amn + bmn
+
+ und
+                                                             
+                                     ca11    ···       ca1n
+                          cA = 
+                                             ..              
+                                              .              
+                                                              
+                                cam1 · · ·             camn
+
+
+Anmerkung 2.1.2. Beachte, dass die Matrizen A und B die gleichen Dimen-
+sionen haben müssen, sonst ist A + B nicht definiert.
+
+Wir definieren außerdem die Nullmatrix 0 ∈ Rm×n als die Matrix, bei der
+alle Einträge gleich 0 sind. Das folgende Resultat folgt dann direkt aus den
+Eigenschaften der Addition und Multiplikation von reellen Zahlen.
+
+
+
+
+                                            30
+                                   2 Matrixalgebra
+
+
+ Theorem 2.1.3. Seien A, B, C ∈ Rm×n und r, s ∈ R. Dann gilt:
+
+   (i) A + B = B + A
+
+  (ii) (A + B) + C = A + (B + C)
+
+ (iii) A + 0 = A
+
+  (iv) r(A + B) = rA + rB
+
+  (v) (r + s)A = rA + sA
+
+  (vi) r(sA) = (rs)A.
+
+
+Anmerkung 2.1.4. Zusammen mit den Regeln für das Matrix-Vektor-Produkt
+(Theorem 1.7.5), bekommen wir zum Beispiel Ax + Bx = (A + B)x. Die rechte
+Seite definiert also eine neue lineare Abbildung x 7→ (A + B)x, die sich ergibt,
+wenn man die Resultate von x 7→ Ax und x 7→ Bx addiert.
+
+
+2.1.2 Multiplikation
+
+ Definition 2.1.5. Sei A ∈ Rm×k und B ∈ Rk×n . Dann definieren wir das
+ Matrixprodukt AB als die Matrix
+
+                           AB = (Ab1 · · · Abn ) ∈ Rm×n ,
+
+ wobei b1 , . . . , bn die Spalten von B sind.
+
+
+Anmerkung 2.1.6. Beachte, dass das Produkt AB nur definiert ist, wenn die
+Anzahl der Spalten in A gleich der Anzahl der Zeilen in B ist.
+
+
+Anmerkung 2.1.7. Das Matrix-Vektor-Produkt Ab kann als Spezialfall der Ma-
+trixmultiplikation verstanden werden, in dem wir b als Matrix mit nur einer
+Spalte auffassen, also b ∈ Rn×1 .
+
+  Die Spalten des Matrixprodukts AB lassen sich also durch Matrix-Vektor-
+Multiplikation von A mit den Spalten von B berechnen. Die einzelnen Einträge
+bekommen wir durch die Zeilen-Spalten-Regel:
+
+                             (AB)ij = ai1 b1j + · · · ain bnj .
+
+Den Eintrag von AB in der i-ten Zeile und j-ten Spalten bekommen wir, indem
+wir alle Einträge der i-ten Zeile von A und der j-ten Spalte von B multiplizieren
+
+
+
+                                            31
+                                 2 Matrixalgebra
+
+
+und summieren. Eine zeilenweise Darstellung bekommen wir über die Zeilen
+a1 , . . . , am von A:                   
+                                     a1 B
+                                    . 
+                             AB =  ..  ,
+                                          
+                                    am B
+wobei wir die Zeilenvektoren aj hier als Matrix in R1×k verstehen.
+   Das Matrixprodukt AB lässt sich über die Verbindung zu linearen Abbildungen
+verstehen. Wir starten mit einem Vektor x ∈ Rn . Durch Multiplikation mit der
+Matrix B erhalten wir einen neuen Vektor y = Bx ∈ Rk . Diesen Vektor transfor-
+mieren wir durch Multiplikation mit A und erhalten als Endresultat ein z ∈ Rm ,
+nämlich z = Ay = A(Bx) = (AB)x. Die Rechenformel in Definition 2.1.5 lässt
+sich daraus leicht herleiten, denn
+
+          A(Bx) = A(x1 b1 + · · · + xn bn ) = x1 (Ab1 ) + · · · + xn (Abn ).
+
+Das Matrixprodukt AB beschreibt also die Verkettung von zwei linearen Abbil-
+dungen. Zum Beispiel kann A um den Faktor 0.5 entlang einer Achse stauchen
+und B einen Punkt um 45◦ rotieren. AB ist dann die Matrix der Abbildung, die
+zuerst um 45◦ rotiert und dann um den Faktor 0.5 staucht.
+  Die Rechenregeln für Multiplikation von Matrizen sind weitestgehend ähnlich
+zu denen von reellen Zahlen. Dazu definieren wir die Einheitsmatrix (auch
+Identitätsmatrix) In ∈ Rn×n als Matrix mit Diagonaleinträgen gleich 1 und allen
+anderen Einträgen gleich 0:
+
+                                1 0        ··· ··· 0
+                                                       
+
+                               0   1       0 · · · 0
+                                                      
+                                ..        ..       .. 
+                                                      
+                          In = 
+                               .             .      .  .
+                               0 · · ·     0   1 0
+                                                       
+                                                       
+                               
+                                0 ···      ··· 0 1
+
+ Theorem 2.1.8 (Rechenregeln Matrixmultiplikation). Sei A ∈ Rm×n und
+ B, C weitere Matrizen, sodass die untenstehenden Summen und Produkte wohl-
+ definiert sind.
+
+   (i) A(BC) = (AB)C,
+
+  (ii) A(B + C) = AB + AC,
+
+ (iii) (B + C)A = BA + CA,
+
+  (iv) c(AB) = (cA)B = A(cB) für jedes c ∈ R,
+
+  (v) Im A = A = AIn .
+
+
+
+
+                                          32
+                                2 Matrixalgebra
+
+
+Beweis. Die Eigenschaften lassen sich direkt nachrechnen. Zum Beispiel gilt
+
+        (i) A(BC) = A(Bc1 · · · Bcn ) = (ABc1 · · · ABcn ) = (AB)C.
+
+Beweise der weiteren Eigenschaften überlassen wir als Übungsaufgabe.
+   Im Vergleich zu Multiplikation von reellen Zahlen ist bemerkenswert, dass die
+Kommutativität AB = BA fehlt. Das kann schon deshalb nicht allgemein gelten,
+weil die Dimensionen von A und B oft nur eins der beiden Produkte zulassen.
+Ist zum Beispiel A ∈ R3×2 und B ∈ R2×4 , dann ist AB definiert, BA aber
+nicht. Doch selbst, wenn die Dimension passen (z.B. bei quadratischen Matrizen
+A, B ∈ Rn×n ), gilt im Allgemeinen nicht AB = BA. Die Reihenfolge der R2 → R2
+Transformationen aus Abschnitt 1.10.2 spielt ja auch intuitiv eine Rolle (erst
+entlang der x1 -Achse strecken und dann rotieren ist etwas anderes als zuerst zu
+rotieren und dann entlang x1 -Achse zu strecken). Um diesen Umstand zu betonen
+sagen wir zu AB manchmal, dass B von links mit A multipliziert wird, oder A
+von rechts mit B.
+
+Beispiel 2.1.9. Sei
+
+                           2 4                 1 0
+                                   !                 !
+                        A=     ,            B=      .
+                           1 1                 2 −1
+
+Dann ist
+                           10 −4                  2 4
+                                        !                !
+                      AB =       ,           BA =     .
+                            3 −1                  3 7
+
+  Es gibt noch einen weiteren Fallstrick. Ist AB = 0, können wir daraus nicht
+schließen, dass A = 0 oder B = 0.
+
+Beispiel 2.1.10.
+                            1 0                 0 0
+                                    !               !
+                         A=     ,            B=     .
+                            0 0                 0 1
+Dann ist AB = 0 aber A, B ̸= 0.
+
+Daraus folgend, bedeutet AB = AC im Allgemeinen auch nicht, dass B = C.
+Wir können also nicht einfach durch A teilen“. Wann das möglich ist, lernen wir
+                                ”
+in Kürze.
+   Indem wir eine Matrix mehrmals mit sich selbst multiplizieren können wir
+außerdem Potenzen An einer Matrix definieren. Solche Potenzen werden sich
+später noch als nützlich erweisen.
+
+ Definition 2.1.11. Die n-te Potenz einer Matrix A ist An = |A ·{z
+                                                                 · · A} .
+                                                             n mal
+
+
+
+
+                                        33
+                                  2 Matrixalgebra
+
+
+  Wir haben gesehen, dass die Verkettung zweier Matrix-Vektor-Multiplikationen
+wieder eine lineare Abbildung beschreibt. Dies ist eine wichtige Eigenschaft, die
+wir auch allgemeiner beweisen können.
+
+ Theorem 2.1.12. Seien T1 : D → E und T2 : E → W lineare Abbildungen.
+ Dann ist auch die Abbildung T := T2 ◦ T1 : D → W mit T (x) = T2 (T1 (x))
+ linear.
+
+
+Beweis. Für alle x, y ∈ D gilt
+
+                          T (x + y) = T2 (T1 (x + y))
+                      [T1 linear] = T2 (T1 (x) + T1 (y))
+                      [T2 linear] = T2 (T1 (x)) + T2 (T1 (y)))
+                                    = T (x) + T (y)
+
+und
+
+                                   T (cx) = T2 (T1 (cx))
+                            [T1 linear] = T2 (cT1 (x))
+                            [T2 linear] = cT2 (T1 (x))
+                                          = cT (x).
+
+2.1.3 Transposition
+Bei der Transposition einer Matrix werden die Rollen von Zeilen und Spalten
+getauscht.
+
+ Definition 2.1.13. Die Transposition A⊤ ∈ Rn×m eine Matrix A ∈ Rm×n ist
+ definiert durch (A⊤ )ij = Aji für alle i ∈ 1, . . . , n und j = 1, . . . m.
+
+
+Beispiel 2.1.14.
+
+                                                       1 0
+                                                                
+                       1 −2 3
+                                  !
+                 A=                     ⇒        A = −2 3 .
+                                                  ⊤       
+                       0 3 4
+                                                       3 4
+
+  Die folgenden Eigenschaften lassen sich dann leicht nachrechnen.
+
+
+
+
+                                        34
+                               2 Matrixalgebra
+
+
+ Theorem 2.1.15. Seien A und B zwei Matrizen, sodass die folgenden Opera-
+ tionen wohldefiniert sind. Dann gilt:
+
+  (i) (A⊤ )⊤ = A
+
+  (ii) (A + B)⊤ = A⊤ + B ⊤
+
+ (iii) (cA)⊤ = cA⊤ für jedes c ∈ R,
+
+ (iv) (AB)⊤ = B ⊤ A⊤ .
+
+
+
+2.2 Inverse
+2.2.1 Inverse Matrizen
+Wir sind vorher auf ein Problem beim Vereinfachen von Matrixgleichungen gesto-
+ßen: aus AB = AC folgt nicht B = C. Für reelle Zahlen A, B, C ∈ R klappt das,
+falls A ̸= 0. Dann können wir beide Seiten durch A teilen. Die Zahl A−1 = 1/A
+nennen wir dabei (multiplikative) Inverse zu A. Wir wollen solche Inversen nun
+auch für Matrizen definieren.
+
+ Definition 2.2.1. Sei A ∈ Rn×n gegeben. Wenn es eine Matrix B ∈ Rn×n
+ gibt, sodass AB = BA = In , nennen wir A invertierbar und bezeichnen B
+ als inverse Matrix zu A. Wenn es keine inverse Matrix gibt, nennen wir A
+ singulär.
+
+  Die Matrix B in der Definition schreiben wir normalerweise als A−1 und
+bezeichnen sie als die“ Inverse. Damit gelten die Regeln
+                  ”
+                          A−1 A = In ,        AA−1 = In .
+
+Diese Notation ist unbedenklich, weil eine invertierbare Matrix nur genau eine
+Inverse haben kann.
+
+Lemma 2.2.2. Sind B und C zwei inverse Matrizen zu A, dann ist B = C.
+
+Beweis. Es gilt BA = In . Multiplizieren wir beide Seiten von rechts mit C,
+erhalten wir (BA)C = IC = C. Andererseits gilt (BA)C = B(AC) = BIn = B.
+Also gilt B = C.
+  Es gelten die folgenden Regeln.
+
+
+
+
+                                         35
+                                 2 Matrixalgebra
+
+
+ Theorem 2.2.3.
+
+   (i) Ist A invertierbar, dann ist auch A−1 invertierbar und
+
+                                     (A−1 )−1 = A.
+
+  (ii) Sind A, B ∈ Rn×n invertierbar, dann ist auch AB invertierbar und
+
+                                  (AB)−1 = B −1 A−1 .
+
+ (iii) Ist A invertierbar, dann ist auch A⊤ invertierbar und
+
+                                   (A⊤ )−1 = (A−1 )⊤ .
+
+
+Beweis. Um die Eigenschaften zu Beweisen, müssen wir jeweils zeigen, dass die
+(behaupteten) Inversen die Eigenschaften in Definition 2.2.1 erfüllen.
+
+  (i) Es gilt A−1 A = I und A−1 A = I, also ist A eine Inverse zu A−1 .
+
+ (ii) Es gilt
+
+                (AB)(B −1 A−1 ) = A(BB −1 )A−1 = AIA−1 = AA−1 = I
+
+     und
+                (B −1 A−1 )(AB) = B −1 (A−1 A)B = B −1 IB = BB −1 = I.
+
+(iii) Wir verwenden Eigenschaft (iv) von Theorem 2.1.15:
+
+      (A−1 )⊤ A⊤ = (AA−1 )⊤ = I ⊤ = I,        und A⊤ (A−1 )⊤ = (A−1 A)⊤ = I.
+
+Anmerkung 2.2.4. In (i) und (iii) herrscht sogar Äquivalenz, weil wir die
+Rollen von z.B. A und A⊤ einfach vertauschen können. Auch in (ii) herrscht
+Äquivalenz, aber das beweisen wir erst in der Übung.
+
+   Ein nützlicher Blinkwinkel auf inverse Matrizen sind die zugehörigen linearen
+Transformationen. Ist T (x) = Ax und T −1 (x) = A−1 x, dann gilt T −1 (T (x)) =
+A−1 Ax und T (T −1 (x)) = x. Die Abbildung T −1 macht also die Transformation
+T rückgängig. Die meisten Transformationen in Abschnitt 1.10.2 können wir
+rückgängig machen. Zum Beispiel lässt sich eine Streckung T um den Faktor
+k ≥ 1 durch eine Stauchung T −1 um den Faktor 1/k wieder aufheben. In solchen
+Fällen nennen wir T −1 die inverse Abbildung zu T . Andere Transformationen,
+wie z.B. Projektionen lassen sich nicht rückgängig machen, also gibt es auch keine
+inverse Abbildung/Matrix dazu. Zur Existenz der Inversen Matrix lernen wir in
+Kürze mehr.
+
+
+
+
+                                         36
+                                      2 Matrixalgebra
+
+
+2.2.2 Berechnung und Elementarmatrizen
+Inverse per Hand zu berechnen ist selten nützlich und im Allgemeinen zäh. Wir
+wollen trotzdem kurz einen allgemeinen Algorithmus herleiten. Der Algorithmus
+wird uns nämlich helfen eine Verbindung zu LGS und deren Zeilenstufenform
+herzustellen.
+  Wir beginnen mit einer Verbindung der Inversen zu linearen Gleichungssyste-
+men.
+
+ Theorem 2.2.5. Wenn A ∈ Rn×n invertierbar ist, dann hat das LGS Ax = b
+ für jedes b ∈ Rn genau eine Lösung, nämlich x = A−1 b.
+
+
+Beweis. Zuerst sehen wir, dass A(A−1 b) = AA−1 b = b, also ist x = A−1 b
+tatsächlich eine Lösung des LGS. Außerdem muss für jede Lösung x gelten, dass
+
+               Ax = b      ⇒        A−1 Ax = A−1 b        ⇒   x = A−1 b.
+
+Also ist die Lösung eindeutig.
+   Wir erklären zunächst den Algorithmus, ein formaler Beweis der einzelnen
+Schritte folgt später. Die Spalten der inversen Matrix sind (A−1 e1 · · · A−1 en )
+für Einheitsvektoren e1 , . . . , en . Diesen Vektor x = A−1 ej können wir auch als
+Lösung des LGS Ax = ej oder (A | ej ) schreiben. Lösen wir dieses LGS, haben
+wir also die j-te Spalte der Inverse gefunden. Um das LGS zu lösen, führen wir es
+in die reduzierte Zeilenstufenform über. Die Operationen sind dabei gleich, egal
+welchen Einheitsvektor ej wir gerade betrachten. Deshalb reicht es eine große
+Koeffizientenmatrix (A | e1 · · · en ) = (A | In ) aufzustellen und zu reduzieren.
+Weil es nur eine Lösung gibt, muss die linke Seite des reduzierten LGS die
+Identitätsmatrix In sein. In reduzierter Form haben wir dann also (In | A−1 ).
+   Für den Spezialfall A ∈ R2×2 gibt es eine einfache Formel. Ist
+                                                 !
+                                            a b
+                                         A=
+                                            c d
+
+dann ist
+                                         1
+                                                          !
+                                              d −b
+                            A  −1
+                                    =              .
+                                      ad − bc −c a
+
+Beispiel 2.2.6. Für A ∈ R2×2 können wir die Formel zur Illustration des allge-
+meinen Algorithmus kurz überprüfen. Sei
+
+                                         1 −2
+                                                  !
+                                      A=      ,
+                                         3 4
+
+dann ergibt die Formel
+                                            1 4 2
+                                                      !
+                                  A −1
+                                         =         .
+                                           10 −3 1
+
+
+                                            37
+                                  2 Matrixalgebra
+
+
+Wir finden diese Matrix nun durch Reduktion (A | I) ∼ (I | A−1 ). Es gilt
+
+                  1 −2 1 0                           1 −2  1 0
+                              !                                  !
+                                  (II)−3(I)
+                                      ∼
+                  3  4 0 1                           0 10 −3 1
+                                                1 −2     1    0
+                                                                     !
+                                       1
+                                  (II) 10
+                                    ∼
+                                                0  1 −3/10 1/10
+                                                     1 0  4/10 2/10
+                                                                     !
+                                  (I)+2·(II)
+                                      ∼                             .
+                                                     0 1 −3/10 1/10
+
+  Um eine Inverse zu berechnen, führen wir eine Reihe von elementaren Zeilen-
+operationen durch, bis die Matrix in reduzierter Zeilenstufenform ist. Jede dieser
+Operationen kann durch Multiplikation mit sogenannten Elementarmatrizen
+dargestellt werden.
+
+ Definition 2.2.7. Eine Matrix E, die aus einer einzelnen elementare Zei-
+ lenoperationen angewandt auf die Identitätsmatrix entsteht, nennen wir Ele-
+ mentarmatrix.
+
+
+Beispiel 2.2.8. Die Elementarmatrix
+
+                                     1 0
+                                                       !
+                                  E=      ,
+                                     0 −2
+
+entsteht aus I2 durch Multiplikation der zweiten Zeile mit −2. Multiplizieren wir
+eine beliebige Matrix A von links mit E, erhalten wir
+                                                           !
+                                  a11   a12
+                            EA =             .
+                                 −2a21 −2a22
+
+Die zweite Zeile von A wurde mit −2 multipliziert.
+
+
+Beispiel 2.2.9. Die Elementarmatrix
+
+                                     0 1 0
+                                                      
+
+                                    1 0 0
+                                  E=     
+
+                                     0 0 1
+
+entsteht aus I3 durch Vertauschen der ersten beiden Zeilen. Multiplizieren wir
+eine beliebige Matrix A von links mit E, erhalten wir
+                                                          
+                                  a21 a22 a23
+                            EA = a11 a12 a13  .
+                                             
+
+                                  a31 a32 a33
+
+Die ersten beiden Zeilen von A wurden vertauscht.
+
+
+                                                38
+                                    2 Matrixalgebra
+
+
+Beispiel 2.2.10. Die Elementarmatrix
+
+                                         1 0 0
+                                                    
+
+                                    E = 0 1 0
+                                             
+
+                                         3 0 1
+
+entsteht aus I3 , indem wir 3-mal die erste Zeile zur dritten addieren. Multiplizieren
+wir eine beliebige Matrix A von links mit E, erhalten wir
+                                                                    
+                            a11        a12        a13
+                   EA =  a21          a22        a23     .
+                                                         
+
+                         3a11 + a31 3a12 + a32 3a13 + a33
+
+Die erste Zeile von A wurde 3-mal zur dritten Zeile addiert.
+
+  Für jede elementare Zeilenoperation gibt es eine zweite, die die erste wieder
+Rückgängig macht. Zum Beispiel können wir die Multiplikation der zweiten Zeile
+mit c ̸= 0 durch Multiplikation der Zeile mit 1/c rückgängig machen. Es gilt also
+
+             1 0        1  0                       1  0         1 0
+                    !             !                         !            !
+                               = I,                                  = I2 .
+             0 −2       0 −1/2                     0 −1/2       0 −2
+
+Daraus folgt, dass jede Elementarmatrix E eine Inverse E −1 besitzt und, dass die
+Inverse selbst eine Elementarmatrix ist. Im Algorithmus zur Berechnung von A−1
+multiplizieren wir also beide Seiten des Systems (A | In ) mit Elementarmatrizen
+E1 , . . . , Ek , sodass
+
+                 (A | In ) ∼ (Ek · · · E1 A | Ek · · · E1 I) ∼ (In | A−1 ).
+
+Wir erhalten das folgende Resultat als Rechtfertigung des Algorithmus.
+
+ Theorem 2.2.11 (Äquivalenzen). Sei A ∈ Rn×n . Dann sind die folgenden
+ Aussagen äquivalent:
+
+ (a) A ist invertierbar.
+
+ (b) Die reduzierte Zeilenstufenform von A ist In .
+
+ (c) A kann als Produkt von Elementarmatrizen dargestellt werden.
+
+
+Beweis (optional). Wir zeigen die Äquivalenzen durch den Ringschluss (a) ⇒
+(b) ⇒ (c) ⇒ (a).
+
+   • (a) ⇒ (b): Nach Theorem 2.2.5 hat das LGS Ax = b eine Lösung für
+     jedes b. Wegen Theorem 1.7.6 hat A dann einen Pivot in jeder Zeile. Weil
+     A quadratisch ist, gibt es auch in jeder Spalte einen Pivot, also ist die
+     reduzierte Zeilenstufenform In .
+
+
+
+                                              39
+                                   2 Matrixalgebra
+
+
+  • (b) ⇒ (c): Angenommen die reduzierte Zeilenstufenform von A ist In . Dann
+    gibt es Elementarmatrizen E1 , . . . , Ek , sodass
+
+                                      Ek · · · E1 A = In .
+
+     Weil jede Elementarmatrix Ej eine Elementarmatrix Ej−1 als Inverse hat,
+     erhalten wir durch Linksmultiplikation der Gleichung mit diesen
+
+                            A = E1−1 · · · Ek−1 In = E1−1 · · · Ek−1 .
+
+  • (c) ⇒ (a): Wenn A das Produkt von Elementarmatrizen ist, ist es insbeson-
+    dere das Produkt von invertierbaren Matrizen und damit selbst invertierbar
+    (Theorem 2.2.3).
+
+2.2.3 Äquivalenzen und Querverbindungen
+Das Schöne an der linearen Algebra ist, dass alles Konzepte miteinander in Verbin-
+dung stehen. In Theorem 2.2.11 haben wir die Invertierbarkeit einer Matrix durch
+Äquivalenzen mit der Zeilenstufenform und Elementarmatrizen in Verbindung
+gebracht. Wir werden das Resultat von nun an Schritt für Schritt mit weiteren
+bereits erlernten Konzepten erweitern. Im Verlauf des Semesters werden wir noch
+viele weitere Äquivalenzen zu neuen Konzepten hinzufügen.
+
+ Theorem 2.2.12 (Äquivalenzen). Sei A ∈ Rn×n . Dann sind die folgenden
+ Aussagen äquivalent:
+
+ (a) A ist invertierbar.
+
+ (b) A⊤ ist invertierbar.
+
+ (c) Die reduzierte Zeilenstufenform von A ist In .
+
+ (d) Das LGS Ax = 0 hat nur die triviale Lösung.
+
+
+Beweis. Die Äquivalenz (a) ⇔ (b) folgt aus Theorem 2.2.3 (iii) und (a) ⇔ (c)
+aus Theorem 2.2.11. Äquivalenz der ersten drei Aussagen zu (d) zeigen wir nun
+durch den Ringschluss (a) ⇒ (d) ⇒ (c). Die Implikation (a) ⇒ (d) folgt direkt
+aus Theorem 2.2.5. Wir zeigen nun (d) ⇒ (c). Hat das System (A | 0) nur die
+triviale Lösung, so gibt es laut Theorem 1.3.1 keine freien Variablen. Also hat
+A einen Pivot in jeder Spalte. Weil A quadratisch ist, gibt es damit auch einen
+Pivot in jeder Zeile. Die reduzierte Zeilenstufenform ist also In .
+   Die Verknüpfung der verschiedenen Konzepte ist ein mächtiges Werkzeug. Um
+beispielsweise etwas über inverse Matrizen zu lernen, können wir genauso gut die
+Lösungsmenge zu Ax = 0 charakterisieren. Das führt manchmal zu unverhofften
+Erkenntnissen. Um zu zeigen, dass B eine Inverse zu A ist, mussten wir bisher
+
+
+                                            40
+                                   2 Matrixalgebra
+
+
+die beiden Eigenschaften BA = In und AB = In überprüfen. Tatsächlich reicht
+eine der beiden Eigenschaften bereits aus.
+
+ Theorem 2.2.13. Eine Matrix A ∈ Rn×n ist invertierbar, wenn eine Matrix
+ B gibt, die BA = In oder AB = In erfüllt. Es gilt dann B = A−1 .
+
+
+Beweis.
+
+  • Fall BA = In : Wir zeigen zuerst, dass A invertierbar ist. Nach Theo-
+    rem 2.2.12 (d) reicht es zu zeigen, dass Ax = 0 nur die triviale Lösung hat.
+    Sei x eine beliebige Lösung. Multiplizieren wir die Gleichung Ax = 0 von
+    links mit B, erhalten wir
+
+             Ax = 0        ⇒   BAx = B0       ⇒      In x = 0    ⇒    x = 0.
+
+     Also gibt es nur die triviale Lösung und A ist invertierbar. Ist A−1 die
+     Inverse, erhalten wir
+
+                 BA = In       ⇒     BAA−1 = In A−1      ⇒      B = A−1 ,
+
+     wie behauptet.
+
+  • Fall AB = In : Aus dem ersten Fall folgt, dass B invertierbar ist mit A = B −1 .
+    Laut Theorem 2.2.3 ist dann auch A invertierbar mit A−1 = B.
+
+  In Theorem 2.2.12 haben wir Inverse mit homogenen LGS verknüpft. Als
+Nächstes stellen wir eine Verbindung zu inhomogenen LGS her.
+
+ Theorem 2.2.14 (Äquivalenzen). Sei A ∈ Rn×n . Dann sind die folgenden
+ Aussagen äquivalent:
+
+ (a) A ist invertierbar.
+
+ (b) A⊤ ist invertierbar.
+
+ (c) Die reduzierte Zeilenstufenform von A ist In .
+
+ (d) Das LGS Ax = 0 hat nur die triviale Lösung.
+
+ (e) Das LGS Ax = b hat genau eine Lösung für jedes b ∈ Rn .
+
+ (f) Das LGS Ax = b hat eine Lösung für jedes b ∈ Rn .
+
+
+Beweis. Die Äquivalenzen der ersten vier sind bereits gezeigt. Wir zeigen den
+Ringschluss (a) ⇒ (e) ⇒ (f ) ⇒ (c), um Äquivalenz aller Aussagen herzustellen.
+Den Teil (a) ⇒ (e) haben wir bereits in Theorem 2.2.5 gezeigt und (f ) folgt
+
+
+                                         41
+                                  2 Matrixalgebra
+
+
+trivialerweise aus (e). Aus Theorem 1.7.6 wissen wir dann, dass A einen Pivot in
+jeder Zeile haben muss. Weil A quadratisch ist, ist die reduzierte Zeilenstufenform
+deshalb In .
+ Die letzte Erweiterung für den Moment ist jetzt so gut wie trivial. Sie stellt
+Querverbindungen zu Linearkombinationen und Unabhängigkeit her.
+
+ Theorem 2.2.15 (Äquivalenzen). Sei A ∈ Rn×n . Dann sind die folgenden
+ Aussagen äquivalent:
+
+ (a) A ist invertierbar.
+
+ (b) A⊤ ist invertierbar.
+
+ (c) Die reduzierte Zeilenstufenform von A ist In .
+
+ (d) Das LGS Ax = 0 hat nur die triviale Lösung.
+
+ (e) Das LGS Ax = b hat genau eine Lösung für jedes b ∈ Rn .
+
+ (f) Das LGS Ax = b hat eine Lösung für jedes b ∈ Rn .
+
+ (g) Die Spalten von A sind linear unabhängig.
+
+ (h) Die Zeilen von A sind linear unabhängig.
+
+ (i) Die Spalten von A spannen Rn .
+
+ (j) Die Zeilen von A spannen Rn .
+
+
+Beweis. Die Äquivalenzen zwischen (a)–(f ) haben wir bereits gezeigt. Die Äquivalenz
+(d) ⇔ (g) folgt direkt aus der Definition von linearer Unabhängigkeit und
+(f ) ⇔ (i) aus Theorem 1.7.6. Wegen (b) folgen auch die Äquivalenzen zu (h) und
+(j).
+
+
+2.3 Anwendungen
+2.3.1 Interpolation
+Nehmen wir an, wir haben n Datenpunkte (yj , xj ), j = 1, . . . , n. Angenommen,
+diese Punkte sind dadurch entstanden, dass wir eine stetige Funktion f an endlich
+vielen Stellen x1 , . . . , xn ∈ R messen. Hier gilt dann yj = f (xj ). Um die Funktion
+f zu approximieren, können wir die Punkte (yj , xj ) interpolieren: wir finden eine
+Funktion fn , sodass yj = fn (xj ) für alle j = 1, . . . , n.
+   In Abbildung 2.1 sehen wir links fünf beobachtete Punkte. Rechts sehen wir
+dann eine Funktion, die diese Punkte interpoliert. Eine solche Funktion fn ist
+nicht eindeutig — außer an den Punkten x1 , . . . , xn wissen wir nichts. Um eine
+
+
+
+                                          42
+                                         2 Matrixalgebra
+
+        10                                                 10
+
+
+
+
+         5                                                  5
+
+
+
+
+    y                                                  y
+         0                                                  0
+
+
+
+
+        −5                                                 −5
+
+
+
+
+              −2           0             2                                −2                   0             2
+                           x                                                                   x
+
+
+
+    Abbildung 2.1: Beobachtete Punkte (links) und das interpolierende Polynom
+                   (rechts).
+
+
+    eindeutige Interpolationsfunktion fn zu bekommen, müssen wir den Suchraum
+    einschränken. Zum Beispiel gibt es für separierte Inputs (xi ̸= xj für i ̸= j) genau
+    ein Polynom (n − 1)-ten Grades fn , sodass
+
+             yj = fn (xj ) := c1 + c2 x1j + · · · + cn xn−1
+                                                        j   ,                  für alle j = 1, . . . , n.
+
+    Die Koeffizienten c = (c1 , . . . , cn ) des Polynoms lassen sich durch das LGS
+
+                           1 x1 x21 · · ·       xn−1
+                                                                                      
+                                                 1                 c1      y1
+                                     ..                         . 
+                                                                  .  =  .. 
+                                                                           
+                          
+                                      .                         .      . 
+                            1 xn x2n · · ·      xn−1
+                                                 n                   cn               yn
+
+    bestimmen.
+        Im Beispiel in Abbildung 2.1 haben wir fünf Beobachtungen, brauchen also ein
+    Polynom vierten Grades. In R können wir so ein System leicht aufstellen und
+    lösen:
+
+1 # Beobachtete Daten
+2 x <- seq ( -2 , 2 , l = 5)
+3 y <- 10 * sin (1 + x )
+4
+5   # Matrix mit Potenzen x _ j ˆ( k - 1)
+6   A <- sapply (1:5 , function ( k ) x ˆ( k - 1) )
+7
+8  # Loese Ac = y
+9  solve (A , y )
+10 # > [1]   8.4147098         5.2431570 -4.1645916 -0.6966699                                     0.2963688
+
+    Die letzte Zeile gibt uns den Lösungsvektor c = (c1 , . . . , cn ) aus. Wir können
+    jetzt die interpolierende Funktion fn auch zwischen den beobachteten Punkten
+    auswerten. Diese Funktion ist rechts in Abbildung 2.1 zu sehen.
+       Ähnliche LGS lassen sich immer aufstellen, wenn fn als Linearkombination von
+
+
+
+
+                                                  43
+                                      2 Matrixalgebra
+
+
+Basis-Funktionen φ1 , . . . , φn erzeugt wird:
+
+                   fn (x) = c1 φ1 (x) + · · · + cn φn (x),      c1 , . . . , cn ∈ R.
+
+Im obigen Beispiel ist φj (x) = xj−1 . Im Verlauf eures Studiums werdet ihr noch
+andere geeignete Basissysteme kennenlernen.
+
+2.3.2 Lineare Modelle
+Ein ähnliches Problem entsteht in linearen Modellen. Nehmen wir an, Daten
+(y1 , x1 ), . . . , (yn , xn ) ∈ R1+p folgen dem Modell
+
+                                 yi = x⊤
+                                       i β,       i = 1, . . . , n,
+
+für ein β ∈ Rp , das wir aber nicht kennen. Die Daten (yi , xi ) ∈ R × Rp liegen
+dann alle auf einer p-dimensionalen Ebene, die durch den Vektor β charakterisiert
+wird. Diese Ebene können wir als span{(βj , ej ), j = 1, . . . , p} darstellen, wobei
+ej die Einheitsvektoren des Rp sind.1
+   Schreiben wir nun alle Gleichungen zusammen als das LGS
+
+                                                            x⊤
+                                                                     
+                                                               1
+                                                            . 
+                             Xβ = y         mit        X =  .. 
+                                                           
+                                                                 .
+                                                                 x⊤
+                                                                  n
+
+Jetzt können wir den passenden Parametervektor β finden, in dem wir das
+LGS lösen. Ist n > p, dann haben wir mehr Zeilen als Spalten. Also gibt es in
+der Zeilenstufenform viele Nullzeilen. Wenn die Daten wirklich aus dem Modell
+erzeugt wurden, dann gibt es natürlich eine Lösung. Es hätten aber auch p
+Datenpunkte gereicht, um die Lösung eindeutig zu bestimmen.
+  In Daten aus der realen Welt ist ein Modell wie yi = x⊤  i β niemals exakt. Hier
+kommt dann die Statistik ins Spiel. In der Statistik liest sich ein lineares Modell
+
+                                        yi = x⊤
+                                              i β + ϵi ,
+
+wobei ϵ1 , . . . , ϵn unabhängige Zufallsfehler sind. Beispielsweise könnten wir für ϵi
+eine Normalverteilung annehmen. Stellen wir jetzt das LGS Xβ = y auf, haben
+wir ein Problem. Die Daten liegen nicht mehr auf einer Ebene und damit ist das
+LGS nicht mehr lösbar. Stattdessen sucht man einen Parameter β,          b für den die
+Diskrepanz y − X βb so klein wie möglich ist. Auch das kann man mit linearer
+Algebra lösen und erhält die Formel βb = (X ⊤ X)−1 X ⊤ y. Die dazu notwendigen
+Konzepte Norm und Projektion werden wir später noch besprechen.
+
+
+
+
+ 1
+     Anders gesagt liegen alle (yi , xi ) ∈ R1+p auf der p-dimensionalen Ebene orthogonal zum
+      Vektor (−1, β) ∈ R1+p . Was Orthogonalität genau bedeutet, lernen wir später.
+
+
+
+                                               44
+                                              2 Matrixalgebra
+
+
+2.3.3 Markovketten
+In sogenannten dynamischen Systemen beschreiben Vektoren x(t) ∈ Rn den
+Zustand des Systems zum Zeitpunkt t. Der Übergang von einem zum nächsten
+Zustand wird oft durch eine Matrixtransformation beschrieben: x(t) = Ax(t−1) .
+  Markovketten sind dynamische Systeme, in denen der Zustandsvektor aus
+Wahrscheinlichkeiten besteht. Sei zum Beispiel V (t) das Ereignis, dass jemand in
+die t-te Vorlesung geht. Wir modellieren Vektoren
+
+                                                         P(V (t)
+                                                                   !
+                                             p   (t)
+                                                       =    (t)  .
+                                                         P(V )
+
+Die erste Komponente ist die Wahrscheinlichkeit, dass die Person zur Vorlesung
+geht. Die zweite Komponente ist die Gegenwahrscheinlichkeit, also muss gelten
+ (t)   (t)
+p1 +p2 = 1. p(1) sind die Wahrscheinlichkeiten für die erste Vorlesung. Allgemein
+gilt auch
+                                                                                  (t−1)          (t−1)
+            P(V (t) ) = P(V (t) | V (t−1) )P(V (t−1) ) + P(V (t) | V                      )P(V           )
+                  (t)             (t)                                  (t)        (t−1)          (t−1)
+            P(V         ) = P(V         | V (t−1) )P(V (t−1) ) + P(V         |V           )P(V           ).
+
+Das können wir auch kompakt als
+
+                                                 p(t) = M p(t−1)
+
+schreiben, wobei die Matrix M die Übergangswahrscheinlichkeiten enthält:
+                                                                                    
+                                                                             (t−1)
+                               P(V (t) | V (t−1) ) P(V (t) | V       )
+                           M =    (t)                 (t)     (t−1)    .
+                               P(V | V     (t−1)
+                                                 ) P(V | V           )
+
+In den Spalten stehen jeweils Gegenwahrscheinlichkeiten, also muss jede Spalten-
+summe 1 sein.2
+  Nehmen wir als Beispiel die Matrix
+
+                                                       0.9 0.8
+                                                              !
+                                                               .
+                                                       0.1 0.2
+
+Wenn man schon mal da ist, dann ist die Wahrscheinlichkeit das nächste Mal
+wiederzukommen 90%. Manchmal kommt ja was dazwischen. Wenn man mal
+nicht kommt, ist die Versuchung groß, noch eine Vorlesung auszusetzen. Die
+Wahrscheinlichkeit, doch zu kommen ist 80%. Die zweite Zeile enthält die ent-
+sprechenden Gegenwahrscheinlichkeiten.
+  Gegeben p(1) können wir jetzt rekursiv Wahrscheinlichkeiten für die t-te Vorle-
+sung berechnen:
+
+                          p(t) = M p(t−1) = M 2 p(t−2) = · · · = M t−1 p(1) .
+ 2
+     Solche Matrizen werden stochastisch genannt.
+
+
+
+                                                         45
+                                          2 Matrixalgebra
+
+
+    Nehmen wir an, die erste Vorlesung wird sicher besucht: p(1) = (1, 0). Daraus
+    können wir die anderen p(t) einfach in R berechnen:
+
+1  M <- cbind ( c (0.9 , 0.1) , c (0.8 , 0.2) )
+2  p1 <- c (1 , 0)
+ 3 M % * % p1            # 2 te Vorlesung
+ 4 #>         [ ,1]
+ 5 # > [1 ,]    0.9
+ 6 # > [2 ,]    0.1
+ 7 library ( expm )
+ 8 ( M % ˆ % 5) % * % p1 # 6 te Vorlesung
+ 9 #>             [ ,1]
+10 # > [1 ,] 0.88889
+
+11 # > [2 ,] 0.11111
+
+
+
+    Für jemanden, der nicht in der ersten Vorlesung war (p(1) = (0, 1) bekommen
+    wir:
+
+1 p1 <- c (0 , 1)
+2 M % * % p1            # 2 te Vorlesung
+3 #>         [ ,1]
+4 # > [1 ,]    0.8
+5 # > [2 ,]    0.2
+6 ( M % ˆ % 5) % * % p1 # 6 te Vorlesung
+7 #>             [ ,1]
+8 # > [1 ,] 0.88888
+9 # > [2 ,] 0.11112
+
+
+
+    Für spätere Vorlesungen nähern sich die Wahrscheinlichkeiten in beiden Fällen
+    an. Tatsächlich kann man zeigen, dass es einen Vektor q gibt mit
+
+                                           lim M n p = q,
+                                           n→∞
+
+    egal mit welchem Wahrscheinlichkeitsvektor p wir starten.3 Der ursprüngliche
+    Zustand verliert also an Relevanz. Genauso gilt
+
+                                lim M n p = M lim M n−1 p = M q.
+                                n→∞              n→∞
+
+    Vergleichen wir die beiden Grenzwerte, erhalten wir
+
+                                              M q = q.
+
+    Beim Zustand q ist das System also im Gleichgewicht: er verändert sich nicht
+    durch Transformation mit M . Der Gleichgewichtszustand ist eine wichtige Cha-
+    rakteristik des dynamischen Systems (und damit der Matrix M ). Auch in vielen
+    anderen Anwendungen der linearen Algebra sind Vektoren mit Ax = λx für
+    ein λ ∈ R interessant. Solche Vektoren werden Eigenvektoren genannt und ein
+    Kernstück der linearen Algebra. Wir werden uns später noch intensiver damit
+
+     3
+         Konvergenz bezieht sich auf die einzelnen Komponenten des Vektors vn = M n p.
+
+
+
+                                                  46
+                                2 Matrixalgebra
+
+
+beschäftigen.
+
+
+2.4 Determinanten
+2.4.1 Intuition und Interpretation
+Wir erinnern uns kurz an die Formel für die Inverse einer (2 × 2)-Matrix:
+
+                                                   1
+                           !                                  !
+                    a b                                 d −b
+                 A=             ⇒    A   −1
+                                              =              .
+                    c d                         ad − bc −c a
+Aus der Formel sehen wir, dass die Inverse genau dann existiert, wenn ad − bc ̸=
+0. Die Zahl ad − bc wird Determinante der Matrix A genannt und als det(A)
+geschrieben.
+   Die Determinante hat auch eine schöne Interpretation. Betrachten wir als Bei-
+spiel die Matrizen der Transformationen in Abschnitt 1.10.2 vor Augen. Jede
+Matrix beschreibt eine lineare Transformation, die ein Häuschen in ein anderes
+Objekt überführt. Das ursprüngliche Haus umrandet eine Fläche von 1.25 (0.25
+für’s Dach). Die Fläche nach einer Transformation mit A ist dann 1.25| det(A)|.
+Die Ausgangsfläche wird also um den Faktor | det(A)| verändert. Die Betragsstri-
+che sind nötig, weil die Determinante noch mehr Information enthält. Wenn sich
+die Orientierung des Objekts ändert (z.B. bei einer Spiegelung), dann wird sie
+negativ.
+   Hier ein paar konkrete Beispiele:
+
+   • Eine Streckung um den Faktor 2 entlang einer Achse, verdoppelt die Fläche.
+     Wir rechnen nach:
+                                2 0
+                                      !
+                            det     = 2 · 1 − 0 · 0 = 2.
+                                0 1
+
+   • Eine Spiegelung verändert nicht das Volumen, aber die Orientierung. Es gilt
+     dann det(A) = −1. Zum Beispiel für eine Spiegelung entlang der Geraden
+     x1 = x2 erhalten wir
+
+                               0 1
+                                     !
+                           det     = 0 · 0 − 1 · 1 = −1.
+                               1 0
+
+   • Eine Scherung ändert weder Fläche noch Orientierung, also muss det(A) = 1
+     gelten. Tatsächlich:
+
+                                1 k
+                                      !
+                            det     = 1 · 1 − k · 0 = 1.
+                                0 1
+
+   • Bei einer Projektion kollabiert das Haus zu einer Linie. Entsprechend ist
+
+
+
+
+                                         47
+                                   2 Matrixalgebra
+
+
+      die Fläche nach der Transformation gleich 0, also muss det(A) = 0 sein:
+
+                                      1 0
+                                           !
+                                  det     = 1 · 0 − 0 · 0.
+                                      0 0
+
+   Die Determinante fasst also gewissermaßen zusammen, was die Transforma-
+tion x 7→ Ax tut. Zumindest wissen wir, wie sie die Fläche und Orientierung
+von Objekten beeinflusst, und außerdem, ob wir sie wieder rückgängig machen
+können. Dass wir das alles mit nur einer einfachen Zahl schaffen, ist durchaus
+bemerkenswert.
+   Allgemein können wir für Matrizen A ∈ Rn×n eine Zahl det(A) definieren, die
+beschreibt, um wie viel sich das (n-dimensionale) Volumen eines Objekts durch
+die Transformation ändert. Falls sich dabei auch die Orientierung ändert, soll die
+Zahl negativ sein. Die Berechnung von det(A) ist im Allgemeinen leider weder
+so einfach wie für n = 2, noch besonders intuitiv. Ich werde gleich ohne weitere
+Erklärung eine rekursive Berechnungsmethode dafür angeben. Auch wenn der
+Zusammenhang zur Formel für n > 2 nicht mehr einfach zu erklären ist, sollte
+man die Interpretation der Determinante aber nicht vergessen.
+
+2.4.2 Berechnung über Kofaktoren
+Mal angenommen, wir können bereits die Determinante einer (n − 1) × (n − 1)-
+Matrix berechnen. Sei nun A ∈ Rn×n . Dann gilt
+
+        det(A) = a11 det(A11 ) − a12 det(A12 ) + · · · + (−1)n+1 a1n det(A1n ),
+
+wobei die Matrizen A1j ∈ R(n−1)×(n−1) dadurch entstehen, dass wir aus A die
+erste Zeile und j-te Spalte streichen. Die Koeffizienten a1j , j = 1, . . . , n sind die
+Einträge der ersten Zeile von A.
+
+Beispiel 2.4.1. Für
+                                      3 −2 1
+                                                    
+
+                                    −5 0
+                                  A=      1
+                                      1 2 −3
+ist
+                               3 −2 1
+                                              
+                                         0 1
+                                             !
+                       A11 = −5 0  1 =       ,
+                                     
+                                         2 −3
+                               1 2 −3
+                               3 −2 1
+                                              
+                                         −5 1
+                                              !
+                       A12 = −5 0
+                             
+                                    1 =
+                                      
+                                                ,
+                                          1 −3
+                               1 2 −3
+                               3 −2 1
+                                              
+                                         −5 0
+                                              !
+                       A13 = −5 0  1 =        .
+                                     
+                                          1 2
+                               1 2 −3
+
+
+
+                                          48
+                                      2 Matrixalgebra
+
+
+Also gilt
+
+               det(A) = 3 · det(A11 ) − (−2) · det(A12 ) + 1 · det(A13 )
+                      = 3 · (−2) − (−2) · 14 + 1 · (−10)
+                      = −6 + 28 − 10 = 12.
+
+Die Determinante einer (2 × 2)-Matrix wissen wir bereits zu berechnen. Mit der
+Formel oben können wir dann auch die Determinante einer (3 × 3)-Matrix aus
+drei (2 × 2)-Determinanten berechnen. Die Determinante einer (4 × 4)-Matrix
+aus vier (3 × 3)-Determinanten, und so weiter. Da die Koeffizienten a1j aus der
+ersten Zeile von A stammen, sagen wir, dass wir die Determinante entlang der
+ersten Zeile entwickelt haben.
+  Die Formel oben lässt sich auf zwei Arten verallgemeinern. Erstens können wir
+bezüglich beliebiger Zeilen entwickeln.
+
+ Kofaktorenentwicklung entlang Zeilen. Sei A ∈ Rn×n . Dann gilt für jedes
+ i = 1, . . . , n
+                        n
+             det(A) =       (−1)i+j aij det(Aij )
+                        X
+
+                        j=1
+
+                    = (−1)i+1 ai1 det(Ai1 ) + · · · + (−1)i+n ain det(Ain ),
+
+ wobei die Matrizen Aij ∈ R(n−1)×(n−1) dadurch entstehen, dass wir aus A die
+ i-te Zeile und j-te Spalte streichen.
+
+ Die Zahlen cij = (−1)i+j det(Aij ) werden dabei (i, j)-Kofaktoren genannt.
+Wir sehen, dass die Vorzeichen (−1)i+j immer nach folgendem Muster wechseln:
+
+                                    +         +
+                                                           
+                                         −         −    ...
+                                  −     +    −    +    . . .
+                                                            
+                                  +          +
+                                                            
+                                        −         −    . . .
+                                                             
+                                  −
+                                  
+                                         +    −    +    . . .
+                                                             
+                                  
+                                    ..   ..   ..   ..       
+                                     .    .    .    .
+
+Beispiel 2.4.2. Für
+                                        3 −2 1
+                                                           
+
+                                  A = −5 0  1
+                                      
+                                               
+                                        1 2 −3
+ist
+                  −2 1                      3 1                        3 −2
+                              !                         !                      !
+            A21 =       ,             A22 =      ,               A23 =      .
+                   2 −3                     1 −3                       1 2
+
+
+
+
+                                              49
+                                         2 Matrixalgebra
+
+
+Also gilt
+
+ det(A) = −(−5) · det(A21 ) + 0 · det(A22 ) − 1 · det(A23 ) = 5 · 4 + 0 − 1 · 8 = 12.
+
+Am letzten Beispiel sehen wir auch, dass es günstig ist, nach Zeilen zu entwickeln,
+die möglich viele Nullen enthalten. Das erspart uns die Berechnung möglichst
+vieler Unter-Determinanten.
+  Zweitens können wir die Determinante auch entlang Spalten entwickeln.
+
+ Kofaktorenentwicklung entlang Spalten. Sei A ∈ Rn×n . Dann gilt für
+ jedes j = 1, . . . , n
+                         n
+              det(A) =         (−1)i+j aij det(Aij )
+                         X
+
+                         i=1
+                     = (−1)1+j a1j det(A1j ) + · · · + (−1)n+j anj det(Anj ),
+
+ wobei die Matrizen Aij ∈ R(n−1)×(n−1) dadurch entstehen, dass wir aus A die
+ i-te Zeile und j-te Spalte streichen.
+
+      Auch hier folgen die Vorzeichen dem Muster
+
+                                       +          +
+                                                                
+                                             −         −    ...
+                                     −      +    −    +    . . .
+                                                                
+                                     +           +
+                                                                
+                                            −         −    . . .
+                                                                 .
+                                     −
+                                     
+                                             +    −    +    . . .
+                                                                 
+                                     
+                                       ..    ..   ..   ..        
+                                        .     .    .    .
+
+Beispiel 2.4.3. Für
+                                           3 −2 1
+                                                                
+
+                                     A = −5 0
+                                         
+                                                1
+                                           1 2 −3
+ist
+                  −5 1                            3 1                       3 1
+                                !                            !                  !
+            A12 =       ,                   A22 =      ,              A32 =      .
+                   1 −3                           1 −3                      −5 1
+
+Also gilt
+
+det(A) = −(−2) · det(A12 ) + 0 · det(A22 ) − 2 · det(A32 ) = 2 · 14 + 0 − 2 · 8 = 12.
+
+
+Anmerkung 2.4.4. Übrigens: Die Formel der (2 × 2)-Determinante ist nichts
+anderes als eine Kofaktorenentwicklung. Eine (1 × 1)-Matrix ist ein Skalar a ∈ R.
+Multiplizieren wir ein Intervall mit einer Zahl a, dann verändert sich die Länge
+um den Faktor |a|. Ist a < 0, dann dreht sich außerdem die Ordnung/Orientierung
+
+
+
+
+                                                  50
+                                 2 Matrixalgebra
+
+
+der Elemente. Also ist det(a) = a. Entwickeln wir eine Matrix
+                                                    !
+                                         a b
+                                      A=
+                                         c d
+
+zum Beispiel nach der ersten Zeile, erhalten wir
+
+        det(A) = a det(A11 ) − b det(A12 ) = a det(d) − b det(c) = ad − bc.
+
+  Für manche Matrizen A ∈ Rn×n ist die Berechnung von Determinanten ganz
+einfach. Sind alle Einträge einer Spalte/Zeile gleich 0, dann können wir entlang
+dieser Spalte/Zeile entwickeln und erhalten direkt det(A) = 0. Nehmen wir nun
+an, alle Einträge außer einem sind gleich 0. Wenn entlang dieser Spalte/Zeile
+entwickeln, müssen wir dann nur eine (n − 1) × (n − 1)-Unterdeterminante
+berechnen. Ist in der Untermatrix ebenfalls eine Spalte/Zeile mit nur einem
+Eintrag ungleich 0, können wir so fortfahren. Insbesondere ist dies für sogenannte
+Dreiecksmatrizen möglich.
+
+ Definition 2.4.5. Eine Matrix A = (aij ) ∈ Rn×n nennen wir
+
+    • obere Dreiecksmatrix, falls aij = 0 für alle i > j,
+
+    • untere Dreiecksmatrix, falls aij = 0 für alle i < j.
+
+Eine obere Dreiecksmatrix in R5×5 hat zum Beispiel die Form
+                                                       
+                                 ∗     ∗   ∗    ∗   ∗
+                                0     ∗   ∗    ∗   ∗
+                                                     
+                                0     0
+                                                     
+                                          ∗    ∗   ∗.
+                                0     0   0    ∗   ∗
+                                
+                                                      
+                                  0    0   0    0   ∗
+
+Eine untere Dreiecksmatrix dagegen
+
+                                       0   0    0   0
+                                                       
+                                 ∗
+                                ∗     ∗   0    0   0
+                                                     
+
+                                                0   0
+                                                     
+                                ∗     ∗   ∗
+                                                     .
+                                ∗
+                                
+                                       ∗   ∗    ∗   0
+                                 ∗     ∗   ∗    ∗   ∗
+
+Entwickeln wir eine obere Dreiecksmatrix rekursiv nach der jeweils ersten Spalte,
+oder eine untere Dreiecksmatrix rekursiv nach der jeweils ersten Zeile, erhalten
+wir das folgende Resultat.
+
+ Theorem 2.4.6. Wenn A ∈ Rn×n eine Dreiecksmatrix ist, dann ist det(A)
+ das Produkt der Diagonaleinträge: det(A) = ni=1 aii .
+                                            Q
+
+
+
+
+                                           51
+                                2 Matrixalgebra
+
+
+Beispiel 2.4.7. Die Matrix
+
+                               3 −1 17 3
+                                                   
+                              0 −2 2 −2 
+                            A=
+                                        
+                              0 0   5 0 
+                                         
+
+                               0 0 0 1
+
+hat Determinante
+                         det(A) = 3 · (−2) · 5 · 1 = −30.
+
+   Für die meisten anderen Matrizen ist die Berechnung über Kofaktoren aber
+nicht so einfach. Sind die Matrizen etwas größer, ist die Kofaktorenentwicklung
+zwar theoretisch valide, aber praktisch nicht mehr umsetzbar. Im Allgemeinen
+braucht es für die Kofaktorenentwicklung einer (n × n)-Matrix mehr als n! Mul-
+tiplikationen. Ein moderner Computer führt etwa drei Billionen (3 · 1012 ) solcher
+Operationen pro Sekunde aus. Für die Determinante einer (20 × 20)-Matrix
+braucht er dann schon 20!/(3 · 1012 ) ≈ 800 000 Sekunden bzw. 9 Tage. Für eine
+(25 × 25)-Matrix bedarf es schon mehrerer hunderttausend Jahre.
+
+2.4.3 Berechnung über Zeilenumformungen
+Glücklicherweise gibt es auch eine effizientere Berechnungsmethode. Ist eine
+Matrix in Zeilenstufenform, ist sie insbesondere eine obere Dreiecksmatrix. Die
+Determinante lässt sich dann dank Theorem 2.4.6 einfach als das Produkt der
+Diagonaleinträge berechnen. Leider sind Matrizen meist nicht in Zeilenstufen-
+form. Es stellt sich also die Frage nach einem Zusammenhang von det(A) und
+det(U ), wobei U eine Zeilenstufenform von A ist. Da wir U durch elementare
+Zeilenumformungen aus A enthalten, untersuchen wir zunächst den Effekt dieser
+Operationen auf die Determinante.
+
+ Theorem 2.4.8. Seien A, B ∈ Rn×n .
+
+   (i) Erhalten wir B aus A, indem wir eine Zeile von A mit k ∈ R multipli-
+       zieren, gilt det(B) = k det(A).
+
+  (ii) Erhalten wir B aus A, indem wir eine Zeile k mal zu einer anderen
+       addieren, gilt det(B) = det(A).
+
+ (iii) Erhalten wir B aus A, indem wir zwei Zeilen von A miteinander vertau-
+       schen, gilt det(B) = − det(A).
+
+
+Beweis (optional). Den Beweis führen wir durch Induktion. Durch die Formel
+det(A) = ad − bc lassen sich die Eigenschaften leicht für (2 × 2)-Matrizen
+überprüfen. Für entsprechende A, B ∈ R2×2 gilt in den drei Fällen also
+
+                               det(B) = α det(A),                             (2.1)
+
+
+
+                                        52
+                                  2 Matrixalgebra
+
+
+wobei α entweder k, 1 oder −1 ist, je nachdem ob wir uns in Fall (i), (ii) oder
+(iii) befinden.
+   Sei nun n > 2 und wir nehmen an, dass (2.1) für (n × n)-Matrizen gelten und
+folgern, dass (2.1) dann auch für (n + 1) × (n + 1) gelten müssen. Haben wir
+das gezeigt, muss (2.1) nach dem Induktionsprinzip für quadratische Matrizen
+jeglicher Dimension gelten.
+   Sei nun A, B ∈ R(n+1)×(n+1) . Die Operationen in (i)–(iii) verändern maximal
+zwei Zeilen der Matrix A. Da n > 2, können wir auf jeden Fall nach einer Zeile
+i entwickeln, die in A und B gleich ist: Seien Aij und Bij die Matrizen, in der
+Zeile i und Spalte j gestrichen wurde. Dann kann man die Zeilen von Bij aus Aij
+durch die selbe Operation erzeugen, die auch B aus A erzeugt hat. Weil Bij und
+Aij (n × n)-Matrizen sind, gilt
+
+                               det(Bij ) = α det(Aij ).
+
+Daraus erhalten wir:
+                                     n
+                        det(B) =         (−1)i+j bij det(Bij )
+                                     X
+
+                                     j=1
+                                      n
+                                 =       (−1)i+j aij det(Bij )
+                                     X
+
+                                     j=1
+                                        n
+                                 =α         (−1)i+j aij det(Aij )
+                                       X
+
+                                      j=1
+
+                                 = α det(A).
+
+Also gilt (2.1) auch für (n + 1) × (n + 1)-Matrizen.
+  Wir können also die Determinante auch berechnen, indem wir die Matrix A in
+Zeilenstufenform überführen und dabei den Effekt der Operationen wie in (2.4.8)
+im Auge behalten.
+
+Anmerkung 2.4.9. Wenden wir Theorem 2.4.8 auf die Einheitsmatrix In an,
+sehen wir, dass für alle Elementarmatrizen E die Determinante det(E) entweder
+k, 1 oder -1 ist. Außerdem gilt für jede Matrix A, dass det(EA) = det(E) det(A).
+Das können wir auch wiederholt auf mehrere Elementarmatrizen E1 , . . . , Ek an-
+wenden, sodass
+
+            det(E1 E2 · · · Ek A) = det(E1 ) det(E2 ) · · · det(Ek ) det(A).
+
+
+2.4.4 Eigenschaften
+Die Methode im letzten Abschnitt ist nicht nur von praktischem Nutzen, sondern
+hilft uns auch eine Verbindung zu linearen Gleichungssystem und deren Zeilen-
+stufenform herzustellen. Insbesondere können wir ganz einfach unsere Liste an
+
+
+
+                                            53
+                                 2 Matrixalgebra
+
+
+Äquivalenzen erweitern.
+
+ Theorem 2.4.10 (Äquivalenzen). Sei A ∈ Rn×n . Dann sind die folgenden
+ Aussagen äquivalent:
+
+ (a) A ist invertierbar.
+
+ (b) A⊤ ist invertierbar.
+
+ (c) Die reduzierte Zeilenstufenform von A ist In .
+
+ (d) Das LGS Ax = 0 hat nur die triviale Lösung.
+
+ (e) Das LGS Ax = b hat genau eine Lösung für jedes b ∈ Rn .
+
+ (f) Das LGS Ax = b hat eine Lösung für jedes b ∈ Rn .
+
+ (g) Die Spalten von A sind linear unabhängig.
+
+ (h) Die Zeilen von A sind linear unabhängig.
+
+ (i) Die Spalten von A spannen Rn .
+
+ (j) Die Zeilen von A spannen Rn .
+
+ (k) det(A) ̸= 0.
+
+
+Beweis. (a)–(j) hatten wir bereits gezeigt. Sei R die reduzierte Zeilenstufenform
+von A. Dann gilt nach Theorem 2.4.8
+                                                    n
+                            det(A) = k det(R) = k
+                                                    Y
+                                                          rii ,
+                                                    i=1
+
+
+für ein k ̸= 0. Wir zeigen die Äquivalenz (c) ⇔ (k):
+
+  • (c) ⇒ (k): Ist R = In , dann gilt det(A) = k ̸= 0.
+
+  • (c) ⇐ (k): Ist det(A) ̸= 0, dann muss rii ̸= 0 für jedes i. Weil R eine
+    reduzierte Zeilenstufenform ist, muss dann rii = 1 sein und alle anderen
+    Einträge in der Matrix gleich 0. Also ist R = In .
+
+  Über die Determinante können wir also z.B. Invertierbarkeit, Lösbarkeit oder
+Unabhängigkeit prüfen.
+  Wir fragen uns natürlich wie sich die Determinante bezüglich Matrixoperationen
+in Abschnitt 2.1 verhält. Multiplikation einer Matrix A mit einem Skalar k ist
+nichts anderes als jede der n Zeilen mit k zu multiplizieren. Also gilt nach
+Theorem 2.4.8 (i):
+
+
+
+
+                                        54
+                                      2 Matrixalgebra
+
+
+ Für jedes A ∈ Rn×n und k ∈ R gilt det(kA) = k n det(A).
+
+   Entwickeln wir nun det(A) in Kofaktoren rekursiv jeweils nach der ersten Zeile,
+ist das das gleiche, als ob wir det(A⊤ ) jeweils nach der ersten Spalte entwickeln.4
+Deshalb gilt:
+
+ Für jedes A ∈ Rn×n gilt det(A) = det(A⊤ ).
+
+  Insbesondere gilt Theorem 2.4.8 also auch für Spaltenoperationen. Über die
+Determinante der Summe zweier Matrizen können wir wenig sagen. Für besondere
+Matrizen kann es sein, dass det(A + B) = det(A) + det(B). Das ist insbesondere
+der Fall, wenn A und B sich nur in einer Zeile unterscheiden. Für die meisten
+anderen Matrizen gilt allerdings
+
+                             det(A + B) ̸= det(A) + det(B).
+
+Für das Produkt zweier Matrizen bekommen wir aber ein schönes Resultat.
+
+ Theorem 2.4.11. Für alle A, B ∈ Rn×n gilt det(AB) = det(A) det(B).
+
+
+Beweis. Wir teilen den Beweis in zwei Fälle: A invertierbar und A singulär.
+
+     • Wenn A singulär ist, dann muss auch AB singulär sein (Theorem 2.2.3 (ii)
+       und Anmerkung danach). Also gilt nach Theorem 2.4.10, det(AB) = 0 und
+       det(A) det(B) = 0.
+
+     • Wenn A invertierbar ist, dann lässt es sich als Produkt von Elementar-
+       matrizen A = E1 E2 · · · Ek In schreiben (Theorem 2.2.11). Also ist nach
+       Anmerkung 2.4.9
+
+             det(AB) = det(E1 E2 · · · Ek B) = det(E1 ) det(E2 ) · · · det(Ek ) det(B)
+                     = det(A) det(B).
+
+
+
+
+ 4
+     Diese Rekursion kann man zur Übung formal als Induktionsbeweis aufschreiben.
+
+
+
+                                              55
+

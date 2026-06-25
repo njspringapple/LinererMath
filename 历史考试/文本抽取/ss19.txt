@@ -1,0 +1,638 @@
+MATHEMATISCHES INSTITUT                                                                Wintersemester
+DER UNIVERSITÄT MÜNCHEN                                                                2020/2021
+ Dr. W. Spann, S. Aristarkhov
+ H. Jaskolla
+
+ Lösungen zur Online-Hausarbeit Linearen Algebra für Informatiker und
+                    Statistiker (Nachprüfung WS19)
+Vorbemerkung:
+Dieser Lösungsvorschlag ist sehr ausführlich gehalten, damit die grundlegenden Ideen und Aus-
+arbeitungen jedem Leser klar werden sollten. Diese Ausführlichkeit wird bei der Bearbeitung
+von Übungsaufgaben oder Klausuraufgaben nicht erwartet.
+
+ 
+ 1
+      (a) Man zeige für n ∈ N die folgende Gleichung für reelle 2 × 2−Matrizen durch
+           vollständige Induktion:
+                                         !n             !
+                                     2 0        2n   0
+                                            = n               (?)
+                                    −1 3      2 − 3n 3n
+       (b) Man zeige ohne vollständige Induktion, dass (?) für n ∈ Z \ N gilt.
+       (c) Man betrachte die folgende Menge reeller 2 × 2−Matrizen
+                                           (             !          )
+                                                2n     0
+                                      G :=                 :n∈Z
+                                             2n − 3n 3n
+           Man zeige, dass G mit der Matrixmultiplikation als Verknüpfung eine kommutative
+           Untergruppe von GL(2, R) ist.
+       (d) Man zeige, dass die Gruppe (G, ·) isomorph zur Gruppe (Z, +) ist.
+
+      Beweis:
+      Ad (a):                               !1          !             !
+                                      2 0           2 0       21   0
+      Induktionanfang n = 1 :                    =        = 1
+                                     −1 3          −1 3     2 − 31 31
+      Induktionsschritt    n→n+1 :
+                                                                   !n                  !
+                                                           2 0              2n   0
+      Induktionsvoraussetzung:       Für ein n ∈ N gelte               = n                  (IV) .
+                                                          −1 3            2 − 3 3n
+                                                                               n
+
+      Induktionsbeweis:
+
+                          !n+1               !n            !                 !           !
+                    2 0                2 0           2 0           2n      0       2 0
+                                 =               ·           =                 ·
+                   −1 3               −1 3          −1 3 IV 2n − 3n 3n           −1 3
+                                           2n · 2 + 0 · (−1)          2n · 0 + 0 · 3
+                                                                                         !
+                                 =
+                                      (2n − 3n ) · 2 + 3n · (−1) (2n − 3n ) · 0 + 3n · 3
+                                                                 !
+                                               2n+1            0
+                                 =
+                                      2 · 2n − 3n · 2 − 3n 3n+1
+                                                          !
+                                          2n+1          0
+                                 =
+                                      2n+1 − 3n+1 3n+1
+
+                                                   1
+Ad (b):
+                                                     !−n
+                                                2 0
+Wir müssen für n ∈ N die Formel für                   berechnen. Die allgemeinen Potenzge-
+                                              −1 3
+setze liefern in einem Ring R (hier der Matrizenring) für a ∈ R : an · a−n = a0 = 1 (sofern
+a−1 existiert).           !
+                     2 0
+Die Matrix A =               ist tatsächlich invertierbar, denn nach dem bekannten Verfahren
+                    −1 3
+der Vorlesung:
+                         !                       !                     !
+            2 0 1 0 12 ·I 1 0 12 0 13 ·(II+I) 1 0 12 0
+(A|E2 ) =                  −−→                     −−−−−→                .
+            −1 3 0 1               −1 3 0 1                  0 1 16 13
+                                                 !
+                                       1 3 0
+Also ist A invertierbar und A = ·−1
+                                                   .
+                                       6 1 2
+Damit gilt für alle n ∈ N :
+               !n        !−n                          !−n                  !n !−1                           !−1
+           2 0       2 0                        2 0                  2 0                          2n   0
+(•)               ·          = E2 =⇒                        =                         =
+          −1 3      −1 3                       −1 3                 −1 3            Teil (a)   2 − 3 3n
+                                                                                                n    n
+
+
+Invertieren dieser letzten Matrix liefert analog oben
+
+                    !                            !                                        !
+    2n   0 1 0          2−n ·I       1    0 2−n 0 II−(2n −3n )·I 1 0        2−n         0
+                        −−−→                       −−−−−−−−→
+ 2 − 3 3n 0 1
+  n    n
+                                  2n − 3n 3n 0 1                 0 3n −(2n − 3n ) · 2−n 1
+                                                                      |     {z       }
+                                                                                               −1+3n ·2−n
+                                                                !
+                        3−n ·II   1 0    2−n    0
+                        −−−−→
+                                  0 1 −3 + 2−n 3−n
+                                        −n
+
+
+Also folgt                               !−n                          !
+                                   2 0             2−n     0
+                                               = −n    −n
+                                  −1 3           2 −3     3−n
+und das war die Behauptung für −n ∈ Z .
+
+Alternativ:
+Man konnte dies auch umittelbar beweisen,
+                                        !−n indem man von der behaupteten     Richtigkeit
+                                                                               !
+                                  2 0                              2−n      0
+der Formel ausgehend in (•) für             gleich die Matrix −n                einsetzt
+                                 −1 3                            2 − 3−n 3−n
+und per Matrixmultiplikation nachweist, dass
+                !n                !                    !                !
+           2 0          2−n      0 Teil      2n      0       2−n      0
+                   · −n              =                   · −n             = E2
+         −1 3        2 − 3−n 3−n (a) 2n − 3n 3n            2 − 3−n 3−n
+
+gilt.                                                           !−n                 !
+                                               2 0                        2−n    0
+Dann ist wegen der Eindeutigkeit des Inversen                         = −n            .
+                                              −1 3                      2 − 3−n 3−n
+
+
+
+
+                                               2
+Für beide Ansätze bleibt noch die Gültigkeit für n = 0 zu zeigen:
+        !0         !                !
+  2 0        1 0            20    0
+           =         = 0                    (da stets gilt a0 = 1) .
+ −1 3        0 1         2 − 30 30
+
+
+Ad (c):
+In (•) in Teil (b) haben wir schon bewiesen, daß für jedes n ∈ Z die Matrix
+               !n               !                                                   !
+         2 0           2n     0                                             2−n  0
+A =
+  n
+                  = n             invertierbar ist mit der Inversen A = −n
+                                                                     −n
+                                                                                      .
+        −1 3         2 − 3n 3n                                          2 − 3−n 3−n
+Damit gilt
+             (               !     ) (      !n        )
+                     2n   0             2 0
+      G=                       :n∈Z =          | n ∈ Z = { An | n ∈ Z }                          ()
+                  2n − 3n 3n           −1 3
+
+und somit ist G die von der (invertierbaren) Matrix A erzeugte Untergruppe von GL(2, R)
+(mit der Matrixmultiplikation als Verknüpfung).
+Die Kommutativität ist klar, da für alle m, n ∈ Z gilt
+        Vorlesung
+An · Am    = An+m = Am+n = Am · An .
+          (1.6)
+
+
+
+Ad (d):
+Wir definieren einen Gruppenisomorphismus via
+
+                                          ϕ : Z → G ; n 7→ An
+
+ϕ ist gemäß (c) surjektiv, da alle Elemente von G diese Gestalt haben (siehe () ), und
+auch injektiv, da für alle k, l ∈ Z gilt:
+                                                  !k              !l                         !             !
+                                            2 0           2 0          Teil (a)      2k   0        2l   0
+ϕ(k) = ϕ(l) =⇒ A = A  k    l
+                                =⇒                     =                =⇒                     = l
+                                           −1 3          −1 3          Teil (b)   2k − 3k 3k     2 − 3l 3l
+                               1.Zeile
+                                =⇒        2k = 2l =⇒ k = l
+                               1.Spalte
+
+
+ϕ ist auch ein Gruppenhomomorphismus, denn ϕ bildet die additive Gruppe (Z, +) in die
+multiplikative Gruppe (G, ·) ab:
+
+                          ϕ(k + l) = Ak+l        =         Ak · Al = ϕ(k) · ϕ(l)
+                                              siehe oben
+
+
+
+
+                                                3
+
+2
+   Sei n ∈ N . Es sollen Matrizen M ∈ Rn×n betrachtet werden, die Lösungen der Matrix-
+    gleichung
+                                  M 2 = 3M + 4En       (?)
+    sind.
+
+     (a) Bestimmen Sie alle γ ∈ R , sodass γ · En eine Lösung von (?) ist.
+
+    In den restlichen Teilaufgaben sei A ∈ Rn×n eine Lösung der Matrixgleichung (?) .
+
+     (b) Man zeige durch vollständige Induktion, daß Ak für jedes k ∈ N eine Linearkombi-
+         nation von A und En ist.
+     (c) Man zeige:           A ist invertierbar.
+     (d) Man zeige:           A−1 ist eine Linearkombination von A und En .
+     (e) Man zeige:        Ist B ähnlich zu A, so ist B eine Lösung der Matrixgleichung (?) .
+
+
+    Beweis:
+    Ad (a):
+    Sei γ ∈ R . dann gilt:
+
+            γEn löst (?)         ⇐⇒         (γ E )2 = 3 · (γEn ) + 4En ⇐⇒ γ2 En = (3γ)En + 4En
+                                              n          
+                                  ⇐⇒          γ2 − 3γ − 4 · En = 0
+                                              γ2 − 3γ − 4
+                                                                         !
+                                                                  0
+                                  ⇐⇒                                       =0
+                                                   0         γ2 − 3γ − 4
+                                  1.Zeile
+                                  ⇐⇒         γ2 − 3γ − 4 = 0
+                                 1.Spalte
+                                 Satz von
+                                  ⇐⇒         (γ − 4) · (γ + 1) = 0
+                                   Vietà
+                                  ⇐⇒         γ = 4 ∨ γ = −1
+
+    Ad (b):
+    Zu zeigen ist:      Für jedes k ∈ N gibt es αk , βk ∈ Z , so daß Ak = αk · A + βk · En .
+    Induktionsanfang               k=1 :
+    A löst (?) =⇒ A = 3A + 4En . Man wähle also α1 = 3 und β1 = 4 .
+                          2
+
+
+    Induktionsschritt         k →k+1 :
+    Induktionsvoraussetzung:                Für ein k ∈ N gilt: ∃ αk , βk ∈ Z : Ak = αk · A + βk · En   (IV) .
+    Induktionsbeweis:
+
+                 Ak+1             =          Ak · A = (αk · A + βk · En ) · A = αk · A2 + βk · A
+                                                    (IV)
+                              A löst (?)
+                                  =          αk · (3A + 4En ) + βk A
+                          A2 =3A+4En
+                                  =          (3αk + βk ) · A + (4αk ) · En
+
+
+                                                           4
+Man wähle also αk+1 = 3αk + βk ∈ Z und βk+1 = 4αk ∈ Z .
+
+Ad (c):
+A löst (?) , also
+                                                                             
+                       3A = 4En =⇒ A · (A − 3En ) = 4En =⇒ A · 14 · (A − 3En ) = En
+A2 = 3A + 4En =⇒ A2 − |{z}
+                                 =3A·En
+Wegen Vorlesung (2.21) ist damit A invertierbar mit Inverser A−1 = 14 (A − 3En ) .
+
+
+Ad (d):
+In Teil (c) wurde gezeigt, daß A−1 = 41 · (A − 3En ) =⇒ A−1 = 14 A − 43 En ,
+und das ist eine (reelle) Linearkombination der Matrizen A und En wie gewünscht.
+
+
+Ad (e):
+B ähnlich zu A =⇒ B = S −1 · A · S für eine invertierbare Matrix S ∈ Rn×n .
+Damit folgt:
+                                           2
+          B2         =          S −1 · A · S = (S −1 AS )(S −1 AS ) = S −1 A (S S −1 ) AS
+                                                                   assoz.    | {z }
+                                                                                =En
+
+                     =          −1
+                               S (A )S2
+
+                 A löst (?)
+                     =         S −1 (3A + 4En )S
+                A2 =3A+4En
+
+                     =         S −1 (3A)S + S −1 (4En )S
+                 distributiv
+                     =         3(S −1 AS ) + 4 (S −1 En S )
+                                               | {z }
+                                                       =En
+                     Def.
+                     =         3B + 4En
+                      B
+
+Also löst auch B die Matrixgleichung (?) .
+
+
+
+
+                                                   5
+
+3
+   Sei n ∈ N und seien a, b ∈ Rn . Man betrachte die Abbildung
+                                            f : Rn → Rn ; f (x) := x + (aT x)b
+     (a) Man zeige: f ist linear.
+     (b) Man zeige: M := En + baT ist die darstellende Matrix von f .
+     (c) Man berechne spur (M) .
+     (d) Man zeige: Kern( f ) ⊂ span (b) .
+     (e) Man zeige unter Verwendung von (d) : f invertierbar ⇐⇒ aT b , −1 .
+                                               (                                      )
+                                                    n        falls aT b , −1
+     (f) Man zeige:             rang (M) =                                                .
+                                                   n−1       falls aT b = −1
+    Beweis:
+    Ad (a):
+    Seien x, y ∈ Rn und λ, µ ∈ R . Dann gilt:
+                                                                                  
+      f (λx + µy)    =     (λx + µy) + aT (λx + µy) b = (λx + µy) + aT (λx) + aT (µy) b
+                                                       distr.
+                   Skalare
+                                                       
+                     =     (λx + µy) + λ(a x) + µ(a y) b
+                                           T         T
+                        λ, µ
+
+                        =           (λx + µy) + λ(aT x)b + µ(aT y)b
+                       distr.
+                                                                 
+                        =            λx + λ(aT x)b + µy + µ(aT y)b
+                     kommut.
+                                                               
+                        =           λ x + (aT x)b + µ y + (aT y)b
+                       Def.
+                        =           λ f (x) + µ f (y)
+                         f
+
+    Ad (b):
+    1. Möglichkeit:
+    Mit Definition (2.8) der Vorlesung und aT = (a1 , . . . , an ) :
+    ∀ 1 ≤ j ≤ n : f (e j) = e j + (aT e j)b (•)= e j + a jb
+    In der darstellenden Matrix M von f bezüglich der kanonischen Basis von Rn steht
+    in der j−ten Spalte gerade der Spaltenvektor f (e j ) , also gilt
+                    M              =           ( f (e1 ), . . . , f (en )) = (e1 + a1 b, . . . , en + an b)
+                                 Matrix-
+                                   =           (e1 , . . . , en ) + (a1 b, . . . , an b)
+                                 addition
+                                                                                        
+                                   =           En + b · (aT e1 ), . . . , b · (aT en )
+                                   (•)
+                                                                                      
+                                   =           En + (baT )e1 , . . . , (baT )en
+                                  assoz.
+                                   Def.
+                                   =           En + baT · (e1 , . . . , en )
+                             Matrixprodukt
+
+                                   =           En + baT
+
+    Dabei wurde in (•) verwendet, daß aT · e j = (a1 , . . . , an ) · e j = a j gilt, d.h.
+    a j b = ba j = b · (aT e j )
+
+                                                            6
+2. Möglichkeit:
+Ausnutzen der vorgegebenen Gestalt der darstellenden Matrix M = En + baT :
+Es gilt dann
+                                                                              aT x
+      M · x = (En + baT ) · x = En x + (baT )x = x + b(aT x)                   =        x + (aT x)b = f (x)
+                                                       assoz.               ist reell
+
+Damit ist f (e j ) = M · e j , , d.h. für die darstellende Matrix D von f gilt
+
+         D = ( f (e1 ), . . . , f (en )) = (Me1 , . . . , Men ) = M · (e1 , . . . , en ) = M · En = M
+            Def.
+
+
+Ad (c):
+Sei wie oben aT = (a1 , . . . , an ) und bT = (b1 , . . . , bn ) .
+                       b1 
+                       
+
+             ba =  ...  · (a1 , . . . , an ) =
+                                                       Matrix-
+                                                                      
+                T        
+Dann ist                                                        bi a j
+                                                     produkt          1≤i, j≤n
+                          bn
+                           
+Also ist M = En + bi a j                 , d.h. mit M = (Mi j )1≤i, j≤n folgt
+                               1≤i, j≤n
+
+                                   Mii = 1 + bi ai      für alle 1 ≤ i ≤ n
+
+Somit ist
+
+                                                                                        b1 
+                                                                                        
+                   n         n                         n
+                                                  ai bi = n + (a1 , . . . , an ) ·  ...  = n + aT b
+                   X         X                         X
+    spur M =     Mii =     (1 + bi ai ) = n +
+                                                                                          
+             i=1       i=1                    i=1
+                                                                                          
+                                                                                           bn
+
+Alternativ:
+Nach Teil (b) ist M = En + baT =⇒
+                                                                 spur
+               spur (M)          =         spur (En + baT ) = spur (En ) + spur (baT )
+                                                                linear
+                             Üb.Aufgabe
+                                 =         n + spur (aT b)
+                               (23) (a)
+
+                                 =         n + aT b
+                               aT b∈R
+
+
+
+
+Ad (d):
+Sei x ∈ Rn und x ∈ Kern( f ) , d.h.
+
+                   0 = f (x) = x + (aT x)b =⇒ x = −(aT x) b = λ · b ∈ span (b)
+                                                  | {z }
+                                                                =:λ
+
+(denn λ := −aT x ∈ R) .
+
+
+
+
+                                                   7
+Ad (e):
+f invertierbar bedeutet, daß f eine bijektive Abbildung ist.
+Da dim Rn = n < ∞ und f : Rn → Rn nach Teil (a) linear ist, folgt mit Corollar (3.15)
+und Lemma (3.10) der Vorlesung:
+                                                                            Lemma
+            f bijektiv ⇐⇒ f surjektiv ⇐⇒ f injektiv ⇐⇒ Kern( f ) = {0}
+                                                                             (3.10)
+
+
+Zu zeigen ist also die Äquivalenz
+
+                                    Kern( f ) = {0} ⇐⇒ aT b , −1
+
+bzw. gleichwertig
+                              Kern( f ) , {0} ⇐⇒ aT b = −1                          (z)
+Falls b = 0 ist f (x) = x + (aT x)b = x für alle x ∈ Rn =⇒ f = id : Rn → Rn ist
+invertierbar und natürlich ist aT b = 0 , −1 . Die Äquivalenz ist also wahr.
+Sei also nun b , 0 . .
+Direktes Vorgehen:
+                                                                              distr.
+  −1 , aT b     ⇐⇒             1 + aT b , 0 ⇐⇒ (1 + aT b)b , 0 ⇐⇒ f (b) = b + (aT b)b , 0
+                                                b,0                           Def. f
+                                                    Teil (d)
+                ⇐⇒             b < Kern( f )          ⇐⇒           Kern( f ) & span (b)
+                                               Kern( f )⊂span(b)
+                 beides
+                               0 ≤ dim (Kern( f )) < dim span (b) = 1
+                                                                 
+                ⇐⇒                                                                        (da b , 0)
+              Vektorräume
+                ⇐⇒             dim (Kern( f )) = 0 ⇐⇒ Kern( f ) = {0}
+
+Oder ausführlicher:
+Aus Teil (d) wissen wir, daß Kern( f ) ⊆ span (b) , und damit
+                                                                        Kern( f )
+Kern( f ) , {0} ⇐⇒ ∃ 0 , λ ∈ R : λ · b ∈ Kern( f )                       ⇐⇒            λ−1 · (λb) = b ∈ Kern( f )
+                                                                     Untervektorraum
+
+Zu zeigen also wegen (z) :
+
+                                     b ∈ Kern( f ) ⇐⇒ aT b = −1
+
+und dies folgt leicht:
+
+       b ∈ Kern( f )      ⇐⇒       0 = f (b) = b + (aT b)b = 1 · b + (aT b) · b = (1 + aT b)b
+                          ⇐⇒       1 + aT b = 0 ⇐⇒ aT b = −1
+                             b,0
+
+
+
+
+                                                    8
+Ad (f):
+Wie in Teil (d) gezeigt gilt Kern( f ) ⊆ span (b) = R · b , und somit folgt
+                                                            
+                          0 ≤ dim (Kern( f )) ≤ dim span (b) ≤ 1
+
+Es gilt also entweder dim (Kern( f )) = 0 oder dim (Kern( f )) = 1                (♣) .
+Ferner ist nach Definition des Ranges der darstellenden Matrix M
+
+                                         Vorlesung
+        rang (M) = Spaltenrang(M)            =          dim ({Mx | x ∈ Rn }) = dim ({ f (x) | x ∈ Rn })
+                                           (3.23)
+                                      Vorlesung
+                = dim (Bild( f ))        =        n − dim (Kern( f ))
+                                       (3.22)
+
+Damit können wir folgern:
+Falls aT b , −1
+=⇒ f invertierbar, dh. Kern( f ) = {0} =⇒ rang (M) = n − dim (Kern( f )) = n − 0 = n
+Teil (e)
+¸Falls aT b = −1
+                           Vorlesung
+ =⇒ f nicht invertierbar     =⇒        f nicht injektiv =⇒ Kern( f ) , {0}
+Teil (d)                     (3.15)
+
+ =⇒ dim (Kern( f )) = 1 =⇒ rang (M) = n − dim (Kern( f )) = n − 1
+  (♣)
+
+
+
+
+                                                    9
+
+4
+   (4 Punkte)
+    Sei a ∈ R und                                                
+                                                       1 0 1 
+                                               A =  0 α 0  ∈ R3×3
+                                                                 
+                                                          0 0 1
+                                                                 
+
+     (a) Man untersuche, welche Einheitsvektoren Eigenvektoren von A sind und gebe jeweils
+         den zugehörigen Eigenwert in Abhängigkeit von α an.
+     (b) Man berechne das charakteristische Polynom von A und gebe alle Eigenwerte von A
+         mit ihren algebraischen Vielfachheiten in Abhängigkeit von α an.
+     (c) Man bestimme die geometrische Vielfachheit jedes Eigenwerts von A in Abhängig-
+         keit von α .
+     (d) Man untersuche die Diagonalisierbarkeit von A in Abhängigkeit von α .
+
+    Beweis:
+    Ad (a):
+    Aus der Gestalt der Matrix ist ersichtlich
+
+       • A · e1 = 1.Spalte von A = e1 =⇒ e1 ist Eigenvektor von A zum Eigenwert λ1 = 1
+       • A·e2 = 2.Spalte von A = α·e2 =⇒ e2 ist Eigenvektor von A zum Eigenwert λ2 = α
+
+    Man beachte, daß im Falle von α = 1 die beiden Eigenwerte zusammenfallen und dann
+    e1 und e2 beides Eigenvektoren zu λ = 1 sind.
+    Dagegen ist A · e3 = 3.Spalte von A = e1 + e3 , λ · e3 weil e1 , e3 linear unabhängig sind.
+
+
+    Ad (b):
+
+                                                      1 0 1   λ 0 0                 1 − λ
+                                                                                                                  
+                                                                                                                0   1 
+    χA (λ)       =        det (A − λ · E3 ) = det  0 α 0  −  0 λ 0  = det  0       α−λ  0 
+                                                                                                                  
+                                                            0 0 1            0 0 λ                         0    0  1−λ
+                                                                                                                  
+              Dreiecks-
+                 =        (1 − λ)2 (α − λ)
+               matrix
+
+    Da die Eigenwerte von A die Nullstellen des charakteristischen Polynoms χA sind und die
+    algebraische Vielfachheit die Vielfachheit der jeweiligen Nullstelle in χA ist, folgt für die
+    Eigenwerte sofort
+    Falls α , 1 :
+
+       • λ1 = 1 mit algebraischer Vielfachheit µ1 = 2 und
+       • λ2 = α mit algebraischer Vielfachheit µ2 = 1 .
+
+    Falls α = 1 :
+       Dann ist χA (λ) = (1 − λ)3 und es gibt nur den Eigenwert λ1 = 1 mit der algebraischen
+       Vielfachheit 3 .
+
+
+                                                       10
+Ad (c):
+Da nach Vorlesung Satz (6.21) für jeden Eigenwert λ der Matrix A gilt, daß
+           1 ≤ geometrische Vielfachheit von λ ≤ algebraische Vielfachheit von λ
+ergibt sich für die beiden Fälle:
+   • α , 1:
+          – Für den Eigenwert λ2 = α von A gilt, daß
+               algebraische Vielfachheit(α) = geometrische Vielfachheit(α) = 1         (r)
+          – Für den Eigenwert λ1 = 1 müssen wir die Dimension des Eigenraums EigA (1)
+            bestimmen, die ja nach Definition die geometrische Vielfachheit von λ1 = 1 ist.
+            Da EigA (λ) = {x ∈ R3 | Ax = λx} = {x ∈ R3 | (A − λE3 )x = 0} = Kern(A − λE3 )
+            untersuchen wir:
+                                                    
+                                       0 0   1 
+            A − λ1 · E3 = A − E3 =  0 α − 1 0 
+                                                    
+                                          0 0   0
+                                                    
+            d.h. wegen α − 1 , 0 ist rang (A − E3 ) = dim Spaltenraum von A − E3 = 2
+                                                                                    
+            Also
+            geom. Vielfachheit(1) = dim EigA (1) = dim (Kern(A − E3 )) = n−rang (A − E3 ) = 3−2 = 1
+                                                     
+
+   • α = 1:
+                                                                                    
+                                                                          0 0 1 
+      Dann ist λ1 = 1 der einzige Eigenwert von A und es ist A − E3 =  0 0 0  ,
+                                                                                    
+                                                                             0 0 0
+                                                                                    
+      also gilt rang (A − E3 ) = 1 =⇒
+      geom. Vielfachheit(1) = dim EigA (1) = dim (Kern(A − E3 )) = n−rang (A − E3 ) = 3−1 = 2
+                                          
+
+Ad (d):
+Die Matrix A ist diagonalisierbar, wenn
+   • ihr charakteristisches Polynom in Linearfaktoren zerfällt; hier mit χA (λ) = (1 − λ)2 (α − λ)
+     erfüllt, und
+   • für alle Eigenwerte die geometrische Vielfachheit und die algebraische Vielfachheit
+     übereinstimmen.       (?)
+
+
+Wir untersuchen wieder die beiden Fälle:
+   • α,1:
+     Für den Eigenwert λ2 = α ist (?) wegen (r) erfüllt.
+     Da für den Eigenwert λ1 = 1 die algebraische Vielfachheit(1) = 2 ist, muß, damit A
+     diagonalisierbar ist, auch die geometrische Vielfachheit(1) = 2 gelten. Nach Teil (c)
+     ist aber die geometrische Vielfachheit von λ1 gleich 1, weshalb die Matrix in diesem
+     Fall ( α , 1 ) nicht diagonalisierbar ist.
+
+                                          11
+  • α=1:
+    Einziger Eigenwert ist λ1 = 1 mit der algebraischen Vielfachheit 3. Nach Teil (b) ist
+    aber die geometrische Vielfachheit gleich 2 , 3 , also ist die Bedingung (?) nicht
+    erfüllt und somit die Matrix auch in diesem Fall nicht diagonalisierbar.
+
+
+
+Fazit:
+Die Matrix A ist für keinen Wert von α diagonalisierbar.
+
+
+
+
+                                        12
+

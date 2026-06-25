@@ -1,0 +1,101 @@
+Methoden der Linearen Algebra in der Statistik
+  5. Tutorium
+
+
+
+
+Eugen Gorich, <eugen.gorich@campus.lmu.de>
+Agenda
+
+
+
+
+ • Determinanten
+
+ • Vektorräume
+
+ • Betreutes Lernen
+
+
+
+
+                      1/4
+Determinanten
+
+
+
+
+                2/4
+Determinanten
+
+
+
+
+                2/4
+Vektorräume
+
+
+
+
+               3/4
+Vektorräume
+
+
+
+
+               3/4
+Vektorräume
+
+
+
+
+               3/4
+Vektorräume
+
+
+
+
+               3/4
+Vektorräume
+
+
+
+
+               3/4
+Vektorräume
+
+
+
+
+               3/4
+Vektorräume
+
+
+
+
+               3/4
+Vektorräume
+
+
+
+
+               3/4
+Basis
+
+
+
+
+        3/5
+Basis
+
+
+
+
+        3/5
+Basis
+
+
+
+
+        3/5
+

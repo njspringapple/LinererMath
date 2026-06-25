@@ -1,0 +1,505 @@
+21. Quadratische Formen
+
+
+
+
+Methoden der Linearen Algebra in der Statistik
+Thomas Nagler <t.nagler@lmu.de>
+Agenda
+
+
+
+1 Definition und Motivation
+
+
+2 Hauptachsentheorem
+
+
+3 Definitheit
+
+
+4 Variationelle Charakterisierung von Eigenwerten
+
+
+
+
+                                                    1 / 21
+Agenda
+
+
+
+1 Definition und Motivation
+
+
+2 Hauptachsentheorem
+
+
+3 Definitheit
+
+
+4 Variationelle Charakterisierung von Eigenwerten
+
+
+
+
+                                                    2 / 21
+Definition und Motivation
+
+ • Bisher ging es um lineare Funktionen Rn → Rm , x 7→ Ax.
+
+ • Sie sind das höherdimensionale Äquivalent zu einer Geraden
+   f (x) = ax im Falle R → R.
+
+
+
+
+                                                                  3 / 21
+Definition und Motivation
+
+ • Bisher ging es um lineare Funktionen Rn → Rm , x 7→ Ax.
+
+ • Sie sind das höherdimensionale Äquivalent zu einer Geraden
+   f (x) = ax im Falle R → R.
+
+ • Quadratische Formen verallgemeinern quadratische
+   Funktionen f (x) = ax 2 = xax in höhere Dimensionen.
+
+
+
+
+                                                                  3 / 21
+Definition und Motivation
+
+  • Bisher ging es um lineare Funktionen Rn → Rm , x 7→ Ax.
+
+  • Sie sind das höherdimensionale Äquivalent zu einer Geraden
+    f (x) = ax im Falle R → R.
+
+  • Quadratische Formen verallgemeinern quadratische
+    Funktionen f (x) = ax 2 = xax in höhere Dimensionen.
+
+
+Definition
+Eine quadratische Form auf Rn ist eine Funktion Q : Rn → R
+gegeben durch Q(x) = x ⊤ Ax, wobei A ∈ Rn×n eine symmetrische
+Matrix ist.
+
+
+
+                                                                   3 / 21
+Definition und Motivation
+
+ • Sei f : Rn → R eine hinreichend glatte Funktion und x ∗ der
+   Punkt, der diese Funktion minimiert.
+
+
+
+
+                                                                 4 / 21
+Definition und Motivation
+
+ • Sei f : Rn → R eine hinreichend glatte Funktion und x ∗ der
+   Punkt, der diese Funktion minimiert.
+
+ • Taylor’s theorem:
+
+                                            1
+   f (x) ≈ f (x ∗ ) + ∇f (x ∗ )(x − x ∗ ) + (x − x ∗ )⊤ H(x ∗ )(x − x ∗ ),
+           | {z } | {z }
+                         =0
+                                           |2           {z             }
+           konstant
+                                                  quadratische form
+
+   wobei
+     ▶ Gradient ∇f = (∂f /∂x1 , . . . , ∂f , ∂xn ) der
+
+     ▶ Hesse-Matrix H = ∇2 f = (∂ 2 f /∂xi ∂xj )ni,j,=1 .
+
+
+
+                                                                         4 / 21
+Quiz
+
+Gegeben sei eine quadratische Funktion 4x12 − 9x22 − 6x1 x2 .
+Wie sieht die Matrixschreibweise x T Ax dazu aus, wenn zudem A
+symmetrisch ist?
+                       
+             4 −3          x1
+ A. x1 x2
+               −3 9         x2
+                    
+             4 3       x1
+ B. x1 x2
+               3 9      x2
+                      
+             −4 3        x1
+ C. x1 x2
+                3 9       x2
+                       
+             4 −3          x1
+ D. x1 x2
+               −3 −9        x2
+
+
+                                                                 5 / 21
+Agenda
+
+
+
+1 Definition und Motivation
+
+
+2 Hauptachsentheorem
+
+
+3 Definitheit
+
+
+4 Variationelle Charakterisierung von Eigenwerten
+
+
+
+
+                                                    6 / 21
+Hauptachsentheorem
+
+                             n
+                             X                 n X
+                                               X
+                     ⊤
+           Q(x) = x Ax =           aii xi2 +              aij xi xj ,
+                             i=1               i=1 j̸=i
+
+beinhaltet sowohl rein quadratische Terme aii xi2 und gemischte
+Terme aij xi xj .
+
+
+
+
+                                                                        7 / 21
+Hauptachsentheorem
+
+                                n
+                                X                  n X
+                                                   X
+                        ⊤
+             Q(x) = x Ax =             aii xi2 +               aij xi xj ,
+                                 i=1               i=1 j̸=i
+
+beinhaltet sowohl rein quadratische Terme aii xi2 und gemischte
+Terme aij xi xj .
+
+Theorem (Hauptachsentheorem)
+Sei A ∈ Rn×n eine symmetrische Matrix, die durch P orthogonal
+zur Matrix Λ = diag(λ1 , . . . , λn ) diagonalisiert wird. Dann gilt für
+y = P ⊤ x,
+                                             n
+                                             X
+                       ⊤         ⊤
+                      x Ax = y Λy =                 λi yi2 .
+                                             i=1
+
+
+                                                                             7 / 21
+Hauptachsentheorem
+
+
+
+ • In Richtung pi entspricht die Funktion Q einer simplen
+   Parabel λi yi2 .
+
+ • Der Eigenwert λi gibt dabei die Stärke und Richtung der
+   Krümmung vor.
+
+ • Die gesamte Funktion Q lässt sich als Summe von solchen
+   einfachen Parabeln in zueinander orthogonalen Richtungen
+   zusammensetzen.
+
+
+
+
+                                                              8 / 21
+Agenda
+
+
+
+1 Definition und Motivation
+
+
+2 Hauptachsentheorem
+
+
+3 Definitheit
+
+
+4 Variationelle Charakterisierung von Eigenwerten
+
+
+
+
+                                                    9 / 21
+Definitheit
+
+Definition
+Sei A ∈ Rn×n symmetrisch und Q(x) = x ⊤ Ax die zugehörige
+quadratische Form. Dann nennen wir A und Q
+  • positiv definit, wenn Q(x) > 0 für alle x ̸= 0;
+
+  • positiv semidefinit, wenn Q(x) ≥ 0 für alle x ̸= 0;
+
+  • negativ definit, wenn Q(x) < 0 für alle x ̸= 0;
+
+  • negativ semidefinit, wenn Q(x) ≤ 0 für alle x ̸= 0;
+
+  • indefinit, wenn sowohl Q(x) > 0 für ein x ∈ Rn also auch
+    Q(x) < 0 für ein anderes x ∈ Rn .
+
+
+                                                                10 / 21
+Definitheit
+
+
+
+
+Abbildung: Graphen von quadratischen Formen Q : R2 → R. (Fig 7.2.4
+in [LLM].)
+
+
+
+
+                                                                     11 / 21
+Definitheit
+
+Theorem
+Sei A ∈ Rn×n symmetrisch. Dann ist die quadratische Form
+Q(x) = x ⊤ Ax genau dann . . .
+
+ (i) positiv definit, wenn alle Eigenwerte strikt positiv sind;
+(ii) positiv semidefinit, wenn alle Eigenwerte nichtnegativ sind;
+(iii) negativ definit, wenn alle Eigenwerte strikt negativ sind;
+(iv) negativ semidefinit, wenn alle Eigenwerte nichtpositiv sind;
+(v) indefinit, wenn es einen strikt positiven und einen strikt
+    negativen Eigenwert gibt.
+
+
+
+                                                                    12 / 21
+Quiz
+
+
+
+Beweise oder widerlege:
+
+    Wenn A ∈ Rn×n invertierbar ist, dann ist A⊤ A positiv
+    definit.
+
+ A. Wahr
+ B. Falsch
+
+
+
+
+                                                            13 / 21
+Agenda
+
+
+
+1 Definition und Motivation
+
+
+2 Hauptachsentheorem
+
+
+3 Definitheit
+
+
+4 Variationelle Charakterisierung von Eigenwerten
+
+
+
+
+                                                    14 / 21
+Variationelle Charakterisierung
+
+
+
+Theorem
+Sei A ∈ Rn×n symmetrisch mit der Größe nach geordneten
+Eigenwerten λ1 ≥ λ2 ≥ · · · ≥ λn . Dann gilt
+
+             λn = min x ⊤ Ax ≤ max x ⊤ Ax = λ1 .
+                   ∥x∥=1         ∥x∥=1
+
+Das Minimum wird für einen Eigenvektor zu λn , das Maximum für
+einen Eigenvektor zu λ1 angenommen.
+
+
+
+
+                                                                   15 / 21
+Variationelle Charakterisierung
+
+
+
+
+Abbildung: Graph der quadratischen Form Q(x) = 3x12 + 7x22 (links) und
+die Einschränkung auf ∥x∥ = 1 (rechts). Das Maximum des rechten
+Graphen ist der größte Eigenwert (λ1 = 7), das Minimum der kleinste
+Eigenwert λ2 = 3. (Fig 7.3.1–2 in [LLM].)
+
+
+
+                                                                         16 / 21
+Variationelle Charakterisierung
+
+Theorem
+Sei A ∈ Rn×n symmetrisch mit der Größe nach geordneten
+Eigenwerten λ1 ≥ λ2 ≥ · · · ≥ λn und zugehörigen orthonormalen
+Eigenvektoren p1 , . . . , pn . Dann gilt für alle k = 1, . . . , n:
+
+      λk =          max              x ⊤ Ax =           min             x ⊤ Ax.
+                  ∥x∥=1                              ∥x∥=1
+             x⊥span{p1 ,...,pk−1 }              x⊥span{pk+1 ,...,pn }
+
+Das Maximum/Minimum wird jeweils für einen Eigenvektor zu λk
+angenommen.
+
+
+
+
+                                                                                  17 / 21
+Variationelle Charakterisierung
+
+Theorem
+Sei A ∈ Rn×n symmetrisch mit der Größe nach geordneten
+Eigenwerten λ1 ≥ λ2 ≥ · · · ≥ λn und zugehörigen orthonormalen
+Eigenvektoren p1 , . . . , pn . Dann gilt für alle k = 1, . . . , n:
+
+      λk =          max              x ⊤ Ax =           min             x ⊤ Ax.
+                  ∥x∥=1                              ∥x∥=1
+             x⊥span{p1 ,...,pk−1 }              x⊥span{pk+1 ,...,pn }
+
+Das Maximum/Minimum wird jeweils für einen Eigenvektor zu λk
+angenommen.
+
+ → Diese Charakterisierung hilft uns bei der Interpretation der
+   PCA.
+
+
+                                                                                  17 / 21
+Variationelle Charakterisierung in PCA
+
+
+ • Angenommen ein Zufallsvektor Y ∈ Rn hat Kovarianzmatrix
+   Cov(Y ) = Σ.
+
+ • Dann folgt aus der Linearität der Kovarianz, dass
+   Var(x ⊤ Y ) = x ⊤ Σx für jede (deterministische) Richtung
+   x ∈ Rn , ∥x∥ = 1.
+
+
+
+
+                                                                18 / 21
+Variationelle Charakterisierung in PCA
+
+
+ • Angenommen ein Zufallsvektor Y ∈ Rn hat Kovarianzmatrix
+   Cov(Y ) = Σ.
+
+ • Dann folgt aus der Linearität der Kovarianz, dass
+   Var(x ⊤ Y ) = x ⊤ Σx für jede (deterministische) Richtung
+   x ∈ Rn , ∥x∥ = 1.
+
+ • Die erste Hauptkompente p1 von Σ ist die Richtung mit der
+   größten Varianz und diese Varianz ist gleich λ1 .
+
+
+
+
+                                                                18 / 21
+Variationelle Charakterisierung in PCA
+
+
+ • Angenommen ein Zufallsvektor Y ∈ Rn hat Kovarianzmatrix
+   Cov(Y ) = Σ.
+
+ • Dann folgt aus der Linearität der Kovarianz, dass
+   Var(x ⊤ Y ) = x ⊤ Σx für jede (deterministische) Richtung
+   x ∈ Rn , ∥x∥ = 1.
+
+ • Die erste Hauptkompente p1 von Σ ist die Richtung mit der
+   größten Varianz und diese Varianz ist gleich λ1 .
+
+ • Danach suchen wir die zweite Hauptkomponente im Raum
+   orthogonal zu p1 und maximieren die Varianz unter den
+   verbleibenden Richtungen, etc.
+
+
+                                                                18 / 21
+Variationelle Charakterisierung
+
+
+Theorem (Minimum-Maximum-Prinzip)
+Sei A ∈ Rn×n symmetrisch mit der Größe nach geordneten
+Eigenwerten λ1 ≥ λ2 ≥ · · · ≥ λn . Dann gilt für alle k = 1, . . . , n:
+
+                  λk =      max     min x ⊤ Ax
+                          dim(V )=k x∈V
+                                    ∥x∥=1
+
+                      =       min           max x ⊤ Ax,
+                          dim(V )=n−k+1    x∈V
+                                          ∥x∥=1
+
+wobei V jeweils ein Untervektorraum des Rn ist. Das
+Maximum/Minimum wird jeweils für einen Eigenvektor zu λk
+angenommen.
+
+
+
+                                                                           19 / 21
+Quiz
+Welche der folgenden Aussagen sind wahr?
+
+ A. Wenn alle Eigenwerte einer symmetrischen Matrix A positiv sind, dann ist
+    A positiv definit.
+
+ B. x12 − x22 + x32 + 4x1 x2 x3 ist eine quadratische Form.
+
+ C. (x1 − 3x2 )2 ist eine quadratische Form.
+
+ D. Eine positiv definite Matrix ist invertierbar.
+
+ E. Eine symmetrische Matrix ist entweder positiv definit, negativ definit oder
+    indefinit.
+
+  F. Wenn A eine positiv definite Matrix ist, dann ist −A negativ definit.
+
+ G. x · x ist eine quadratische Form für alle x ∈ Rn .
+
+ H. Wenn die symmetrische Matrix A nur positive Eigenwerte besitzt, dann
+    ist x T Ax eine positiv definite quadratische Form.
+
+
+                                                                                  20 / 21
+Wrap-up
+
+
+
+Heute gelernt
+
+  • Definition und Motivation
+
+  • Hauptachsentheorem
+
+  • Definitheit
+
+  • Variationelle Charakterisierung von Eigenwerten
+
+
+
+
+                                                      21 / 21
+

@@ -1,0 +1,652 @@
+Methoden der Linearen Algebra in der Statistik
+                   1. Tutorium
+
+
+   Eugen Gorich, <eugen.gorich@campus.lmu.de>
+
+
+                 16.
+                 24. April
+                     April 2026
+                           2025
+Agenda
+
+
+
+
+   ↭ Organisation
+   ↭ Mathematik als Sprache
+   ↭ Wiederholung/Einführung in Beweisführung
+Organisation
+
+
+
+
+    ↭ Tutorium: Freitag 12:15 - 13:45 (optional open end)
+    ↭ 75% Rechenaufgaben/Intuition, 25% Betreutes Lernen
+    ↭ Workflow für dieses Tutorium: Zusammenarbeit
+    ↭ eugen.gorich@campus.lmu.de oder via WhatsApp
+      Github   :   GoGenius 96
+Organisation
+
+
+
+
+    ↭ Tutorium: Freitag 12:15 - 13:45 (optional open end)
+    ↭ 75% Rechenaufgaben/Intuition, 25% Betreutes Lernen
+    ↭ Workflow für dieses Tutorium: Zusammenarbeit
+    ↭ eugen.gorich@campus.lmu.de oder via WhatsApp
+      Github   :   GoGenius 96
+Mathematik als Sprache
+
+
+
+   Klarheit als höchstes Ziel!
+    ↭ Mathematische Texte sind Texte deutscher/englischer
+        Sprache.
+         ↭ Beachte Regeln deutscher Sprache. Schreibe überschaubare,
+           klare, vollständige Sätze
+         ↭ Jeder Satz, den ihr schreibt, muss einen (von euch
+           benennbaren) Sinn haben!
+    ↭ Beispiel:
+         ↭ Schlecht: f = stetige Funktion.
+         ↭ Gut:      Sei f eine stetige Funktion.
+Mathe als Sprache - Definieren
+
+
+
+    ↭ Sei ...
+         ↭ Wird verwendet, um eine Definition einzuführen.
+                ↭ Sei f eine stetige Funktion.
+    ↭ Wir definieren/bezeichnen ... als ...
+         ↭ Wird verwendet, um zu betonen, dass ein neuer Gegenstand
+           oder Begri! definiert wird.
+                ↭ Wir definieren eine Funktion f als glatt, wenn ...
+    ↭ Wir sagen, dass ...
+         ↭ Wird verwendet, um eine kurze Definition einzuführen.
+                ↭ Wir sagen, dass eine Menge X nicht-leer ist, wenn ...
+Mathe als Sprache - Annahmen
+
+
+
+    ↭ Wir nehmen an, dass ...
+        ↭ Wird verwendet, um einen Zweig eines Arguments aufstellen,
+          dem später ein anderer Zweig gegenübergestellt wird oder für
+          eine Annahme am Anfang eines Beweises.
+             ↭ Wir nehmen an, dass X das Element a enthält. (Später: Wir
+               nehmen an, dass X das Element a nicht enthält.)
+             ↭ Wir nehmen an, dass die Funktion f auf (0, 1) di!erenzierbar
+               ist.
+    ↭ Ohne Beschränkung der Allgemeinheit (o.B.d.A.), sei ...
+        ↭ Mehr dazu später
+Mathe als Sprache - Beweis einleiten und abschließen
+
+    ↭ Wenn ..., dann ...
+         ↭ Ist eine direkte Übersetzung des Implikationspfeils =→.
+              ↭ Wenn A, dann B.
+         ↭ !!! Nicht aus Faulheit überall Implikationspfeile verwenden.
+           Führt zu Fehlern und schlechter Lesbarkeit !!!
+              ↭ Alle Tiere sind Igel und alle Igel haben Stacheln =→ Alle
+                Tiere haben Stacheln.
+                Mathematische Notation ruiniert”den Lesefluss. Nicht
+                eindeutig klar, wie die Aussage zu verstehen ist:
+                (Alle Tiere sind Igel und alle Igel haben Stacheln) =→ Alle
+                Tiere haben Stacheln.
+                Alle Tiere sind Igel und (alle Igel haben Stacheln =→ Alle
+                Tiere haben Stacheln).
+    ↭ Aus ..., folgt dass ...
+         ↭ Wird verwendet, um eine Schlussfolgerung aus einer zuvor
+           bewiesenen Aussage zu ziehen.
+              ↭ Aus Lemma 1.3.4 folgt, dass A invertierbar ist.
+Mathe als Sprache - Intention nennen
+
+
+
+
+    ↭ Wir zeigen/beweisen ...
+        ↭ Wir beweisen, dass sich alle natürlichen Zahlen als Produkt
+          von Primzahlen schreiben lassen.
+        ↭ Wir zeigen, dass das Theorem 1.2.3. gilt, wenn f stetig ist.
+        ↭ Wir beweisen das Theorem 1.2.3.
+Mathe als Sprache - Schlussfolgern
+    ↭ Wir schließen ...
+         ↭ wird verwendet, um eine Schlussfolgerung zu signalisieren, die
+           aus einer Argumentationskette oder einem Argument gezogen
+           wird.
+               ↭ Gut: Nach Anwendung des gleichen Arguments wie im
+                 Lemma, schließen wir, dass X ein normierter Raum ist.
+    ↭ ... impliziert ...
+         ↭ wird verwendet, um eine direkte Schlussfolgerung aus einer
+           vorangegangenen Aussage zu ziehen, und zwar in einer
+           formelleren Form als ”... dann ...”.
+               ↭ Das vorherige Theorem impliziert, dass A invertierbar ist.
+    ↭ Aus ... folgt, dass ...
+         ↭ Gleiche Verwendung und Bedeutung wie ”...impliziert...”.
+               ↭ Aus dem vorherigen Theorem folgt, dass A invertierbar ist.
+    ↭ folglich/also
+         ↭ sind Adverbien, die die Schlussfolgerung (und nicht den Grund
+           für die Schlussfolgerung) einleiten.
+Mathe als Sprache - Argumente referenzieren
+
+
+
+
+    ↭ In Abschnitt/Theorem/Lemma... beweisen wir/es wurde
+      bewiesen...
+    ↭ Übung/Beispiel/Aussage ... beweist, dass ...
+    ↭ In der Diskussion oben/ in der Diskussion unten/ in der
+      folgenden ...
+Mathe als Sprache - Satz/Lemma/Korollar
+    ↭ Satz
+        ↭ Bezeichnet den Normalfall. Beweis ist nicht zu lang und nicht
+          zu kurz; es lohnt sich, über die Aussage an sich nachzudenken
+          und sich diese einzuprägen.
+    ↭ Proposition
+        ↭ Ist das lateinische Wort für Satz.
+    ↭ Hauptsatz
+        ↭ Bezeichnet einen besonders wichtigen Satz, in dem ein ganzes
+          Teilgebiet der Mathematik gipfelt (z.B. Hauptsatz der
+          Di!erential- und Integralrechnung).
+    ↭ Lemma
+        ↭ Schlüsselgedanke, der in vielen Situationen nützlich ist.
+    ↭ Hilfssatz
+        ↭ ”Rein technische” Aussage. Dient zum Beweisen eines Satzes.
+    ↭ Theorem
+        ↭ Bezeichnet im Deutschen einen besonders wichtigen Satz, der
+          ein Höhepunkt in der Entwicklung einer Theorie ist.
+    ↭ Korollar
+        ↭ Heißt Folgerung. Folgt einfach (manchmal sogar trivial) aus
+          dem vorhergehenden Satz/Beweis folgt.
+Literaturempfehlung
+
+
+
+
+   Das ist o.B.d.A. trivial!
+Wiederholung/Einführung in Beweisführung
+
+
+
+
+   Wiederholung/Einführung in Beweistechniken
+Aussagen
+
+
+
+
+  Definition (Aussage)
+  Aussagen sind Sätze die entweder wahr oder falsch sind.
+
+  !Achtung: Entspricht nicht der Definition aus dem Duden und der
+  Definition im Alltagsgebrauch. Einschub: Eine Definition ist eine
+
+  Festsetzung über die Bedeutung eines (neu) einzuführenden
+  Zeichens oder Begri!s.
+Quiz
+
+
+
+  Welche Sätze sind Aussagen?
+   ↭ Toooooooor!
+       ↭ Seien A, B Mengen mit A ↑ B.
+       ↭ Welcher Tag ist heute?
+       ↭ Es existiert eine natürliche Zahl n, sodass die Gleichung
+         n2 = 4 erfüllt ist.
+       ↭ Mindesens eine der Zahlen 4, 5, und 6 ist durch 3 teilbar.
+       ↭ 3 ist ein gemeinsamer Teiler von 6, 9 und 10.
+Aussagen und Quantoren
+
+
+
+  Üblicherweise werden Aussagen über Variablen mit bestimmten
+  Eigenschaften getro!en und nicht über enen konkreten Wert. Oft
+  werden dafür Quantoren verwendet:
+    ↭ Allquantor ↓: ’Für alle...’
+    ↭ Existenzquantor ↔: ’Es existiert mindestens ein...’
+    ↭ Nichtexistenz ⊋: ’Es existiert kein...’
+    ↭ Verneinung einer Aussage A (¬A): ’Nicht Aussage A’
+Aussagen und Quantoren: Vertauschung
+
+
+
+
+   Seien P Aussagen über die Menge M und sei Q eine Aussage über
+   die Menge M ↗ M. Dann gilt:
+       ~auchbar
+    ↭ ↓x ↘ M↓y ↘ M : Q(x, y ) ≃ ↓y ↘ M↓x ↘ M : Q(x, y )
+
+    ↭ ↓x ↘ M : ¬P(x) ≃ ⊋x ↘ M : P(x)
+       -
+
+
+
+
+            bevorzugt
+Aussagen und Quantoren: Quiz
+    Benutze Wörter und Quantoren um die folgende Menge/Aussage
+    zu beschreiben: Seien M, N ⇐ ” Mengen.
+
+        ↭ M ↑N
+                                    [x2(xMaxeN3
+                                    =
+
+
+
+
+        MnN
+        die
+                                  ist           die
+                                                   Menge aller Er
+                                                                  für                      ,
+
+
+                          gilt              ,
+                                                das          xeM             und   xEN .
+        ↭ M ↑ N = ⇒ (Leere Menge)
+        yx 2=             :   x     Max N
+
+        (x =2             :   x     MrN
+
+
+r
+-
+        Fre -
+
+        fx-       :
+                      :       <   (x Ma EN)
+                              x M vxN
+                                            +
+
+
+
+
+n       M und N
+
+        Es existiert
+                      haben         keine
+                                            gemeinsamen Elemente .
+
+    ~
+                                  kein   xer     ,
+                                                     für das gilt xM und   xN .
+Beweis
+
+
+
+   Definition (Beweis)
+   Ein Argument ist eine Folge von Aussagesätzen, bei denen ein Teil
+   der Aussagen (Prämissen) die restlichen Aussagen
+   (Konklusionen) stützen sollen. Ein Beweis ist eine
+   Aneinanderreihung von Argumenten.
+
+   Seien A1 , . . . , An und B1 , . . . , Bm Aussagen. Dann ist
+
+                    (A1 , . . . , An ) → · · · → (B1 , . . . , Bm )
+
+   ein Beweis.
+Beweis, Argument - Normalform
+
+
+   Definition (Normalform eines Arguments)
+    ↭ In der Normalform eines Arguments sind alle Prämissen und
+      alle Konklusionen explizit ausformuliert.
+    ↭ In der Normalform stehen Prämissen getrennt voneinander am
+      Anfang des Arguments.
+    ↭ In der Normalform steht die Konklusion - durch ein ’→’ oder
+      ähnliches gekennzeichnet - am Ende des Arguments.
+
+
+   Alle Menschen sind sterblich.
+   Sokrates ist ein Mensch.                  Sokrates   könnte auch eine Stadt sein
+
+
+   Daraus schließen wir, dass Sokrates sterblich ist.
+Beweis, Argument - Was sind Argumente?
+
+   Definition (Gültig)
+   Ein Argument heißt genau dann gültig, wenn es tatsächlich
+   rational ist, die Konklusion für wahr zu halten, falls die Prämissen
+   wahr sind
+
+    ↭ Aus einem gültigen Argument mit wahren Prämissen muss
+      immer die Konklusion folgen.
+    ↭ In einem stärkeren Sinn sollte ein Argument auch informativ
+      sein um als ’gut’ bezeichnet zu werden.
+
+   Seien A1 , . . . , An und B1 , . . . , Bm Aussagen. Dann ist
+
+                    (A1 , . . . , An ) → · · · → (B1 , . . . , Bm )
+
+                                         ⇑ muss rational begründet sein.
+Was kann man aus einem gültigen Argument folgern?
+
+
+   Sei n ↘ N. n ist eine gerade Zahl → n2 ist eine gerade Zahl.
+
+              -
+   Daraus folgt:
+                                                   B
+                                                    ↑
+
+
+
+
+    ↭ n ↘ N ist eine gerade Zahl → n2 ist eine gerade Zahl.       A> B
+                                                                   =
+
+
+
+
+    ↭ n2 ist eine nicht gerade (ungerade) Zahl → n ist eine nicht BELA
+      gerade (ungerade) Zahl.
+
+   Daraus folgt nicht!:
+    ↭ n ↘ N ist eine nicht gerade (ungerade) Zahl → n2 ist eine -A = B
+       nicht gerade (ungerade) Zahl.
+    ↭ n2 ist eine gerade Zahl → n ist eine gerade Zahl. B = A
+Was kann man aus einem gültigen Argument folgern?
+
+
+
+   Formal: Es gilt A → B. Daraus folgt:
+
+    ↭ A → B (wahrheitserhaltend) (’trivial’)
+    ↭ ¬B → ¬A (falschheitserhaltend)
+
+   Daraus folgt nicht!:
+    ↭ ¬A → ¬B
+    ↭ B →A
+   Hinweis: A ≃ B bedeutet A → B und B → A gilt. Dies wird als
+   Äquivalenz bezeichnet.
+Mathematisches Beweisen
+
+
+   Mathematische Beweise bestehen aus gültige Argumentationen die
+   eine Behauptung (d.h. eine mathematische Aussage) belegen/
+   widerlegen. Mögliches Vorgehen:
+
+   Fall 1 - wir wollen zeigen dass eine Behauptung (z.B. mit
+   Allquantor) wahr ist.
+    ↭ Direkter Beweis A B =
+
+
+
+
+    ↭ Beweis durch Kontraposition 7B   =   -A
+
+
+    ↭ Beweis durch Widerspruch -(zAxB)
+    ↭ Beweis durch Induktion
+Mathematisches Beweisen: Direkter Beweis
+    A => B
+
+    Wenn               A         wahr       ist        ,
+                                                           muss   auch        B wahr        sein .
+
+
+
+   Behauptung : Die Summe dreier aufeinanderfolgenden nat¨urlichen
+   Zahlen ist immer durch drei teilbar.
+  A               a,b           c sind       drei
+                                                             aufeinanderfolgende nat                       Zahlen.
+          :
+                           ,
+                                                                                                      .
+
+
+
+
+  B   :
+                  a+   b+ c           ist   durch            3    (restlos) teilbar.
+
+
+  Sei             neIN                Dann                                  (n 1)                         3n + 3
+                                                      gilt             +                (n + 2)                        3(n +
+                                                                  n                               =                =
+                                 .                                            +     +
+
+
+
+
+   3) n + 1                          1EIN             Somit           ist    3(n + 1)    durch 3 teilbar
+                       =       n +                .                                                                    .
+                                                                                                                           1
+                                                                                                                           .
+              3
+Mathematisches Beweisen: Beweis durch Kontraposition
+   "A    =   B" "Aub"                              es         "B) via" "B                                         =   A"
+
+    Wenn B       nicht       wahr      ist    ,
+                                                  dann       ist       auch     A   nicht              wahr   .
+
+
+
+
+   Behauptung : Sei n ↘ N. Wenn n2 gerade ist, so ist auch n gerade.
+                                                               - -
+                  -B                                                                               A                        B
+         -
+                                                                                2k-1
+  Sei    neIN
+                  ungerade             Also       JkeN                  n
+                                                                   :        =            .
+                                   .
+
+
+
+
+                   n         (2k       1)         4k         4k        1        2
+                                                                                    (2k) 1                        2m + 1.
+                                                                                                              =
+
+
+          gilt
+                                                                            =                           +
+                                                                   +
+  Dann                   =         -
+                                             =           -
+
+
+
+
+                                                                                             : =   mE IN
+
+
+
+  Wir
+         schlussfolgern            dass n                                        ist .
+                               ,
+
+                                                  -
+                                                         ungerade
+                                                                       -A
+Mathematisches Beweisen: Beweis durch Widerspruch
+"A > B" "AvB" -
+
+
+
+
+"A B" "AuB" "AnzB"d                                                                                                                 Zeige dass A und B nicht simultan wahr sein können
+                                                                                                                                                  ,                                                            .
+
+
+
+
+                                                          ⇓                                                          A       :
+
+
+              Behauptung :                                    2 ist irrational.
+                                                                                                                     B   :       2          ist       irrational
+
+
+ Wir nehmen                         an
+                                             ,
+                                                 das         ZEQ           .
+                                                                                   Also Im mei             ,
+                                                                                                                         :
+                                                                                                                                 z      =
+                                                                                                                                             in
+ o   .
+         B d A
+          .
+              .     .
+                            seien       min          teilerfremd     .
+                                                                         Daraus
+                                                                                         folgt dass,
+                                                                                                                     mund          n        nicht beide
+                                                                                                                                                             gerade sind.
+Aus z                   =
+                             Mu     folgt            2
+                                                         =
+                                                             m       oder          In     =
+                                                                                              m2       .
+                                                                                                                Daraus
+                                                                                                                                  folgt           m ist
+                                                                                                                                                           gerade  .
+
+
+
+
+                                                                         ist       Also       JkEIN                              2k.
+Aus           A
+                                                                                                                             =
+
+
+
+                        folgt
+                                                                                                                     m
+
+                                                          gerade
+                                                                                                                 :
+
+                                    ,
+                                        dass         m
+                                                                               .
+
+
+
+
+                                                                                                                                                          2k und daher         ist
+Aus           In    =
+                            m2    und       m    =   2k
+                                                             folgt        In        =    (2k)"             =   4k2 und somit                      n   =
+                                                                                                                                                                                        gerade      .
+
+
+
+
+Aus           A                                                            .
+                        folgt                             gerade
+                                                                         ist
+                                    ,
+                                        das          n
+
+
+
+
+Somit
+                                                                                                                                                                                                           b
+                  ist               und
+                                                      gerade                              Widerspruch dazu                                                 man
+                              m                  n                   was           ein                                                 ist        dass              nicht    beide
+                                                                 ,                                                                            ,
+                                                                                                                                                                                     gerade sind.
+Wir
+          schlussfolgern                    dass         A                                                                                                               A                                 B
+                                                             falsch        oder          B     wahr                                           Wir wissen          dass       wahr ist       somit   muss
+                                        ,                                                                        sein            muss   .                     ,
+                                                                                                                                                                                        ,
+
+
+
+
+Wahr              sein.
+Mathematisches Beweisen
+
+
+
+   Mathematische Beweise sind gültige Argumentationen die eine
+   Behauptung (d.h. eine mathematische Aussage) belegen.
+   Mögliches Vorgehen: Fall 2 - wir wollen zeigen dass eine
+
+   Behauptung mit Existenzquantoren wahr ist.
+    ↭ Konstruktiver Beweis
+    ↭ Nicht-konstruktiver Beweis
+   Finde/Konstruiere ein Element, dass die Behauptung erfüllt.
+Mathematisches Beweisen: ↔-Konstruktiver
+
+
+   Behauptung : Die Funktion f mit f (x) = 2x ⇔ 1 besitzt in [0, 1]
+   mindestens eine Nullstelle.
+
+   2x   -
+            1   =   0   ( (x   =   1            x   =
+                                                        1
+   -
+        gefunden Super  .      i
+
+
+
+
+   f(1)         =   0
+                            und    0   .
+                                           1]           i
+Mathematisches Beweisen: ↔- nicht Konstruktiv
+
+
+   Behauptung : Die Funktion f mit f (x) = 2x ⇔ 1 besitzt in [0, 1]
+   mindestens eine Nullstelle.
+
+   f ist stetig
+   f(0)           1
+          =   -
+
+
+
+
+   f(1)   =
+              1
+
+
+
+   Gemäß dem                  Zwischenwertsatz   aus
+                                                       Analysis   1
+                                                                      gilt
+                                                                             :
+
+
+
+
+   5 x [0 1)          ,
+                          :
+
+                              f(x)   =   0
+                                         .
+Mathematisches Beweisen
+
+
+
+
+   Mathematische Beweise sind gültige Argumentationen die eine
+   Behauptung (d.h. eine mathematische Aussage) belegen.
+   Mögliches Vorgehen: Fall 3 - wir wollen zeigen dass eine
+
+   Behauptung falsch ist. z.B. finde ein Gegenbeispiel.
+Mathematisches Beweisen: Gegenbeispiel
+
+
+   Behauptung : ↓a, b, c, n ↘ N mit a + b = c gilt an + b n = c n .
+
+   a = 1            ,
+                        b   =   2       ,
+                                            c   =   3       und   n =   2
+
+
+   a   +   b    =       1       +   2       =
+                                                3       =
+                                                                            ,
+                                                                                aber
+
+   a   +   b2   =
+                        1 2     +           =   5 + 9       =   35 =
+

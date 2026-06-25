@@ -1,0 +1,110 @@
+
+# Lineare Algebra Klausur
+
+**Kurs:** LinAlg 1 P.14a/Stell.  
+**Datum:** WS 08/09  
+**Punkte pro Aufgabe:** 6  
+**Gesamtpunkte:** 48  
+**Bearbeitungszeit:** 120 min
+
+---
+
+## Aufgabe 1
+
+Zeigen Sie die folgende Gleichung durch vollständige Induktion:
+
+(1010−10101)2n=12(4n04n0204n04n)(n∈N)\begin{pmatrix} 1 & 0 & 1 \\ 0 & -1 & 0 \\ 1 & 0 & 1 \end{pmatrix}^{2n} = \frac{1}{2} \begin{pmatrix} 4^n & 0 & 4^n \\ 0 & 2 & 0 \\ 4^n & 0 & 4^n \end{pmatrix} \quad (n \in \mathbb{N})​101​0−10​101​​2n=21​​4n04n​020​4n04n​​(n∈N)
+
+---
+
+## Aufgabe 2
+
+**(a)** Zeigen Sie, dass die reellen n×nn \times nn×n-Diagonalmatrizen
+
+{D∈Rn×n:D=(d10⋯00d2⋯0⋮⋱⋮0⋯dn),d1,…,dn≠0}\left\{ D \in \mathbb{R}^{n \times n} : D = \begin{pmatrix} d_1 & 0 & \cdots & 0 \\ 0 & d_2 & \cdots & 0 \\ \vdots & & \ddots & \vdots \\ 0 & \cdots & & d_n \end{pmatrix}, \quad d_1, \ldots, d_n \neq 0 \right\}⎩⎨⎧​D∈Rn×n:D=​d1​0⋮0​0d2​⋯​⋯⋯⋱​00⋮dn​​​,d1​,…,dn​=0⎭⎬⎫​
+
+eine Gruppe bezüglich der Matrixmultiplikation bilden.
+
+**(b)** Beantworten Sie (mit Begründung!), ob das auch zutrifft, wenn man die stärkere Forderung d1≥0,…,dn≥0d_1 \geq 0, \ldots, d_n \geq 0d1​≥0,…,dn​≥0 stellt.
+
+---
+
+## Aufgabe 3
+
+Gegeben sei α∈R\alpha \in \mathbb{R}α∈R und
+
+A=(11101010α+1)∈R3×3.A = \begin{pmatrix} 1 & 1 & 1 \\ 0 & 1 & 0 \\ 1 & 0 & \alpha + 1 \end{pmatrix} \in \mathbb{R}^{3 \times 3}.A=​101​110​10α+1​​∈R3×3.
+
+Bestimmen Sie, für welche α∈R\alpha \in \mathbb{R}α∈R die Matrix $A$ invertierbar ist, und berechnen Sie in diesen Fällen A−1A^{-1}A−1.
+
+---
+
+## Aufgabe 4
+
+Gegeben seien folgende Vektoren aus R3\mathbb{R}^3R3:
+
+a=(124),b=(135),c=(245).a = \begin{pmatrix} 1 \\ 2 \\ 4 \end{pmatrix}, \quad b = \begin{pmatrix} 1 \\ 3 \\ 5 \end{pmatrix}, \quad c = \begin{pmatrix} 2 \\ 4 \\ 5 \end{pmatrix}.a=​124​​,b=​135​​,c=​245​​.
+
+Bestimmen Sie eine Basis $B$ von span(a,b,c)\text{span}(a, b, c)span(a,b,c) und untersuchen Sie, mit welchen der Vektoren e1,e2,e3e_1, e_2, e_3e1​,e2​,e3​ aus der kanonischen Basis von R3\mathbb{R}^3R3 die Basis $B$ zu einer Basis von R3\mathbb{R}^3R3 ergänzt werden kann.
+
+---
+
+## Aufgabe 5
+
+Gegeben sei α∈C\alpha \in \mathbb{C}α∈C und
+
+A=(i00i0110i0101α10)∈C4×4.A = \begin{pmatrix} i & 0 & 0 & i \\ 0 & 1 & 1 & 0 \\ i & 0 & 1 & 0 \\ 1 & \alpha & 1 & 0 \end{pmatrix} \in \mathbb{C}^{4 \times 4}.A=​i0i1​010α​0111​i000​​∈C4×4.
+
+**(a)** Berechnen Sie det⁡A\det AdetA.
+
+**(b)** Berechnen Sie rang A\text{rang } Arang A, falls det⁡A=0\det A = 0detA=0.
+
+**(c)** Bestimmen Sie rang A\text{rang } Arang A, falls det⁡A≠0\det A \neq 0detA=0.
+
+---
+
+## Aufgabe 6
+
+Sei A∈Rn×nA \in \mathbb{R}^{n \times n}A∈Rn×n. Zeigen Sie:
+
+**(a)** A2=A⇒(det⁡A=0∨det⁡A=1)A^2 = A \Rightarrow (\det A = 0 \lor \det A = 1)A2=A⇒(detA=0∨detA=1).
+
+**(b)** $A$ invertierbar ⇔AT⋅A\Leftrightarrow A^T \cdot A⇔AT⋅A invertierbar.
+
+**(c)** A2=0⇒En−AA^2 = 0 \Rightarrow E_n - AA2=0⇒En​−A invertierbar.  
+_(Hinweis: Erraten Sie die Inverse.)_
+
+---
+
+## Aufgabe 7
+
+Gegeben sei
+
+A=(20203020−1)∈R3×3.A = \begin{pmatrix} 2 & 0 & 2 \\ 0 & 3 & 0 \\ 2 & 0 & -1 \end{pmatrix} \in \mathbb{R}^{3 \times 3}.A=​202​030​20−1​​∈R3×3.
+
+Sie können im Folgenden voraussetzen, dass $A$ den Eigenwert $3$ hat.
+
+**(a)** Bestimmen Sie den Eigenraum EigA(3)\text{Eig}_A(3)EigA​(3).
+
+**(b)** Berechnen Sie das charakteristische Polynom χA\chi_AχA​ und geben Sie alle Eigenwerte von $A$ an.
+
+_(Hinweis: Dieser Aufgabenteil lässt sich fast ohne Rechnung lösen, wenn man zuerst die Eigenwerte unter Verwendung von (a) und spur A\text{spur } Aspur A ermittelt.)_
+
+---
+
+## Aufgabe 8
+
+Berechnen Sie alle Eigenwerte und Eigenvektoren der Matrix
+
+(0i−i0)∈C2×2.\begin{pmatrix} 0 & i \\ -i & 0 \end{pmatrix} \in \mathbb{C}^{2 \times 2}.(0−i​i0​)∈C2×2.
+
+---
+
+## Bewertung
+
+|Studiengang|Aufgaben|Bestnote|Bestanden|
+|---|---|---|---|
+|Informatik (Bachelor)|Aufgaben 1–6|27 P.|12 P.|
+|Sonstige|Aufgaben 1–8|36 P.|16 P.|
+
+_(Bei mehr bearbeiteten Aufgaben: 2 beste ermittelt, bessere Note zählt)_

@@ -1,0 +1,859 @@
+MATHEMATISCHES INSTITUT                                                                           Wintersemester
+DER UNIVERSITÄT MÜNCHEN                                                                           2017/2018
+ Dr. W. Spann, F. Hänle,
+M. Oelker, H. Jaskolla
+
+
+
+    Lösungen der Klausur zur Linearen Algebra für Informatiker und
+                               Statistiker
+
+
+
+1 (6 Punkte)
+
+    Man zeige für n ∈ N die folgende Gleichung für reelle 3 × 3−Matrizen durch vollständige
+    Induktion:                          n                          
+                       2 −1 1                   2 −n   n 
+                                          n−1                    
+                           0 3 −1  = 2 ·  0 n + 2 −n  (⋆)
+                              0 1 1                      0  n  2−n
+
+
+    Lösung:
+          Induktionsanfang: n = 1 :
+                      1                            
+     2 −1 1                      2 −1   1 
+                                                 
+         0 3 −1  = |{z}
+                            21−1 ·  0 1 + 2 −1 
+                                                     
+            0 1 1           =1 0            1   2−1
+
+    Induktionsschritt:          n→n+1 :
+    Induktionsvoraussetzung: Es sei die Behauptung (⋆) richtig für ein n ∈ N .
+    Induktionsbeweis:
+                      n + 1                                n                
+     2 −1 1                      2 −1 1   2 −1 1 
+                                                                        
+         0 3 −1         =          0 3 −1  ·  0 3 −1 
+            0 1 1                             0 1 1                  0 1 1
+                                                                                     
+                                                     2 −n         n   2 −1 1 
+                                                                                     
+                                =    2n−1 ·  0 n + 2 −n  ·  0 3 −1 
+                                IV                                                   
+                                                        0   n     2−n          0 1 1
+                                                                                                                      
+                                                 2 · 2 2 · (−1) + (−n) · 3 + n · 1 2 · 1 + (−n) · (−1) + n · 1 
+                                                                                                                      
+                                =    2n−1 ·  0             (n + 2) · 3 + +(−n) · 1    (n + 2) · (−1) + (−n) · 1 
+                                                                                                                      
+                                                          0       n · 3 + (2 − n) · 1       n · (−1) + (2 − n) · 1
+                                                                                 
+                                                   2 · 2 −2 − 2n 2n + 2 
+                                                                                 
+                                =    2n−1 ·  0            2n + 6 −2n − 2 
+                                                                                 
+                                                          0   2n + 2 2 − 2n
+
+
+                                                        1
+                                                                                       
+                                               2 · 2 −2 · (n + 1) 2 · (n + 1) 
+                                                                                       
+                                  = 2n−1 ·  0           2 · (n + 3) −2 · (n + 1) 
+                                                                                       
+                                                   0        2 · (n + 1) 2 · (1 − n)
+                                                                                   
+                                                     2 −(n + 1)         n + 1 
+                                                                                   
+                                  = 2n−1 · 2 ·  0 (n + 1) + 2 −(n + 1) 
+                                                                                   
+                                                          0   n+1       2 − (n + 1)
+                                                                                   
+                                                       2 −(n + 1)       n + 1 
+                                                                                   
+                                  = 2(n+1)−1 ·  0 (n + 1) + 2 −(n + 1) 
+                                                                                   
+                                                          0   n+1       2 − (n + 1)
+
+
+
+
+
+2 (6 Punkte)
+
+    Man betrachte die folgende Menge reeller 2 × 2−Matrizen
+                                      {(      )              }
+                                         a b
+                                 R=                 a, b ∈ R
+                                         0 a
+                         (     )
+     (a) Man zeige, daß R, +, · ein kommutativer Ring mit Einselement ist.
+                                                  (      )
+                                                    0 0
+     (b) Man bestimme alle M ∈ R mit M · M =               .
+                                                    0 0
+                         (     )
+     (c) Man zeige, daß R, +, · kein Körper ist.
+
+
+
+    Lösung:
+    Ad (a):
+    Es ist R ⊆ R2×2 , das mit der Matrixaddition und -multiplikation ein (nicht kommutativer)
+    Ring mit Einselement ist. Somit sind die Assoziativität der Multiplikation und die Distri-
+    butivgesetze a priori erfüllt. Es bleibt zu zeigen, daß
+
+        (   )                     (       )
+      • R, + eine Untergruppe von R2×2 , + ist
+      • R abgeschlossen bzgl. der Multiplikation ist
+        ( )
+      • R, · kommutativ ist
+             (     )
+               1 0
+      • E2 =         ∈ R gilt.
+               0 1
+
+                                                2
+                                         )   (  (     )
+                                     a b          c d
+Dies ist richtig, weil für alle A =       , B=         ∈R      (a, b, c, d ∈ R) gilt:
+                                     0 a          0 c
+   •                       ) ( (    ) (            )
+                       a b      c d      a−c b−d
+             A−B=             −      =               ∈ R , da a − c , b − d ∈ R .
+                       0 a      0 c       0    a−c
+                                                         (     )
+                (   )                  ( 2×2 )             0 0
+       Also ist R, + Untergruppe von R , + , weil mit            ∈ R gilt, daß R , ∅
+                                                           0 0
+       (mit Vorlesung (1.10) ).
+                                 )(   ) ((           )
+                              a b c d     ac ad + bc
+   • ∀ a, b, c, d ∈ R : A·B =     ·    =               ∈ R , da ac , ad+bc ∈ R
+                              0 a 0 c     0    ac
+                       (              ) (            ) (     ) (     )
+               siehe       ac ad + bc     ca cb + da     c d     a b
+   • A·B =                             =              =       ·        = B·A
+               oben        0    ac        0    ca        0 c     0 a
+
+       (wegen der Kommutativität von + und · in R).
+
+                                    ) (     )    (
+                                1 0     a b
+   • Mit a = 1 ∧ b = 0 ist E2 =      =        ∈ R.
+                                0 1     0 a
+
+
+Ad (b):
+           ( )
+         a b
+Für M =       ∈ R gilt
+         0 a
+                  ) (      (
+                          ) ( 2    )
+              a b     a b    a 2ab
+       0=M·M=      ·       =         ⇐⇒ a2 = 0 ∧ 2ab = 0 ⇐⇒ a = 0
+              0 a     0 a    0 a2
+
+Also:                                             )      (
+                                              0 b
+                       M ∈ R mit M = 0 ⇐⇒ M =
+                                     2
+                                                    mit b ∈ R beliebig
+                                              0 0
+
+Ad (c):
+(       )
+ R, +, · kann kein Körper sein, da wir in Teil (b) gezeigt haben, daß R Nullteiler enthält:
+Zum Beispiel ist                 (     ) (       ) (       )
+                                   0 1     0 1        0 0
+                                         ·        =
+                                   0 0     0 0        0 0
+     (     )
+       0 1
+aber         , 0 in R .
+       0 0
+
+
+
+
+                                                     3
+
+3 (6 Punkte)
+
+    Gegeben seien t ∈ R und                                               
+                                                  1       0   0   t 
+                                                    1             t 
+                                        A := 
+                                                             0   1
+                                                                            ∈ R4×4 .
+                                                      1   0   t   1 
+                                                                           
+                                                         1   1   1   1
+     (a) Man berechne die Determinante von A und bestimme die reellen Zahlen t, für die A
+         invertierbar ist.
+     (b) Man berechne für t = 0 die inverse Matrix von A.
+
+
+
+    Lösungen:
+    Ad (a):
+    Wir benutzen den Determinanten-Entwicklungssatz. Dazu suchen wir eine Zeile oder Spal-
+    te mit möglichst vielen Nulleinträgen - hier ist das die 2. Spalte. Damit:
+                                                                        
+                                                              1 0 t 
+                                                                        
+                                      (−1)(2+4) · 1 · det  1 1 t 
+                         Entw. nach
+               det (A)        =
+                           2.Spalte                                     
+                                                                 1 t 1
+                                                           (         )                        (     )
+                         wieder nach                             1 t                            1 t
+                              =       (−1) (2+2)
+                                                 · 1 · det             + (−1) (3+2)
+                                                                                    · t · det
+                         der 2.Spalte                            1 1                            1 t
+                                      (             )           (          )
+                              =         1·1−t·1 −t· 1·t−t·1
+                              =       1−t
+    Mit der Bemerkung nach Lemma (5.5) (a) der Vorlesung ist eine Matrix C ∈ Rn×n genau
+    dann invertierbar, wenn det (C) , 0 . Also hier
+                      A invertierbar ⇐⇒ det (A) = 1 − t , 0 ⇐⇒ t ∈ R \ {1}
+
+    Ad (b):
+    Wegen Teil (a) ist die Matrix A für t = 0 invertierbar und wir erhalten für die erweiterte
+    Matrix:
+                                                                                                       
+                             1 0 0 0 1 0 0 0  II−I  1 0 0 0 1 0 0 0 
+      (      )                 1 0 1 0 0 1 0 0                                 0 0 1 0 −1 1 0 0 
+                                                                     III−I 
+                                                                    −−                                
+        A E4         =             1 0 0 1 0 0 1 0  IV−I  0 0 0 1 −1 0 1 0 
+                                                                         − −      →
+                                                                                                    
+                                                   1 1 1 1 0 0 0 1                      0 1 1 1 −1 0 0 1
+                                                                          
+                                            1 0 0 0 1 0 0 0 
+                                              0 0 1 0 −1 1 0 0 
+                 −−−−−→ 
+                   IV−II                                                   
+                  IV−III                        0 0 0 1 −1 0 1 0 
+                                                   0 1 0 0 1 −1 −1 1
+                                                                            
+                                      1 0 0 0 1 0 0 0 
+                                        0 1 0 0 1 −1 −1 1 
+               −−−−−−−→                                                 
+                vertauschen
+
+                                                0 0 1 0 −1  1  0      0     
+                                                                                 
+                                                   0 0 0 1 −1 0 1 0
+
+                                                             4
+    Damit ist die gesuchte Inverse zu A gegeben durch
+                                                                                       
+                                             1 0 0                             0 
+                                               1 −1 −1                         1 
+                                    A = 
+                                      −1
+                                                                                        
+                                                 −1 1 0                        0 
+                                                                                        
+                                                    −1 0 1                        0
+
+
+
+    Verfikation:
+                                                                                                            
+                                  1       0   0   0   1 0 0 0                 1     0   0   0 
+                                    1             0   1 −1 −1 1  !  0               0 
+                   A · A−1 = 
+                                             0   1                                                 1   0
+                                                           ·                    =                          
+                                      1   0   0   1   −1 1 0 0               0   0   1   0 
+                                                                                                              
+                                         1   1   1   1            −1 0 1 0                     0   0   0   1
+
+
+
+
+
+4 (6 Punkte)
+
+    Gegeben seien a, b ∈ R und
+                                                                      
+                                                          1 1 a b 
+                                                                      
+                                                 A :=  1 1 b a  ∈ R3×4
+                                                                      
+                                                             a b 1 1
+    Man berechne rang (A) in Abhängigkeit von a, b ∈ R .
+
+    Lösung:
+    Wir wissen, daß elementare Zeilen- und/oder Spaltenumformungen den Rang einer Matrix
+    nicht ändern und der Rang einer Matrix an ihrer Zeilenstufenform ablesbar ist.
+    Also führen wir A durch elementare Zeilenumformungen in eine Zeilenstufenform über:
+                                                                               
+                         1 1 a b                  1   1     a      b 
+                                                                               
+                 A =  1 1 b a  −−−−−→  0               b − a a − b 
+                                             II−I
+                                                               0
+                                         III−a·I                               
+                            a b 1 1                        0 b − a 1 − a2 1 − ab
+                                                                                
+                                                      1     1     a      b 
+                                                                                
+                                        −−−−−−−−→  0 b − a 1 − a2 1 − ab  =: AS
+                                         vertauschen
+                                                                                
+                                                           0   0   b−a a−b
+    Um die Lage der Stufen festzustellen, müssen wir die Diagonalelemente untersuchen:
+
+    Falls a , b :
+                                      
+             1 1     a      b 
+                                      
+    AS =  0 b − a 1 − a2 1 − ab                hat 3 Stufen =⇒ rang (A) = 3 .
+                                      
+                0 0   b−a a−b
+
+                                                             5
+Falls a = b :
+                              
+         1 1 a      a 
+                              
+AS =  0 0 1 − a2 1 − a2 
+                              
+            0 0 0      0
+
+       Falls a = b < {±1} :
+       Dann ist 1 − a2 , 0 und somit:
+                                           
+                      1 1 a      a 
+                                           
+             AS =  0 0 1 − a2 1 − a2       hat 2 Stufen =⇒ rang (A) = 2
+                                           
+                         0 0 0      0
+
+       Falls a = b ∈ {±1} :
+       Dann ist 1 − a2 = 0 und es folgt
+                                        
+                            1 1 a a 
+                                        
+                   AS =  0 0 0 0  hat 1 Stufe =⇒ rang (A) = 1
+                                        
+                               0 0 0 0
+
+Ergebnis:
+                                                                    
+                                   
+                                   
+                                    3          falls      a,b       
+                                                                     
+                                                                     
+                                                                    
+                        rang (A) = 
+                                    2          falls   a = b < {±1} 
+                                                                     
+                                   
+                                    1                               
+                                                falls   a = b ∈ {±1} 
+
+
+
+
+                                           6
+
+5 (6 Punkte)
+
+    Seien n ∈ N und A ∈ Rn×n mit AT = −A . Man zeige:
+        (a) xT Ay = −yT Ax                     (x, y ∈ Rn )
+     (b) xT Ax = 0                       (x ∈ Rn )
+        (c) x = −Ax =⇒ x = 0                           (x ∈ Rn )
+     (d) En + A ist invertierbar.
+        (e) (En + A)−1 · (En − A) = (En − A) · (En + A)−1 .
+        (f) Man zeige für U := (En + A)−1 · (En − A) , daß U T U = En gilt, d.h. daß U eine
+            orthogonale Matrix ist.
+    Lösungen:
+    Ad (a);
+    Da xT Ay ∈ R folgt für alle x, y ∈ Rn :
+                  (      )T RR             ( )T                        RR
+           xT Ay = xT Ay        = yT AT xT                             =         yT AT x T= yT (−A)x = −yT Ax
+                                          (2.12) (d)                (2.12) (a)          A =−A
+
+
+    Ad (b):
+    ∀ x ∈ Rn : xT Ax Teil=(a) −xT Ax =⇒ 2 · xT Ax = 0 =⇒ xT Ax = 0
+
+    Ad (c):
+                                                                                                Skalarpr.
+    0     =        xT Ax = xT (Ax)              =          xT (−x) = −xT x = − ⟨x , x⟩             =        x=0
+        Teil (b)                           Voraussetzung                                    positiv def.
+
+    Ad (d):
+    Für alle x ∈ Rn gilt:
+
+                        (En + A) · x = 0 ⇐⇒ x + Ax = 0 ⇐⇒ x = −Ax =⇒ x = 0
+                                                                                                 Teil (c)
+
+    Dies ist aber nach Corollar (2.20) äquivalent dazu, daß (En + A) invertierbar ist.
+
+    Ad (e):
+    (En +A)·(En −A)             =        En2 −E    + AE}n −A2 = En2 +E
+                                             | n A{z                      − AE}n −A2 = (En −A)·(En +A) (•)
+                                                                     | n A{z
+                              distrib.
+                                                  =0                               =0
+    Also
+                                                       [                   ]
+            En − A = (En − A) · (En + A) · (En + A)−1 = (En − A) · (En + A) · (En + A)−1
+                                |        {z        }
+                                       = En
+                     [                   ]
+                   = (En + A) · (En − A) · (En + A)−1 (••)      =⇒
+                        (•)
+                                        [                  ]
+    (En + A)−1 · (En − A) = (En + A)−1 · (En + A) ·(En − A) · (En + A)−1 = (En − A) · (En + A)−1
+                          (••) |     {z         }
+                                    = En
+
+                                                                7
+Ad (f):
+Zunächst ist mit En + A nach Vorlesung (2.14) (c) auch
+
+                            (En + A)T = En + AT          =          En − A
+                                                    Voraussetzung
+
+
+invertierbar und wir können schreiben
+                                 (                       )T
+             UT · U       =        (En + A)−1 · (En − A) · (En + A)−1 · (En − A)
+                                             ((        )−1 )T
+                                                              · (En + A)−1 · (En − A)
+                         RR
+                          =      (En − A)T · En + A
+                      (2.12) (d)
+                                            ((       )T )−1
+                                                            · (En + A)−1 · (En − A)
+                         RR
+                          =      (En − A)T En + A
+                      (2.14) (c)                              |        {z         }
+                                                                         Teil (d)
+                                   (          )T (      )−1
+                          =            En + AT · En + AT (En − A) · (En + A)−1
+                        AT =−A
+                       (AT )T =A
+                          =        (En + A) · (En − A)−1 · (En − A) ·(En + A)−1
+                       −A=AT                  |       {z          }
+                                                     = En
+                          =        (En + A) · (En + A)−1
+                          =        En
+
+
+
+
+                                               8
+
+6 (6 Punkte)
+
+                       
+                       x1     (              )
+                         x 
+                 2      
+                             2     x1 + x2 + x3
+    Sei f : R → R ;   7→
+             4
+                                                     .
+                          x3    x2 + x3 + x4
+                             x4
+     (a) Man schreibe f in der Gestalt f (x) = M · x mit einer geeigneten Matrix M.
+     (b) Man zeige, daß U := { x ∈ R4 | x1 + x2 + x3 = 0 ∧ x2 + x3 + x4 = 0 } ein
+         Untervektorraum von R4 ist und bestimme eine Basis von U.
+     (c) Man zeige, daß f surjektiv, aber nicht injektiv ist.
+
+
+
+    Lösungen:
+    Ad (a):
+                                                                                       
+                x1                   (                   )        (        )  x1 
+                  x                                                                x 
+    ∀ x =  x23  ∈ R4 : f (x) = xx12 ++ xx23 ++ xx34 produkt
+                                                                 Matrix- 1 1 1 0
+                                                                  =               ·  2  .
+                                                                          0 1 1 1  x3 
+                                                                                      
+                     x4                                                                    x4
+                          (            )
+                            1 1 1 0
+    Mit M :=                             ∈ R2×4 gilt also f (x) = M · x , wie gewünscht.
+                            0 1 1 1
+
+    Ad (b):
+    Nach Definition und Satz (2.8) (b) der Vorlesung ist f =: f M : R4 → R2 ; x 7→ M · x eine
+    lineare Abbildung, und nach Definition und Lemma (3.2) ist Kern( f ) = {x ∈ R4 | f (x) = 0 }
+    ein Untervektorraum von R4 . Nun gilt für x = (x1 , x2 , x3 , x4 )T ∈ R4 :
+                   (              )
+                     x1 + x2 + x3      Komponen-                                Definition
+     f (x) = 0 ⇐⇒                   = 0 ⇐⇒ x1 +x2 +x3 = 0 ∧ x2 +x3 +x4 = 0 ⇐⇒ x ∈ U (⋆)
+                     x2 + x3 + x4       tenweise                                 von U
+
+    Also ist U = Kern( f ) und somit ein Untervektorraum von R4 .
+    Ferner erkennt man an (⋆) sofort, daß die Elemente von Kern( f ) gerade die Lösungen des
+    homogenen linearen Gleichungssystems
+                                               (          )
+                                                 1 1 1 0
+                               f (x) = 0 ⇐⇒                 x=0
+                                                 0 1 1 1
+    sind. Wir lösen dieses Gleichungssystem durch Untersuchung der Zeilenstufenform.
+    M ist schon in einer Zeilenstufenform, die wir nur noch vereinfachen:
+                                   (           )      (             )
+                                     1 1 1 0 I−II 1 0 0 −1
+                              M=                 −−−→
+                                     0 1 1 1            0 1 1 1
+    woran man sofort rang (M) = 2 =⇒ dim (Kern( f )) = 2 ablesen kann und als Lösungs-
+    menge                                                            
+                                                     0           −1 
+                                                       1           1 
+                            U = Kern( f ) = R ·   + R ·  
+                                                         −1          0 
+                                                             0               −1
+
+                                                          9
+bestimmt.                                                                 
+                                                         0            −1 
+                                                           1            1 
+Somit bilden die (linear unabhängigen) Vektoren b1 =   und b2 =  
+                                                            
+                                                                    
+                                                                     
+                                                             −1           0 
+                                                                 0                −1
+eine Basis von U, d.h. dim (Kern( f )) = 2    (⋆⋆) .
+
+Ad (c):
+Wir haben soeben gezeigt, daß insbesondere Kern( f ) , 0 gilt, woraus mit Lemma (3.10)
+sofort folgt, daß f nicht injektiv ist.
+Gemäß der Dimensionsformel für lineare Abbildungen (Vorlesung (3.22)) ist ferner
+         ( )
+4 = dim R4 = dim (Kern( f ))+dim (Bild( f )) = 2+dim (Bild( f )) =⇒ dim (Bild( f )) = 2 .
+                                                    (⋆⋆)
+
+
+Da Bild( f ) ⊆ R2 nach Lemma (3.2) ein Untervektorraum von R2 der gleichen Dimension
+wie R2 ist, ist jede Basis von Bild( f ) auch Basis von R2 , d.h. Bild( f ) = R2 , also ist f
+surjektiv.
+                                        ( )                ( )
+                                         1                  0
+Das kann man auch daran erkennen, daß       = f (e1 ) und      = f (e4 ) mit den Einheits-
+                                         0                  1
+vektoren e1 , e4 ∈ R4 , d.h.
+( ) ( )                          (( ) ( ))
+ 1    0                            1     0
+    ,    ∈ Bild( f ) =⇒ R = span
+                             2
+                                      ,      ⊆ Bild( f ) ⊆ R2 =⇒ Bild( f ) = R2
+ 0    1                            0     1
+=⇒ f surjektiv.
+
+
+
+
+                                              10
+
+7 (6 Punkte)
+
+    Gegeben sei                                         
+                                            3 −2 −4 
+                                                        
+                                    A =  0 1 0  ∈ R3×3 .
+                                                        
+                                               2 −2 −3
+     (a) Man zeige, daß 1 Eigenwert von A ist und bestimme den zugehörigen Eigenraum.
+     (b) Man berechne alle weiteren Eigenwerte von A und bestimme für jeden weiteren Ei-
+         genwert den zughörigen Eigenraum.
+     (c) Man beantworte die Frage (mit Begründung !), ob A diagonalisierbar ist.
+
+
+
+    Lösungen:
+    Ad (a) und (b):
+    Um die Eigenwerte zu bestimmen, berechnen wir das charakteristische Polynom χA (λ)
+    von A:
+                                                                            
+                                                     3 − λ −2       −4 
+                                                                            
+          χA (λ) = det (A − λ · E3 )   =     det  0       1−λ       0 
+                                                                            
+                                                          2    −2 −3 − λ
+                                                                  (               )
+                                     nach 2.                   2+2 3 − λ     −4
+                                       =     (1 − λ) · (−1)
+                                      Zeile                          2     −3 − λ
+                                                            [                              ]
+                                       =     (1 − λ) · (3 − λ) · (−1) · (3 + λ) − (−4) · 2
+                                                           [             ]
+                                       =     (1 − λ · − (9 − λ2 ) + 8
+                                       =      (1 − λ) · (λ2 − 1) = (1 − λ) · (λ − 1) · (λ + 1)
+                                       =      −(λ − 1)2 · (λ + 1)
+
+    Die Nullstellen des charakteristischen Polynoms sind gerade die Eigenwerte von A, d.h.
+    wir erhalten die beiden Eigenwerte λ1 = 1 und λ2 = −1 . Dabei hat λ1 = 1 die algebrai-
+    sche Vielfachheit (d.h. die Vielfachheit der Nullstelle) µ1 = 2 und λ2 die algebraische
+    Vielfachheit µ2 = 1 .
+    Um die Eigenräume zu bestimmen müssen wir die linearen Gleichungssysteme
+
+                                 (A − λi · E3 ) · x = 0     (i = 1, 2)
+
+    lösen. Dazu bestimmen wir die jeweilige Zeilenstufenform:
+    λ1 = 1 : .
+                                                                                  
+                                                  2 −2 −4         1 −1 −2 
+                                                               III−I              
+                   A − λ1 · E 3 = A − E 3   =  0 0 0  −−−→  0 0 0 
+                                                                                  
+                                                     2 −2 −4 2 ·I 0 0 0
+                                                                  1
+
+
+
+
+    A − E3 hat also in der Zeilenstufenform 1 Stufe, d.h.
+                                    (        )       (       )
+       rang (A − E3 ) = 1 =⇒ dim EigA (λ1 ) = dim L(A−E3 )x=0 = 3 − rang (A − E3 ) = 2
+
+                                               11
+Der Eigenraum ist dabei die Lösungsmenge des linearen Gleichungssystems (A − E3 ) · x = 0 ,
+also                                                           
+                                                 1         2 
+                                                             
+                                EigA (1) = R ·  1  + R ·  0 
+                                                                 
+                                                     0              1
+
+λ2 = −1 :
+                                                                                                 
+                                 4 −2 −4                                     0 0 0 
+                                                                                               
+      A − λ2 · E3 = A + E3 =  0 2 0                                            0 1 0 
+                                                              I−II−2·III
+                                                         −−−−−−−−−−−−−→
+                                                        jede Zeile · 12
+                                    2 −2 −2                                               1 −1 −1
+                                                                             
+                                                                  1 0 −1 
+                                                                             
+                                                    −−−−−−−→  0 1 0 
+                                                       III+II
+                                                     vertauschen             
+                                                                     0 0 0
+
+Die Zeilenstufenform von A+E3 weist also zwei Stufen auf =⇒ rang (A + E3 ) = 2 =⇒
+                         (         )     (            )
+                      dim EigA (−1) = dim L(A+E3 )·x=0 = 3 − 2 = 1
+
+und wie oben folgt                                       
+                                                         1 
+                                                           
+                                     EigA (−1) = R ·  0 
+                                                           
+                                                            1
+
+
+Ad (c):
+Eine Matrix ist genau dann diagonalisierbar, wenn ihr charakteristisches Polynom in Li-
+nearfaktoren zerfällt, das ist hier der Fall mit χA (λ) = −(λ − 1)2 ((λ + 1) , und für jeden
+Eigenwert die geometrische Vielfachheit, d.h. die Dimension des zugehörigen Eigenraums,
+mit der algebraischen Vielfachheit übereinstimmt. Für A gilt
+                      (        )              (         )
+                   dim EigA (1) = 2 = µ1 ∧ dim EigA (−1) = 1 = µ2
+
+Also erfüllt A alle diese Bedingungen, ist also diagonalisierbar.
+
+
+
+
+                                            12
+
+8 (6 Punkte)
+
+    Seien n ∈ N mit n ≥ 2, e1 , . . . , en die Einheitsvektoren von Rn und
+
+                                         A := (e1 + en )(e1 + en )T ∈ Rn×n
+
+     (a) Man gebe A für n = 2, 3, 4 explizit an.
+     (b) Man zeige durch direkte Benutzung der Definition von A, daß A symmetrisch ist.
+     (c) Man zeige, daß v ∈ Rn mit v = e1 + en Eigenvektor von A = vvT ist und gebe den
+         zugehörigen Eigenwert an.
+     (d) Man zeige für v aus Teil (c):              ∀ u ∈ Rn : u ⊥ v =⇒ Au = 0 .
+     (e) Man zeige, daß auch 0 Eigenwert von A ist und daß A keine weiteren Eigenwerte als
+         0 und den in (c) berechneten Eigenwert haben kann.
+
+
+
+    Lösungen:
+    Ad (a):
+                                                                ( )                        (               )
+                                                                          1                  1     1
+       • n=2 :         A =: A2 = (e1 + e2 ) · (e1 + e2 )T =                     · (1, 1) =
+                                                                          1                  1 1
+                                                                                                            
+                                                                 1                       1 0 1 
+                                                                                                            
+       • n=3 :         A =: A3 = (e1 + e3 ) · (e1 + e3 )T =  0  · (1, 0, 1) =  0 0 0 
+                                                                                                            
+                                                                          1                       1 0 1
+                                                                                                                      
+                                                                   1                          1 0 0       1 
+                                                                     0                          0 0 0     0 
+       • n=4 :         A =: A4 = (e1 + e4 ) · (e1 + e4 )T =   · (1, 0, 0, 1) =                            
+                                                                       0                          0 0 0   0 
+                                                                                                                         
+                                                                          1                                1 0 0   1
+
+
+    Ad (b):
+    Es ist nachzuweisen, daß AT = A gilt:
+        [                      ]T         RR
+                                                    [(        )T ]T                     RR
+    AT = (e1 + en )(e1 + en )T            =           e1 + en       · (e1 + en )T       =         (e1 + en ) · (e1 + en )T = A
+                                       (2.12) (d)                                    (2.12) (a)
+
+
+    Ad (c):
+
+                    A · v = (e1 + en ) · (e1 + en )T · (e1 + en ) = λ · (e1 + en ) = λ · v
+                                         |         {z         }
+                                           =: λ ∈ R = R
+                                                     1×1
+
+    Also ist v , 0 ein Eigenvektor von A, und für den Eigenwert λ gilt:
+
+              λ = (e1 + en )T · (e1 + en ) = eT1 e1 + eT1 en + eTn e1 + eTn en = 1 + 0 + 0 + 1 = 2
+
+
+
+
+                                                          13
+Ad (d):
+                                           Def.
+Es gilt u ⊥ v ⇐⇒ 0 = ⟨u , v⟩                 =         uT v
+                                       Skalarprodukt
+
+                 Def.                                           Skalarpr.
+          A · u = (vvT ) · u = v · (vT u) = v · ⟨v , u⟩               =      ⟨u , v⟩ · v = 0 · v = 0
+                 von A                                         symmetrisch
+
+
+Ad (e):
+Hier gibt es viele Lösungsmöglichkeiten:
+1. Möglichkeit Unter Verwendung der Aussagen zur Hauptachsentransformation:
+Da die Matrix A nach Teil (b) symmetrisch ist, besitzt sie nach Satz (6.27) eine Ortho-
+normalbasis aus Eigenvektoren, und insbesondere Lemma (6.26) liefert, daß Eigenvek-
+toren zu verschiedenen Eigenwerten orthogonal sind. Ist also µ , 2 ein Eigenwert mit
+zugehörigem Eigenvektor ξ , 0 , so folgt für den Eigenvektor v zum Eigenwert 2, daß
+                          ξ Eigen-
+ξ ⊥ v =⇒ Aξ = 0            =⇒          µξ = Aξ = 0 =⇒ µ = 0 .
+      Teil (d)           vektor zu µ                     ξ,0
+
+Also ist der einzige von 2 verschiedene Eigenwert von A gleich 0, es gibt also keine wei-
+teren Eigenwerte von A als 0 und 2.
+
+
+2. Möglichkeit Direkte Rechnung, ohne Verwendung der Hauptachsentransformation,
+und deshalb aufwendiger:
+Zunächst ist
+
+     (e1 + en )T · (e1 − en ) = eT1 e1 − eT1 en + eTn e1 − eTn en = 1 − 0 + 0 − 1 = 0                  (♣)
+
+und damit
+                         A · (e1 − en ) = (e1 + en ) (e1 + en )T · (e1 − en ) = 0
+                                                     |         {z         }
+                                                               =0
+                                                                (♣)
+
+also A · (e1 − en ) = 0 ∧ e1 − en , 0 =⇒ e1 − en ist Eigenvektor von A zum Eigenwert 0 ,
+insbesondere ist 0 damit Eigenwert von A.
+Ferner ist A , 0 (z.B. eT1 · A = eT1 vvT = eT1 (e1 + en )vT = (eT1 e1 + eT1 en )vT = (1 + 0)vT = vT ,
+d.h. die erste Zeile von A ist gleich vT , 0 ) , also
+                      (       )         Folg.        {               ( )}
+   1 ≤ rang (A) = rang v · vT            ≤        min rang (v) , rang vT = 1         (da ja Rn ∋ v , 0)
+                                       (3.26) (c)                | {z }
+                                                                =rang(v)=1
+Also ist rang (A) = 1 .
+Für den Eigenraum zum Eigenwert 0 gilt aber EigA (0) = { x ∈ Rn | Ax = 0 } = LAx=0 .
+                                                    (        )
+Nun ist dim (LAx=0 ) = n − rang (A) = n − 1 =⇒ dim EigA (0) = n − 1 .
+                                   (        )
+Da 2 Eigenwert von A ist, ist dim EigA (2) ≥ 1 .
+Eigenräume zu verschiedenen Eigenwerten haben nur den Nullvektor gemeinsam, also
+liefert die Dimensionsformel für Untervektorräume
+                       (                  )       (      )       (       )       (              )
+n = dim (Rn ) ≥ dim EigA (2) + EigA (0) = dim EigA (0) + dim EigA (2) − dim EigA (2) ∩ EigA (0)
+               ≥ (n − 1) + 1 − 0 = n
+
+                                                   14
+also
+                                       Rn = EigA (0) + EigA (2)
+weshalb es keinen weiteren Eigenwert µ < {0, 2} geben kann: der dann existierende Ei-
+genvektor u , 0 zu µ hätte eine Darstellung u = a + b mit a ∈ EigA (0), b ∈ EigA (2) , also
+
+          µ(a + b) = µ · u = Au = A · (a + b) = Aa + Ab = 0 · a + 2b = 2b =⇒
+                     µa = 2b − µb ∈ EigA (0) ∩ EigA (2) = {0} =⇒
+                     µa = 0 =⇒ a = 0 =⇒
+                                     µ,0
+                             u = b ∈ EigA (µ) ∩ EigA (2) = {0} =⇒ u = 0
+                                                          µ,2
+
+
+
+
+3. Möglichkeit:
+Angenommen, es gäbe einen weiteren Eigenwert µ < {0, 2} mit zugehörigem Eigenvektor
+      ∑n                                   ∑n               ∑n          ∑
+                                                                        n
+0,u=     λk ek . Dann ist µ · u = A · u ⇐⇒     µλk ek = A ·    λ k ek =   λk Aek
+          k=1                                          k=1                     k=1          k=1
+Nun ist
+A · e1 = vvT e1 = v · (e1 + en )T · e1 = v · (eT1 e1 + eTn · e1 ) = v · (1 + 0) = v
+A · ek = vvT ek = v · (e1 + en )T ek = v · (eT1 ek + eTn ek ) = v · (0 + 0) = 0           für 2 ≤ k ≤ n − 1
+A · en = vvT en = v · (e1 + en )T en = v · (eT1 en + eTn en ) = v · (0 + 1) = v
+Damit
+            ∑
+            n
+                  µλk ek = λ1 A · e1 + λn A · en = λ1 v + λn v     =        (λ1 + λn ) · (e1 + en )
+                                                                 v=e1 +en
+            k=1
+
+Aufgrund der Eindeutigkeit der Basisdarstellung folgt
+                                             
+
+
+ I)   µλ1 = λ1 + λn                          
+                                              
+                                              
+                                              I) und
+
+ II)  µλ   =   0     für alle 2 ≤ k ≤ n − 1 
+                                               =⇒ µλ1 = µλn =⇒ λ1 = λn
+         k
+ III) µλ = λ + λ                             
+                                               III)         µ,0
+            n       1    n
+
+In I) eingesetzt ergibt dies µλ1 = 2λ1 =⇒ (µ − 2) · λ1 = 0 =⇒ λ1 = λn = 0
+                                                                            µ,2
+
+Da wegen µ , 0 aus II) auch folgt, daß λk = 0 für alle 2 ≤ k ≤ n − 1 , sind alle
+Koeﬃzienten λk = 0 (1 ≤ k ≤ n) =⇒ u = 0
+
+
+
+
+                                               15
+

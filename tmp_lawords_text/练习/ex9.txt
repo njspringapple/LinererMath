@@ -1,0 +1,84 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                              Prof. Dr. Thomas Nagler
+Blatt 9                                                                     Tobias Brock
+
+Recap - Eigenwerte, Eigenvektoren, Diagonalisierbarkeit
+  1. Gegeben eine Matrix A ∈ Rn×n suchen wir Vektoren v ̸= 0, auf denen A möglichst
+     einfach wirkt, d.h. Av = λv (v wird um den Faktor λ gestreckt). Solche v nennen wir
+     Eigenvektoren mit Eigenwert λ.
+  2. Wenn A n linear unabhängige Eigenvektoren hat, d.h. eine Basis aus Eigenvektoren, so
+     ist A ähnlich zu einer Diagonalmatrix: A = P DP −1 , wobei D eine Diagonalmatrix mit
+     den Eigenwerten und P eine Matrix mit den zugehörigen Eigenvektoren als Spalten ist.
+     Die Abbildung f (x) = Ax kann dann in der Eigenvektorbasis als Multiplikation mit D
+     interpretiert werden.
+  3. Av = λv und (λIn − A)v = 0 sind äquivalent. Damit so ein v ̸= 0 existiert, muss also
+     ker(λIn − A) ̸= {0} gelten. Das ist nach Theorem 2.4.10 äquivalent zu det(λIn − A) = 0.
+  4. In anderen Worten, Eigenwerte sind genau die Nullstellen des charakteristischen Polynoms
+     pA (λ) = det(λIn − A).
+  5. A ist genau dann invertierbar, wenn 0 kein Eigenwert von A ist (denn λ = 0 Eigenwert
+     von A ⇐⇒ ker(A) ̸= {0})
+
+
+Fingerübungen
+  1. Sei x ∈ ker(A). Ist x ein Eigenvektor von A?
+  2. Sei x ein Eigenvektor von A mit Eigenwert λ. Ist dann cx (c ∈ R, c ̸= 0) ein Eigenvektor
+     von A? Wenn ja, zu welchem Eigenwert?
+  3. Seien x, y Eigenvektoren von A. Ist dann x + y ein Eigenvektor von A?
+  4. Folgere aus 2. und 3., dass der Eigenraum Eλ = {x : Ax = λx} zu einem Eigenwert λ
+     ein Untervektorraum von Rn ist.
+
+
+Übungsaufgaben
+Aufgabe 1 (Matrixoperationen und Eigenwerte)
+ (a) Sei A = P DP −1 ∈ Rn×n eine diagonalisierbare Matrix. Zeige per Induktion, dass
+                                          An = P Dn P −1 .
+
+ (b) Sei A ∈ Rn×n eine Matrix mit A3 = A. Dann sind die einzig möglichen Eigenwerte -1,0
+     und 1.
+ (c) Sei A ∈ Rn×n eine Matrix. Zeige, dass A und AT die selben Eigenwerte besitzen. Erinne-
+     rung: det(B T ) = det(B).
+ (d) Sei A ∈ Rn×n eine invertierbare Matrix. Zeige, dass
+       (i) v Eigenvektor von A ⇔ v ist Eigenvektor von A−1 .
+      (ii) λ Eigenwert von A ⇔ λ−1 ist Eigenwert von A−1 .
+Aufgabe 2
+Seien x, y ∈ Rn . Dann definiert xy T eine n × n-Matrix. Zeige: x ist ein Eigenvektor von xy T
+mit Eigenwert y T x ∈ R.
+
+                                             –1–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                            Prof. Dr. Thomas Nagler
+Blatt 9                                                                   Tobias Brock
+
+Hausaufgaben
+
+Aufgabe 3 (Diagonlisierbarkeit und Invertierbarkeit)
+Beweise oder widerlege die folgenden Aussagen:
+
+ (a) Jede diagonalisierbare Matrix A ist auch invertierbar.
+
+ (b) Jede invertierbare Matrix A ist auch diagonalisierbar.
+
+Aufgabe 4 (Eigenwert, Eigenwerte und Diagonalisierbarkeit)
+Gegeben sei die Matrix
+                                                 
+                                      −3 0 0
+                                                4×4
+                                             ∈R
+                                A =  2a b a       .
+                                    
+
+                                      10 0 2
+
+ (a) Berechne die Eigenwerte und die zugehörigen Eigenräume.
+
+ (b) Für welche a, b ∈ R ist A diagonalisierbar? Gebe zudem die Matrix P ∈ R4×4 an sodass
+
+                                           A = P −1 DP
+
+     wobei D ∈ R4×4 eine Diagonalmatrix ist.
+
+
+
+
+                                            –2–
+

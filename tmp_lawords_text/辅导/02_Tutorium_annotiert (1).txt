@@ -1,0 +1,66 @@
+Methoden der Linearen Algebra in der Statistik
+  2. Tutorium
+
+
+
+
+Eugen Gorich, <eugen.gorich@campus.lmu.de>
+Agenda
+
+
+ • Unterlagen auf GitHub
+
+ • Lineare Gleichungssysteme und Zeilenstufenform
+
+ • Lösungsmengen von LGS
+
+ • Lineare Unabhängigkeit
+
+ • Vektor/Matrix-Rechnung und Gleichungen
+
+ • Übungsaufgabe
+
+ • Betreutes Lernen
+
+
+
+                                                    1/8
+Lineare Gleichungssysteme und
+Zeilenstufenform
+
+
+
+
+                                3/8
+Lineare Gleichungssysteme und
+Zeilenstufenform
+
+
+
+
+                                3/8
+Lösungsmengen von LGS
+
+
+
+
+                         4/8
+Vektor/Matrix-Rechnung und Gleichungen
+
+
+
+
+                                         6/8
+Lineare Unabhängigkeit
+
+
+
+
+                          5/8
+Betreutes Lernen
+
+
+
+
+                   5/5
+

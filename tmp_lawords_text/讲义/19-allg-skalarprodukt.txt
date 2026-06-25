@@ -1,0 +1,851 @@
+19. Andere Skalarprodukträume
+
+
+
+
+Methoden der Linearen Algebra in der Statistik
+Thomas Nagler <t.nagler@lmu.de>
+Agenda
+
+
+1 Gewichtetes euklidisches Skalarprodukt
+
+
+2 Matrixräume
+
+
+3 Folgenräume
+
+
+4 Funktionenräume
+
+
+5 Zufallsvariablen
+
+
+
+
+                                           1 / 31
+Agenda
+
+
+1 Gewichtetes euklidisches Skalarprodukt
+
+
+2 Matrixräume
+
+
+3 Folgenräume
+
+
+4 Funktionenräume
+
+
+5 Zufallsvariablen
+
+
+
+
+                                           2 / 31
+Gewichtetes euklidisches Skalarprodukt
+
+
+
+ • Das euklidische Skalarprodukt
+                           n
+                           X
+               ⟨u, v ⟩ =         ui vi = u1 v1 + · · · + un vn
+                           i=1
+
+   ist nicht die einzig sinnvolle Variante ein Skalarprodukt auf Rn
+   zu definieren.
+
+ • Dies ist der Fall, wenn die einzelnen Komponenten der
+   Vektoren auf anderen Skalen leben.
+
+
+
+
+                                                                      3 / 31
+Gewichtetes euklidisches Skalarprodukt
+
+
+Beispiel:
+  • Gegeben zwei Vektoren u, v ∈ R2 .
+
+  • Die erste Komponente beschreibt eine Strecke in Meter, die
+    zweite Komponente ein Zeitintervall in Sekunden.
+
+
+
+
+                                                                 4 / 31
+Gewichtetes euklidisches Skalarprodukt
+
+
+Beispiel:
+  • Gegeben zwei Vektoren u, v ∈ R2 .
+
+  • Die erste Komponente beschreibt eine Strecke in Meter, die
+    zweite Komponente ein Zeitintervall in Sekunden.
+
+  • Die Distanz zwischen u, v , ist
+
+        ∥u − v ∥2 = ⟨u − v , u − v ⟩ = (u1 − v1 )2 + (u2 − v2 )2 .
+
+
+
+
+                                                                     4 / 31
+Gewichtetes euklidisches Skalarprodukt
+ • Definieren wir nun ũ, ṽ als die gleichen Vektoren, nur die erste
+   Komponente ist in Zentimetern anstatt in Metern gegeben,
+   also
+                                                 
+              ũ1      100u1              ṽ1     100v1
+                   =              ,           =           .
+              ũ2         u2              ṽ2       v2
+
+
+
+
+                                                                        5 / 31
+Gewichtetes euklidisches Skalarprodukt
+ • Definieren wir nun ũ, ṽ als die gleichen Vektoren, nur die erste
+   Komponente ist in Zentimetern anstatt in Metern gegeben,
+   also
+                                                 
+              ũ1      100u1              ṽ1     100v1
+                   =              ,           =           .
+              ũ2         u2              ṽ2       v2
+
+
+ • Dann ergibt sich
+
+             ∥ũ − ṽ ∥2 = ⟨ũ − ṽ , ũ − ṽ ⟩
+                         = (ũ1 − ṽ1 )2 + (ũ2 − ṽ2 )2
+                         = 10000(u1 − v1 )2 + (u2 − v2 )2 .
+
+
+    → Die erste Komponente ist viel höher gewichtet.
+                                                                        5 / 31
+Gewichtetes euklidisches Skalarprodukt
+
+ • Wir können das Skalarprodukt wie folgt definieren
+
+                    ⟨u, v ⟩ := 10000u1 v1 + u2 v2
+
+
+
+    → Anstatt die Einheiten der Vektoren zu ändern.
+
+
+
+
+                                                        6 / 31
+Gewichtetes euklidisches Skalarprodukt
+
+  • Wir können das Skalarprodukt wie folgt definieren
+
+                       ⟨u, v ⟩ := 10000u1 v1 + u2 v2
+
+
+
+     → Anstatt die Einheiten der Vektoren zu ändern.
+Definition
+Für u, v , w ∈ Rn , wi > 0, definieren wir das durch w gewichtete
+euklidische Skalarprodukt als
+
+              ⟨u, v ⟩w = w1 (u1 v1 ) + · · · + wn (un vn ).
+
+
+
+                                                                     6 / 31
+Gewichtetes euklidisches Skalarprodukt
+ • Die Vektoren
+                                           
+                             1               1
+                                     und
+                            −1               1
+
+   sind orthogonal unter ⟨·, ·⟩(1,1) , aber nicht unter ⟨·, ·⟩(1,2)
+
+
+
+
+                                                                      7 / 31
+Gewichtetes euklidisches Skalarprodukt
+ • Die Vektoren
+                                           
+                             1               1
+                                     und
+                            −1               1
+
+   sind orthogonal unter ⟨·, ·⟩(1,1) , aber nicht unter ⟨·, ·⟩(1,2)
+
+ • In letzterem wären zum Beispiel orthogonal:
+                                       
+                          2              1
+                                 und
+                         −1              1
+
+
+
+
+                                                                      7 / 31
+Gewichtetes euklidisches Skalarprodukt
+ • Die Vektoren
+                                           
+                             1               1
+                                     und
+                            −1               1
+
+   sind orthogonal unter ⟨·, ·⟩(1,1) , aber nicht unter ⟨·, ·⟩(1,2)
+
+ • In letzterem wären zum Beispiel orthogonal:
+                                       
+                          2              1
+                                 und
+                         −1              1
+
+ • Außerdem sind die Vektoren
+                                          
+                         1                  0
+                              und
+                         0                  1
+
+   nicht mehr gleich lang. Nur der erste ist ein Einheitsvektor.
+                                                                      7 / 31
+Quiz
+
+Gegeben sei das gewichtete Skalarprodukt mit w = (3, 2). Wie
+sehen die dazugehörigen orthogonalen Einheitsvektoren aus?
+               1
+       0
+ A.          und 3
+      − 21         0
+              1
+      0
+ B. 1 und 2
+      3          0
+            !            !
+        0            √1
+ C.            und     3
+      − √12           0
+           !             !
+       0           − √12
+ D. √1       und
+        3            0
+
+
+
+                                                               8 / 31
+Agenda
+
+
+1 Gewichtetes euklidisches Skalarprodukt
+
+
+2 Matrixräume
+
+
+3 Folgenräume
+
+
+4 Funktionenräume
+
+
+5 Zufallsvariablen
+
+
+
+
+                                           9 / 31
+Matrixräume
+Definition
+Das Standardskalarprodukt auf dem Vektorraum Rm×n ist
+gegeben durch.
+                              m X
+                              X n
+                   ⟨A, B⟩ =             aij bij .
+                              i=1 j=1
+
+
+
+
+                                                        10 / 31
+Matrixräume
+Definition
+Das Standardskalarprodukt auf dem Vektorraum Rm×n ist
+gegeben durch.
+                               m X
+                               X n
+                    ⟨A, B⟩ =             aij bij .
+                               i=1 j=1
+
+
+
+
+ → Die dadurch induzierte Norm
+                                 v
+                                 u m X
+                                     n
+                       p         uX
+                  ∥A∥ = ⟨A, A⟩ = t     aij2
+                                            i=1 j=1
+
+
+    wird auch Frobeniusnorm genannt und als ∥A∥F geschrieben.
+
+                                                                10 / 31
+Matrixräume
+
+
+
+Beispiel
+
+  • Unter dem Standardskalarprodukt sind die Matrizen
+                                           
+                    1 1 1                0 0
+                   √             und
+                     3 1 0               0 1
+
+    orthogonal zueinander.
+
+  • Beide haben Norm 1.
+
+
+
+
+                                                        11 / 31
+Matrixräume
+
+ • Eine Anwendung findet dieses Skalarprodukt in der Physik.
+
+ • Oft gibt es theoretische Gründe zu glauben, dass die Matrizen
+   eine bestimme Struktur besitzen.
+
+
+
+
+                                                                    12 / 31
+Matrixräume
+
+ • Eine Anwendung findet dieses Skalarprodukt in der Physik.
+
+ • Oft gibt es theoretische Gründe zu glauben, dass die Matrizen
+   eine bestimme Struktur besitzen.
+
+ • Im R2×2 lassen sich alle Rotationsmatrizen darstellen als
+                           
+                     a −b
+                              ,    mit a, b ∈ R.               (1)
+                     b a
+
+ • Matrizen dieser Form bilden einen zwei-dimensionalen
+   Unterraum von R2×2 , nämlich R = span{M1 , M2 } mit
+                                              
+                      1 0                  0 −1
+               M1 =          ,     M2 =            .
+                      0 1                  1 0
+
+
+                                                                     12 / 31
+Matrixräume
+ • Wir können A mit einer Matrix Ab ∈ R approximieren.
+
+ • Wählen wir Ab = projR A, minimieren wir dabei den
+   Approximationsfehler ∥Ab − A∥F .
+
+
+
+
+                                                          13 / 31
+Matrixräume
+ • Wir können A mit einer Matrix Ab ∈ R approximieren.
+
+ • Wählen wir Ab = projR A, minimieren wir dabei den
+   Approximationsfehler ∥Ab − A∥F .
+
+ • Sei
+                                      
+                                1 −0.5
+                        A=               .
+                               0.4 1.1
+
+ • Wir erhalten
+                             ⟨A, M1 ⟩        ⟨A, M2 ⟩
+            Ab = projR A =             M1 +            M2
+                            ⟨M1 , M1 ⟩      ⟨M2 , M2 ⟩
+                                                
+              2.1       0.9         1.05 −0.45
+            = M1 +          M2 =                   .
+               2         2          0.45 1.05
+
+                                                            13 / 31
+Quiz
+
+
+
+Gegeben seien die beiden Matrizen
+                                         
+                     1 −2               0 3
+              A=               und B =        .
+                     0 3                1 2
+
+Sind diese orthogonal zueinander?
+
+ A. Ja
+ B. Nein
+
+
+
+
+                                                  14 / 31
+Agenda
+
+
+1 Gewichtetes euklidisches Skalarprodukt
+
+
+2 Matrixräume
+
+
+3 Folgenräume
+
+
+4 Funktionenräume
+
+
+5 Zufallsvariablen
+
+
+
+
+                                           15 / 31
+Folgenräume
+
+
+ • Wir bezeichnen mit ℓ2 den Raum aller Folgen mit quadratisch
+   summierbaren Folgengliedern:
+                                           ∞
+                                            X           
+                ℓ2 =       x = (xi )∞
+                                    i=1 :         xi2 < ∞   .
+                                            i=1
+
+
+
+
+                                                                 16 / 31
+Folgenräume
+
+
+ • Wir bezeichnen mit ℓ2 den Raum aller Folgen mit quadratisch
+   summierbaren Folgengliedern:
+                                            ∞
+                                             X           
+                 ℓ2 =       x = (xi )∞
+                                     i=1 :         xi2 < ∞   .
+                                             i=1
+
+
+
+ • Dieser entsteht oft in Anwendungen als Grenzfall des Rn ,
+   wenn wir die Dimension n gegen unendlich gehen lassen.
+
+ • Das ist der Statistik nützlich, wenn wir Modelle mit sehr
+   vielen Parametern haben (z.B. große neuronale Netze).
+
+
+
+                                                                 16 / 31
+Folgenräume
+
+Definition
+Das Standardskalarprodukt auf dem Vektorraum ℓ2 ist gegeben
+durch
+                                  ∞
+                                  X
+                      ⟨x, y ⟩ =         xi yi .
+                                  i=1
+
+
+
+
+                                                              17 / 31
+Folgenräume
+
+Definition
+Das Standardskalarprodukt auf dem Vektorraum ℓ2 ist gegeben
+durch
+                                  ∞
+                                  X
+                      ⟨x, y ⟩ =         xi yi .
+                                  i=1
+
+
+
+
+ → Die dadurch induzierte Norm ist
+                                   v
+                                   u∞
+                         p         uX
+                    ∥x∥ = ⟨x, x⟩ = t  xi2 .
+                                                  i=1
+
+
+
+
+                                                              17 / 31
+Agenda
+
+
+1 Gewichtetes euklidisches Skalarprodukt
+
+
+2 Matrixräume
+
+
+3 Folgenräume
+
+
+4 Funktionenräume
+
+
+5 Zufallsvariablen
+
+
+
+
+                                           18 / 31
+Funktionenräume
+
+
+ • Sei nun V der Vektorraum aller Funktionen f : [a, b] → R.
+
+ • Um ein sinnvolles Skalarprodukt zu definieren, schränken wir
+   uns auf einen Unterraum ein.
+
+
+
+
+                                                                   19 / 31
+Funktionenräume
+
+
+ • Sei nun V der Vektorraum aller Funktionen f : [a, b] → R.
+
+ • Um ein sinnvolles Skalarprodukt zu definieren, schränken wir
+   uns auf einen Unterraum ein.
+
+ • Wir bezeichnen mit C ([a, b]) den Unterraum aller stetigen
+   Funktionen, also
+                                                
+               C ([a, b]) = f : [a, b] → R stetig .
+
+
+
+    → f ist beschränkt auf [a, b].
+
+
+
+                                                                   19 / 31
+Funktionenräume
+
+
+
+ • Das Standardskalarprodukt definieren wir als:
+                                  Z b
+                     ⟨f , g ⟩ =         f (x)g (x)dx.
+                                   a
+
+ • Die Norm einer Funktion als
+                             s
+                               Z b
+                     ∥f ∥ =        f (x)2 dx.
+                                       a
+
+
+
+
+                                                        20 / 31
+Funktionenräume: Beispiel
+ • Auf [a, b] = [−1, 1] sind die Funktionen f (x) = 1 und
+   g (x) = x orthogonal, denn
+                  Z 1                 Z 1
+                       f (x)g (x)dx =     xdx = 0.
+                   −1                 −1
+
+
+
+
+                                                            21 / 31
+Funktionenräume: Beispiel
+ • Auf [a, b] = [−1, 1] sind die Funktionen f (x) = 1 und
+   g (x) = x orthogonal, denn
+                  Z 1                 Z 1
+                       f (x)g (x)dx =     xdx = 0.
+                    −1                 −1
+
+
+
+ • Die Funktion h(x) = x 2 ist nicht orthogonal zu g , aber nicht
+   zu f .
+
+ • Mann kann aber nachrechnen, dass
+                                1
+                         h̃(x) = (3x 2 − 1)
+                                2
+   orthogonal zu f und g ist.
+
+
+                                                                    21 / 31
+Funktionenräume: Beispiel
+ • Auf [a, b] = [−1, 1] sind die Funktionen f (x) = 1 und
+   g (x) = x orthogonal, denn
+                  Z 1                 Z 1
+                       f (x)g (x)dx =     xdx = 0.
+                    −1                 −1
+
+
+
+ • Die Funktion h(x) = x 2 ist nicht orthogonal zu g , aber nicht
+   zu f .
+
+ • Mann kann aber nachrechnen, dass
+                                1
+                         h̃(x) = (3x 2 − 1)
+                                2
+   orthogonal zu f und g ist.
+
+ • f , g und h̃ sind die ersten drei Legendre-Polynome.
+                                                                    21 / 31
+Funktionenräume
+
+
+Beispiel
+
+  • Sei [a, b] = [0, 2π]. Die Funktionen
+
+              1, cos(x), cos(2x), cos(3x), . . . , cos(nx),
+                           sin(1x), sin(2x), . . . , sin(nx).
+
+    sind alle orthogonal zueinander.
+
+  • Sie werden als Fourierbasis bezeichnet.
+
+
+
+
+                                                                22 / 31
+Funktionenräume
+
+
+
+
+ • Orthogonalbasen für Unterräume das C ([a, b]) sind extrem
+   nützlich.
+
+ • Wir können sie zur Funktionsapproximation verwenden.
+
+    → Ein Kernproblem in nichtparametrischer Statistik und
+      Machine Learning.
+
+
+
+
+                                                                 23 / 31
+Funktionenräume
+
+
+ • Sei f ∈ C ([a, b]) beliebig und {ϕ1 , . . . , ϕn } eine
+   Orthogonalbasis eines n-dimensionalen Unterraums
+                              n
+                               X                                     
+            Φ=        ϕ(x) =         ci ϕi (x), : c1 , . . . , cn ∈ R .
+                               i=1
+
+
+
+
+                                                                          24 / 31
+Funktionenräume
+
+
+ • Sei f ∈ C ([a, b]) beliebig und {ϕ1 , . . . , ϕn } eine
+   Orthogonalbasis eines n-dimensionalen Unterraums
+                              n
+                               X                                     
+            Φ=        ϕ(x) =         ci ϕi (x), : c1 , . . . , cn ∈ R .
+                               i=1
+
+
+
+ • Die bestmögliche Approximation von f durch ein fˆ ∈ Φ ist
+                                          n
+                                          X ⟨ϕi , f ⟩
+                       fˆ = projΦ f =                     ϕi .
+                                                 ∥ϕi ∥2
+                                           i=1
+
+
+
+
+                                                                          24 / 31
+Funktionenräume
+         12
+
+
+
+
+         8
+
+
+  f(x)
+         4
+
+
+
+
+         0
+
+
+              −1.0     −0.5          0.0           0.5           1.0
+                                     x
+
+                     Funktion   f    n=3    n=5     n=8
+
+
+                                           √
+Abbildung: Die Funktion f (x) = e 2 sin(3x) 2 + x und Approimationen
+durch n-dimensionale Legendre-Polynom-Basen.
+
+                                                                       25 / 31
+Agenda
+
+
+1 Gewichtetes euklidisches Skalarprodukt
+
+
+2 Matrixräume
+
+
+3 Folgenräume
+
+
+4 Funktionenräume
+
+
+5 Zufallsvariablen
+
+
+
+
+                                           26 / 31
+Zufallsvariablen
+
+ • Sei L2 die Menge aller Zufallsvariablen X : Ω → R mit
+   E(X 2 ) < ∞.
+
+ • Dann ist V mit den üblichen Additions- und
+   Multiplikationsoperationen ein Vektorraum.
+
+
+
+
+  1
+      nur fast
+                                                           27 / 31
+Zufallsvariablen
+
+ • Sei L2 die Menge aller Zufallsvariablen X : Ω → R mit
+   E(X 2 ) < ∞.
+
+ • Dann ist V mit den üblichen Additions- und
+   Multiplikationsoperationen ein Vektorraum.
+
+ • Die Kovarianz gibt uns ein Skalarprodukt1
+
+                       ⟨X , Y ⟩ = Cov(X , Y ).
+
+ • Die zugehörige Norm ist die Standardabweichung der
+   Zufallsvariable, denn
+                      p              p
+                        Cov(X , X ) = Var(X ).
+
+
+  1
+      nur fast
+                                                           27 / 31
+Zufallsvariablen
+
+
+ • Zwei Zufallsvariablen sind in diesem Skalarprodukt orthogonal,
+   wenn sie unkorreliert sind.
+
+ • Für sie gilt dann zum Beispiel, der Satz des Pythagoras
+
+                 Var(X + Y ) = Var(X ) + Var(Y ).
+
+ • Für alle Zufallsvariablen gilt die Cauchy-Schwarz-Ungleichung
+                                   p        p
+                 |Cov(X , Y )| ≤ Var(X ) Var(Y ).
+
+
+
+
+                                                                    28 / 31
+Zufallsvariablen
+
+
+
+Theorem
+Seien Y , X ∈ L2 zwei fixe Zufallsvariablen und W ⊂ L2 die
+Untermenge aller Zufallsvariablen, die sich als g (X ) für eine
+beliebige Funktion g schreiben lassen. Dann ist W ein
+Untervektorraum von L2 und
+
+                        projW Y = E(Y | X ).
+
+
+
+
+                                                                   29 / 31
+Zufallsvariablen
+
+
+
+Anmerkung
+
+ • Es folgt dann auch, dass g ∗ (X ) = E (Y | X ) die Funktion ist,
+   die den Fehler E [Y − g (X )]2 minimiert.
+                                  
+
+ • So gesehen gibt uns E (Y | X ) die bestmögliche Vorhersage für
+   Y , wenn wir nur die Information aus X zur Verfügung haben.
+
+
+
+
+                                                                      30 / 31
+Wrap-up
+
+Heute gelernt
+
+  • Gewichtetes euklidisches Skalarprodukt
+
+  • Matrixräume
+
+  • Folgenräume
+
+  • Funktionenräume
+
+  • Zufallsvariablen
+
+Nächste Vorlesung
+
+  • Orthogonale Diagonalisierung
+
+                                             31 / 31
+

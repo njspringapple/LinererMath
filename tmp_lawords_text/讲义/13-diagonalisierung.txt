@@ -1,0 +1,746 @@
+13. Diagonalisierung
+
+
+
+
+Methoden der Linearen Algebra in der Statistik
+Thomas Nagler <t.nagler@lmu.de>
+Agenda
+
+
+
+1 Eigenvektorbasis
+
+
+
+2 Diagonalisierbarkeit
+
+
+
+3 Konsequenzen
+
+
+
+
+                         1 / 26
+Agenda
+
+
+
+1 Eigenvektorbasis
+
+
+2 Diagonalisierbarkeit
+
+
+3 Konsequenzen
+
+
+
+
+                         2 / 26
+Eigenvektorbasis
+
+
+
+ • Seien v1 , . . . , vn Eigenvektoren von A ∈ Rn×n und λ1 , . . . , λn
+   zugehörige Eigenwerte.
+
+ • Angenommen die Vektoren sind linear unabhängig.
+
+
+
+
+                                                                          3 / 26
+Eigenvektorbasis
+
+
+
+ • Seien v1 , . . . , vn Eigenvektoren von A ∈ Rn×n und λ1 , . . . , λn
+   zugehörige Eigenwerte.
+
+ • Angenommen die Vektoren sind linear unabhängig.
+
+ • Dann wäre B = {v1 , . . . , vn } eine Basis für Rn .
+
+ • Für B = (v1 · · · vn ) und jedes x ∈ Rn gilt dann
+
+                    x = B[x]B     und B −1 x = [x]B .
+
+
+
+
+                                                                          3 / 26
+Eigenvektorbasis
+
+
+
+ • Wir können damit die Transformation x 7→ Ax auch in der
+   Basis B darstellen, also [x]B 7→ [Ax]B :
+    1. Wir bringen [x]B durch Multiplikation mit B in die
+       Standardbasis.
+    2. Wir multiplizieren x mit A.
+    3. Wir bringen das Resultat Ax durch Multiplikation mit
+       B −1 zurück in die Koordinaten der Basis B.
+
+
+
+
+                                                              4 / 26
+Eigenvektorbasis
+
+
+
+ • Somit ergibt sich
+
+                       [Ax]B = B −1 AB[x]B .
+
+ • Der Vorgang lässt sich durch folgendes Diagramm verstehen:
+                                 −1 AB
+                        [x]B B           [Ax]B
+                        B                   B −1
+                                  A
+                            x             Ax
+
+
+
+
+                                                                 5 / 26
+Eigenvektorbasis
+
+
+ • Sei
+                                                            
+                                        λ1   0     ···    0
+                                      0     λ2    ···    0
+         Λ = diag(λ1 , . . . , λn ) =  .                    .
+                                                            
+                                              ..   ..
+                                       ..     .      .   0
+                                        0    ···    0     λn
+
+
+
+
+                                                                  6 / 26
+Eigenvektorbasis
+
+
+ • Sei
+                                                             
+                                         λ1   0     ···    0
+                                       0     λ2    ···    0
+          Λ = diag(λ1 , . . . , λn ) =  .                    .
+                                                             
+                                               ..   ..
+                                        ..     .      .   0
+                                         0    ···    0     λn
+
+
+ • Betrachten wir die Matrix B −1 AB genauer, stellen wir fest:
+
+                             B −1 AB = Λ.
+
+
+
+
+                                                                   6 / 26
+Eigenvektorbasis
+
+
+
+ • In der Eigenvektorbasis B ist die Transformation x 7→ Ax also
+   eine Multiplikation mit einer Diagonalmatrix, gefüllt mit den
+   Eigenwerten.
+
+ • Jede Koordinate wird um den zugehörigen Eigenwert
+   gestreckt.
+
+ • Wir sagen dann, dass B die Matrix A diagonalisiert.
+
+
+
+
+                                                                    7 / 26
+Eigenvektorbasis
+
+
+ • Wir können A auch als BΛB −1 schreiben
+   (Spektralzerlegung).
+
+ • Multiplikation mit A in der Standardbasis können wir dann so
+   verstehen:
+     1. Wir bringen x durch Multiplikation mit B −1 in
+        B-Koordinaten.
+     2. Wir multiplizieren [x]B = B −1 x mit Diagonalmatrix Λ.
+     3. Wir bringen das Resultat ΛB −1 x durch Multiplikation
+        mit B zurück in die Koordinaten der Standardbasis.
+
+
+
+                                                                   8 / 26
+Eigenvektorbasis
+
+
+
+
+ • Der Vorgang veranschaulicht als Diagramm:
+                               BΛB −1
+                         x               Ax
+                      B −1                 B
+                                 Λ
+                        [x]B            [Ax]B
+
+
+
+
+                                                9 / 26
+Agenda
+
+
+
+1 Eigenvektorbasis
+
+
+2 Diagonalisierbarkeit
+
+
+3 Konsequenzen
+
+
+
+
+                         10 / 26
+Diagonalisierbarkeit
+
+
+Definition
+Wir nennen eine Matrix A ∈ Rn×n diagonalisierbar, wenn es eine
+invertierbare Matrix P und eine Diagonalmatrix D gibt, sodass
+P −1 AP = D.
+
+
+
+
+                                                                 11 / 26
+Diagonalisierbarkeit
+
+
+Definition
+Wir nennen eine Matrix A ∈ Rn×n diagonalisierbar, wenn es eine
+invertierbare Matrix P und eine Diagonalmatrix D gibt, sodass
+P −1 AP = D.
+
+Theorem
+Für A ∈ Rn×n sind äquivalent:
+
+ (i) A ist diagonalisierbar.
+(ii) A hat n linear unabhängige Eigenvektoren.
+
+
+
+
+                                                                 11 / 26
+Diagonalisierbarkeit
+
+
+
+Theorem
+Seien λ1 ̸= · · · ̸= λr verschiedene Eigenwerte einer Matrix A. Dann
+sind zugehörige Eigenvektoren v1 , . . . , vr linear unabhängig.
+
+
+
+
+                                                                       12 / 26
+Diagonalisierbarkeit
+
+
+
+Theorem
+Seien λ1 ̸= · · · ̸= λr verschiedene Eigenwerte einer Matrix A. Dann
+sind zugehörige Eigenvektoren v1 , . . . , vr linear unabhängig.
+
+Korollar
+Hat A ∈ Rn×n n verschiedene Eigenwerte, so ist sie
+diagonalisierbar.
+
+
+
+
+                                                                       12 / 26
+Diagonalisierbarkeit
+
+Theorem
+Sei A ∈ Rn×n und λ1 , . . . , λr die verschiedenen Eigenwerte. A
+genau dann diagonalisierbar, wenn es eine Basis aus Eigenvektoren
+gibt. Dies ist äquivalent zu
+
+                 dim(Eλ1 ) + · · · + dim(Eλr ) = n.
+
+
+
+
+                                                                    13 / 26
+Diagonalisierbarkeit
+
+Theorem
+Sei A ∈ Rn×n und λ1 , . . . , λr die verschiedenen Eigenwerte. A
+genau dann diagonalisierbar, wenn es eine Basis aus Eigenvektoren
+gibt. Dies ist äquivalent zu
+
+                 dim(Eλ1 ) + · · · + dim(Eλr ) = n.
+
+
+  • Hat ein Eigenraum Eλ Dimension k, dann steht der
+    zugehörige Eigenwert k mal in der Matrix Λ.
+
+  • Die Zahl k nennen wir auch geometrische
+    Multiplizät(Vielfachheit).
+
+
+                                                                    13 / 26
+Quiz
+
+Sei A eine 3 × 3 Matrix mit Eigenwerten 2, −3, 1.
+Welche Aussagen sind wahr?
+(i) A ist diagonalisierbar.
+(ii) A ist invertierbar.
+
+
+ A. (i) ist wahr, (ii) ist wahr
+ B. (i) ist wahr, (ii) ist falsch
+ C. (i) ist falsch, (ii) ist wahr
+ D. (i) ist falsch, (ii) ist falsch
+
+
+
+
+                                                    14 / 26
+Quiz
+
+Sei A eine 3 × 3 Matrix mit Eigenwerten 2, −3, 1.
+Welche Aussagen sind wahr?
+(i) A ist diagonalisierbar.
+(ii) A ist invertierbar.
+
+
+ A. (i) ist wahr, (ii) ist wahr ✓
+ B. (i) ist wahr, (ii) ist falsch
+ C. (i) ist falsch, (ii) ist wahr
+ D. (i) ist falsch, (ii) ist falsch
+
+
+
+
+                                                    14 / 26
+Quiz
+                
+          1 2  2
+Sei A = −2 −3 −2
+          2 2  1
+mit Eigenwerten 1 und −1 (geometrische Vielfachheit = 2).
+Ist Matrix A diagonalisierbar?
+
+ A. Ja, weil die geometrische Vielfachheit von −1 gleich 2 ist.
+ B. Ja, weil dim(E−1 ) = 2.
+ C. Nein, da Matrix A nur zwei unterschiedliche Eigenwerte
+    besitzt.
+ D. Nein, da keine Basis aus Eigenvektoren von A für R existiert.
+
+
+
+                                                                     15 / 26
+Quiz
+                
+          1 2  2
+Sei A = −2 −3 −2
+          2 2  1
+mit Eigenwerten 1 und −1 (geometrische Vielfachheit = 2).
+Ist Matrix A diagonalisierbar?
+
+ A. Ja, weil die geometrische Vielfachheit von −1 gleich 2 ist.
+ B. Ja, weil dim(E−1 ) = 2. ✓
+ C. Nein, da Matrix A nur zwei unterschiedliche Eigenwerte
+    besitzt.
+ D. Nein, da keine Basis aus Eigenvektoren von A für R existiert.
+
+
+
+                                                                     15 / 26
+Quiz
+
+Welche Aussagen sind wahr?
+(i) Wenn A diagonalisierbar ist, dann existiert eine Matrix P und
+eine Diagonalmatrix D, sodas AP = PD gilt.
+(ii) Wenn AP = PD mit Diagonalmatrix D gilt, dann ist Matrix A
+diagonalisierbar.
+
+
+ A. (i) ist wahr, (ii) ist wahr
+ B. (i) ist wahr, (ii) ist falsch
+ C. (i) ist falsch, (ii) ist wahr
+ D. (i) ist falsch, (ii) ist falsch
+
+
+
+                                                                    16 / 26
+Quiz
+
+Welche Aussagen sind wahr?
+(i) Wenn A diagonalisierbar ist, dann existiert eine Matrix P und
+eine Diagonalmatrix D, sodas AP = PD gilt.
+(ii) Wenn AP = PD mit Diagonalmatrix D gilt, dann ist Matrix A
+diagonalisierbar.
+
+
+ A. (i) ist wahr, (ii) ist wahr
+ B. (i) ist wahr, (ii) ist falsch ✓
+ C. (i) ist falsch, (ii) ist wahr
+ D. (i) ist falsch, (ii) ist falsch
+
+
+
+                                                                    16 / 26
+Agenda
+
+
+
+1 Eigenvektorbasis
+
+
+2 Diagonalisierbarkeit
+
+
+3 Konsequenzen
+
+
+
+
+                         17 / 26
+Konsequenzen
+
+
+ • Die Diagonalisierung ist nützlich um die Wirkung einer
+   Matrixtransformation zu verstehen.
+
+ • Innerhalb eines Eigenraums werden Vektoren lediglich entlang
+   der Eigenvektoren gestreckt.
+
+
+
+
+                                                                  18 / 26
+Konsequenzen
+
+
+ • Die Diagonalisierung ist nützlich um die Wirkung einer
+   Matrixtransformation zu verstehen.
+
+ • Innerhalb eines Eigenraums werden Vektoren lediglich entlang
+   der Eigenvektoren gestreckt.
+
+ • Die Transformation in die Basis bestehend aus Eigenvektoren
+   nennen wir auch Hauptachsentransformation.
+
+ • In der Statistik spielt sie als principal component analysis
+   (PCA) eine wichtige Rolle.
+
+
+
+
+                                                                  18 / 26
+Konsequenzen
+
+ • Wir können A durch Spektralzerlegung auch als PΛP −1
+   schreiben.
+
+ • Eine weiter nützliche Eigenschaft ist
+
+                                                 1
+      det(A) = det(PΛP −1 ) = det(P) det(Λ)          = det(Λ).
+                                              det(P)
+ • Dies gilt unabhängig davon, ob P aus Eigenvektoren besteht
+   und Λ diagonal ist.
+
+
+
+
+                                                                 19 / 26
+Konsequenzen
+
+  • Wir können A durch Spektralzerlegung auch als PΛP −1
+    schreiben.
+
+  • Eine weiter nützliche Eigenschaft ist
+
+                                                  1
+       det(A) = det(PΛP −1 ) = det(P) det(Λ)          = det(Λ).
+                                               det(P)
+  • Dies gilt unabhängig davon, ob P aus Eigenvektoren besteht
+    und Λ diagonal ist.
+Bemerkung
+Die Determinante einer Transformation ist unabhängig von der
+Basis, in der wie die Transformation darstellen.
+
+
+                                                                  19 / 26
+Konsequenzen
+
+
+Theorem
+Sei A ∈ Rn×n diagonalisierbar zu A = PΛP −1 mit
+Λ = diag(λ1 , . . . , λn ). Dann gilt
+                                  n
+                                  Y
+                       det(A) =         λk .
+                                  k=1
+
+
+
+
+                                                  20 / 26
+Konsequenzen
+
+
+Theorem
+Sei A ∈ Rn×n diagonalisierbar zu A = PΛP −1 mit
+Λ = diag(λ1 , . . . , λn ). Dann gilt
+                                   n
+                                   Y
+                        det(A) =         λk .
+                                   k=1
+
+
+
+Anmerkung:
+Wenn der zugehörige Eigenraum höherdimensional ist, dann kann
+ein Eigenwert in diesem Produkt häufiger vorkommen.
+
+
+
+                                                                  20 / 26
+Quiz
+               
+            2 0
+Sei A = P         P −1 .
+            0 3
+Dann gilt:
+
+         k     
+          2   0
+ A. Ak =
+           0 3k
+                
+             2 0
+     k
+ B. A = P k        P −k
+             0 3
+                 
+            2k 0
+     k
+ C. A = P           P −1
+             0 3k
+           k     
+            2   0
+     k
+ D. A = P           P −1
+             0 3k
+
+
+                           21 / 26
+Quiz
+               
+            2 0
+Sei A = P         P −1 .
+            0 3
+Dann gilt:
+
+         k     
+          2   0
+ A. Ak =
+           0 3k
+                
+             2 0
+     k
+ B. A = P k        P −k
+             0 3
+                 
+            2k 0
+     k
+ C. A = P           P −1
+             0 3k
+           k     
+            2   0
+     k
+ D. A = P           P −1 ✓
+             0 3k
+
+
+                             21 / 26
+Konsequenzen
+
+
+Theorem
+Sei A = PΛP −1 . Dann gilt für alle k ∈ N
+
+                          Ak = PΛk P −1 .
+
+
+
+
+                                             22 / 26
+Konsequenzen
+
+
+Theorem
+Sei A = PΛP −1 . Dann gilt für alle k ∈ N
+
+                          Ak = PΛk P −1 .
+
+
+  • Die Matrix Λk ist leicht zu berechnen, weil Λ diagonal ist.
+
+  • Es gilt
+
+                        Λk = diag(λk1 , . . . , λkn ).
+
+
+
+
+                                                                  22 / 26
+Konsequenzen
+
+
+ • Ist A invertierbar, so gilt A−1 = PΛ−1 P −1 .
+
+ • Die Matrix Λ ist leicht zu invertieren:
+
+                     Λ−1 = diag(λ−1           −1
+                                 1 , . . . , λn ).
+
+
+
+
+                                                     23 / 26
+Konsequenzen
+
+
+  • Ist A invertierbar, so gilt A−1 = PΛ−1 P −1 .
+
+  • Die Matrix Λ ist leicht zu invertieren:
+
+                      Λ−1 = diag(λ−1           −1
+                                  1 , . . . , λn ).
+
+
+Theorem
+Sei A = PΛP −1 invertierbar. Dann gilt für alle k ∈ N
+
+                        A−k = PΛ−k P −1 .
+
+
+
+
+                                                         23 / 26
+Quiz
+
+Welche Aussagen sind wahr?
+
+
+ A. Eine n × n Matrix mit weniger als n unterschiedlichen Eigenwerten ist
+    nicht diagonalisierbar.
+
+ B. Eine n × n Matrix mit weniger als n linear unabhängigen Eigenvektoren
+    ist nicht diagonalisierbar.
+
+ C. Wenn A diagonalisierbar und invertierbar ist, dann ist A−1 auch
+    diagonalisierbar.
+
+ D. Wenn A diagonalisierbar ist, dann existiert genau eine Matrix P, sodass
+    P −1 AP diagonal ist.
+
+ E. Wenn A diagonalisierbar ist, dann ist AT auch diagonalisierbar.
+
+  F. Wenn 0 ein Eigenwert von Matrix A ist, dann ist A2 singulär.
+
+
+
+                                                                              24 / 26
+Quiz
+
+Welche Aussagen sind wahr?
+
+
+ A. Eine n × n Matrix mit weniger als n unterschiedlichen Eigenwerten ist
+    nicht diagonalisierbar.
+
+ B. Eine n × n Matrix mit weniger als n linear unabhängigen Eigenvektoren
+    ist nicht diagonalisierbar. ✓
+
+ C. Wenn A diagonalisierbar und invertierbar ist, dann ist A−1 auch
+    diagonalisierbar. ✓
+
+ D. Wenn A diagonalisierbar ist, dann existiert genau eine Matrix P, sodass
+    P −1 AP diagonal ist.
+
+ E. Wenn A diagonalisierbar ist, dann ist AT auch diagonalisierbar. ✓
+
+  F. Wenn 0 ein Eigenwert von Matrix A ist, dann ist A2 singulär. ✓
+
+
+
+                                                                              24 / 26
+Quiz
+
+
+
+Beweise oder widerlege:
+
+    Wenn Matrix A diagonalisierbar ist, dann ist auch An dia-
+    gonalisierbar für n ∈ R.
+
+ A. Wahr
+ B. Falsch
+
+
+
+
+                                                                25 / 26
+Quiz
+
+
+
+Beweise oder widerlege:
+
+    Wenn Matrix A diagonalisierbar ist, dann ist auch An dia-
+    gonalisierbar für n ∈ R.
+
+ A. Wahr ✓
+ B. Falsch
+
+
+
+
+                                                                25 / 26
+Wrap-up
+
+
+
+Heute gelernt
+
+  • Eigenvektorbasis
+
+  • Diagonalisierbarkeit
+
+  • Konsequenzen
+
+Nächste Vorlesung
+
+  • Anwendungen und Komplexe Eigenwerte
+
+
+
+
+                                          26 / 26
+

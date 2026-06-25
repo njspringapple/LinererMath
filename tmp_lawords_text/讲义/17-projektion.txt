@@ -1,0 +1,424 @@
+17. Projektionen und Orthogonalisierung
+
+
+
+
+Methoden der Linearen Algebra in der Statistik
+Thomas Nagler <t.nagler@lmu.de>
+Agenda
+
+
+
+1 Die Idee
+
+
+2 Projektionstheorem
+
+
+3 Gram-Schmidt-Verfahren
+
+
+4 Projektion als beste Annäherung
+
+
+
+
+                                     1 / 20
+Agenda
+
+
+
+1 Die Idee
+
+
+2 Projektionstheorem
+
+
+3 Gram-Schmidt-Verfahren
+
+
+4 Projektion als beste Annäherung
+
+
+
+
+                                     2 / 20
+Idee
+
+
+ • Für jedes v ∈ V und einem Unterraum W , lässt sich ein
+   v̂ ∈ W und ein z ∈ W ⊥ finden, sodass
+
+                            v = v̂ + z.
+
+
+
+
+                                                              3 / 20
+Idee
+
+
+ • Für jedes v ∈ V und einem Unterraum W , lässt sich ein
+   v̂ ∈ W und ein z ∈ W ⊥ finden, sodass
+
+                            v = v̂ + z.
+
+
+
+ • Den Vektor v̂ ∈ W nennen wir dann Projektion von v auf W
+   und z = v − v̂ das Residuum.
+
+ • Wir schreiben auch v̂ = projW v .
+
+
+
+
+                                                              3 / 20
+Idee
+
+
+
+
+       (Fig. 6.2.3 in [LLM])
+
+
+
+
+                               4 / 20
+Idee
+
+
+
+
+                         (Fig. 6.2.3 in [LLM])
+
+ • Da z = y − ŷ orthogonal zu u ist und ŷ = cu gelten muss, ist
+        0 = ⟨u, y − ŷ ⟩ = ⟨u, y ⟩ − ⟨u, ŷ ⟩ = ⟨u, y ⟩ − c⟨u, u⟩.
+
+
+
+
+                                                                     4 / 20
+Idee
+
+
+
+
+                         (Fig. 6.2.3 in [LLM])
+
+ • Da z = y − ŷ orthogonal zu u ist und ŷ = cu gelten muss, ist
+        0 = ⟨u, y − ŷ ⟩ = ⟨u, y ⟩ − ⟨u, ŷ ⟩ = ⟨u, y ⟩ − c⟨u, u⟩.
+ • Also gilt
+                    ⟨u, y ⟩                        ⟨u, y ⟩
+               c=             oder     projL y =           u.
+                    ⟨u, u⟩                         ⟨u, u⟩
+                                                                     4 / 20
+Quiz
+                                       
+                               0          1
+Gegeben seien die Vektoren y = 4 und u = 1.
+                                      
+                               7          2
+Wie sieht die Projektion des Vektors y auf die Linie, die durch den
+Vektor u geht, aus?
+     
+       1
+ A. 1
+    
+       3
+     
+        1
+ B.  1 
+       −3
+     
+       3
+ C. 3
+       6
+                                                                      5 / 20
+Agenda
+
+
+
+1 Die Idee
+
+
+2 Projektionstheorem
+
+
+3 Gram-Schmidt-Verfahren
+
+
+4 Projektion als beste Annäherung
+
+
+
+
+                                     6 / 20
+Projektionstheorem
+
+Theorem (Projektionstheorem)
+Sei W ein endlich-dim. Unterraum eines Skalarproduktraums V .
+
+ (i) Jedes v ∈ V kann eindeutig als
+
+                             v = v̂ + z
+
+    dargestellt werden mit v̂ ∈ W und z ∈ W ⊥ .
+
+
+
+
+                                                                7 / 20
+Projektionstheorem
+
+Theorem (Projektionstheorem)
+Sei W ein endlich-dim. Unterraum eines Skalarproduktraums V .
+
+ (i) Jedes v ∈ V kann eindeutig als
+
+                                v = v̂ + z
+
+    dargestellt werden mit v̂ ∈ W und z ∈ W ⊥ .
+(ii) Für jede Orthogonalbasis W = {w1 , . . . , wk } von W gilt
+
+                             ⟨v , w1 ⟩               ⟨v , wk ⟩
+           v̂ = projW v =              w1 + · · · +            wk .
+                            ⟨w1 , w1 ⟩              ⟨wk , wk ⟩
+
+
+
+
+                                                                      7 / 20
+Projektionstheorem
+
+
+
+
+Abbildung: Orthogonale Projektion von y auf den Spann von u. (Fig.
+6.3.2 in [AR])
+
+
+                                                                     8 / 20
+Quiz
+
+
+
+Beweise oder widerlege:
+
+Wenn W ein Unterraum ist und projW y = y , dann gilt y ∈ W .
+
+
+ A. Wahr
+ B. Falsch
+
+
+
+
+                                                               9 / 20
+Quiz
+
+
+
+Beweise oder widerlege:
+
+    Wenn v ∈ Rn und projW v = 0, dann gilt v ∈ W ⊥ .
+
+ A. Wahr
+ B. Falsch
+
+
+
+
+                                                       10 / 20
+Projektionstheorem
+
+
+
+
+Theorem
+Ist U ∈ Rn×k eine Matrix, dessen Spalten eine Orthogonalbasis für
+einen Unterraum W ⊂ Rn ist, dann gilt
+
+                   projW v = U(U ⊤ U)−1 U ⊤ v .
+
+
+
+
+                                                                     11 / 20
+Agenda
+
+
+
+1 Die Idee
+
+
+2 Projektionstheorem
+
+
+3 Gram-Schmidt-Verfahren
+
+
+4 Projektion als beste Annäherung
+
+
+
+
+                                     12 / 20
+Gram-Schmidt-Verfahren
+
+ • Wir können jede Menge von Vektoren orthogonalisieren ohne
+   den Spann zu verändern.
+
+
+
+
+                                                                13 / 20
+Gram-Schmidt-Verfahren
+
+ • Wir können jede Menge von Vektoren orthogonalisieren ohne
+   den Spann zu verändern.
+
+Gram-Schmidt-Verfahren
+
+ 1. u1 = v1 .
+ 2. u2 = v2 − projspan{u1 } v2 .
+ 3. u3 = v3 − projspan{u1 ,u2 } v3 .
+    ...
+ n. un = vn − projspan{u1 ,...,un−1 } vn .
+
+
+
+                                                                13 / 20
+Gram-Schmidt-Verfahren
+
+
+
+Theorem
+Sei S = {v1 , . . . , vn } ⊂ V . Dann ist für jedes k = 1, . . . , n, die
+durch das Gram-Schmidt-Verfahren erzeugte Menge {u1 , . . . , uk }
+orthogonal und
+
+                span{v1 , . . . , vk } = span{u1 , . . . , uk }.
+
+
+
+
+                                                                             14 / 20
+Gram-Schmidt-Verfahren
+
+
+
+Anmerkung:
+Genauso kann man auch eine Orthonormalbasis {w1 , . . . , wn }
+erzeugen, in dem man die Vektoren der Orthogonalbasis
+standardisiert: wj = uj /∥uj ∥.
+
+
+
+
+                                                                 15 / 20
+Gram-Schmidt-Verfahren
+
+
+
+Anmerkung:
+Genauso kann man auch eine Orthonormalbasis {w1 , . . . , wn }
+erzeugen, in dem man die Vektoren der Orthogonalbasis
+standardisiert: wj = uj /∥uj ∥.
+Theorem
+Jeder endlich-dimensionale Skalarproduktraum hat eine
+Orthogonalbasis.
+
+
+
+
+                                                                 15 / 20
+Quiz
+
+
+Was passiert, wenn das Gram-Schmidt-Verfahren auf {v1 , v2 , v3 }
+angewendet wird, wobei v1 , v2 linear unabhängig sind und
+v3 ∈ span{v1 , v2 }?
+
+
+ A. u3 ist nicht definiert.
+ B. u3 = 0.
+ C. {u1 , u2 } ist eine Orthogonalbasis von span{v1 , v2 , v3 }.
+ D. {u1 , u2 , u3 } ist eine Orthogonalbasis von span{v1 , v2 , v3 }.
+
+
+
+
+                                                                        16 / 20
+Quiz
+
+
+
+Beweise oder widerlege:
+
+    Wenn M = {v1 , v2 , v3 , v4 } ⊂ R4 und 0 ∈
+                                             / M, dann liefert
+    das Gram-Schmidt-Verfahren eine Basis für R4 .
+
+ A. Wahr
+ B. Falsch
+
+
+
+
+                                                                 17 / 20
+Agenda
+
+
+
+1 Die Idee
+
+
+2 Projektionstheorem
+
+
+3 Gram-Schmidt-Verfahren
+
+
+4 Projektion als beste Annäherung
+
+
+
+
+                                     18 / 20
+Projektion als beste Annäherung
+
+
+
+
+Theorem
+Sei W ein Unterraum von V und v ∈ V . Dann ist projW v die
+beste Annäherung zu v in W :
+
+  ∥v − projW v ∥ < ∥v − w ∥    für alle w ∈ W , w ̸= projW v .
+
+
+
+
+                                                                  19 / 20
+Wrap-up
+
+
+Heute gelernt
+
+  • Idee der orthogonalen Projektion
+
+  • Projektionstheorem
+
+  • Gram-Schmidt-Verfahren
+
+  • Projektion als beste Annäherung
+
+Nächste Vorlesung
+
+  • Die Methode der kleinsten Quadrate
+
+
+
+                                         20 / 20
+

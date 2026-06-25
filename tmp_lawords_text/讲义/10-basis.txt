@@ -1,0 +1,766 @@
+10. Basis und Dimension
+
+
+
+
+Methoden der Linearen Algebra in der Statistik
+Thomas Nagler <t.nagler@lmu.de>
+Agenda
+
+
+
+1 Definitionen
+
+
+2 Koordinaten
+
+
+3 Basiswechsel
+
+
+4 Nützliche Eigenschaften
+
+
+
+
+                             1 / 33
+Agenda
+
+
+
+1 Definitionen
+
+
+2 Koordinaten
+
+
+3 Basiswechsel
+
+
+4 Nützliche Eigenschaften
+
+
+
+
+                             2 / 33
+Definitionen
+
+
+
+Definition
+Eine Menge von Vektoren v1 , . . . , vk in einem Vektorraum V
+nennen wir linear unabhängig, wenn die Vektorgleichung
+
+                       x1 v1 + · · · + xk vk = 0
+
+nur die triviale Lösung x = 0 besitzt. Andernfalls nennen wir die
+Vektoren linear abhängig.
+
+
+
+
+                                                                     3 / 33
+Definitionen
+
+
+
+Definition
+Eine Menge B = {v1 , . . . , vn } von Vektoren in einem Vektorraum
+V nennen wir Basis von V , wenn
+
+ (i) B linear unabhängig ist,
+(ii) V = span(B).
+
+
+
+
+                                                                     4 / 33
+Definitionen
+
+
+Theorem
+Eine Menge M = {v1 , . . . , vk } ist genau dann linear abhängig,
+wenn es ein vj ∈ M gibt, sodass vj ∈ span(M \ {vj }).
+
+Theorem
+Jede Menge M = {v1 , . . . , vk } mit 0 ∈ M ist linear abhängig.
+
+
+
+
+                                                                     5 / 33
+Definitionen
+
+
+Theorem
+Eine Menge M = {v1 , . . . , vk } ist genau dann linear abhängig,
+wenn es ein vj ∈ M gibt, sodass vj ∈ span(M \ {vj }).
+
+Theorem
+Jede Menge M = {v1 , . . . , vk } mit 0 ∈ M ist linear abhängig.
+
+Theorem
+Jede Menge {v1 , . . . , vk } ⊂ Rn mit k > n ist linear abhängig.
+
+
+
+
+                                                                     5 / 33
+Definitionen
+
+
+
+Definition
+Sei {v1 , . . . , vn } eine Basis für den Vektorraum V .
+  • Dann nennen wir n die Dimension von V und schreiben
+    dim(V ) = n.
+
+  • Für den Nullraum definieren wir dim({0}) = 0.
+
+
+
+
+                                                            6 / 33
+Definitionen
+
+
+
+Beispiel
+Die Standardbasis von Rn besteht aus den Vektoren
+e1 , . . . , en ∈ Rn . Es gilt also dim(Rn ) = n.
+
+
+
+
+                                                    7 / 33
+Definitionen
+
+
+
+Beispiel
+Die Standardbasis von Rn besteht aus den Vektoren
+e1 , . . . , en ∈ Rn . Es gilt also dim(Rn ) = n.
+
+Beispiel
+Eine andere Basis für R3 ist zum Beispiel v1 = (1, 1, 0),
+v2 = (0, 1, 1), v3 = (0, 0, −1).
+
+
+
+
+                                                             7 / 33
+Definitionen
+
+
+
+Beispiel
+
+  • Seien Eij ∈ Rm×n Matrizen, die in der (i, j)-Komponente eine
+    1 und sonst überall Nullen haben.
+
+  • Dann ist {Eij : i = 1, . . . , m; j = 1, . . . , n} eine Basis des
+    Rm×n .
+
+  • Also ist dim(Rm×n ) = mn.
+
+
+
+
+                                                                         8 / 33
+Definitionen
+
+
+Beispiel
+
+  • Die Menge B = {1, x, x 2 , . . . , x n } ist eine Basis für die
+    Polynome
+    Pn = {a0 + a1 x + a2 x 2 + · · · + an x n : a0 , . . . , an ∈ R}.
+
+  • Jedes Element in der Basis wird hier als Funktion fj (x) = x j−1
+    verstanden. (Um einen Raum von Funktionen zu erzeugen,
+    muss auch die Basis auf Funktionen bestehen.)
+
+  • Also gilt dim(Pn ) = n + 1.
+
+
+
+
+                                                                        9 / 33
+Quiz
+                                
+                            −1     0   1 
+Gegeben sei die Menge B =    −1 , 0 , 1 .
+                                    
+                              0     1   1
+                                         
+Ist B eine Basis für R3 ?
+
+ A. Ja
+ B. Nein, denn B spannt weder R3 auf noch sind die einzelnen
+    Vektoren aus B linear unabhängig.
+ C. Nein, denn B spannt R3 auf, aber die einzelnen Vektoren aus
+    B sind linear abhängig.
+D. Nein, denn B spannt nicht R3 auf, aber die einzelnen
+   Vektoren aus B sind linear unabhängig.
+
+
+
+                                                                  10 / 33
+Agenda
+
+
+
+1 Definitionen
+
+
+2 Koordinaten
+
+
+3 Basiswechsel
+
+
+4 Nützliche Eigenschaften
+
+
+
+
+                             11 / 33
+Koordinaten
+
+ • Jeden Vektor x ∈ Rn können wir in der Standardbasis
+   darstellen:
+                     x = x1 e1 + · · · + xn en .
+
+ • Wir nennen dann x1 , . . . , xn die Koordinaten von x bezüglich
+   der Basis {e1 , . . . , en }.
+
+
+
+
+                                                                      12 / 33
+Koordinaten
+
+  • Jeden Vektor x ∈ Rn können wir in der Standardbasis
+    darstellen:
+                      x = x1 e1 + · · · + xn en .
+
+  • Wir nennen dann x1 , . . . , xn die Koordinaten von x bezüglich
+    der Basis {e1 , . . . , en }.
+
+Definition
+Sei B = {v1 , . . . , vn } eine Basis eines Vektorraums V und
+
+                       v = x1 v1 + · · · + xn vn ,
+
+dann nennen wir (x1 , . . . , xn ) die Koordinaten von v in der Basis
+B und schreiben [v ]B = (x1 , . . . , xn ).
+
+
+                                                                        12 / 33
+Koordinaten
+
+
+Beispiel
+
+  • Sei x = (1, 6) in Standardkoordinaten des R2 .
+
+  • Sei B die Basis gegeben durch b1 = (1, 0), b2 = (1, 2).
+
+  • Dann sind die Koordinaten in der Basis [x]B = (−2, 3), denn
+                                   
+                       1        1      1
+                          = −2     +3
+                       6        0      2
+
+
+
+
+                                                                  13 / 33
+Koordinaten
+
+
+
+
+Abbildung: Der Vektor x = (1, 6) in verschiedenen Basen. Links die
+Standardbasis B = {e1 , e2 }, rechts die Basis B = {b1 , b2 }.
+(Abb. 4.4.1–4.4.2 in [LLM])
+
+
+
+
+                                                                     14 / 33
+Koordinaten
+
+Theorem
+Sei B = {v1 , . . . , vn } eine Basis des Vektorraums V . Dann lässt
+sich jedes v ∈ V eindeutig als
+
+                          v = c1 v1 + · · · + cn vn
+
+mit c1 , . . . , cn ∈ R darstellen.
+
+
+
+
+                                                                        15 / 33
+Koordinaten
+
+Theorem
+Sei B = {v1 , . . . , vn } eine Basis des Vektorraums V . Dann lässt
+sich jedes v ∈ V eindeutig als
+
+                          v = c1 v1 + · · · + cn vn
+
+mit c1 , . . . , cn ∈ R darstellen.
+
+Theorem
+Sei V ein Vektorraum und B = {b1 , . . . , bn } eine Basis für V .
+Dann ist die Koordinatentransformation TB : V → Rn mit
+T (v ) = [v ]B linear.
+
+
+
+                                                                        15 / 33
+Koordinaten
+
+
+
+
+Theorem
+Sei V ein Vektorraum und B eine beliebige Basis für V . Vektoren
+v1 , . . . , vn ∈ V sind genau dann linear unabhängig, wenn die
+Koordinatenvektoren [v1 ]B , . . . , [vn ]B linear unabhängig sind.
+
+
+
+
+                                                                       16 / 33
+Quiz
+                                 
+                   3    1               1
+Gegeben sei B =      ,     und [x]B =
+                   1   −2              −1
+Wie sieht x aus?
+     
+      3
+ A.
+      2
+     
+      1
+ B.
+      2
+     
+      4
+ C.
+      2
+     
+      2
+ D.
+      3
+
+
+
+                                            17 / 33
+Quiz
+                              
+                    3    1          1
+Gegeben sei B =       ,    und x =
+                    1   −2          5
+Wie sieht [x]B aus?
+     
+       1
+ A.
+      −2
+     
+      1
+ B.
+      2
+     
+      −2
+ C.
+       1
+     
+      −1
+ D.
+       2
+
+
+
+                                         18 / 33
+Agenda
+
+
+
+1 Definitionen
+
+
+2 Koordinaten
+
+
+3 Basiswechsel
+
+
+4 Nützliche Eigenschaften
+
+
+
+
+                             19 / 33
+Basiswechsel
+
+
+ • A = {a1 , . . . , an } und B = {b1 , . . . , bn } sind zwei Basen eines
+   Vektorraums V .
+
+ • TA und TB die zugehörigen Koordinatentransformationen.
+
+
+
+
+                                                                             20 / 33
+Basiswechsel
+
+
+ • A = {a1 , . . . , an } und B = {b1 , . . . , bn } sind zwei Basen eines
+   Vektorraums V .
+
+ • TA und TB die zugehörigen Koordinatentransformationen.
+
+ • Dann ist
+
+              [v ]B = (TB ◦ TA−1 )([v ]A ) = TB (TA−1 ([v ]A )).
+
+ • Oder:
+                                T −1
+                                 A      BT
+                          [v ]A −−→ v −−→ [v ]B .
+
+
+
+
+                                                                             20 / 33
+Basiswechsel
+
+
+  • Die Abbildung TA→B = TB ◦ TA−1 geht von Rn nach Rn .
+
+Theorem
+Sei T : V → W linear und T −1 : W → V eine Umkehrfunktion.
+Dann ist auch T −1 linear.
+
+  • Weil Verkettung von linearen Funktionen linear ist, ist
+    TA→B : Rn → Rn linear.
+
+  • Damit lässt sich die Abbildung TA→B durch ein Matrix
+    PA→B ∈ Rn×n darstellen.
+
+
+
+
+                                                              21 / 33
+Basiswechsel
+
+
+
+
+Theorem
+Sei B eine Basis von einem Vektorraum V , die aus n Vektoren
+besteht. Dann muss auch jede weitere Basis aus n Vektoren
+bestehen.
+
+
+
+
+                                                               22 / 33
+Basiswechsel
+ • Wie sieht die Matrix PA→B ∈ Rn×n konkret aus?
+
+
+
+
+                                                   23 / 33
+Basiswechsel
+ • Wie sieht die Matrix PA→B ∈ Rn×n konkret aus?
+
+ • Es gilt
+
+                         v = A[v ]A = B[v ]B ,
+
+   wobei A, B ∈ Rn×n jeweils die Spalten a1 , . . . , an und
+   b1 , . . . , bn enthalten.
+
+
+
+
+                                                               23 / 33
+Basiswechsel
+ • Wie sieht die Matrix PA→B ∈ Rn×n konkret aus?
+
+ • Es gilt
+
+                         v = A[v ]A = B[v ]B ,
+
+   wobei A, B ∈ Rn×n jeweils die Spalten a1 , . . . , an und
+   b1 , . . . , bn enthalten.
+
+ • Also gilt
+
+                  PA→B = B −1 A,     PB→A = A−1 B
+
+
+
+
+                                                               23 / 33
+Basiswechsel
+ • Wie sieht die Matrix PA→B ∈ Rn×n konkret aus?
+
+ • Es gilt
+
+                         v = A[v ]A = B[v ]B ,
+
+   wobei A, B ∈ Rn×n jeweils die Spalten a1 , . . . , an und
+   b1 , . . . , bn enthalten.
+
+ • Also gilt
+
+                  PA→B = B −1 A,     PB→A = A−1 B
+
+
+
+ • Damit auch
+                                   −1
+                           PA→B = PB→A .
+                                                               23 / 33
+Basiswechsel
+
+
+
+
+Theorem
+Seien A = {a1 , . . . , an } und B = {b1 , . . . , bn } zwei Basen eines
+Vektorraums V . Dann ist PA→B die Matrix mit Spalten
+([a1 ]B · · · [an ]B ).
+
+
+
+
+                                                                           24 / 33
+Basiswechsel
+
+Beispiel
+
+  • Sei E = {e1 , e2 } die Standardbasis des R2 und B = {b1 , b2 }
+    eine weitere Basis mit
+                                           
+                             1                1
+                      b1 =      ,     b2 =        .
+                             1               −1
+
+  • Sei E = (e1 e2 ) ∈ R2×2 und B = (b1 b2 ) ∈ R2×2 .
+
+
+
+
+                                                                     25 / 33
+Basiswechsel
+
+Beispiel
+
+  • Sei E = {e1 , e2 } die Standardbasis des R2 und B = {b1 , b2 }
+    eine weitere Basis mit
+                                           
+                             1                1
+                      b1 =      ,     b2 =        .
+                             1               −1
+
+  • Sei E = (e1 e2 ) ∈ R2×2 und B = (b1 b2 ) ∈ R2×2 .
+
+  • Dann ist
+                                                         
+         −1                    −1     1     −1 −1     1 1 1
+     E        = E = I2 ,   B        =               =         .
+                                      −2    −1 1      2 1 −1
+
+
+
+                                                                     25 / 33
+Basiswechsel
+
+Beispiel
+
+  • Sei zum Beispiel x = [x]E = (2, 1), dann gilt
+                                                                           
+                                                    1       1    1     2    3/2
+     [x]B = PE→B [x]E = B −1 E [x]E = B −1 [x]E =                        =        .
+                                                    2       1   −1     1    1/2
+
+
+
+
+                                                                                      26 / 33
+Basiswechsel
+
+Beispiel
+
+  • Sei zum Beispiel x = [x]E = (2, 1), dann gilt
+                                                                           
+                                                    1       1    1     2    3/2
+     [x]B = PE→B [x]E = B −1 E [x]E = B −1 [x]E =                        =        .
+                                                    2       1   −1     1    1/2
+
+  • Der Koordinatenvektor in der Basis B ist
+                                           
+                            3     1         2
+                              b1 + b2 =       = x.
+                            2     2         1
+
+
+
+
+                                                                                      26 / 33
+Basiswechsel
+
+Beispiel
+
+  • Sei zum Beispiel x = [x]E = (2, 1), dann gilt
+                                                                           
+                                                    1       1    1     2    3/2
+     [x]B = PE→B [x]E = B −1 E [x]E = B −1 [x]E =                        =        .
+                                                    2       1   −1     1    1/2
+
+  • Der Koordinatenvektor in der Basis B ist
+                                           
+                            3     1         2
+                              b1 + b2 =       = x.
+                            2     2         1
+
+  • Andersherum gilt auch
+                                                           
+                                          1    1     1     3   2
+       PB→E [x]B = E −1 B[x]B = B[x]B =                      =    = [x]E .
+                                          2    1    −1     1   1
+
+
+
+
+                                                                                      26 / 33
+Quiz
+
+
+Falls P1 die Übergangsmatrix von Basis A zu Basis B und P2 die
+Übergangsmatrix von Basis B zu Basis C ist. Wie sieht die
+Übergangsmatrix von C zu A aus?
+
+ A. P2−1 P1−1
+ B. P1 P2−1
+ C. P2−1 P1
+ D. P1−1 P2−1
+
+
+
+
+                                                                  27 / 33
+Quiz
+
+
+Sind folgende Aussagen wahr oder falsch?
+
+ A. Wenn B1 und B2 zwei Basen für den Vektorraum V sind,
+    dann existiert die Übergangsmatrix von B1 zu B2 .
+ B. Übergangsmatrizen P sind invertierbar.
+ C. Wenn B ein Basis für den Vektorraum Rn ist, dann ist PB→B
+    die Identitätsmatrix.
+ D. Wenn A eine quadratische Matrix ist, dann ist A = PB1 →B2
+    für zwei beliebige Basen B1 und B2 des Rn .
+
+
+
+
+                                                                 28 / 33
+Quiz
+
+
+
+Beweise oder widerlege:
+
+    Wenn PB1 →B2 eine Diagonalmatrix ist, dann ist jeder Vek-
+    tor in B2 ein Mehrfaches eines Vektors aus B1 .
+
+ A. Wahr
+ B. Falsch
+
+
+
+
+                                                                29 / 33
+Agenda
+
+
+
+1 Definitionen
+
+
+2 Koordinaten
+
+
+3 Basiswechsel
+
+
+4 Nützliche Eigenschaften
+
+
+
+
+                             30 / 33
+Nützliche Eigenschaften
+
+
+
+Theorem
+Sei V ein n-dimensionaler Vektorraum.
+
+ (i) Wenn eine Menge M ⊂ V mehr als n Vektoren enthält, ist sie
+     linear abhängig.
+(ii) Wenn eine Menge M ⊂ V weniger als n Vektoren enthält,
+     spannt sie V nicht auf.
+
+
+
+
+                                                                   31 / 33
+Nützliche Eigenschaften
+
+
+
+Theorem
+Sei V ein n-dimensionaler Vektorraum und M ⊂ V eine Menge mit
+genau n Vektoren.
+
+ (i) Ist M linear unabhängig, ist M eine Basis.
+(ii) Gilt span(M) = V , ist M eine Basis.
+
+
+
+
+                                                                32 / 33
+Wrap-up
+
+
+
+Heute gelernt
+
+  • Definition einer Basis
+
+  • Koordinaten und Koordinatentransformation
+
+  • Basiswechsel
+
+Nächste Vorlesung
+
+  • Spaltenraum und Kern
+
+
+
+
+                                                33 / 33
+

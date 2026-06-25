@@ -1,0 +1,599 @@
+2. Vektor/Matrix-Rechnung und Gleichungen
+
+
+
+
+Methoden der Linearen Algebra in der Statistik
+Thomas Nagler <t.nagler@lmu.de>
+Agenda
+
+
+1 Vektoren in Rn
+
+
+2 Vektoroperationen
+
+
+3 Linearkombinationen
+
+
+4 Spann
+
+
+5 Matrix-Vektor-Produkt
+
+
+
+
+                          1 / 26
+Agenda
+
+
+1 Vektoren in Rn
+
+
+2 Vektoroperationen
+
+
+3 Linearkombinationen
+
+
+4 Spann
+
+
+5 Matrix-Vektor-Produkt
+
+
+
+
+                          2 / 26
+Vektoren in Rn
+
+
+Definition
+Ein n-dimensionaler Vektor ist ein geordnetes n-Tupel
+x = (x1 , . . . , xn ) von reellen Zahlen x1 , . . . , xn ∈ R, genannt
+Komponenten.
+
+
+
+
+                                                                         3 / 26
+Vektoren in Rn
+
+
+Definition
+Ein n-dimensionaler Vektor ist ein geordnetes n-Tupel
+x = (x1 , . . . , xn ) von reellen Zahlen x1 , . . . , xn ∈ R, genannt
+Komponenten.
+
+Definition
+Die Menge aller möglichen n−dimensionalen Vektoren ist der
+n-dimensionale reelle Standardraum
+
+                 Rn = {(x1 , . . . , xn ) : x1 , . . . , xn ∈ R}.
+
+
+
+
+                                                                         3 / 26
+Vektoren in Rn
+ • Für gewöhnlich schreiben wir x ∈ Rn in Spaltenform:
+                                   
+                                    x1
+                                   .. 
+                             x =  . .
+                                    xn
+
+
+
+
+                                                           4 / 26
+Vektoren in Rn
+ • Für gewöhnlich schreiben wir x ∈ Rn in Spaltenform:
+                                   
+                                    x1
+                                   .. 
+                             x =  . .
+                                    xn
+ • Zwei Vektoren x, y ∈ Rn sind gleich, wenn alle Einträge gleich
+   sind:
+
+           x =y       ⇔       xi = yi für alle i = 1, . . . , n.
+
+
+
+
+                                                                     4 / 26
+Vektoren in Rn
+ • Für gewöhnlich schreiben wir x ∈ Rn in Spaltenform:
+                                   
+                                    x1
+                                   .. 
+                             x =  . .
+                                    xn
+ • Zwei Vektoren x, y ∈ Rn sind gleich, wenn alle Einträge gleich
+   sind:
+
+           x =y        ⇔        xi = yi für alle i = 1, . . . , n.
+ • Wir definieren
+     ▶ Nullvektor: 0 = (0, 0, 0, . . .),
+                        | {z }
+                              n mal
+
+     ▶ Einheitsvektor: ej = (0, . . . , 0,      1 , 0, . . . , 0).
+                                               |{z}
+                                             j-te Stelle
+                                                                      4 / 26
+Agenda
+
+
+1 Vektoren in Rn
+
+
+2 Vektoroperationen
+
+
+3 Linearkombinationen
+
+
+4 Spann
+
+
+5 Matrix-Vektor-Produkt
+
+
+
+
+                          5 / 26
+Vektoroperationen
+
+Definition
+Seien x, y ∈ Rn .
+  • Vektoraddition:
+                                                 
+                        x1        y1          x1 + y1
+               x + y =  ...  +  ...  :=  ...  .
+                                                 
+
+                          xn       yn           xn + yn
+
+  • Multiplikation mit einem Skalar λ ∈ R:
+                                           
+                                     λ · x1
+                          λ · x :=  ...  .
+                                           
+
+                                    λ · xn
+
+
+                                                          6 / 26
+Vektoroperationen
+
+
+
+
+  Bild 1.1 aus Fischer, Springborn. Lineare Algebra
+                                                      7 / 26
+Vektoroperationen
+
+Theorem (Eigenschaften von Vektoroperationen)
+Für alle x, y , z ∈ Rn und Skalare c, d ∈ R gilt:
+
+ 1. x + y = y + x
+ 2. (x + y ) + z = x + (y + z)
+ 3. x + 0 = x
+ 4. x + (−x) = x − x = 0
+ 5. c(x + y ) = cx + cy
+ 6. (c + d)x = cx + dx
+ 7. c(dx) = (cd)x
+ 8. 1x = x
+
+                                                     8 / 26
+Quiz
+
+
+
+Seien                                         
+                 5                0               1
+           b = −2 ,      a1 =  1  ,     a2 = 0 .
+                2                −1               0
+Können wir b als b = x1 a1 + x2 a2 schreiben?
+
+ A. Ja
+ B. Nein
+
+
+
+
+                                                         9 / 26
+Agenda
+
+
+1 Vektoren in Rn
+
+
+2 Vektoroperationen
+
+
+3 Linearkombinationen
+
+
+4 Spann
+
+
+5 Matrix-Vektor-Produkt
+
+
+
+
+                          10 / 26
+Linearkombinationen
+
+
+
+Definition
+Wir nennen einen Vektor b ∈ Rn eine Linearkombination von
+Vektoren a1 , . . . , ak , wenn er sich als
+
+                          b = c1 a1 + · · · + ck ak
+
+mit c1 , . . . , ck ∈ R schreiben lässt.
+
+Die Zahlen c1 , . . . , ck nennen wir Gewichte oder Koeffizienten.
+
+
+
+
+                                                                     11 / 26
+Quiz
+
+
+
+Beweise oder widerlege:
+
+    Wenn x eine Linearkombination aus y und z ist, dann ist
+    y auch eine Linearkombination aus x und z.
+
+
+ A. Wahr
+ B. Falsch
+
+
+
+
+                                                              12 / 26
+Linearkombinationen und LGS
+
+
+
+ • Die Vektorgleichung
+
+                       x1 a1 + · · · + xn an = b
+
+   ist äquivalent zum LGS mit erweiterter Koeffizientenmatrix
+                                            
+                        a1 a 2 · · · an | b .
+
+ • Insbesondere hat das LGS genau dann eine Lösung, wenn sich
+   b als Linearkombination aus a1 , . . . , an schreiben lässt.
+
+
+
+
+                                                                   13 / 26
+Agenda
+
+
+1 Vektoren in Rn
+
+
+2 Vektoroperationen
+
+
+3 Linearkombinationen
+
+
+4 Spann
+
+
+5 Matrix-Vektor-Produkt
+
+
+
+
+                          14 / 26
+Spann
+
+Definition
+Die Menge aller Linearkombinationen von gegeben Vektoren
+a1 , . . . , ak ∈ Rn bezeichnen wir als Spann oder die von den
+Vektoren aufgespannte Menge:
+
+     span{a1 , . . . , ak } = {c1 a1 + · · · + ck ak : c1 , . . . , ck ∈ R}.
+
+
+
+
+                                                                               15 / 26
+Spann
+
+Definition
+Die Menge aller Linearkombinationen von gegeben Vektoren
+a1 , . . . , ak ∈ Rn bezeichnen wir als Spann oder die von den
+Vektoren aufgespannte Menge:
+
+     span{a1 , . . . , ak } = {c1 a1 + · · · + ck ak : c1 , . . . , ck ∈ R}.
+
+
+Bemerkung
+
+  • 0 ∈ span{a1 , . . . , ak } und ai ∈ span{a1 , . . . , ak }.
+
+  • b ∈ span{a1 , . . . , ak } ⇔ LGS (a1         ···    ak | b) hat Lösung.
+
+
+
+                                                                               15 / 26
+Geometrische Darstellung des Spanns
+
+
+
+
+  Figure 10-11 aus Lay et al. Linear Algebra and its Applications.
+                                                                     16 / 26
+Quiz
+
+
+
+Die Menge span{u, v } mit u, v ∈ R3 und u, v ̸= 0 beschreibt . . .
+
+
+ A. Einen Punkt
+ B. Eine Gerade
+ C. Eine Ebene
+ D. Eine Gerade oder eine Ebene
+
+
+
+
+                                                                     17 / 26
+Quiz
+
+
+Sei
+                                                        
+        1                    0                   1            2
+       1                 0                  1          2
+  a1 = 
+       1 ,
+                     a2 = 
+                           1 ,
+                                          a3 = 
+                                                2 ,
+                                                       a4 = 
+                                                             6 .
+                                                                
+
+        0                    1                   1            4
+
+Ist span{a1 , . . . , a4 } = span{a1 , a2 }?
+
+ A. Wahr
+ B. Falsch
+
+
+
+
+                                                                     18 / 26
+Agenda
+
+
+1 Vektoren in Rn
+
+
+2 Vektoroperationen
+
+
+3 Linearkombinationen
+
+
+4 Spann
+
+
+5 Matrix-Vektor-Produkt
+
+
+
+
+                          19 / 26
+Matrizen
+
+
+
+Definition
+Eine rechteckiges Schema mit m Zeilen und n Spalten gefüllt mit
+reellen Zahlen aij ∈ R,
+                                         
+                            a11 · · · a1n
+                      A =  ...        ..  ,
+                          
+                                        . 
+                           am1 · · · amn
+
+bezeichnen wir als (m × n)-Matrix und schreiben A ∈ Rm×n .
+
+
+
+
+                                                                   20 / 26
+Matrix-Vektor-Produkt
+
+Definition
+Das Matrix-Vektor-Produkt von A = (a1 · · · an ) ∈ Rm×n mit
+Spalten a1 , . . . , an und x ∈ Rn ist definiert als
+
+                    Ax = x1 a1 + · · · + xn an .
+
+
+
+
+                                                              21 / 26
+Matrix-Vektor-Produkt
+
+Definition
+Das Matrix-Vektor-Produkt von A = (a1 · · · an ) ∈ Rm×n mit
+Spalten a1 , . . . , an und x ∈ Rn ist definiert als
+
+                     Ax = x1 a1 + · · · + xn an .
+
+
+Berechnung:
+                                                        
+        a11 · · ·   a1n    x1        x1 a11 + · · · + xn a1n
+       ..           ..   ..  =             ..           
+       .             .  .                   .           
+        am1 · · ·   amn      xn        x1 am1 + · · · + xn amn
+
+
+
+
+                                                                 21 / 26
+Quiz
+
+Das Matrix-Vektor Produkt
+                            
+                        1 2    1
+                      3 −2 −4
+                        0 1    3
+
+ist . . .
+            
+          −11
+  A.
+          13
+        
+          −7
+  B.  11 
+          −4
+ C. nicht definiert
+
+
+                                    22 / 26
+Quiz
+
+Das Matrix-Vektor Produkt
+                           
+                        1 2  
+                      3 −2 1
+                              −4
+                        0 1
+
+ist . . .
+            
+          −11
+  A.
+          13
+        
+          −7
+  B.  11 
+          −4
+ C. nicht definiert
+
+
+                                   23 / 26
+Matrix-Vektor-Produkt
+
+
+
+
+Theorem (Rechenregeln Matrix-Vektor-Produkt)
+Sei A ∈ Rm×n , x, y ∈ Rn und c ∈ R. Dann gilt
+
+ 1. A(x + y ) = Ax + Ay
+ 2. A(cx) = c(Ax)
+
+
+
+
+                                                24 / 26
+Matrix-Vektor-Produkt
+
+Wir können das LGS mit erweiterter Koeffizientenmatrix
+(a1 · · · an | b) als Vektorgleichung Ax = b schreiben.
+
+
+
+
+                                                          25 / 26
+Matrix-Vektor-Produkt
+
+Wir können das LGS mit erweiterter Koeffizientenmatrix
+(a1 · · · an | b) als Vektorgleichung Ax = b schreiben.
+
+
+Theorem
+Sei A ∈ Rm×n . Die folgenden Aussagen sind äquivalent:
+
+ (i) Ax = b hat eine Lösung für jedes b ∈ Rm .
+(ii) Jedes b ∈ Rm ist eine Linearkombination der Spalten von A.
+(iii) span{a1 , . . . , an } = Rm .
+(iv) Die Zeilenstufenformen von A haben keine Nullzeile.
+
+
+
+
+                                                                  25 / 26
+Warm-up
+
+Heute gelernt
+
+  • Vektorrechnung
+
+  • Linearkombination und Spann
+
+  • Matrix-Vektor-Produkt und Relation zu LGS
+
+
+
+
+                                                26 / 26
+Warm-up
+
+Heute gelernt
+
+  • Vektorrechnung
+
+  • Linearkombination und Spann
+
+  • Matrix-Vektor-Produkt und Relation zu LGS
+
+Empfehlung
+
+  • 3Blue1Brown Video zu Vektoren:
+    https://youtu.be/fNk_zzaMoSs
+
+
+
+
+                                                26 / 26
+Warm-up
+
+Heute gelernt
+
+  • Vektorrechnung
+
+  • Linearkombination und Spann
+
+  • Matrix-Vektor-Produkt und Relation zu LGS
+
+Empfehlung
+
+  • 3Blue1Brown Video zu Vektoren:
+    https://youtu.be/fNk_zzaMoSs
+
+Nächste Vorlesung
+
+  • Lösungsmengen und lineare Unabhängigkeit
+                                                 26 / 26
+

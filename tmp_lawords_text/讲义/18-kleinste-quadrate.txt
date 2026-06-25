@@ -1,0 +1,550 @@
+18. Die Methode der kleinsten Quadrate
+
+
+
+
+Methoden der Linearen Algebra in der Statistik
+Thomas Nagler <t.nagler@lmu.de>
+Agenda
+
+
+
+1 Das Problem
+
+
+
+2 Die Lösung
+
+
+
+3 Anwendung in der Statistik
+
+
+
+
+                               1 / 23
+Agenda
+
+
+
+1 Das Problem
+
+
+2 Die Lösung
+
+
+3 Anwendung in der Statistik
+
+
+
+
+                               2 / 23
+Das Problem
+
+ • Gegeben seien die Daten (y1 , x1 ), . . . , (yn , xn ) ∈ R1+p .
+
+ • Sie folgen für ein unbekanntes β ∈ Rp dem Modell
+
+                       yi = xi⊤ β,       i = 1, . . . , n.
+
+
+
+
+                                                                     3 / 23
+Das Problem
+
+ • Gegeben seien die Daten (y1 , x1 ), . . . , (yn , xn ) ∈ R1+p .
+
+ • Sie folgen für ein unbekanntes β ∈ Rp dem Modell
+
+                       yi = xi⊤ β,       i = 1, . . . , n.
+
+
+
+ • Als LGS:
+                                                 ⊤
+                                                 x1
+                                                 .. 
+                   Xβ = y         mit       X =  . .
+                                                      xn⊤
+
+ • Wir versuchen den passenden Parametervektor β finden um
+   das LGS zu lösen.
+
+                                                                     3 / 23
+Das Problem
+
+
+ • In der Statistik werden Zufallsfehler ϵi zugelassen:
+
+                           yi = xi⊤ β + ϵi .
+
+ • Das LGS X β = y hat dann in der Regel keine Lösung.
+
+
+
+
+                                                          4 / 23
+Das Problem
+
+
+ • In der Statistik werden Zufallsfehler ϵi zugelassen:
+
+                           yi = xi⊤ β + ϵi .
+
+ • Das LGS X β = y hat dann in der Regel keine Lösung.
+
+ • Der Abstand zwischen X β und y soll möglichst klein sein.
+
+ • Dieser wird durch die Norm der Differenz, hier ∥X β − y ∥
+   gemessen.
+
+ • Je kleiner dieser Abstand, desto besser approximiert X β die
+   Beobachtungen y .
+
+
+
+                                                                  4 / 23
+Das Problem
+
+Kleinste-Quadrate-Problem
+
+  • Gegeben sei ein LGS Ax = b mit A ∈ Rm×n und b ∈ Rm .
+
+  • Wir wollen einen Vektor x̂ ∈ Rn finden, sodass ∥Ax̂ − b∥
+    minimal ist.
+
+
+
+
+                                                               5 / 23
+Das Problem
+
+Kleinste-Quadrate-Problem
+
+  • Gegeben sei ein LGS Ax = b mit A ∈ Rm×n und b ∈ Rm .
+
+  • Wir wollen einen Vektor x̂ ∈ Rn finden, sodass ∥Ax̂ − b∥
+    minimal ist.
+
+Anmerkung:
+  • Hat das LGS eine Lösung x ∗ , dann gilt natürlich
+    ∥Ax ∗ − b∥ = 0 und x ∗ ist automatisch auch eine Lösung des
+    Kleinste-Quadrate-Problems.
+
+  • Interessant ist die Problemstellung insbesondere für LGS die
+    keine Lösung besitzen.
+
+
+                                                                    5 / 23
+Das Problem
+
+ • Den Abstand ∥Ax − b∥ zu minimieren ist äquivalent dazu,
+
+                     ∥Ax − b∥2 = ϵ21 + · · · + ϵ2n
+
+   zu minimieren, wobei Wobei
+                           
+                           ϵ1
+                           .. 
+                      ϵ =  .  := Ax − b
+                              ϵn
+
+   der Fehlervektor ist.
+
+ • Wir finden also das x, dass die Summe der quadrierten Fehler
+   ϵ2i minimiert.
+
+ • Daher der Name “kleinste Quadrate”.
+
+                                                                  6 / 23
+Quiz
+
+
+Eine Lösung des LGS Ax = b durch die Methode der
+kleinsten-Quadrate ist definiert durch . . .
+
+
+ A. eine Lösung x̂ von dem System Ax̂ = b mit ∥x̂∥ = 1.
+ B. ein x̂ mit ∥b − Ax̂∥ ≤ ∥b − Ax∥ für alle Vektoren x.
+ C. eine Lösung x̂ von dem System Ax̂ = b mit x̂ ∈ col(A).
+ D. ein x̂ mit ∥b − Ax̂∥ ≤ ∥b∥.
+
+
+
+
+                                                              7 / 23
+Agenda
+
+
+
+1 Das Problem
+
+
+2 Die Lösung
+
+
+3 Anwendung in der Statistik
+
+
+
+
+                               8 / 23
+Die Lösung
+
+
+ • Der Vektor b liegt irgendwo im Rm .
+
+ • Egal welches x wir wählen, Ax kann nur in col(A) liegen.
+
+ • Wir suchen ein Element b̂ = Ax̂ ∈ col(A), das den Abstand zu
+   b minimiert.
+
+
+
+
+                                                                  9 / 23
+Die Lösung
+
+
+  • Der Vektor b liegt irgendwo im Rm .
+
+  • Egal welches x wir wählen, Ax kann nur in col(A) liegen.
+
+  • Wir suchen ein Element b̂ = Ax̂ ∈ col(A), das den Abstand zu
+    b minimiert.
+Theorem
+Die Lösungsmenge des Kleinste-Quadrate-Problems ist gleich der
+Lösungsmenge des LGS
+
+                 Ax̂ = b̂,   mit b̂ = projcol(A) b.
+
+
+
+
+                                                                   9 / 23
+Die Lösung
+
+
+
+ • Da b̂ ∈ col(A) ist, hat das LGS Ax̂ = b̂ immer eine Lösung.
+
+ • Achtung: Obwohl b̂ eindeutig ist, muss x̂ nicht eindeutig sein.
+
+
+
+
+                                                                     10 / 23
+Die Lösung
+
+
+
+ • Da b̂ ∈ col(A) ist, hat das LGS Ax̂ = b̂ immer eine Lösung.
+
+ • Achtung: Obwohl b̂ eindeutig ist, muss x̂ nicht eindeutig sein.
+
+ • Das Lösungsverfahren für das Kleinste-Quadrate-Problem ist:
+
+     1. Projiziere b auf col(A): b̂ = projcol(A) b.
+
+     2. Löse das LGS Ax̂ = b̂.
+
+
+
+
+                                                                     10 / 23
+Die Lösung
+
+
+
+
+Theorem
+Die Menge aller Lösungen des Kleinsten-Quadrate-Problems ist
+gleich der Menge aller Lösungen der Normalengleichungen
+
+                         A⊤ Ax̂ = A⊤ b.
+
+
+
+
+                                                                11 / 23
+Die Lösung
+
+
+Theorem
+Die folgenden Aussagen sind äquivalent:
+
+ (i) Die Spalten von A sind linear unabhängig.
+(ii) A⊤ A ist invertierbar.
+(iii) Das Kleinste Quadrate-Problem hat die eindeutige Lösung
+
+                              x̂ = (A⊤ A)−1 A⊤ b.
+
+
+
+
+                                                                 12 / 23
+Quiz
+
+
+Wie kann überprüft werden, ob ein Vektor x̂ eine
+kleinste-Quadrate-Lösung von Ax = b ist?
+
+
+ A. Ax̂ muss orthogonal zu den Spalten von A sein.
+ B. Ax̂ muss orthogonal zu den Zeilen von A sein.
+ C. b − Ax̂ muss orthogonal zu den Spalten von A sein.
+ D. b − Ax̂ muss orthogonal zu den Zeilen von A sein.
+
+
+
+
+                                                         13 / 23
+Quiz
+
+
+
+Beweise oder widerlege:
+
+    Wenn xˆ1 und xˆ2 kleinste-Quadrate-Lösungen des LGS
+    Ax = b sind, dann ist die Summe xˆ1 + xˆ2 ebenfalls ei-
+    ne Lösung
+
+ A. Wahr
+ B. Falsch
+
+
+
+
+                                                              14 / 23
+Agenda
+
+
+
+1 Das Problem
+
+
+2 Die Lösung
+
+
+3 Anwendung in der Statistik
+
+
+
+
+                               15 / 23
+Lineare Regression
+
+
+ • Seien Y und X Zufallsvariablen.
+
+ • Wir nehmen an, dass ein linearer Zusammenhang besteht. Das
+   heißt: Es gibt a, b ∈ R, sodass Y = a + bX + D gilt.
+
+ • D ist eine weitere Zufallsvariable, die Abweichungen vom
+   linearen Zusammenhang auffängt.
+
+
+
+
+                                                                16 / 23
+Lineare Regression
+
+
+ • Seien Y und X Zufallsvariablen.
+
+ • Wir nehmen an, dass ein linearer Zusammenhang besteht. Das
+   heißt: Es gibt a, b ∈ R, sodass Y = a + bX + D gilt.
+
+ • D ist eine weitere Zufallsvariable, die Abweichungen vom
+   linearen Zusammenhang auffängt.
+
+ • In der Statistik nennen wir das eine lineare Regression von Y
+   auf X :
+                          yi = a + bxi + di .
+
+
+
+
+                                                                   16 / 23
+Lineare Regression
+
+
+
+
+Abbildung: Datenpunkte, die um die Regressionsgerade y = a + bx
+fluktuieren. (Fig. 6.5.2 in [AR])
+
+Wir wollen die Gerade y = â + b̂x bestimmen, die die Summe der
+Quadrate der Residuuen d̂i = yi − â − b̂xi minimiert.
+
+                                                                  17 / 23
+Lineare Regression
+ • Wir wollen die Gerade y = â + b̂x bestimmen, die die Summe
+   der Quadrate der Residuuen d̂i = yi − â − b̂xi minimiert.
+
+
+
+
+                                                                 18 / 23
+Lineare Regression
+ • Wir wollen die Gerade y = â + b̂x bestimmen, die die Summe
+   der Quadrate der Residuuen d̂i = yi − â − b̂xi minimiert.
+
+ • (â, b̂) ist die Lösung des Kleinste-Quadrate-Problems zu
+                                   
+                                    a
+                                M       = y,
+                                    b
+
+   wobei                    
+                        1 x1                 
+                      1 x 2                y1
+                                             .. 
+                  M = . .  ,          y =  . .
+                            
+                        .  .
+                      . . 
+                                               yn
+                        1 xn
+
+
+
+
+                                                                 18 / 23
+Lineare Regression
+ • Wir wollen die Gerade y = â + b̂x bestimmen, die die Summe
+   der Quadrate der Residuuen d̂i = yi − â − b̂xi minimiert.
+
+ • (â, b̂) ist die Lösung des Kleinste-Quadrate-Problems zu
+                                   
+                                    a
+                                M       = y,
+                                    b
+
+   wobei                    
+                        1 x1                 
+                      1 x 2                y1
+                                             .. 
+                  M = . .  ,          y =  . .
+                            
+                        .  .
+                      . . 
+                                               yn
+                        1 xn
+
+   
+   â
+⇒     = (M ⊤ M)−1 M ⊤ y .
+   b̂
+                                                                 18 / 23
+Quiz
+
+Die Linie y = x + 1 wird benutzt um den Zusammenhang der
+Datenpunkte
+
+      (x1 , y1 ) = (1, 2),   (x2 , y2 ) = (2, 3),   (x3 , y3 ) = (4, 3)
+
+zu schätzen. Die Summe der quadrierten Residuen ist
+
+
+ A. 1.
+ B. 2.
+ C. 4.
+ D. 8.
+
+
+
+                                                                          19 / 23
+Quiz
+
+
+Bestimme die Linie mittels kleinster-Quadrate-Methode durch die
+Punkte
+
+      (x1 , y1 ) = (1, 2),   (x2 , y2 ) = (2, 3),   (x3 , y3 ) = (4, 3).
+
+
+ A. y = 2
+ B. y = x + 1
+ C. y = 72 x + 2
+ D. y = 14 x + 21
+
+
+
+
+                                                                           20 / 23
+Nichtlineare Regression
+
+
+
+
+Abbildung: Datenpunkte, die um die Regressionskurven
+y = a + b1 x + b2 x 2 (links) und y = a + b1 x + b2 x 2 + b3 x 3 fluktuieren.
+(Fig. 6.5.1 in [AR])
+
+
+
+
+                                                                                21 / 23
+Nichtlineare Regression
+
+
+ • Nehmen wir bspw. an, dass
+
+               Y = a + b1 X + b2 X 2 + b3 X 3 + D.
+
+
+
+
+                                                     22 / 23
+Nichtlineare Regression
+
+
+ • Nehmen wir bspw. an, dass
+
+               Y = a + b1 X + b2 X 2 + b3 X 3 + D.
+
+
+
+ • Dann finden wir die optimalen Parameter finden durch
+
+                                               1 x1 x12 x13
+                                                           
+     â
+    
+   bˆ1                                     1 x 2 x 2 x 3 
+     = (M ⊤ M)−1 M ⊤ y ,                             2 2
+                                 wobei M =                  .
+                                             
+   bˆ2                                      .. ..
+                                             . .           
+     ˆ
+    b3                                                 2
+                                               1 xn xn xn 3
+
+
+
+
+                                                             22 / 23
+Wrap-up
+
+
+
+Heute gelernt
+
+  • Problematik linearer Modelle
+
+  • Lösung durch Methode der kleinsten Quadrate
+
+  • Anwendung in der Statistik
+
+Nächste Vorlesung
+
+  • Andere Skalarprodukträume
+
+
+
+
+                                                   23 / 23
+

@@ -1,0 +1,96 @@
+Methoden der Linearen Algebra in der Statistik
+  7. Tutorium
+
+
+
+
+Eugen Gorich, <eugen.gorich@campus.lmu.de>
+Agenda
+
+
+
+
+ • Lehrevaluation
+
+ • Eigenwerte/Eigenvektoren
+
+ • Diagonalisierung
+
+ • Betreutes Lernen
+
+
+
+
+                              1/5
+Spaltenraum und Kern
+
+
+
+
+                       4/5
+Spaltenraum und Kern
+
+
+
+
+                       4/5
+Spaltenraum und Kern
+
+
+
+
+                       4/5
+Spaltenraum und Kern
+
+
+
+
+                       4/5
+Spaltenraum und Kern
+
+
+
+
+                       4/5
+Spaltenraum und Kern
+
+
+
+
+                       4/5
+Eigenwerte/Eigenvektoren
+
+
+
+
+                           3/5
+Eigenwerte/Eigenvektoren
+
+
+
+
+                           3/5
+Eigenwerte/Eigenvektoren
+
+
+
+
+                           3/5
+Eigenwerte/Eigenvektoren
+
+
+
+
+                           3/5
+Lehrevaluation
+
+
+
+
+                 TAN: 9228N
+
+
+
+
+                              2/5
+

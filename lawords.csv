@@ -1,0 +1,182 @@
+﻿Abbildung,映射/图示,Eine lineare Abbildung ordnet jedem Eingabevektor genau einen Ausgabevektor zu.（线性映射把每个输入向量对应到唯一的输出向量。）
+Abbildungen,映射（复数形式）,Lineare Abbildungen erhalten Addition und Skalarmultiplikation.（线性映射保持加法和数乘。）
+Abgeschlossenheit,封闭性,"Abgeschlossenheit bedeutet, dass Summe und Skalarmultiplikation innerhalb der Menge bleiben.（封闭性表示加法和数乘后的结果仍留在集合内部。）"
+Additivität,可加性,Additivität einer linearen Abbildung bedeutet $T(u+v)=T(u)+T(v)$.（线性映射的可加性表示 $T(u+v)=T(u)+T(v)$。）
+allgemeine Lösung,通解,Die allgemeine Lösung eines linearen Gleichungssystems besteht aus einer speziellen Lösung plus allen Lösungen des homogenen Systems.（线性方程组的通解由一个特解加上齐次解集组成。）
+Assoziativität,结合律,Assoziativität bedeutet zum Beispiel $(AB)C=A(BC)$ bei der Matrixmultiplikation.（结合律表示例如矩阵乘法中有 $(AB)C=A(BC)$。）
+Ausgangsmatrix,初始矩阵,Bei Zeilenumformungen vergleicht man die Ausgangsmatrix mit der reduzierten Matrix.（做行变换时，要比较初始矩阵和化简后的矩阵。）
+B-Koordinaten,B基坐标,"Die B-Koordinaten eines Vektors geben an, mit welchen Koeffizienten die Basisvektoren aus B kombiniert werden.（向量的B基坐标表示用B中基向量线性组合时的系数。）"
+Basis,基,Eine Basis ist ein linear unabhängiges Erzeugendensystem eines Vektorraums.（基是向量空间中线性无关且能张成全空间的一组向量。）
+Basis-Funktionen,基函数,In einem Funktionenraum können Basis-Funktionen andere Funktionen durch Linearkombinationen annähern.（在函数空间中，基函数可以通过线性组合近似其他函数。）
+Basisdarstellung,基表示,Die Basisdarstellung schreibt einen Vektor als Linearkombination der Basisvektoren.（基表示就是把向量写成基向量的线性组合。）
+Basismatrizen,基矩阵,Basismatrizen können einen Matrixraum genauso aufspannen wie Basisvektoren einen Vektorraum.（基矩阵能张成矩阵空间，就像基向量张成向量空间一样。）
+Basissysteme,基系统,Basissysteme erlauben eine eindeutige Koordinatendarstellung.（基系统使坐标表示唯一。）
+Basisvektoren,基向量,"Die Basisvektoren von $\mathbb R^2$ können zum Beispiel $e_1=(1,0)^T$ und $e_2=(0,1)^T$ sein.（$\mathbb R^2$ 的基向量可以是 $e_1=(1,0)^T$ 和 $e_2=(0,1)^T$。）"
+Basiswechsel,换基,Beim Basiswechsel werden Koordinaten desselben Vektors von einer Basis in eine andere umgerechnet.（换基是把同一个向量在一组基下的坐标换算到另一组基下。）
+Batch-Skalarprodukt,批量内积,"Ein Batch-Skalarprodukt berechnet mehrere Skalarprodukte gleichzeitig, etwa in einer Datenmatrix.（批量内积可以一次计算多个内积，例如在数据矩阵中。）"
+Bernoulli-Ungleichung,伯努利不等式,Die Bernoulli-Ungleichung liefert eine Abschätzung für Potenzen und wird oft in Beweisen benutzt.（伯努利不等式给出幂的估计，常用于证明。）
+bijektiv,双射的,Eine bijektive lineare Abbildung ist sowohl injektiv als auch surjektiv und besitzt eine Umkehrabbildung.（双射线性映射既单射又满射，因此有逆映射。）
+Bild,像/值域,"Das Bild einer Matrix ist die Menge aller Vektoren, die als $Ax$ entstehen können.（矩阵的像是所有可以写成 $Ax$ 的向量集合。）"
+Cauchy-Schwarz-Ungleichung,柯西-施瓦茨不等式,"Die Cauchy-Schwarz-Ungleichung besagt $|\langle u,v\rangle|\le \|u\|\|v\|$.（柯西-施瓦茨不等式说明 $|\langle u,v\rangle|\le \|u\|\|v\|$。）"
+charakteristische Gleichung,特征方程,Die charakteristische Gleichung $\det(A-\lambda I)=0$ bestimmt die Eigenwerte von $A$.（特征方程 $\det(A-\lambda I)=0$ 用来求矩阵 $A$ 的特征值。）
+charakteristisches Polynom,特征多项式,Die Nullstellen des charakteristischen Polynoms sind die Eigenwerte der Matrix.（特征多项式的零点就是矩阵的特征值。）
+Definitheit,定性/正定性,Die Definitheit einer quadratischen Form wird über die Vorzeichen ihrer Eigenwerte entschieden.（二次型的定性由其特征值符号决定。）
+Definitionsbereich,定义域,"Der Definitionsbereich einer linearen Abbildung ist der Vektorraum, aus dem die Eingaben stammen.（线性映射的定义域是输入向量所在的向量空间。）"
+Determinante,行列式,"Die Determinante misst, wie eine Matrix Volumen skaliert und ob sie invertierbar ist.（行列式衡量矩阵如何缩放体积，并判断矩阵是否可逆。）"
+Determinanten,行列式（复数形式）,Determinanten von Dreiecksmatrizen erhält man durch Multiplikation der Diagonaleinträge.（三角矩阵的行列式等于对角线元素的乘积。）
+Diagonale,对角线,"Die Diagonale einer Matrix besteht aus den Einträgen $a_{11},a_{22},\ldots$.（矩阵的对角线由 $a_{11},a_{22},\ldots$ 这些元素组成。）"
+Diagonaleinträge,对角线元素,Bei einer Dreiecksmatrix ist die Determinante das Produkt der Diagonaleinträge.（三角矩阵的行列式是所有对角线元素的乘积。）
+Diagonalen,对角线（复数形式）,In einer Diagonalmatrix dürfen außerhalb der Diagonalen nur Nullen stehen.（对角矩阵在对角线以外的位置必须为零。）
+diagonalisierbar,可对角化的,"Eine Matrix ist diagonalisierbar, wenn sie eine Basis aus Eigenvektoren besitzt.（如果矩阵有一组特征向量基，它就是可对角化的。）"
+Diagonalisierung,对角化,Die Diagonalisierung schreibt eine Matrix in der Form $A=PDP^{-1}$.（对角化把矩阵写成 $A=PDP^{-1}$ 的形式。）
+Diagonalmatrix,对角矩阵,In einer Diagonalmatrix stehen die wichtigen Skalierungsfaktoren auf der Diagonale.（对角矩阵的重要缩放因子位于对角线上。）
+Dimension,维数,Die Dimension eines Vektorraums ist die Anzahl der Vektoren in einer Basis.（向量空间的维数是一组基中向量的个数。）
+Distributivität,分配律,Distributivität bedeutet zum Beispiel $A(B+C)=AB+AC$.（分配律表示例如 $A(B+C)=AB+AC$。）
+Drehmatrix,旋转矩阵,"Eine Drehmatrix rotiert Vektoren um den Ursprung, ohne ihre Länge zu verändern.（旋转矩阵绕原点旋转向量，并保持长度不变。）"
+Dreiecksmatrix,三角矩阵,Bei einer Dreiecksmatrix stehen alle Einträge unter oder über der Diagonale auf Null.（三角矩阵在主对角线的一侧全为零。）
+Eigenraum,特征空间,Der Eigenraum zu $\lambda$ besteht aus allen Vektoren mit $Ax=\lambda x$.（属于 $\lambda$ 的特征空间由所有满足 $Ax=\lambda x$ 的向量组成。）
+Eigenräume,特征空间（复数形式）,Eigenräume zu verschiedenen Eigenwerten schneiden sich nur im Nullvektor.（不同特征值对应的特征空间只在零向量处相交。）
+Eigenvektor,特征向量,"Ein Eigenvektor ändert unter $A$ nur seine Länge oder Richtungsvorzeichen, nicht seine Richtungslinie.（特征向量在矩阵作用下只改变长度或方向符号，不改变所在直线。）"
+Eigenvektorbasis,特征向量基,In einer Rechenaufgabe sollte man Eigenvektorbasis immer mit der passenden Definition verwenden.（做计算题时，应结合相应定义使用 Eigenvektorbasis。）
+Eigenvektoren,特征向量（复数形式）,Eigenvektoren bilden bei der Diagonalisierung die Spalten der Matrix $P$.（对角化时，特征向量构成矩阵 $P$ 的列。）
+Eigenwert,特征值,"Der Eigenwert $\lambda$ gibt an, mit welchem Faktor ein Eigenvektor skaliert wird.（特征值 $\lambda$ 表示特征向量被缩放的倍数。）"
+Eigenwerte,特征值（复数形式）,Bei einer Dreiecksmatrix sind die Eigenwerte die Diagonaleinträge.（三角矩阵的特征值就是对角线元素。）
+Einheitsmatrix,单位矩阵,Die Einheitsmatrix $I$ erfüllt $AI=IA=A$.（单位矩阵 $I$ 满足 $AI=IA=A$。）
+Einheitsvektor,单位向量,Ein Einheitsvektor hat Norm $1$ und beschreibt nur eine Richtung.（单位向量范数为 $1$，只表示方向。）
+Einheitsvektoren,单位向量（复数形式）,Die Standard-Einheitsvektoren bilden die Standardbasis von $\mathbb R^n$.（标准单位向量构成 $\mathbb R^n$ 的标准基。）
+elementare Zeilenoperation,初等行变换,"Elementare Zeilenoperationen verändern ein Gleichungssystem, ohne seine Lösungsmenge zu verlieren.（初等行变换改变方程组的写法，但不丢失解集。）"
+erweiterte Matrix,增广矩阵,Eine erweiterte Matrix hängt die rechte Seite eines Gleichungssystems an die Koeffizientenmatrix an.（增广矩阵把方程组右端项接在系数矩阵后面。）
+Erzeugendensystem,生成系,Ein Erzeugendensystem spannt den ganzen Vektorraum auf.（生成系能够张成整个向量空间。）
+freie Variable,自由变量,"Eine freie Variable entsteht, wenn eine Spalte keinen Pivot besitzt.（某列没有主元时，对应变量就是自由变量。）"
+Gegenbeispiel,反例,Ein Gegenbeispiel widerlegt eine allgemeine Aussage mit einem einzigen konkreten Fall.（反例用一个具体情况推翻一般命题。）
+geometrische Vielfachheit,几何重数,Die geometrische Vielfachheit ist die Dimension des Eigenraums.（几何重数是特征空间的维数。）
+Gleichungssystem,方程组,"Ein Gleichungssystem fasst mehrere Gleichungen zusammen, die gleichzeitig erfüllt sein müssen.（方程组把多个必须同时成立的方程放在一起。）"
+Gram-Schmidt-Verfahren,格拉姆-施密特方法,Im Gram-Schmidt-Verfahren zieht man nacheinander Projektionen ab.（Gram-Schmidt方法逐步减去投影部分。）
+Hauptachsentransformation,主轴变换,Die Hauptachsentransformation entfernt Mischterme einer quadratischen Form.（主轴变换消去二次型中的混合项。）
+homogen,齐次的,Ein homogenes lineares Gleichungssystem hat rechte Seite Null.（齐次线性方程组的右端项为零。）
+Homogenität,齐次性,Homogenität einer linearen Abbildung bedeutet $T(cu)=cT(u)$.（线性映射的齐次性表示 $T(cu)=cT(u)$。）
+Hyperebene,超平面,Eine Hyperebene ist in $\mathbb R^n$ ein Unterraum oder affiner Raum der Dimension $n-1$.（超平面是在 $\mathbb R^n$ 中维数为 $n-1$ 的子空间或仿射空间。）
+indefinit,不定的,"Eine quadratische Form ist indefinit, wenn sie positive und negative Werte annimmt.（二次型若既能取正值又能取负值，就是不定的。）"
+inhomogen,非齐次的,"Ein inhomogenes Gleichungssystem hat eine rechte Seite, die nicht überall Null ist.（非齐次方程组的右端项不全为零。）"
+injektiv,单射的,"Eine lineare Abbildung ist injektiv, wenn ihr Kern nur aus dem Nullvektor besteht.（线性映射若核只有零向量，则为单射。）"
+inneres Produkt,内积,Ein inneres Produkt verallgemeinert das Skalarprodukt und definiert Winkel und Längen.（内积推广点积，并定义角度与长度。）
+Interpolation,插值,"Bei der Interpolation sucht man eine Funktion, die vorgegebene Punkte exakt trifft.（插值寻找一条准确穿过给定点的函数。）"
+Inverse,逆,Die Inverse macht die Wirkung einer invertierbaren Matrix rückgängig.（逆矩阵撤销一个可逆矩阵的作用。）
+inverse Matrix,逆矩阵,Eine inverse Matrix erfüllt $AA^{-1}=A^{-1}A=I$.（逆矩阵满足 $AA^{-1}=A^{-1}A=I$。）
+invertierbar,可逆的,"Eine Matrix ist invertierbar genau dann, wenn ihre Determinante nicht Null ist.（矩阵可逆当且仅当行列式不为零。）"
+Kern,核,Der Kern von $A$ besteht aus allen Vektoren $x$ mit $Ax=0$.（矩阵 $A$ 的核由所有满足 $Ax=0$ 的向量组成。）
+Kernes,核（属格形式）,Die Dimension des Kernes ist die Anzahl der freien Variablen.（核的维数等于自由变量个数。）
+Kerns,核（属格形式）,Die Basis des Kerns beschreibt alle Lösungen von $Ax=0$.（核的一组基描述 $Ax=0$ 的全部解。）
+Koeffizientenmatrix,系数矩阵,"Die Koeffizientenmatrix enthält nur die Faktoren der Unbekannten, nicht die rechte Seite.（系数矩阵只包含未知量系数，不包含右端项。）"
+Koeffizientenvektor,系数向量,Ein Koeffizientenvektor enthält die Gewichte einer Linearkombination.（系数向量包含线性组合中的权重。）
+Kommutativität,交换律,"Kommutativität gilt für die Vektoraddition, aber im Allgemeinen nicht für Matrixmultiplikation.（向量加法满足交换律，但矩阵乘法一般不满足。）"
+Koordinate,坐标,Eine Koordinate ist ein Koeffizient eines Vektors bezüglich einer Basis.（坐标是向量相对于某组基的系数。）
+Koordinaten,坐标（复数形式）,Koordinaten hängen von der gewählten Basis ab.（坐标依赖于所选基。）
+Koordinatensystemen,坐标系（复数第三格形式）,Beim Rechnen in Koordinatensystemen muss die Basis klar sein.（在坐标系中计算时必须明确基。）
+Koordinatensystems,坐标系（属格形式）,Die Achsen eines Koordinatensystems bestimmen die Richtungen der Koordinaten.（坐标系的坐标轴决定坐标方向。）
+Koordinatenvektor,坐标向量,Der Koordinatenvektor sammelt die Koordinaten eines Vektors bezüglich einer Basis.（坐标向量收集向量在某组基下的坐标。）
+Kovarianzmatrix,协方差矩阵,Die Kovarianzmatrix beschreibt gemeinsame Streuung mehrerer Variablen.（协方差矩阵描述多个变量的共同变动。）
+Legendre-Polynom-Basen,勒让德多项式基,Legendre-Polynom-Basen sind orthogonale Basen in bestimmten Funktionenräumen.（勒让德多项式基是某些函数空间中的正交基。）
+Legendre-Polynome,勒让德多项式（复数形式）,Legendre-Polynome sind Beispiele orthogonaler Polynome.（勒让德多项式是正交多项式的例子。）
+Legendrepolynome,勒让德多项式（复数形式）,Legendrepolynome werden zur orthogonalen Approximation von Funktionen verwendet.（勒让德多项式可用于函数的正交逼近。）
+linear unabhängig,线性无关,"Vektoren sind linear unabhängig, wenn nur die triviale Linearkombination den Nullvektor ergibt.（只有平凡线性组合得到零向量时，向量组线性无关。）"
+lineare Abbildung,线性映射,Eine lineare Abbildung erfüllt $T(u+v)=T(u)+T(v)$ und $T(cu)=cT(u)$.（线性映射满足加法保持和数乘保持。）
+lineare Abbildungen,线性映射（复数形式）,"Lineare Abbildungen können durch Matrizen dargestellt werden, wenn Basen gewählt sind.（选定基后，线性映射可用矩阵表示。）"
+lineare Algebra,线性代数,"Lineare Algebra untersucht Vektoren, Matrizen, lineare Abbildungen und ihre Strukturen.（线性代数研究向量、矩阵、线性映射及其结构。）"
+lineare Funktion,线性函数,Eine lineare Funktion hat in diesem Kontext keine Produkte oder Potenzen von Variablen.（线性函数在这里不含变量乘积或变量高次幂。）
+lineare Funktionen,线性函数（复数形式）,Lineare Funktionen erhalten die Struktur von Addition und Skalarmultiplikation.（线性函数保持加法和数乘结构。）
+lineare Gleichung,线性方程,Eine lineare Gleichung enthält Unbekannte nur in erster Potenz.（线性方程中的未知量只以一次形式出现。）
+lineare Operationen,线性运算,Lineare Operationen passen zu Addition und Skalarmultiplikation.（线性运算与加法和数乘相容。）
+lineare Probleme,线性问题,Lineare Probleme lassen sich häufig durch Matrizen und Vektoren formulieren.（线性问题常可用矩阵和向量表示。）
+lineare Regression,线性回归,Lineare Regression passt ein lineares Modell möglichst gut an Daten an.（线性回归用线性模型尽量拟合数据。）
+lineare Struktur,线性结构,Eine lineare Struktur erlaubt Rechnen mit Summen und Vielfachen.（线性结构允许用和与倍数进行计算。）
+lineare Transformation,线性变换,Eine lineare Transformation ist eine lineare Abbildung zwischen Vektorräumen.（线性变换是向量空间之间的线性映射。）
+lineare Transformationen,线性变换（复数形式）,"Lineare Transformationen können Strecken, Drehen, Spiegeln oder Projizieren beschreiben.（线性变换可以描述拉伸、旋转、反射或投影。）"
+lineare Unabhängigkeit,线性无关性,"Lineare Unabhängigkeit bedeutet, dass kein Vektor überflüssig ist.（线性无关表示没有向量是多余的。）"
+lineares Gleichungssystem,线性方程组,Ein lineares Gleichungssystem kann als Matrixgleichung $Ax=b$ geschrieben werden.（线性方程组可写成矩阵方程 $Ax=b$。）
+lineares Modell,线性模型,"Ein lineares Modell beschreibt Daten mit Parametern, die linear auftreten.（线性模型用线性出现的参数描述数据。）"
+Linearität,线性,Linearität fasst Additivität und Homogenität zusammen.（线性包含可加性和齐次性。）
+Linearitätsbedingung,线性条件,Die Linearitätsbedingung besteht aus Additivität und Homogenität.（线性条件由可加性和齐次性组成。）
+Linearkombination,线性组合,Eine Linearkombination ist eine Summe von Vielfachen gegebener Vektoren.（线性组合是若干给定向量倍数的和。）
+Linearkombinationen,线性组合（复数形式）,Linearkombinationen beschreiben alle Vektoren im Spann einer Menge.（线性组合描述一个集合张成空间中的所有向量。）
+Lösungsmenge,解集,"Die Lösungsmenge enthält alle Vektoren, die ein Gleichungssystem erfüllen.（解集包含所有满足方程组的向量。）"
+Lösungsmengen,解集（复数形式）,Lösungsmengen homogener Systeme sind Unterräume.（齐次系统的解集是子空间。）
+Lösungsraum,解空间,Der Lösungsraum eines homogenen Systems ist der Kern der Koeffizientenmatrix.（齐次系统的解空间是系数矩阵的核。）
+Markovkette,马尔可夫链,Eine Markovkette beschreibt Zustandsübergänge mit einer stochastischen Matrix.（马尔可夫链用随机矩阵描述状态转移。）
+Markovketten,马尔可夫链（复数形式）,Bei Markovketten interessiert oft der stationäre Zustand.（马尔可夫链中常关心稳定状态。）
+Matrix,矩阵,"Eine Matrix ist ein rechteckiges Zahlenschema, das lineare Abbildungen darstellen kann.（矩阵是矩形数表，可表示线性映射。）"
+Matrix-Vektor,矩阵-向量,Ein Matrix-Vektor-Produkt ist eine Linearkombination der Spalten der Matrix.（矩阵-向量乘积是矩阵列向量的线性组合。）
+Matrix-Vektor-Multiplikation,矩阵-向量乘法,Bei der Matrix-Vektor-Multiplikation liefern die Einträge des Vektors die Gewichte der Spalten.（矩阵-向量乘法中，向量元素给出列向量的权重。）
+Matrix-Vektor-Multiplikationen,矩阵-向量乘法（复数形式）,Matrix-Vektor-Multiplikationen treten in jedem linearen Gleichungssystem $Ax=b$ auf.（矩阵-向量乘法出现在每个线性方程组 $Ax=b$ 中。）
+Matrix-Vektor-Produkt,矩阵-向量乘积,Das Matrix-Vektor-Produkt $Ax$ liegt im Spaltenraum von $A$.（矩阵-向量乘积 $Ax$ 位于 $A$ 的列空间中。）
+Matrixmultiplikation,矩阵乘法,Matrixmultiplikation ist im Allgemeinen nicht kommutativ.（矩阵乘法一般不满足交换律。）
+Matrixprodukt,矩阵乘积,Das Matrixprodukt $AB$ beschreibt die Hintereinanderausführung zweier linearer Abbildungen.（矩阵乘积 $AB$ 表示两个线性映射的复合。）
+Monotonie,单调性,"Monotonie beschreibt, ob eine Abbildung die Ordnung von Zahlen erhält.（单调性描述一个映射是否保持数的大小顺序。）"
+Neutralität,中性元性质,"Neutralität bedeutet, dass ein neutrales Element wie $0$ bei Addition oder $I$ bei Matrixmultiplikation nichts verändert.（中性元性质表示加法中的 $0$ 或矩阵乘法中的 $I$ 不改变对象。）"
+Norm,范数,Die Norm misst die Länge eines Vektors.（范数衡量向量的长度。）
+Normalengleichung,正规方程,Die Normalengleichung $A^TAx=A^Tb$ liefert die Least-Squares-Lösung.（正规方程 $A^TAx=A^Tb$ 给出最小二乘解。）
+normalisiert,归一化的,Ein normalisierter Vektor hat Norm $1$.（归一化后的向量范数为 $1$。）
+Nullmatrix,零矩阵,Die Nullmatrix hat nur Nullen als Einträge.（零矩阵的所有元素都是零。）
+Nullraum,零空间,Der Nullraum ist die Menge aller Lösungen von $Ax=0$.（零空间是 $Ax=0$ 的所有解组成的集合。）
+Nullstelle,零点,"Eine Nullstelle eines Polynoms ist ein Wert, bei dem das Polynom Null wird.（多项式的零点是使多项式等于零的值。）"
+Nullvektor,零向量,Der Nullvektor ist das neutrale Element der Vektoraddition.（零向量是向量加法的中性元。）
+Nullvektoren,零向量（复数形式）,"In einem Vektorraum gibt es genau einen Nullvektor, auch wenn er verschieden dargestellt wird.（一个向量空间中只有一个零向量，即使表示方式不同。）"
+obere Dreiecksmatrix,上三角矩阵,Bei einer oberen Dreiecksmatrix stehen unter der Diagonale nur Nullen.（上三角矩阵在主对角线下方全为零。）
+orthogonal,正交的,"Zwei Vektoren sind orthogonal, wenn ihr Skalarprodukt Null ist.（两个向量内积为零时正交。）"
+Orthogonalbasis,正交基,Eine Orthogonalbasis besteht aus paarweise orthogonalen Basisvektoren.（正交基由两两正交的基向量组成。）
+orthogonale Diagonalisierung,正交对角化,Bei der orthogonalen Diagonalisierung gilt $A=QDQ^T$.（正交对角化中有 $A=QDQ^T$。）
+orthogonale Projektion,正交投影,Die orthogonale Projektion liefert den nächstgelegenen Punkt in einem Unterraum.（正交投影给出子空间中离目标最近的点。）
+orthonormal,标准正交的,Eine orthonormale Familie ist orthogonal und besteht aus Einheitsvektoren.（标准正交族既正交又由单位向量组成。）
+Orthonormalbasis,标准正交基,Eine Orthonormalbasis macht Koordinatenberechnungen besonders einfach.（标准正交基让坐标计算特别简单。）
+PageRank,网页排名算法,PageRank nutzt einen stationären Eigenvektor einer stochastischen Matrix.（PageRank 使用随机矩阵的稳定特征向量。）
+Pivot,主元,Ein Pivot ist der führende Eintrag einer Zeile in der Zeilenstufenform.（主元是行阶梯形中一行的首个非零元素。）
+positiv definit,正定的,"Eine Matrix ist positiv definit, wenn $x^TAx>0$ für alle $x\ne0$ gilt.（若对所有非零 $x$ 都有 $x^TAx>0$，矩阵正定。）"
+positiv semidefinit,半正定的,Positiv semidefinit bedeutet $x^TAx\ge0$ für alle $x$.（半正定表示对所有 $x$ 都有 $x^TAx\ge0$。）
+Positivität,正性,Positivität einer Norm bedeutet $\|x\|\ge0$ und $\|x\|=0$ nur für $x=0$.（范数的正性表示 $\|x\|\ge0$，且只有 $x=0$ 时范数为零。）
+Potenz einer Matrix,矩阵幂,In einer Rechenaufgabe sollte man Potenz einer Matrix immer mit der passenden Definition verwenden.（做计算题时，应结合相应定义使用 Potenz einer Matrix。）
+Projektion,投影,Eine Projektion zerlegt einen Vektor in einen Anteil im Unterraum und einen orthogonalen Fehler.（投影把向量分解为子空间中的部分和正交误差。）
+Projektionsmatrix,投影矩阵,Eine Projektionsmatrix erfüllt häufig $P^2=P$.（投影矩阵通常满足 $P^2=P$。）
+Projektionstheorem,投影定理,Das Projektionstheorem garantiert die beste Approximation in einem Unterraum.（投影定理保证子空间中的最佳近似。）
+quadratische Form,二次型,Eine quadratische Form hat die Gestalt $x^TAx$ mit symmetrischer Matrix $A$.（二次型形如 $x^TAx$，其中 $A$ 是对称矩阵。）
+Rang,秩,Der Rang einer Matrix ist die Dimension ihres Spaltenraums.（矩阵的秩是其列空间的维数。）
+reduzierte Zeilenstufenform,简化行阶梯形,In reduzierter Zeilenstufenform ist jeder Pivot gleich $1$ und allein in seiner Spalte.（简化行阶梯形中每个主元为 $1$，且所在列其他元素为零。）
+Residuum,残差,Das Residuum $r=b-A\hat x$ ist der Fehlervektor in der Least-Squares-Aufgabe.（残差 $r=b-A\hat x$ 是最小二乘问题中的误差向量。）
+Rotation,旋转,Eine Rotation dreht Vektoren und wird durch eine orthogonale Matrix beschrieben.（旋转转动向量，可由正交矩阵描述。）
+Schnittmenge,交集,In einer Rechenaufgabe sollte man Schnittmenge immer mit der passenden Definition verwenden.（做计算题时，应结合相应定义使用 Schnittmenge。）
+Skalar,标量,"Ein Skalar ist eine Zahl, mit der ein Vektor multipliziert wird.（标量是用来乘向量的数。）"
+Skalarmultiplikation,数乘,Skalarmultiplikation multipliziert jeden Eintrag eines Vektors mit demselben Skalar.（数乘把向量的每个分量都乘以同一个标量。）
+Skalarprodukt,内积/点积,"Das Skalarprodukt misst, wie stark zwei Vektoren in dieselbe Richtung zeigen.（内积衡量两个向量同向的程度。）"
+Spalten,列（复数形式）,Die Spalten einer Matrix sind die Bilder der Standardbasisvektoren.（矩阵的列是标准基向量的像。）
+Spaltenraum,列空间,Der Spaltenraum ist der Spann der Spalten einer Matrix.（列空间是矩阵所有列向量的张成空间。）
+Spaltenvektor,列向量,Ein Spaltenvektor wird als eine Matrix mit nur einer Spalte geschrieben.（列向量可看作只有一列的矩阵。）
+Spaltenvektoren,列向量（复数形式）,Spaltenvektoren einer Matrix erzeugen den Spaltenraum.（矩阵的列向量张成列空间。）
+Spann,张成空间,Der Spann einer Vektormenge enthält alle Linearkombinationen dieser Vektoren.（向量组的张成空间包含这些向量的所有线性组合。）
+Spektralzerlegung,谱分解,Die Spektralzerlegung schreibt eine symmetrische Matrix als Summe gewichteter Projektionen.（谱分解把对称矩阵写成加权投影之和。）
+Spiegelung,镜像/反射,Eine Spiegelung ist eine lineare Abbildung mit Determinante oft gleich $-1$.（反射是一种线性映射，其行列式常为 $-1$。）
+Standardbasis,标准基,In einer Rechenaufgabe sollte man Standardbasis immer mit der passenden Definition verwenden.（做计算题时，应结合相应定义使用 Standardbasis。）
+Standardmatrix,标准矩阵,In einer Rechenaufgabe sollte man Standardmatrix immer mit der passenden Definition verwenden.（做计算题时，应结合相应定义使用 Standardmatrix。）
+stochastische Matrix,随机矩阵,In einer stochastischen Matrix beschreiben die Einträge Übergangswahrscheinlichkeiten.（随机矩阵的元素描述转移概率。）
+Subadditivität,次可加性,Subadditivität der Norm ist die Dreiecksungleichung $\|x+y\|\le\|x\|+\|y\|$.（范数的次可加性就是三角不等式 $\|x+y\|\le\|x\|+\|y\|$。）
+surjektiv,满射的,"Eine Abbildung ist surjektiv, wenn jedes Element des Zielraums getroffen wird.（若陪域中每个元素都能被映到，则映射是满射。）"
+symmetrische Matrix,对称矩阵,Eine symmetrische Matrix erfüllt $A^T=A$.（对称矩阵满足 $A^T=A$。）
+Transitivität,传递性,"Transitivität bedeutet: Wenn $u=v$ und $v=w$, dann gilt auch $u=w$.（传递性表示若 $u=v$ 且 $v=w$，则 $u=w$。）"
+transponierte Matrix,转置矩阵,Die transponierte Matrix entsteht durch Vertauschen von Zeilen und Spalten.（转置矩阵由行列互换得到。）
+Transposition,转置,Bei der Transposition wird aus der Zeile eine Spalte und aus der Spalte eine Zeile.（转置把行变列、列变行。）
+triviale Lösung,平凡解,Die triviale Lösung eines homogenen Systems ist der Nullvektor.（齐次系统的平凡解是零向量。）
+untere Dreiecksmatrix,下三角矩阵,Bei einer unteren Dreiecksmatrix stehen oberhalb der Diagonale nur Nullen.（下三角矩阵在主对角线上方全为零。）
+Unterraum,子空间,"Ein Unterraum ist eine Teilmenge, die selbst wieder ein Vektorraum ist.（子空间是本身仍构成向量空间的子集。）"
+Untervektorraum,子向量空间,Ein Untervektorraum muss den Nullvektor enthalten und unter Addition sowie Skalarmultiplikation abgeschlossen sein.（子向量空间必须包含零向量，并对加法和数乘封闭。）
+Untervektorräume,子向量空间（复数形式）,In einer Rechenaufgabe sollte man Untervektorräume immer mit der passenden Definition verwenden.（做计算题时，应结合相应定义使用 Untervektorräume。）
+Vektor,向量,"Ein Vektor ist ein Objekt, das addiert und mit Skalaren multipliziert werden kann.（向量是可以相加并可与标量相乘的对象。）"
+Vektoren,向量（复数形式）,"Vektoren können als Pfeile, Spalten oder abstrakte Elemente eines Vektorraums auftreten.（向量可以表现为箭头、列向量或向量空间中的抽象元素。）"
+Vektorraum,向量空间,Ein Vektorraum ist eine Menge mit sinnvoller Addition und Skalarmultiplikation.（向量空间是带有合理加法和数乘的集合。）
+Vektorraums,向量空间（属格形式）,Die Dimension eines Vektorraums hängt nicht von der gewählten Basis ab.（向量空间的维数不依赖所选基。）
+Vielfachheit,重数,"Die Vielfachheit beschreibt, wie oft ein Eigenwert als Nullstelle vorkommt.（重数描述特征值作为零点出现的次数。）"
+Zeilen,行（复数形式）,Zeilen einer Matrix entsprechen einzelnen Gleichungen in einem linearen Gleichungssystem.（矩阵的行对应线性方程组中的各个方程。）
+Zeilenoperation,行变换,Eine Zeilenoperation ist ein Schritt der Gauß-Elimination.（行变换是高斯消元中的一步。）
+Zeilenoperationen,行变换（复数形式）,Zeilenoperationen bringen eine Matrix in Zeilenstufenform.（行变换把矩阵化为行阶梯形。）
+Zeilenraum,行空间,Der Zeilenraum ist der Spann der Zeilenvektoren einer Matrix.（行空间是矩阵行向量的张成空间。）
+Zeilenstufenform,行阶梯形,Die Zeilenstufenform macht Pivotpositionen und freie Variablen sichtbar.（行阶梯形让主元位置和自由变量变得清楚。）
+Zeilenvektor,行向量,Ein Zeilenvektor wird als Matrix mit nur einer Zeile geschrieben.（行向量可看作只有一行的矩阵。）
+Zeilenvektoren,行向量（复数形式）,In einer Rechenaufgabe sollte man Zeilenvektoren immer mit der passenden Definition verwenden.（做计算题时，应结合相应定义使用 Zeilenvektoren。）
+Zerlegung,分解,Eine Zerlegung wie QR oder SVD schreibt eine Matrix als Produkt einfacher Matrizen.（QR或SVD这类分解把矩阵写成简单矩阵的乘积。）

@@ -1,0 +1,557 @@
+16. Orthogonalität
+
+
+
+
+Methoden der Linearen Algebra in der Statistik
+Thomas Nagler <t.nagler@lmu.de>
+Agenda
+
+
+
+1 Orthogonale Räume
+
+
+
+2 Orthogonale Mengen
+
+
+
+3 Orthogonale Matrizen
+
+
+
+
+                         1 / 25
+Agenda
+
+
+
+1 Orthogonale Räume
+
+
+2 Orthogonale Mengen
+
+
+3 Orthogonale Matrizen
+
+
+
+
+                         2 / 25
+Orthogonale Räume
+
+
+
+
+Definition
+Sei W ein Unterraum eines Skalarproduktraums V . Wir nennen
+v ∈ V orthogonal zu W, wenn ⟨v , w ⟩ = 0 für alle w ∈ W , und
+schreiben v ⊥ W .
+
+
+
+
+                                                                 3 / 25
+Orthogonale Räume
+
+Definition
+Sei W ein Unterraum von V . Dann nennen wir die Menge
+
+                   W ⊥ = {v ∈ V : v ⊥ W }
+
+den (orthogonalen) Komplementärraum oder das orthogonale
+Komplement zu W .
+
+
+
+
+                                                            4 / 25
+Orthogonale Räume
+
+Definition
+Sei W ein Unterraum von V . Dann nennen wir die Menge
+
+                    W ⊥ = {v ∈ V : v ⊥ W }
+
+den (orthogonalen) Komplementärraum oder das orthogonale
+Komplement zu W .
+
+Theorem
+Sei W ein Unterraum von V . Dann gilt:
+
+ (i) W ⊥ ist ein Unterraum von V .
+(ii) W ∩ W ⊥ = {0}.
+
+
+                                                            4 / 25
+Orthogonale Räume
+
+
+
+
+Beispiel
+
+  • Sei V = R2 und W = span{e1 }.
+
+  • Dann ist W ⊥ = span{e2 } und damit W ∩ W ⊥ = {0}.
+
+
+
+
+                                                        5 / 25
+Orthogonale Räume
+
+
+Frage: Warum kann nicht gelten W ∪ W ⊥ = V ?
+
+
+
+
+                                               6 / 25
+Orthogonale Räume
+
+
+Frage: Warum kann nicht gelten W ∪ W ⊥ = V ?
+
+Definition
+Für zwei Untervektorräume W und U definieren wir:
+
+              W + U = {w + u : w ∈ W , u ∈ U}.
+
+
+Theorem
+Sei W ein Unterraum von V . Dann gilt W + W ⊥ = V .
+
+
+
+
+                                                      6 / 25
+Orthogonale Räume
+
+
+
+Theorem
+Sei W ein Unterraum eines Vektorraums V und
+W = {w1 , . . . , wk } eine Basis von W . Dann gilt v ⊥ W genau
+dann, wenn v ⊥ wi für alle i = 1, . . . , k.
+
+
+
+
+                                                                  7 / 25
+Orthogonale Räume
+
+
+
+Theorem
+Sei W ein Unterraum eines Vektorraums V und
+W = {w1 , . . . , wk } eine Basis von W . Dann gilt v ⊥ W genau
+dann, wenn v ⊥ wi für alle i = 1, . . . , k.
+
+  • Man kann sich außerdem überlegen, dass gilt:
+
+                            (W ⊥ )⊥ = W .
+
+
+
+
+                                                                  7 / 25
+Orthogonale Räume
+
+
+
+
+Theorem
+Für jede Matrix A ∈ Rm×n gilt
+
+         col(A⊤ )⊥ = ker(A)      und   col(A)⊥ = ker(A⊤ ).
+
+
+
+
+                                                             8 / 25
+Quiz
+                                        
+                          1    0           3
+Gegeben sei {u1 , u2 } = 1 , 1 und z = −3 .
+                          0     1            3
+Welche Aussagen sind wahr?
+(i) u1 , u2 sind orthogonal zueinander.
+(ii) Wenn W = span{u1 , u2 }, dann ist z ∈ W ⊥ .
+
+
+ A. (i) ist wahr, (ii) ist wahr
+ B. (i) ist wahr, (ii) ist falsch
+ C. (i) ist falsch, (ii) ist wahr
+ D. (i) ist falsch, (ii) ist falsch
+
+
+                                                    9 / 25
+Quiz
+
+
+
+Beweise oder widerlege:
+
+    Wenn u und w zwei orthogonale Vektoren in Rn sind,
+    dann sind die Vektoren u + w und u − w auch orthogonal.
+
+ A. Wahr
+ B. Falsch
+
+
+
+
+                                                              10 / 25
+Agenda
+
+
+
+1 Orthogonale Räume
+
+
+2 Orthogonale Mengen
+
+
+3 Orthogonale Matrizen
+
+
+
+
+                         11 / 25
+Orthogonale Mengen
+
+
+
+
+Definition
+
+  • Wir nennen M = {v1 , . . . , vn } ⊂ V eine orthogonale Menge,
+    wenn vi ⊥ vj für alle i ̸= j.
+
+  • Gilt zusätzlich ∥vj ∥ = 1 für alle j, nennen wir M orthonormal.
+
+
+
+
+                                                                        12 / 25
+Orthogonale Mengen
+
+
+Beispiel
+Die Vektoren der Standardbasis e1 , . . . , en ∈ Rn sind orthonormal.
+
+
+
+
+                                                                        13 / 25
+Orthogonale Mengen
+
+
+Beispiel
+Die Vektoren der Standardbasis e1 , . . . , en ∈ Rn sind orthonormal.
+
+Beispiel
+Die Vektoren
+                                        
+                       1          2         0
+                     −2 ,      1 ,     0
+                       0          0         3
+
+sind orthogonal, aber nicht orthonormal.
+
+
+
+
+                                                                        13 / 25
+Orthogonale Mengen
+
+
+Theorem
+Eine orthogonale Menge M = {v1 , . . . , vn } mit 0 ∈
+                                                    / M ist linear
+unabhängig.
+
+
+
+
+                                                                     14 / 25
+Orthogonale Mengen
+
+
+Theorem
+Eine orthogonale Menge M = {v1 , . . . , vn } mit 0 ∈
+                                                    / M ist linear
+unabhängig.
+
+Anmerkung
+
+  • Andersherum gilt das nicht.
+
+  • Zum Beispiel sind die Vektoren (1, 1) und (1, 0) linear
+    unabhängig, aber nicht orthogonal, denn
+    ⟨(1, 1), (1, 0)⟩ = 1 ̸= 0.
+
+
+
+
+                                                                     14 / 25
+Orthogonale Mengen
+
+
+
+
+Definition
+
+  • Eine Orthogonalbasis eines Vektorraums V ist eine Basis von
+    V , welche auch eine orthogonale Menge ist.
+
+  • Ein Orthonormalbasis eines Vektorraums V ist eine Basis
+    von V , welche auch eine orthonormale Menge ist.
+
+
+
+
+                                                                  15 / 25
+Orthogonale Mengen
+
+
+Theorem
+Sei V = {v1 , . . . , vn } eine Orthogonalbasis für den Vektorraum V .
+Dann sind für jedes v ∈ V die V-Koordinaten, also die
+Koeffizienten c1 , . . . , cn in
+
+                       v = c1 v1 + · · · + cn vn ,
+
+gegeben durch
+
+                          ⟨v , vj ⟩
+                   cj =              ,   j = 1, . . . , n.
+                          ⟨vj , vj ⟩
+
+
+
+
+                                                                          16 / 25
+Orthogonale Mengen
+
+
+
+Beispiel
+Die Standardbasis {e1 , . . . , en } ⊂ Rn ist orthogonal. Dann ist
+
+                                 ⟨v , ej ⟩
+                          cj =              = vj
+                                 ⟨ej , ej ⟩
+
+und entsprechend
+
+                       v = v1 e1 + · · · + vn en .
+
+
+
+
+                                                                     17 / 25
+Orthogonale Mengen
+Beispiel
+                                                         
+                         1                   2               0
+  • Die Vektoren v1 = −2 ,           v2 = 1 ,      v3 = 0 sind eine
+                         0                   0               3
+    Orthogonalbasis des R3 .
+                              
+                           3
+  • Sei zum Beispiel v =  0  .
+                          −1
+
+  • Dann ist
+              ⟨v , v1 ⟩   3           ⟨v , v2 ⟩   6           ⟨v , v3 ⟩    −3   1
+       c1 =              = ,   c2 =              = ,   c3 =              =    =− .
+              ⟨v1 , v1 ⟩  5           ⟨v2 , v2 ⟩  5           ⟨v3 , v3 ⟩    9   3
+
+
+
+
+                                                                                     18 / 25
+Orthogonale Mengen
+Beispiel
+                                                         
+                         1                   2               0
+  • Die Vektoren v1 = −2 ,           v2 = 1 ,      v3 = 0 sind eine
+                         0                   0               3
+    Orthogonalbasis des R3 .
+                              
+                           3
+  • Sei zum Beispiel v =  0  .
+                          −1
+
+  • Dann ist
+              ⟨v , v1 ⟩   3           ⟨v , v2 ⟩   6           ⟨v , v3 ⟩    −3   1
+       c1 =              = ,   c2 =              = ,   c3 =              =    =− .
+              ⟨v1 , v1 ⟩  5           ⟨v2 , v2 ⟩  5           ⟨v3 , v3 ⟩    9   3
+
+  • Tatsächlich gilt
+                                                   
+                                       1      2      0    3
+                                   3  6  1   
+           c1 v1 + c2 v2 + c3 v3 =    −2 +    1 −    0 =  0 = v.
+                                   5       5      3
+                                       0      0      3   −1
+                                                                                     18 / 25
+Orthogonale Mengen
+
+
+
+
+Korollar
+Sei V = {v1 , . . . , vn } eine Orthonormalbasis für den Vektorraum
+V . Dann sind für jedes v ∈ V die V-Koordinaten c1 , . . . , cn
+gegeben durch
+
+                   cj = ⟨v , vj ⟩,    j = 1, . . . , n.
+
+
+
+
+                                                                       19 / 25
+Quiz
+
+
+
+                        1  
+                    (     3      0 )
+                        0  1 
+Ist die Menge M =        1  ,  3  orthonormal?
+                          0
+                          3
+                                  1
+                         0        3
+
+ A. Ja
+ B. Nein
+
+
+
+
+                                                     20 / 25
+Quiz
+
+Welche Aussagen sind wahr?
+
+
+ A. Wenn u zu jedem Vektor eines Unterraums W orthogonal ist, dann ist
+    u = 0.
+
+ B. Wenn u ein Vektor in W und W ⊥ ist, dann ist u = 0.
+
+ C. Wenn u und v zwei Vektoren in W ⊥ sind, dann ist u + v auch in W ⊥ .
+
+ D. Wenn u ein Vektor in W ⊥ ist und k ∈ R, dann ist ku auch in W ⊥ .
+
+ E. Wenn u und v orthogonal zueinander sind, dann ist |⟨u, v ⟩| = ∥u∥∥v ∥.
+
+  F. Wenn u und v orthogonal zueinander sind, dann ist ∥u + v ∥ = ∥u∥ + ∥v ∥.
+
+
+
+
+                                                                                21 / 25
+Agenda
+
+
+
+1 Orthogonale Räume
+
+
+2 Orthogonale Mengen
+
+
+3 Orthogonale Matrizen
+
+
+
+
+                         22 / 25
+Orthogonale Matrizen
+
+
+Theorem
+
+ • Eine Matrix U ∈ Rm×n hat genau dann orthonormale Spalten,
+   wenn U ⊤ U = In .
+
+ • Eine Matrix U ∈ Rm×n hat genau dann orthonormale Zeilen,
+   wenn UU ⊤ = Im .
+
+
+
+
+                                                               23 / 25
+Orthogonale Matrizen
+
+
+Theorem
+
+  • Eine Matrix U ∈ Rm×n hat genau dann orthonormale Spalten,
+    wenn U ⊤ U = In .
+
+  • Eine Matrix U ∈ Rm×n hat genau dann orthonormale Zeilen,
+    wenn UU ⊤ = Im .
+
+Definition
+Eine Matrix U ∈ Rn×n mit orthonormalen Spalten und Zeilen
+nennen wir Orthogonalmatrix.
+
+
+
+
+                                                                23 / 25
+Orthogonale Matrizen
+
+
+Korollar
+U ∈ Rn×n ist genau dann orthogonal, wenn U invertierbar ist mit
+U −1 = U ⊤ .
+
+
+
+
+                                                                  24 / 25
+Orthogonale Matrizen
+
+
+Korollar
+U ∈ Rn×n ist genau dann orthogonal, wenn U invertierbar ist mit
+U −1 = U ⊤ .
+
+Korollar
+Für U ∈ Rn×n sind äquivalent:
+
+ (i) U hat orthonormale Spalten.
+(ii) U hat orthonormale Zeilen.
+
+
+
+
+                                                                  24 / 25
+Wrap-up
+
+
+Heute gelernt
+
+  • Orthogonale Räume
+
+  • Orthogonale Mengen
+
+  • Orthogonale Matrizen
+
+Nächste Vorlesung
+
+  • Projektionen
+
+  • Gram-Schmidt-Verfahren
+
+
+                             25 / 25
+

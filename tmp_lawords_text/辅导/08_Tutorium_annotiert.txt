@@ -1,0 +1,73 @@
+Methoden der Linearen Algebra in der Statistik
+  8. Tutorium
+
+
+
+
+Eugen Gorich, <eugen.gorich@campus.lmu.de>
+Agenda
+
+
+
+
+ • Lehrevaluation
+
+ • Eigenwerte/Eigenvektoren
+
+ • Diagonalisierung
+
+ • Betreutes Lernen
+
+
+
+
+                              1/5
+Eigenwerte/Eigenvektoren
+
+
+
+
+                           3/5
+Diagonalisierung
+
+
+
+
+                   4/5
+Diagonalisierung
+
+
+
+
+                   2/5
+Diagonalisierung
+
+
+
+
+                   2/5
+Diagonalisierung
+
+
+
+
+                   2/5
+Betreutes Lernen
+
+
+
+
+                   5/5
+Betreutes Lernen
+
+
+
+
+                   5/5
+Betreutes Lernen
+
+
+
+
+                   5/5
+

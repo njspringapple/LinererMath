@@ -1,0 +1,262 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                                         Prof. Dr. Thomas Nagler
+Blatt 5                                                                                Tobias Brock
+
+Recap - Determinanten
+  1. Die Determinante einer (quadratischen) Matrix ist ungleich 0 (det(A) ̸= 0) g.d.w. die
+     Matrix invertierbar ist (Theorem 2.4.10)
+
+  2. Wichtige Eigenschaften sind:
+
+                   det(AB) = det(A) det(B)                                     Theorem 2.4.11
+                det(A + B) ̸= det(A) + det(B)                               Fingerübung 3 & 4
+                    det(In ) = 1, det(A−1 ) = det(A)−1                      Fingerübung 1 & 2
+
+
+Fingerübungen
+                                        1 0      0 0
+                                           "      #           "         #
+  1. Zeige: det(A) = det(B) = 0 für A =     ,B =     . (Theorem 2.4.6)
+                                        0 0      0 1
+
+  2. Folgere daraus det(A + B) ̸= det(A) + det(B).
+
+
+Übungsaufgaben
+Aufgabe 1 (Matrixeigenschaften)
+Widerlege oder beweise die folgenden Behauptungen.
+
+ (a) Sei A ∈ Rn×n eine Matrix, die eine Nullzeile enthält. Dann folgt, dass det(A) = 0.
+
+ (b) Sei A ∈ Rn×n eine Matrix. Dann gilt
+
+                                A⊤ A invertierbar ⇔ A invertierbar.
+
+
+
+Lösungsskizze zu Aufgabe 1
+
+ (a) Die Behauptung ist wahr.
+     Sei die i-te Zeile von A eine Nullzeile. Entwickelt man die Determinante nach dieser Zeile,
+     so erhält man                                   n
+                                         det(A) =
+                                                      X
+                                                            aij Cij ,
+                                                      j=1
+
+     wobei Cij die zugehörigen Kofaktoren sind. Da die i-te Zeile eine Nullzeile ist, gilt aij = 0
+     für alle j = 1, . . . , n. Also folgt
+                                                  n
+                                       det(A) =         0 · Cij = 0.
+                                                  X
+
+                                                  j=1
+
+
+ (b) Die Behauptung ist wahr.
+     Es gilt
+                                    det(A⊤ A) = det(A⊤ ) det(A).
+     Außerdem gilt
+                                         det(A⊤ ) = det(A).
+
+
+                                               –1–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                                 Prof. Dr. Thomas Nagler
+Blatt 5                                                                        Tobias Brock
+
+     Daher folgt
+                                        det(A⊤ A) = det(A)2 .
+
+     Eine quadratische Matrix ist genau dann invertierbar, wenn ihre Determinante ungleich
+     0 ist. Also gilt
+                              A⊤ A invertierbar ⇔ det(A⊤ A) ̸= 0.
+     Mit der obigen Gleichung folgt
+
+                             det(A⊤ A) ̸= 0 ⇔ det(A)2 ̸= 0 ⇔ det(A) ̸= 0.
+
+     Das ist wiederum äquivalent dazu, dass A invertierbar ist. Also gilt
+
+                                 A⊤ A invertierbar ⇔ A invertierbar.
+
+Aufgabe 2 (Determinante der Inversen und der Einheitsmatrix)
+
+ (a) Sei I ∈ Rn×n die Einheitsmatrix. Dann gilt
+
+                                             det(I) = 1.
+
+ (b) Sei A ∈ Rn×n eine invertierbare Matrix. Dann gilt
+                                                          1
+                                         det(A−1 ) =          .
+                                                       det(A)
+
+
+
+Lösungsskizze zu Aufgabe 2
+
+ (a) Die Einheitsmatrix ist eine obere Dreiecksmatrix (vgl Def 2.4.5) und mit Theorem 2.4.7
+     folgt also für die Einheitsmatrix I ∈ Rn×n
+                                                     n
+                                          det(I) =         1 = 1.
+                                                     Y
+
+                                                     i=1
+
+
+ (b) Da A−1 die Inverse zu A ist folgt, dass A · A−1 = I. Mit Theorem 2.4.11 erhalten wir als
+
+                             1 = det(I) = det(A · A−1 ) = det(A)det(A−1 ).
+
+     Da 1 = det(A)det(A−1 ) muss det(A) ̸= 0 sein und somit gilt
+                                                          1
+                                         det(A−1 ) =          .
+                                                       det(A)
+
+
+
+
+                                              –2–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                              Prof. Dr. Thomas Nagler
+Blatt 5                                                     Tobias Brock
+
+
+
+
+                                      –3–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                                  Prof. Dr. Thomas Nagler
+Blatt 5                                                                         Tobias Brock
+
+Hausaufgaben
+
+Aufgabe 3 (Ganzzahlige Matrix und Determinante)
+Sei A eine Matrix, die nur aus ganzzahligen Einträgen besteht.
+ (a) Nehme an, dass A in dieser Teilaufgabe eine 2 × 2 Matrix ist. Zeige für diesen Fall, dass
+     det(A) wieder eine ganze Zahl Z ist.
+ (b) Nutze Teilaufgabe (a) um zu zeigen, dass falls A eine ganzzahlige 3 × 3 Matrix ist, die
+     Determinante det(A) auch eine ganze Zahl ist.
+ (c) Nutze nun Induktion (siehe Vorlesung und/oder Analysis 1) um für allgemeine ganzzahlige
+     n × n Matrizen A zu zeigen, dass die dazugehörige Determinante von A eine ganze Zahl
+     ist.
+
+
+Lösungsskizze zu Aufgabe 3
+Anmerkung:
+  • Eine Menge M ist abgeschlossen bzgl. einer Operation ∗ genau dann wenn für alle a, b ∈ M
+    gilt, dass a ∗ b ∈ M ist.
+  • Für Z gilt also
+        – Z ist abgeschlossen bzgl +, − und ·.
+        – Z ist nicht abgeschlossen z.B. bzgl \ (teilen).
+
+ (a) Nach Abschnitt 2.4.1 im Skript gilt, dass die Determinante zu der 2 × 2 Matrix
+                                                       !
+                                                 a b
+                                         A=                ∈ Z2×2
+                                                 c d
+
+     gleich det(A) = ad − bc. Da Z abgeschlossen bzgl +, − und · ist, folgt det(A) ∈ Z.
+ (b) Wir verwenden die Berechnung der Determinante über Kofaktoren. Sei A ∈ Z3×3 . Dann
+     gilt (siehe Abschnitt 2.4.2 im Skript)
+                           3
+                det(A) =       (−1)1+j a1j det(A1j )
+                           X
+
+                           j=1
+
+                        = (−1)2 a11 det(A11 ) + (−1)3 a12 det(A12 ) + (−1)4 a13 det(A13 )
+
+     Da für alle j = 1, 2, 3 die Matrix A1j ∈ Z2×2 , folgt mit Teilaufgabe (a), dass det(A1j ) ∈ Z.
+     Und somit folgt aus der Abgeschlossenheit bzgl +, − und · von Z, dass det(A) ∈ Z.
+ (c) Wir beweisen die Behauptung aus (a) und (b) nun für beliebige Matrizen A ∈ Zn×n . Dies
+     erfolgt über vollständige Induktion.
+
+     Induktionsanfang Zu zeigen ist, dass für alle Matrizen A ∈ Z2×2 , det(A) ∈ Z gilt. Dies
+     wurde bereits in Teilaufgabe (a) gezeigt.
+
+     Induktionsschritt Wir gehen nun davon aus, dass die Behauptung für n = k ∈ N bereits
+     gezeigt wurde, also, dass für A ∈ Zk×k , det(A) ∈ Z gilt. Nun wollen wir zeigen, dass auch
+     für A ∈ Z(k+1)×(k+1) , det(A) ∈ Z gilt.
+
+                                                –4–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                                           Prof. Dr. Thomas Nagler
+Blatt 5                                                                                  Tobias Brock
+
+    Sei also A ∈ Z(k+1)×(k+1) beliebig. Analog zu (b) verwenden wir die Berechnung der
+    Determinante über die Kofaktoren. Daher
+                                                   k+1
+                                     det(A) =            (−1)1+j a1j det(A1j ).
+                                                   X
+
+                                                   j=1
+
+
+    Nun gilt für alle i, j ∈ {1, . . . , k + 1}:
+
+      • (−1)1+j ∈ Z
+      • a1j ∈ Z
+      • det(A1j ) ∈ Z da A1j ∈ Zk×k und wir verwenden unsere obige Annahme aus dem
+        Anfang des Induktionsschrittes.
+
+    Wir nutzen jetzt wieder die Abgeschlossenheit bzgl +, − und · von Z, dass für alle n ∈ N
+    und für alle ganzzahligen Matrizen A ∈ Zn×n , det(A) ∈ Z.
+
+
+
+
+                                                    –5–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2026                                                     Prof. Dr. Thomas Nagler
+Blatt 5                                                                            Tobias Brock
+
+Aufgabe 4 (Determinante Drehmatrix)
+Betrachte die Drehungen im R2 um den Winkel α die gegeben ist durch die Matrix
+
+                                        cos(α) − sin(α)
+                                                            !
+                                  A=                            .
+                                        sin(α) cos(α)
+
+ (a) Zeige, dass det(A) = 1.
+
+ (b) Erkläre was es bedeutet, dass die Determinante unabhängig von dem Wert α ist.
+
+
+
+Lösungsskizze zu Aufgabe 4
+
+ (a) Für eine 2 × 2-Matrix gilt                 !
+                                           a b
+                                       det     = ad − bc.
+                                           c d
+     In unserem Fall ist
+                                        cos(α) − sin(α)
+                                                                !
+                                     A=                 .
+                                        sin(α) cos(α)
+     Also gilt
+                                                                   
+                             det(A) = cos(α) cos(α) − − sin(α) sin(α)
+                                   = cos2 (α) + sin2 (α).
+
+     Mit der trigonometrischen Identität
+
+                                       cos2 (α) + sin2 (α) = 1
+
+     folgt
+                                            det(A) = 1.
+
+ (b) Die Determinante beschreibt im R2 , um welchen Faktor Flächen durch die lineare Abbil-
+     dung skaliert werden.
+     Da für jede Drehung gilt det(A) = 1, werden Flächen durch eine Drehung nicht vergrößert
+     oder verkleinert. Der Flächeninhalt bleibt also erhalten.
+     Dass die Determinante unabhängig von α ist, bedeutet: Egal, um welchen Winkel man
+     dreht, die Drehung verändert keine Flächeninhalte. Außerdem bleibt wegen det(A) > 0
+     die Orientierung erhalten. Eine Drehung spiegelt also nicht, sondern rotiert nur.
+
+
+
+
+                                             –6–
+

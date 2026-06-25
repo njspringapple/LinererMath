@@ -1,0 +1,254 @@
+120- MINÜTIGE H AUPTKLAUSUR ZUR V ORLESUNG „M ETHODEN DER LINEAREN
+        A LGEBRA IN DER S TATISTIK “ (S OMMERSEMESTER 2022),
+                      T. N AGLER , H. B LOCHER
+                     H AUPTKLAUSUR AM 04.08.2022, 09:30 – 11:30 U HR
+
+
+   V ORNAME :
+
+   N ACHNAME :
+
+   M ATRIKELNUMMER :
+
+   S TUDIENGANG + PO:
+
+   U NTERSCHRIFT:
+
+
+• Überprüfen Sie, ob Ihre Angabe vollständig ist. Sie sollte 5 Aufgaben auf 12 Seiten umfassen.
+
+• Füllen Sie bitte das obenstehende Formular umgehend aus. Schreiben Sie bitte leserlich.
+
+• Halten Sie für die Kontrolle bitte einen Lichtbildausweis und Ihren Studierendenausweis bereit.
+
+• Die Bearbeitungszeit beträgt 120 Minuten. Es ist keine vorzeitige Abgabe möglich.
+
+• Verwenden Sie für die Bearbeitung ausschließlich die Ihnen zur Verfügung gestellten Papierbögen.
+  Kennzeichnen Sie jedes zur Abgabe vorgesehene Blatt mit Namen und Matrikelnummer.
+
+• Alle Lösungen müssen nachvollziehbar sein. Dazu gehört auch lesbare Schrift. Ergebnisse müssen
+  klar erkennbar und zuzuordnen sein. Nur Lösungen die direkt unterhalb der Aufgabe (bzw. auf der
+  Seite danach) bearbeitet worden sind und bei denen klar die Teilaufgabe gekennzeichnet wurde,
+  können gewertet werden. Falls der Platz nicht ausreicht, muss an der Stelle ein Verweis zur Lösung
+  zu finden sein.
+
+• Machen Sie kenntlich, falls Sie mit einem Ersatzergebnis weiterrechnen!
+
+• Es dürfen nur dokumentenechte Stifte und keine roten Stifte verwendet werden.
+
+• Zugelassene Hilfsmittel: Taschenrechner (nicht programmierbar, ohne Grafik-Funktion), Wörter-
+  buch, beidseitig handbeschriebenes A4-Blatt.
+
+• Bei Unterschleif erfolgt eine Meldung an das Prüfungsamt. Sie sind verpflichtet, durch Ihr Ver-
+  halten jegliche Missverständnisse diesbezüglich auszuschlieSSen. Sorgen Sie insbesondere dafür,
+  dass sich keinerlei Mobiltelefone und Uhren an Ihrem Arbeitsplatz befinden.
+
+• Verlassen Sie den Prüfungsraum erst, nachdem Sie der Aufsicht die Klausur persönlich übergeben
+  haben. Für den Eingang der kompletten Klausur bei der Aufsicht sind Sie selbst verantwortlich.
+
+
+                                   mögliche Punkte      erreichte Punkte
+                     1. Aufgabe           20
+                     2. Aufgabe           20
+                     3. Aufgabe           30
+                     4. Aufgabe           20
+                     5. Aufgabe           30
+                     Summe               120
+Hauptklausur (Sommersemester 2022)                Methoden der linearen Algebra in der Statistik
+N AME :
+
+
+Aufgabe 1
+Finde eine Orthogonalmatrix P , welche die Matrix
+                                              
+                                           3 1
+                                    A=           ∈ R2×2
+                                           1 3
+
+diagonalisiert.                                                                                    20 P UNKTE
+
+
+
+
+                                                                               Seite 2 von 12
+Hauptklausur (Sommersemester 2022)   Methoden der linearen Algebra in der Statistik
+
+N AME :
+
+
+
+
+                                                                  Seite 3 von 12
+Hauptklausur (Sommersemester 2022)                        Methoden der linearen Algebra in der Statistik
+
+N AME :
+
+
+Aufgabe 2
+Im Graph in Abbildung 1 ist links eine Ausgangsmenge von Punkten x ∈ R2 und rechts deren
+Bild unter der Transformation x 7→ Ax mit einer Matrix A ∈ R2×2 dargestellt. Zur Orientierung
+sind zwei Punkte besonders markiert (Quadrat und Dreieck).
+(a) Bestimme ker(A), col(A), rang(A) und det(A) und begründe die Antwort anhand des Gra-
+    phen.                                                                                (16 Punkte)
+
+(b) Bestimme Matrix A.                                                                                     (4 Punkte)
+
+
+                   2
+
+
+                                                      2
+
+
+                   1
+                                                      1
+
+
+
+             x2    0                            y2
+                                                      0
+
+
+
+
+                  −1                                 −1
+
+
+
+                                                     −2
+                  −2
+
+                       −2   −1   0    1     2             −2     −1      0      1       2
+                                 x1                                      y1
+
+
+
+Abbildung 1: Ausgangsmenge (links) und Bild der Menge unter der Matrixtransformation x 7→
+Ax (rechts).
+                                                                                                           20 P UNKTE
+
+
+
+
+                                                                                       Seite 4 von 12
+Hauptklausur (Sommersemester 2022)   Methoden der linearen Algebra in der Statistik
+
+N AME :
+
+
+
+
+                                                                  Seite 5 von 12
+Hauptklausur (Sommersemester 2022)                     Methoden der linearen Algebra in der Statistik
+
+N AME :
+
+
+Aufgabe 3
+Bestimme, welche der folgenden Aussagen wahr oder falsch sind (mit Begründung).
+(a) Die Matrix
+                                                 
+                                              1 −3
+                                              0 2
+
+    ist indefinit.                                                                                      (3 Punkte)
+
+(b) Wenn λ ein Eigenwert von A ist, dann hat das LGS (λI − A)x = 0 nur die triviale Lösung.
+                                                                                                        (4 Punkte)
+
+(c) Jeder Eigenwert einer Orthogonalmatrix hat Betrag 1.                                                (4 Punkte)
+
+(d) Wenn A ∈ Rn×n invertierbar ist, dann gilt ker(A)⊥ = Rn .                                            (4 Punkte)
+
+(e) Wenn die Zeilen von A ∈ Rm×n eine Basis des Rn sind, dann hat das LGS Ax = 0 genau
+    eine Lösung.                                                                       (5 Punkte)
+
+(f) Seien w1 , w2 ∈ R und x, y ∈ R2 . Dann definiert
+
+                                     hx, yi = w1 x1 y1 + w2 x2 y2
+
+    genau dann ein Skalarprodukt auf R2 , wenn w1 , w2 > 0.                                             (5 Punkte)
+
+(g) Sei F = {f : R → R} der Vektorraum aller Funktionen von R nach R mit den üblichen
+    Operationen für Addition von Funktionen und Multiplikation mit Skalaren. Dann ist M =
+    {f : R → R mit f (−x) = f (x)} ein Untervektorraum von F .                           (5 Punkte)
+                                                                                                        30 P UNKTE
+
+
+
+
+                                                                                    Seite 6 von 12
+Hauptklausur (Sommersemester 2022)   Methoden der linearen Algebra in der Statistik
+
+N AME :
+
+
+
+
+                                                                  Seite 7 von 12
+Hauptklausur (Sommersemester 2022)                Methoden der linearen Algebra in der Statistik
+
+N AME :
+
+
+Aufgabe 4
+Sei A ∈ Rm×n und Q ∈ Rn×n invertierbar. Beweise: Die Gleichung Ax = 0 genau dann nur die
+triviale Lösung, wenn AQx = 0 nur die triviale Lösung hat.                               20 P UNKTE
+
+
+
+
+                                                                               Seite 8 von 12
+Hauptklausur (Sommersemester 2022)   Methoden der linearen Algebra in der Statistik
+
+N AME :
+
+
+
+
+                                                                  Seite 9 von 12
+Hauptklausur (Sommersemester 2022)                      Methoden der linearen Algebra in der Statistik
+
+N AME :
+
+
+Aufgabe 5
+
+Seien V1 , . . . , Vn Vektorräume.
+(a) Definiere Operationen für Addition und Multiplikation und einen Nullvektor, sodass V =
+    V1 × · · · × Vn auch ein Vektorraum ist. (Die Axiome müssen im Anschluss nicht überprüft
+    werden.)                                                                                 (10 Punkte)
+
+(b) Zeige, dass V1 kein Untervektorraum von V ist.                                                       (5 Punkte)
+
+(c) Zeige, dass wenn W1 , . . . , Wn jeweils Unterräume von V1 , . . . , Vn sind, W = W1 × · · · × Wn
+    ein Unterraum von V ist.                                                                          (15 Punkte)
+                                                                                                         30 P UNKTE
+
+
+
+
+                                                                                     Seite 10 von 12
+Hauptklausur (Sommersemester 2022)   Methoden der linearen Algebra in der Statistik
+
+N AME :
+
+
+Zusatzblatt
+
+
+
+
+                                                                 Seite 11 von 12
+Hauptklausur (Sommersemester 2022)   Methoden der linearen Algebra in der Statistik
+
+N AME :
+
+
+Zusatzblatt
+
+
+
+
+                                                                 Seite 12 von 12
+

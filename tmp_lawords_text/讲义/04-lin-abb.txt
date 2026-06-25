@@ -1,0 +1,539 @@
+4. Lineare Abbildungen
+
+
+
+
+Methoden der Linearen Algebra in der Statistik
+Thomas Nagler <t.nagler@lmu.de>
+Agenda
+
+
+
+1 Matrixtransformation
+
+
+
+2 Allgemeine lineare Abbildungen
+
+
+
+3 Lineare Abbildungen R2 → R2
+
+
+
+
+                                   1 / 25
+Agenda
+
+
+
+1 Matrixtransformation
+
+
+2 Allgemeine lineare Abbildungen
+
+
+3 Lineare Abbildungen R2 → R2
+
+
+
+
+                                   2 / 25
+Matrixtransformation
+
+
+
+
+ • Für A ∈ Rm×n transformiert das Matrix-Vektor-Produkt jeden
+   Vektor x ∈ Rn in einen Vektor Ax ∈ Rm .
+
+ • Durch die Transformation T (x) = Ax wird also eine
+   Abbildung T : Rn 7→ Rm definiert.
+
+
+
+
+                                                                 3 / 25
+Quiz
+
+Was sind Definitions- und Wertebereich der Matrixtransformation?
+                                     
+                                 3 7
+                        T (x) = 0 6 x
+                                 0 0
+
+
+ A. T hat Definitionsbereich R2 und Wertebereich R2
+ B. T hat Definitionsbereich R2 und Wertebereich R3
+ C. T hat Definitionsbereich R3 und Wertebereich R2
+ D. T hat Definitionsbereich R3 und Wertebereich R3
+
+
+
+                                                                   4 / 25
+Quiz
+
+
+                             
+         3 7                    1
+Sei A = 0 6 , liegt der Vektor −4
+                            
+         0 0                    3
+in der Bildmenge der Matrixtransformation x 7→ Ax?
+
+
+ A. Ja
+ B. Nein
+
+
+
+
+                                                     5 / 25
+Quiz
+
+Gib das Bild der Matrixtransformation
+                                     
+                                 3 7
+                        T (x) = 0 6 x
+                                 0 0
+
+an.
+
+                            
+                         3    7 
+ A. T hat das Bild span  0 , 6
+                             
+                          0    0
+
+ B. T hat das Bild R2
+ C. T hat das Bild R3
+
+
+                                          6 / 25
+Quiz
+               
+         1 5 −2
+Sei A =          ,
+         4 −1 3
+Gib das Bild in Abhängigkeit von x ∈ R3 unter der
+Transformationsmatrix A an:
+
+                
+       x1 + 4x1
+ A.  5x2 − x2 
+      −2x3 + 3x3
+                   
+     x1 + 5x2 − 2x3
+ B.
+     4x1 − x2 + 3x3
+                                    
+ C. x1 + 5x2 − 2x3 4x1 − x2 + 3x3
+
+
+
+                                                     7 / 25
+Agenda
+
+
+
+1 Matrixtransformation
+
+
+2 Allgemeine lineare Abbildungen
+
+
+3 Lineare Abbildungen R2 → R2
+
+
+
+
+                                   8 / 25
+Allgemeine lineare Abbildungen
+
+Definition
+Wir nennen eine Abbildung T : D → W linear, wenn
+
+ 1. T (x + y ) = T (x) + T (y ) für alle x, y ∈ D,
+ 2. T (cx) = cT (x) für alle c ∈ R, x ∈ D.
+
+
+
+
+                                                      9 / 25
+Allgemeine lineare Abbildungen
+
+Definition
+Wir nennen eine Abbildung T : D → W linear, wenn
+
+ 1. T (x + y ) = T (x) + T (y ) für alle x, y ∈ D,
+ 2. T (cx) = cT (x) für alle c ∈ R, x ∈ D.
+
+
+Bemerkung
+Falls T eine lineare Transformation ist, dann:
+
+ 1. T (0) = 0.
+ 2. T (c1 x1 + · · · + ck xk ) = c1 T (x1 ) + · · · + ck T (xk ).
+
+
+
+                                                                    9 / 25
+Allgemeine lineare Abbildung
+
+
+
+
+Theorem
+Eine Abbildung T : Rn 7→ Rm ist genau dann linear, wenn es eine
+Matrix A ∈ Rm×n gibt, so dass T (x) = Ax für alle x ∈ Rn .
+Diese Matrix ist eindeutig.
+
+
+
+
+                                                                  10 / 25
+Quiz
+Gegeben sei die
+              lineare
+                      Transformation T: R2 7→ R3 mit
+            4                    2            
+     1                        1                         2
+T         = 2 und T
+                                  = 0 . Finde T
+                                         
+     1                       −1                         0
+                1                        3
+     
+      −6
+ A. −2
+    
+       4
+     
+       2
+ B.   2
+      −2
+     
+      6
+ C. 2
+      4
+
+                                                             11 / 25
+Quiz
+
+Beweise oder widerlege:
+
+    Gegeben sei die Transformation T : R3 7→ R2
+                     
+                        x1                 
+                                   x1 + 3x2
+                  T   x2   =      x2      .
+                        x3            x1
+
+
+    T ist eine lineare Transformation.
+
+ A. Wahr
+ B. Falsch
+
+
+
+                                                  12 / 25
+Agenda
+
+
+
+1 Matrixtransformation
+
+
+2 Allgemeine lineare Abbildungen
+
+
+3 Lineare Abbildungen R2 → R2
+
+
+
+
+                                   13 / 25
+Lineare Abbildungen R2 → R2
+
+Stauchung/Streckung um Faktor k ∈ R entlang der x1 -Achse:
+
+
+
+                               1
+
+
+
+
+                       x2    0
+     k 0
+ A=         ,   k ∈R
+      0 1
+                              −1
+
+
+
+                                   −1      0        1
+                                           x1
+
+
+                                                             14 / 25
+Lineare Abbildungen R2 → R2
+
+Stauchung/Streckung um Faktor k ∈ R entlang der x2 -Achse:
+
+
+
+                               1
+
+
+
+
+                       x2    0
+     1 0
+ A=        ,    k ∈R
+     0 k
+                              −1
+
+
+
+                                   −1      0        1
+                                           x1
+
+
+                                                             15 / 25
+Lineare Abbildungen R2 → R2
+
+Spiegelung an der Geraden x2 = 0:
+
+
+
+                               1
+
+
+
+
+                       x2    0
+              1 0
+     A=
+              0 −1
+                              −1
+
+
+
+                                    −1   0    1
+                                         x1
+
+
+                                                  16 / 25
+Lineare Abbildungen R2 → R2
+
+Spiegelung an der Geraden x1 = 0:
+
+
+
+                               1
+
+
+
+
+                       x2    0
+              −1 0
+     A=
+               0 1
+                              −1
+
+
+
+                                    −1   0    1
+                                         x1
+
+
+                                                  17 / 25
+Lineare Abbildungen R2 → R2
+
+Horizontale Scherung um Faktor k ∈ R:
+
+
+
+                               1
+
+
+
+
+                       x2    0
+          1 k
+      A=
+          0 1
+                              −1
+
+
+
+                                   −1   0    1
+                                        x1
+
+
+                                                 18 / 25
+Lineare Abbildungen R2 → R2
+
+Vertikale Scherung um Faktor k ∈ R:
+
+
+
+                               1
+
+
+
+
+                       x2    0
+            1 0
+      A=
+            k 1
+                              −1
+
+
+
+                                      −1   0    1
+                                           x1
+
+
+                                                    19 / 25
+Lineare Abbildungen R2 → R2
+
+Rotation um Winkel ϕ gegen den Uhrzeigersinn:
+
+
+
+                                  1
+
+
+
+
+                          x2    0
+         cos(ϕ) − sin(ϕ)
+A=
+         sin(ϕ) cos(ϕ)
+                                 −1
+
+
+
+                                      −1    0    1
+                                            x1
+
+
+                                                     20 / 25
+Lineare Abbildungen R2 → R2
+
+Rotation um Winkel ϕ im Uhrzeigersinn:
+
+
+
+                                 1
+
+
+
+                     
+    cos(−ϕ) − sin(−ϕ)      x2
+A=                               0
+     sin(−ϕ) cos(−ϕ)
+                   
+      cos(ϕ) sin(ϕ)
+ =
+    − sin(ϕ) cos(ϕ)             −1
+
+
+
+                                     −1   0    1
+                                          x1
+
+
+                                                   21 / 25
+Lineare Abbildungen R2 → R2
+
+Projektion auf die Gerade x1 = 0:
+
+
+
+                                1
+
+
+
+
+                        x2    0
+          0 0
+      A=
+          0 1
+                               −1
+
+
+
+                                    −1   0    1
+                                         x1
+
+
+                                                  22 / 25
+Lineare Abbildungen R2 → R2
+
+Projektion auf die Gerade x2 = 0:
+
+
+
+                                1
+
+
+
+
+                        x2    0
+          1 0
+      A=
+          0 0
+                               −1
+
+
+
+                                    −1   0    1
+                                         x1
+
+
+                                                  23 / 25
+Lineare Abbildungen in Funktionenräumen
+
+
+
+Beispiel
+
+  • Sei F = L2 ([0, 1]) die Menge aller Funktionen f : [0, 1] 7→ R
+        R1
+    mit 0 f 2 (x)dx < ∞.
+
+  • Fixiere g ∈ F und definiere die Abbildung T : F 7→ R durch
+             R1
+    T (f ) = 0 g (x)f (x)dx.
+
+  • Dann ist T linear.
+
+
+
+
+                                                                     24 / 25
+Wrap-up
+
+
+
+Heute gelernt
+
+  • Matrixtransformationen
+
+  • Allgemeine lineare Abbildungen
+
+  • Lineare Abbildungen R2 → R2 .
+
+Nächste Vorlesung
+
+  • Matrixoperationen
+
+
+
+
+                                     25 / 25
+

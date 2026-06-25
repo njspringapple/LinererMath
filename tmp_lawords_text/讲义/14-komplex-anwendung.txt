@@ -1,0 +1,772 @@
+14. Komplexe Eigenwerte und Anwendungen
+
+
+
+
+Methoden der Linearen Algebra in der Statistik
+Thomas Nagler <t.nagler@lmu.de>
+Agenda
+
+
+
+1 Komplexe Eigenwerte
+
+
+
+2 Hauptkomponentenanalyse
+
+
+
+3 Markovketten und Google
+
+
+
+
+                            1 / 28
+Agenda
+
+
+
+1 Komplexe Eigenwerte
+
+
+2 Hauptkomponentenanalyse
+
+
+3 Markovketten und Google
+
+
+
+
+                            2 / 28
+Komplexe Eigenwerte
+
+
+
+Motivation:
+  • Die Eigenwerte einer Matrix sind die Nullstellen des
+    charakteristischen Polynoms
+
+              p(λ) = det(A − λI ) = cn λn + · · · + c1 λ + c0 .
+
+  • Es ist aber möglich, dass dieses Polynom keine Nullstelle
+    λ ∈ R besitzt.
+
+
+
+
+                                                                  3 / 28
+Komplexe Eigenwerte
+
+Beispiel:
+  • Nehmen wir die Rotationsmatrix um 90◦ gegen den
+    Uhrzeigersinn:
+                                    
+                               0 −1
+                         M=            .
+                               1 0
+
+
+
+
+                                                      4 / 28
+Komplexe Eigenwerte
+
+Beispiel:
+  • Nehmen wir die Rotationsmatrix um 90◦ gegen den
+    Uhrzeigersinn:
+                                    
+                               0 −1
+                         M=            .
+                               1 0
+
+  • Dann gilt
+                                        
+                                   −λ −1
+                det(M − λI ) = det         = λ2 + 1.
+                                    1 −λ
+
+
+
+
+                                                       4 / 28
+Komplexe Eigenwerte
+
+Beispiel:
+  • Nehmen wir die Rotationsmatrix um 90◦ gegen den
+    Uhrzeigersinn:
+                                    
+                               0 −1
+                         M=            .
+                               1 0
+
+  • Dann gilt
+                                        
+                                   −λ −1
+                det(M − λI ) = det         = λ2 + 1.
+                                    1 −λ
+
+  • Die Gleichung λ2 = −1 hat keine reellen Lösungen.
+
+  • Deshalb kann es keinen reellen Eigenvektor geben.
+
+                                                         4 / 28
+Komplexe Eigenwerte
+
+
+ • Eine Rotation verändert immer die Richtung eines Vektors
+   (außer von 0).
+
+ • Die Gleichung λ2 = −1 hat die komplexen Lösungen
+   λ = ±i ∈ C.
+
+
+
+
+                                                               5 / 28
+Komplexe Eigenwerte
+
+
+ • Eine Rotation verändert immer die Richtung eines Vektors
+   (außer von 0).
+
+ • Die Gleichung λ2 = −1 hat die komplexen Lösungen
+   λ = ±i ∈ C.
+
+ • Der Fundamentalsatz der Algebra besagt, dass jedes Polynom
+   zumindest eine (womöglich komplexe) Nullstelle hat.
+
+ • Wir können zugehörige Eigenvektoren finden, indem wir
+   komplexwertige Einträge zulassen.
+
+
+
+
+                                                                5 / 28
+Komplexe Eigenwerte
+
+
+
+Definition
+Sei A ∈ Rn×n . Ein Vektor x ̸= 0 ∈ Cn wird Eigenvektor von A
+genannt, wenn es ein Skalar λ ∈ C gibt, sodass
+
+                           Ax = λx.
+
+Der Skalar λ wird Eigenwert von A genannt und x auch der zu λ
+gehörige Eigenvektor.
+
+
+
+
+                                                                6 / 28
+Komplexe Eigenwerte
+
+Beispiel
+
+  • Für die vorherige Rotationsmatrix finden wir für λ = i den
+    Eigenvektor (1, −i), denn
+                                         
+                    0 −1       1        i        1
+                                  =        =i          .
+                    1 0       −i       1        −i
+
+
+
+
+                                                                   7 / 28
+Komplexe Eigenwerte
+
+Beispiel
+
+  • Für die vorherige Rotationsmatrix finden wir für λ = i den
+    Eigenvektor (1, −i), denn
+                                         
+                    0 −1       1        i        1
+                                  =        =i          .
+                    1 0       −i       1        −i
+
+  • Zum Eigenwert λ = −i finden wir den Eigenvektor (1, i):
+                               
+                  0 −1  1   −i       1
+                          =    = −i     .
+                  1 0   i   1        i
+
+
+
+
+                                                                   7 / 28
+Komplexe Eigenwerte
+
+
+
+
+Theorem
+Sei A ∈ Rn×n , λ ein Eigenwert von A und v ein zugehöriger
+Eigenvektor. Dann ist auch λ ein Eigenwert von A und v ein
+zugehöriger Eigenvektor.
+
+
+
+
+                                                              8 / 28
+Quiz
+
+                        
+                    0 2
+Gegeben sei A =            . Außerdem ist 2i Eigenwert von A.
+                   −2 0
+Wie sieht der zweite Eigenwert aus?
+
+
+ A. −i
+ B. −2
+ C. −1
+ D. −2i
+
+
+
+
+                                                                9 / 28
+Quiz
+                      
+                   0 2
+Gegeben sei A =          . Was ist der Eigenvektor zum
+                  −2 0
+Eigenwert 2i von A?
+
+     
+     −i
+ A.
+      1
+        
+     −2i
+ B.
+       1
+     
+     −1
+ C.
+      2i
+        
+       1
+ D.
+     −2i
+
+
+                                                         10 / 28
+Agenda
+
+
+
+1 Komplexe Eigenwerte
+
+
+2 Hauptkomponentenanalyse
+
+
+3 Markovketten und Google
+
+
+
+
+                            11 / 28
+Hauptkomponentenanalyse
+
+
+
+Idee:
+  • Angenommen unsere Daten bestehen aus d Variablen.
+
+  • Eine Realisierung können wir dann als Vektor x ∈ Rd
+    schreiben.
+
+  • Den zugehörigen Zufallsvektor schreiben wir als X ∈ Rd .
+
+  • Sei Σ = Cov(X ) die Kovarianzmatrix von X .
+
+
+
+
+                                                                12 / 28
+Hauptkomponentenanalyse
+
+
+
+ • Je größer d, desto unüberschaubarer die Menge an
+   Information in Σ.
+
+
+
+
+                                                        13 / 28
+Hauptkomponentenanalyse
+
+
+
+ • Je größer d, desto unüberschaubarer die Menge an
+   Information in Σ.
+
+ • Lösung: Wir diagonalisieren Σ.
+
+ • Dann gilt
+
+                               Σ = PΛP −1 ,
+
+   wobei P = (v1 · · · vn ) und Λ = diag(λ1 , . . . , λn ).
+
+
+
+
+                                                              13 / 28
+Hauptkomponentenanalyse
+
+
+ • O.B.d.A seien die Eigenwerte der Größe nach geordnet:
+   λ1 ≥ λ2 ≥ · · · ≥ 0.
+
+ • Der Eigenvektor v1 gibt die Richtung mit der größten
+   Variabilität vor.
+
+ • vn ist die Richtung mit geringsten Variabilität.
+
+ • Um die Daten zu verstehen oder die Dimension zu reduzieren,
+   beschränken wir uns auf die Richtungen der ersten paar
+   Eigenvektoren.
+
+
+
+
+                                                                 14 / 28
+Hauptkomponentenanalyse
+
+Illustration: 100 Datenpunkte in R2
+           4                                4
+
+
+
+
+           2                                2
+
+
+
+
+     x2    0                          x2    0
+
+
+
+
+          −2                               −2
+
+
+
+
+          −4                               −4
+
+               −4   −2   0    2   4             −4   −2   0    2   4
+                         x1                               x1
+
+
+
+Abbildung: Links: Datenpunkte und die Hauptkomponenten. Rechts: Die
+Gleichen Daten in der Eigenvektorbasis.
+
+
+
+                                                                       15 / 28
+    Hauptkomponentenanalyse
+
+
+1      Sig <- cov ( data )
+2      #>            [ ,1]    [ ,2]
+3      # > [1 ,] 1.787125 1.111877
+4      # > [2 ,] 1.111877 1.080091
+
+
+1      eig <- eigen ( Sig )
+2      eig $ values
+3      # > [1] 2.6003321 0.2668837
+4      eig $ vectors
+5      #>              [ ,1]      [ ,2]
+6      # > [1 ,] -0.8071555 0.5903389
+7      # > [2 ,] -0.5903389 -0.8071555
+
+
+
+
+                                          16 / 28
+Anwendung
+
+ • Anwendung auf den Münchner Mietmarkt.1
+
+ • Ziel war es zu überprüfen, ob manche Bevölkerungsgruppen
+   bei der Wohnungssuche diskriminiert werden.
+
+
+
+
+ 1
+     http://www.hanna-und-ismail.de
+                                                                 17 / 28
+    Anwendung
+
+     • Anwendung auf den Münchner Mietmarkt.1
+
+     • Ziel war es zu überprüfen, ob manche Bevölkerungsgruppen
+       bei der Wohnungssuche diskriminiert werden.
+
+1  head ( data )
+2  # > # A tibble : 6 x 6
+ 3 #>     preis zimmer flaeche deutsch m ä nnlich einladung
+ 4 #>     <dbl > <dbl >   <dbl > <dbl >      <dbl >    <dbl >
+ 5 #> 1     890       2    51.2       1           0         1
+ 6 #> 2     890       2    51.2       0           0         1
+ 7 #> 3     890       2    51.2       0           0         1
+ 8 #> 4     910       2    54.5       0           1         1
+ 9 #> 5     850       2    50         0           0         1
+10 # > 6    850       2    50         1           0         0
+
+
+     1
+         http://www.hanna-und-ismail.de
+                                                                     17 / 28
+    Anwendung
+
+     • Diagonalisierung auf die Korrelationsmatrix angewendet:
+
+1  R <- cor ( data )
+2  eig <- eigen ( R )
+ 3 lambda <- round ( eig $ values , 1)
+ 4 lambda
+ 5 # > [1] 2.3 1.2 1.0 0.8 0.6 0.1
+ 6 P <- round ( eig $ vectors , 1)
+ 7 rownames ( P ) <- names ( data )
+ 8 P
+ 9 #>              [ ,1] [ ,2] [ ,3] [ ,4]   [ ,5] [ ,6]
+10 # > preis       -0.4 -0.4 -0.1 -0.3         0.7 -0.2
+11 # > zimmer      -0.6 0.1 0.1 0.0          -0.5 -0.6
+12 # > flaeche     -0.6 -0.1 0.1 -0.1        -0.2 0.7
+13 # > deutsch       0.1 -0.6 0.5 0.6          0.0 0.0
+14 # > m ä nnlich   0.0 -0.4 -0.9 0.3       -0.1 0.0
+15 # > einladung     0.3 -0.6 0.1 -0.7       -0.4 0.0
+
+
+                                                                 18 / 28
+Agenda
+
+
+
+1 Komplexe Eigenwerte
+
+
+2 Hauptkomponentenanalyse
+
+
+3 Markovketten und Google
+
+
+
+
+                            19 / 28
+Markovketten und Google
+
+
+
+ • Angenommen es gibt nur 5 Webseiten zu einem Suchbegriff.
+
+ • Manche der Webseiten haben Links zu anderen.
+
+ • Die Suchmaschine versucht die Webseiten in eine Rangliste zu
+   ordnen.
+
+ • Die grobe Idee ist, dass Seiten, zu denen mehr Links bestehen,
+   wichtiger sind.
+
+
+
+
+                                                                    20 / 28
+Markovketten und Google
+ • Modell: Ein idiotischer Nutzer Bob surft endlos durch das
+   Web (bestehend aus 5 Seiten) und klickt wahllos auf Links.
+
+
+
+
+                                                                21 / 28
+Markovketten und Google
+ • Modell: Ein idiotischer Nutzer Bob surft endlos durch das
+   Web (bestehend aus 5 Seiten) und klickt wahllos auf Links.
+ • Wahrscheinlichkeiten, dass Bob nach t Schritten auf einer der
+   5 Webseiten ist:
+                              P(S (t) = 1)
+                                          
+                             P(S (t) = 2)
+                                             5
+                     p (t) = 
+                                 (t)
+                                           
+                             P(S = 3) ∈ R .
+                                           
+                                  (t)
+                             P(S = 4)
+                             P(S (t) = 5)
+
+
+
+
+                                                                   21 / 28
+Markovketten und Google
+ • Modell: Ein idiotischer Nutzer Bob surft endlos durch das
+   Web (bestehend aus 5 Seiten) und klickt wahllos auf Links.
+ • Wahrscheinlichkeiten, dass Bob nach t Schritten auf einer der
+   5 Webseiten ist:
+                                 P(S (t) = 1)
+                                             
+                                P(S (t) = 2)
+                                                5
+                        p (t) = 
+                                    (t)
+                                              
+                                P(S = 3) ∈ R .
+                                              
+                                     (t)
+                                P(S = 4)
+                                  P(S (t) = 5)
+
+ • Die Wahrscheinlichkeiten zum Zeitpunkt t + 1 modellieren wir
+   durch
+             (t+1)     (t)             (t+1)     (t)
+                                                       
+          P(S       = 1 | S = 1)       ···   P(S       = 1 | S = 5)
+                      ..                                 ..              ∈ R5×5 .
+   M=                 .                                  .
+          P(S (t+1) = 5 | S (t) = 1)   ···   P(S (t+1) = 5 | S (t) = 5)
+
+                                                                              21 / 28
+Markovketten und Google
+
+
+ • M könnte zum Beispiel so aussehen:
+                                    
+                    0 1/2 0   0 1/4
+                 1/3 0 1/2 1/3 1/4
+                                    
+               M=
+                  1/3 0  0  1/3 1/4 .
+                                     
+                  0 1/2 0    0 1/4
+                   1/3 0 1/2 1/3 0
+
+ • Seite 1 hat Links zu Seiten 2, 3 und 5.
+
+ • Seite 2 hat Links zu Seiten 1 und 4, usw.
+
+
+
+
+                                               22 / 28
+Markovketten und Google
+
+ • Allgemein gilt: p (t) = M t−1 p (1) .
+
+ • Sei
+                                               
+                                            1/5
+                                          1/5
+                                      (1)
+                                               
+                                     p = 1/5 .
+                                                
+                                          1/5
+                                            1/5
+
+
+
+
+                                                    23 / 28
+Markovketten und Google
+
+ • Allgemein gilt: p (t) = M t−1 p (1) .
+
+ • Sei
+                                               
+                                            1/5
+                                          1/5
+                                      (1)
+                                               
+                                     p = 1/5 .
+                                                
+                                          1/5
+                                            1/5
+
+
+ • Dann sind zum Beispiel:
+                                                                 
+                   0.200                    0.183                0.181
+                  0.250                  0.259              0.259
+          p (3) ≈                 p (5) ≈            p (10) ≈ 
+                                                                 
+                  0.158 ,                0.168 ,            0.172 .
+                                                                    
+                  0.200                  0.183              0.181
+                   0.192                    0.206                0.207
+
+
+                                                                            23 / 28
+Markovketten und Google
+
+
+
+
+ • Wir erreichen also einen Gleichgewichtszustand q.
+
+
+
+
+                                                       24 / 28
+Markovketten und Google
+
+
+
+
+  • Wir erreichen also einen Gleichgewichtszustand q.
+
+
+
+Theorem
+Sei M ∈ Rn×n eine Matrix, des Spalten sich zu 1 summieren. Dann
+hat M den Eigenwert 1.
+
+
+
+
+                                                                  24 / 28
+Markovketten und Google
+
+
+ • Nicht für jede Matrix M konvergiert die Kette unabhängig von
+   p (1) immer zum Gleichgewichtszustand q.
+
+ • Sei M = PΛP −1 , wobei P die Eigenvektormatrix und
+   Λ = diag(λ1 , . . . , λn ) ist.
+
+
+
+
+                                                                    25 / 28
+Markovketten und Google
+
+
+ • Nicht für jede Matrix M konvergiert die Kette unabhängig von
+   p (1) immer zum Gleichgewichtszustand q.
+
+ • Sei M = PΛP −1 , wobei P die Eigenvektormatrix und
+   Λ = diag(λ1 , . . . , λn ) ist.
+
+ • Es gilt
+
+    lim M n = P( lim Λn )P −1 = P diag( lim λn1 , . . . , lim λnd )P −1 .
+   n→∞            n→∞                       n→∞           n→∞
+
+ • Damit λn konvergiert, muss λ ∈ (−1, 1] gelten.
+
+
+
+
+                                                                       25 / 28
+Markovketten und Google
+Beispiel:
+
+   • Sei                               
+                0   1    0     0    1/4
+               1   0   1/2   1/3   1/4
+                                       
+               0
+             M=    0    0    1/3   1/4.
+               0   0    0     0    1/4
+                0   0   1/2   1/3    0
+
+
+
+
+                                             26 / 28
+Markovketten und Google
+Beispiel:
+
+   • Sei                                                
+                           0       1      0     0    1/4
+                          1       0     1/2   1/3   1/4
+                                                        
+                          0
+                        M=        0      0    1/3   1/4.
+                          0       0      0     0    1/4
+                           0       0     1/2   1/3    0
+
+
+   • Dann ist −1 ein Eigenwert, denn
+                                                    
+                 0 1      0     0    1/4   −1           −1
+               1 0 1/2 1/3 1/4  1                  1
+                                                    
+                                          0  = −1 ·  0  .
+               0 0       0   1/3 1/4                
+               
+               0 0       0     0    1/4  0         0
+                 0 0 1/2 1/3          0     0            0
+
+   • Also kann M n nicht konvergieren.
+
+
+                                                                 26 / 28
+Der PageRank-Algorithmus
+
+ • Eine weniger idiotische Nutzerin Alice springt manchmal auch
+   zu einer beliebigen Seite im Web.
+
+ • Sei δ > 0 die Wahrscheinlichkeit, dass Alice sich entscheidet,
+   eine beliebige Seite aufzurufen.
+
+
+
+
+                                                                    27 / 28
+Der PageRank-Algorithmus
+
+ • Eine weniger idiotische Nutzerin Alice springt manchmal auch
+   zu einer beliebigen Seite im Web.
+
+ • Sei δ > 0 die Wahrscheinlichkeit, dass Alice sich entscheidet,
+   eine beliebige Seite aufzurufen.
+
+ • Dann ist die neue Übergangsmatrix
+
+                                     δ
+                      M̃ = (1 − δ)M + 1n×n ,
+                                     n
+   wobei alle Einträge der Matrix 1n×n ∈ Rn×n gleich 1 sind.
+
+ • In M̃ sind alle Einträge strikt positiv und damit −1 kein
+   Eigenwert.
+
+                                                                    27 / 28
+Wrap-up
+
+
+
+Heute gelernt
+
+  • Komplexe Eigenwerte
+
+  • Hauptkomonentenanalyse
+
+  • Markovketten und Google
+
+Nächste Vorlesung
+
+  • Skalarprodukt und Orthogonalität
+
+
+
+
+                                        28 / 28
+

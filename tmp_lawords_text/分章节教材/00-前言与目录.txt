@@ -1,0 +1,161 @@
+Methoden der Linearen Algebra in
+         der Statistik
+              SoSe 2026
+
+
+
+           Thomas Nagler
+
+
+
+
+           Version: 10. Juni 2026
+Vorwort
+Dieses Skript ist als Ergänzung zur Vorlesung Methoden der Linearen Algebra
+                                                ”
+in der Statistik“ zu verstehen hauptsächlich zur Nachbereitung des Lernstoffs
+gedacht. Aufgrund der spontanen Natur einer Vorlesung ist es sehr wahrscheinlich,
+dass sich einige Beispiele und Erklärungen aus dem Unterricht nicht im Skript
+wiederfinden. Es ist genauso wahrscheinlich, dass das Skript Ausführungen enthält,
+die in der Vorlesung untergehen. Für die Prüfung essenzielle Fakten werden
+selbstverständlich sowohl in Vorlesung als auch Skript behandelt. Das beste
+Lernergebnis dürfte allerdings durch eine Kombination beider Medien erzielt
+werden.
+   Viele Abbildungen sind aus anderen Lehrbüchern übernommen. Diese werden
+wie folgt referenziert:
+
+[FS] Fischer, G. & Springborn, B. (2020). Lineare Algebra. Eine Einführung für
+Studienanfänger 19. Auflage, Springer.
+
+[AR] Anton, H., & Rorres, C. (2013). Elementary Linear Algebra: Applications
+Version. John Wiley & Sons.
+
+[LLM] Lay, D. C., Lay, S. R., & McDonald, J. J. (2016). Linear Algebra and its
+Applications. Pearson.
+
+[DFO] Deisenroth, M. P., Faisal, A. A., & Ong, C. S. (2020). Mathematics for
+Machine Learning. Cambridge University Press.
+
+
+
+
+                                         ii
+Inhaltsverzeichnis
+1 Lineare Gleichungssysteme in Rn                                                  1
+  1.1 Lineare Gleichungssysteme . . . . . . . . . . . . . . . . . . . . . .        1
+  1.2 Die Zeilenstufenform . . . . . . . . . . . . . . . . . . . . . . . . .       3
+  1.3 Anzahl von Lösungen . . . . . . . . . . . . . . . . . . . . . . . . .       6
+  1.4 Die reduzierte Zeilenstufenform . . . . . . . . . . . . . . . . . . .        7
+  1.5 Vektoren in Rn . . . . . . . . . . . . . . . . . . . . . . . . . . . .       9
+  1.6 Linearkombinationen . . . . . . . . . . . . . . . . . . . . . . . . .       11
+  1.7 Matrix-Vektor-Produkt . . . . . . . . . . . . . . . . . . . . . . . .       13
+  1.8 Lösungsmengen . . . . . . . . . . . . . . . . . . . . . . . . . . . .      16
+       1.8.1 Homogene Systeme . . . . . . . . . . . . . . . . . . . . . .         16
+       1.8.2 Inhomogene Systeme . . . . . . . . . . . . . . . . . . . . .         18
+  1.9 Lineare Unabhängigkeit . . . . . . . . . . . . . . . . . . . . . . .       18
+  1.10 Lineare Abbildungen . . . . . . . . . . . . . . . . . . . . . . . . .      23
+       1.10.1 Allgemeine lineare Abbildungen . . . . . . . . . . . . . . .        23
+       1.10.2 Lineare Abbildungen R2 → R2 . . . . . . . . . . . . . . . .         24
+       1.10.3 Lineare Abbildungen in Funktionenräumen . . . . . . . . .          28
+
+2 Matrixalgebra                                                                   30
+  2.1 Matrixoperationen . . . . . . . . . . . . . . . . . . . . . . . . . .       30
+      2.1.1 Addition und Skalarmultiplikation . . . . . . . . . . . . .           30
+      2.1.2 Multiplikation . . . . . . . . . . . . . . . . . . . . . . . . .      31
+      2.1.3 Transposition . . . . . . . . . . . . . . . . . . . . . . . . .       34
+  2.2 Inverse . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   35
+      2.2.1 Inverse Matrizen . . . . . . . . . . . . . . . . . . . . . . .        35
+      2.2.2 Berechnung und Elementarmatrizen . . . . . . . . . . . . .            37
+      2.2.3 Äquivalenzen und Querverbindungen . . . . . . . . . . . .            40
+  2.3 Anwendungen . . . . . . . . . . . . . . . . . . . . . . . . . . . . .       42
+      2.3.1 Interpolation . . . . . . . . . . . . . . . . . . . . . . . . .       42
+      2.3.2 Lineare Modelle . . . . . . . . . . . . . . . . . . . . . . . .       44
+      2.3.3 Markovketten . . . . . . . . . . . . . . . . . . . . . . . . .        45
+  2.4 Determinanten . . . . . . . . . . . . . . . . . . . . . . . . . . . .       47
+      2.4.1 Intuition und Interpretation . . . . . . . . . . . . . . . . .        47
+      2.4.2 Berechnung über Kofaktoren . . . . . . . . . . . . . . . . .         48
+      2.4.3 Berechnung über Zeilenumformungen . . . . . . . . . . . .            52
+      2.4.4 Eigenschaften . . . . . . . . . . . . . . . . . . . . . . . . .       53
+
+3 Vektorräume                                                                 56
+  3.1 Definition . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 56
+
+
+
+                                        iii
+                                Inhaltsverzeichnis
+
+
+   3.2   Unterräume . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   57
+   3.3   Basis und Dimension . . . . . . . . . . . . . . . . . . . . . . . . .     60
+         3.3.1 Definitionen . . . . . . . . . . . . . . . . . . . . . . . . . .    60
+         3.3.2 Koordinaten . . . . . . . . . . . . . . . . . . . . . . . . . .     61
+         3.3.3 Basiswechsel . . . . . . . . . . . . . . . . . . . . . . . . . .    64
+         3.3.4 Nützliche Eigenschaften . . . . . . . . . . . . . . . . . . .      67
+   3.4   Die Untervektorräume eines LGS . . . . . . . . . . . . . . . . . .       68
+         3.4.1 Spaltenraum . . . . . . . . . . . . . . . . . . . . . . . . . .     68
+         3.4.2 Kern . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    70
+         3.4.3 Äquivalenzen . . . . . . . . . . . . . . . . . . . . . . . . .     72
+         3.4.4 Allgemeine lineare Abbildungen . . . . . . . . . . . . . . .        72
+
+4 Eigenwerte und Eigenvektoren                                                     74
+  4.1 Eigenwerte, Eigenvektoren, Eigenräume . . . . . . . . . . . . . . .         74
+  4.2 Die charakteristische Gleichung . . . . . . . . . . . . . . . . . . .        77
+  4.3 Äquivalenzen . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      79
+  4.4 Diagonalisierung . . . . . . . . . . . . . . . . . . . . . . . . . . .       82
+       4.4.1 Die Eigenvektorbasis . . . . . . . . . . . . . . . . . . . . .        82
+       4.4.2 Diagonalisierbarkeit . . . . . . . . . . . . . . . . . . . . . .      83
+       4.4.3 Konsequenzen . . . . . . . . . . . . . . . . . . . . . . . . .        85
+  4.5 Komplexe Eigenwerte . . . . . . . . . . . . . . . . . . . . . . . . .        86
+  4.6 Anwendungen . . . . . . . . . . . . . . . . . . . . . . . . . . . . .        88
+       4.6.1 PCA . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .       88
+       4.6.2 Markovketten und Google . . . . . . . . . . . . . . . . . .           91
+
+5 Orthogonalität und Projektionen                                             95
+  5.1 Norm eines Vektors . . . . . . . . . . . . . . . . . . . . . . . . . . 95
+  5.2 Winkel . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 97
+  5.3 Skalarprodukt . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 99
+  5.4 Orthogonale Räume . . . . . . . . . . . . . . . . . . . . . . . . . . 101
+  5.5 Orthogonale Mengen . . . . . . . . . . . . . . . . . . . . . . . . . 103
+  5.6 Orthogonale Matrizen . . . . . . . . . . . . . . . . . . . . . . . . 106
+  5.7 Orthogonale Projektionen . . . . . . . . . . . . . . . . . . . . . . 107
+      5.7.1 Die Idee . . . . . . . . . . . . . . . . . . . . . . . . . . . . 107
+      5.7.2 Das Projektionstheorem . . . . . . . . . . . . . . . . . . . 108
+      5.7.3 Das Gram-Schmidt-Verfahren . . . . . . . . . . . . . . . . 110
+      5.7.4 Projektion als beste Annäherung . . . . . . . . . . . . . . 111
+  5.8 Die Methode der kleinsten Quadrate . . . . . . . . . . . . . . . . 112
+      5.8.1 Das Problem . . . . . . . . . . . . . . . . . . . . . . . . . 112
+      5.8.2 Die Lösung . . . . . . . . . . . . . . . . . . . . . . . . . . 113
+      5.8.3 Anwendung in der Statistik: (nicht-)lineare Regression . . 115
+      5.8.4 Historische Anmerkung . . . . . . . . . . . . . . . . . . . . 117
+  5.9 Andere Skalarprodukträume . . . . . . . . . . . . . . . . . . . . . 118
+      5.9.1 Gewichtetes euklidisches Skalarprodukt . . . . . . . . . . . 118
+      5.9.2 Matrixräume . . . . . . . . . . . . . . . . . . . . . . . . . 119
+
+
+
+                                         iv
+                               Inhaltsverzeichnis
+
+
+        5.9.3 Folgenräume . . . . . . . . . . . . . . . . . . . . . . . . . . 121
+        5.9.4 Funktionenräume . . . . . . . . . . . . . . . . . . . . . . . 122
+        5.9.5 Zufallsvariablen . . . . . . . . . . . . . . . . . . . . . . . . 124
+   5.10 Orthogonale Diagonalisierung . . . . . . . . . . . . . . . . . . . . 126
+        5.10.1 Definition . . . . . . . . . . . . . . . . . . . . . . . . . . . 126
+        5.10.2 Äquivalenz zu symmetrischen Matrizen . . . . . . . . . . . 126
+        5.10.3 Algorithmus . . . . . . . . . . . . . . . . . . . . . . . . . . 128
+        5.10.4 Spektralzerlegung . . . . . . . . . . . . . . . . . . . . . . . 129
+
+6 Quadratische Formen und die Singulärwertzerlegung                          132
+  6.1 Quadratische Formen . . . . . . . . . . . . . . . . . . . . . . . . . 132
+      6.1.1 Definition und Motivation . . . . . . . . . . . . . . . . . . 132
+      6.1.2 Hauptachsentheorem . . . . . . . . . . . . . . . . . . . . . 133
+      6.1.3 Definitheit . . . . . . . . . . . . . . . . . . . . . . . . . . . 133
+      6.1.4 Variationelle Charakterisierung von Eigenwerten . . . . . . 135
+
+
+
+
+                                        v
+

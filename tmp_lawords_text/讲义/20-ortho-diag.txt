@@ -1,0 +1,489 @@
+20. Orthogonale Diagonalisierung
+
+
+
+
+Methoden der Linearen Algebra in der Statistik
+Thomas Nagler <t.nagler@lmu.de>
+Agenda
+
+
+1 Orthogonale Diagonalisierung
+
+
+2 Äquivalenz zu symmetrischen Matrizen
+
+
+3 Algorithmus
+
+
+4 Spektralzerlegung
+
+
+
+
+                                          1 / 22
+Agenda
+
+
+
+1 Orthogonale Diagonalisierung
+
+
+2 Äquivalenz zu symmetrischen Matrizen
+
+
+3 Algorithmus
+
+
+4 Spektralzerlegung
+
+
+
+
+                                          2 / 22
+Orthogonale Diagonalisierung
+
+
+
+
+Definition
+Wir nennen eine Matrix A ∈ Rn×n orthogonal diagonalisierbar,
+wenn es eine Orthogonalmatrix P und eine Diagonalmatrix D gibt,
+sodass P ⊤ AP = D bzw. A = PDP ⊤ .
+
+
+
+
+                                                                  3 / 22
+Agenda
+
+
+
+1 Orthogonale Diagonalisierung
+
+
+2 Äquivalenz zu symmetrischen Matrizen
+
+
+3 Algorithmus
+
+
+4 Spektralzerlegung
+
+
+
+
+                                          4 / 22
+Äquivalenz zu symmetrischen Matrizen
+
+
+
+
+Theorem
+Eine Matrix A ∈ Rn×n ist genau dann orthogonal diagonalisierbar,
+wenn sie symmetrisch ist.
+
+
+
+
+                                                                   5 / 22
+Äquivalenz zu symmetrischen Matrizen
+
+
+
+
+Theorem
+Eine Matrix A ∈ Rn×n ist genau dann orthogonal diagonalisierbar,
+wenn sie symmetrisch ist.
+
+ → Daraus folgt, dass die Hauptkomponenten in der PCA
+   orthogonal zueinander sind.
+
+
+
+
+                                                                   5 / 22
+Äquivalenz zu symmetrischen Matrizen
+
+
+
+ • Wir können leicht sehen, dass A symmetrisch sein muss, denn
+
+          A⊤ = (PDP ⊤ )⊤ = (P ⊤ )⊤ D ⊤ P ⊤ = PDP ⊤ = A.
+
+
+
+
+                                                                  6 / 22
+Äquivalenz zu symmetrischen Matrizen
+
+
+
+  • Wir können leicht sehen, dass A symmetrisch sein muss, denn
+
+           A⊤ = (PDP ⊤ )⊤ = (P ⊤ )⊤ D ⊤ P ⊤ = PDP ⊤ = A.
+
+
+Lemma
+Wenn A ∈ Rn×n symmetrisch ist, dann sind alle Eigenräume von A
+orthogonal zueinander.
+
+
+
+
+                                                                   6 / 22
+Äquivalenz zu symmetrischen Matrizen
+
+
+
+
+ • Wären alle Eigenwerte verschieden, wären wir nun am Ziel.
+
+ • Dann gibt es n orthogonale Eigenvektoren, diese können wir
+   normieren und in die Spalten der Matrix P schreiben.
+
+
+
+
+                                                                 7 / 22
+Äquivalenz zu symmetrischen Matrizen
+
+
+
+
+Theorem
+Alle Eigenwerte einer symmetrischen Matrix sind reell.
+
+
+
+
+                                                         8 / 22
+Äquivalenz zu symmetrischen Matrizen
+
+
+
+
+Theorem
+Alle Eigenwerte einer symmetrischen Matrix sind reell.
+
+  • In der Statistik bekommen wir es oft mit symmetrischen
+    Matrizen zu tun.
+
+
+
+
+                                                             8 / 22
+Äquivalenz zu symmetrischen Matrizen
+
+Theorem (Schur-Zerlegung)
+Sei A ∈ Rn×n mit reellen Eigenwerten. Dann gibt es eine
+Orthogonalmatrix P ∈ Rn×n , sodass D = P ⊤ AP eine obere
+Dreiecksmatrix mit den Eigenwerten auf der Diagonalen ist.
+
+
+
+
+                                                             9 / 22
+Äquivalenz zu symmetrischen Matrizen
+
+Theorem (Schur-Zerlegung)
+Sei A ∈ Rn×n mit reellen Eigenwerten. Dann gibt es eine
+Orthogonalmatrix P ∈ Rn×n , sodass D = P ⊤ AP eine obere
+Dreiecksmatrix mit den Eigenwerten auf der Diagonalen ist.
+
+  • Die Symmetrie der Matrix A wird hierfür nicht benötigt, nur
+    dass die Eigenwerte reell sind.
+
+  • Mithilfe der Schur-Zerlegung lässt sich dann die andere
+    Richtung der orthogonalen Diagonalisierbarkeit zeigen:
+
+             D = P ⊤ AP = P ⊤ A⊤ P = (P ⊤ AP)⊤ = D ⊤ .
+
+
+
+                                                                    9 / 22
+Quiz
+
+Die Matrix A = PDP −1 ist symmetrisch mit
+                                             
+                1 0 0                     1 0 k
+           D = 0 2 0 und P = 0 2 0  .
+                0 0 3                     0 0 3
+
+Bestimme k.
+
+ A. k = 1
+ B. k = 2
+ C. k = 0
+ D. k kann nicht bestimmt werden
+
+
+
+                                                    10 / 22
+Quiz
+
+
+
+Beweise oder widerlege:
+
+    Wenn die Matrix A invertierbar und orthogonal diagona-
+    lisierbar ist, dann ist A−1 ebenfalls orthogonal diagonali-
+    sierbar.
+
+ A. Wahr
+ B. Falsch
+
+
+
+
+                                                                  11 / 22
+Agenda
+
+
+
+1 Orthogonale Diagonalisierung
+
+
+2 Äquivalenz zu symmetrischen Matrizen
+
+
+3 Algorithmus
+
+
+4 Spektralzerlegung
+
+
+
+
+                                          12 / 22
+Algorithmus
+
+
+Algorithmus
+
+ 1. Finde eine Basis für jeden Eigenraum von A.
+ 2. Konstruiere durch das Gram-Schmidt-Verfahren eine
+    Orthonormalbasis für jeden Eigenraum. Alle Basisvektoren
+    zusammen ergeben eine Orthonormalbasis des Rn .
+ 3. Schreibe die Vektoren der Orthonormalbsis in die Spalten der
+    Matrix P und die zugehörigen Eigenwerte (in gleicher
+    Reihenfolge) auf die Diagonale der Diagonalmatrix D.
+
+
+
+
+                                                                   13 / 22
+Algorithmus
+Beispiel:
+  • Die Matrix                       
+                                1 2
+                           A=
+                                2 −2
+    hat die Eigenwerte λ1 = −3 und λ2 = 2 mit zugehörigen
+    Eigenvektoren
+                                         
+                           1                2
+                  v1 =          und v2 =       .
+                          −2                1
+
+
+
+
+                                                             14 / 22
+Algorithmus
+Beispiel:
+  • Die Matrix                       
+                                1 2
+                           A=
+                                2 −2
+    hat die Eigenwerte λ1 = −3 und λ2 = 2 mit zugehörigen
+    Eigenvektoren
+                                         
+                           1                2
+                  v1 =          und v2 =       .
+                          −2                1
+  • Dann gilt
+                                                    
+                   1      1 2                   −3 0
+                 P=√            ,      D=
+                     5   −2 1                    0 2
+    und
+                                                
+                ⊤    1        1 2     −3 0 1 1 −2
+          A = P DP = √                       √         .
+                       5     −2 1      0 2     5 2 1
+                                                             14 / 22
+Quiz
+
+Gegeben seien die Matrizen
+                                          
+                     1 2                 1 0
+               A=               und B =
+                     2 4                 1 2
+
+. Welche Aussage ist richtig?
+
+ A. A ist diagonalisierbar und B nicht.
+ B. B ist diagonalisierbar und A nicht.
+ C. A ist orthogonal diagonalisierbar und B ist nur
+    diagonalisierbar.
+ D. A und B sind orthogonal diagonalisierbar.
+
+
+
+                                                      15 / 22
+Agenda
+
+
+
+1 Orthogonale Diagonalisierung
+
+
+2 Äquivalenz zu symmetrischen Matrizen
+
+
+3 Algorithmus
+
+
+4 Spektralzerlegung
+
+
+
+
+                                          16 / 22
+Spektralzerlegung
+
+
+ • Sei nun A = PΛP ⊤ die Spektralzerlegung von A.
+
+ • Die Spalten von P sind orthonormale Eigenvektoren p1 , . . . , pn
+   und Λ = diag(λ1 , . . . , λn ) enthält die zugehörigen Eigenwerte.
+
+ • Es gilt also
+                                                         ⊤
+                                   λ1              0       p1     n
+                                          ..              ..  X
+   A = PΛP ⊤ = p1 · · ·                                             λi pi pi⊤ .
+                                 
+                               pn             .         .   =
+                                    0              λn       pn⊤     i=1
+
+
+ • Die Matrix A lässt sich in eine Summe aus n Matrizen
+   λi pi pi⊤ ∈ Rn×n zerlegen.
+
+
+                                                                          17 / 22
+Spektralzerlegung
+
+
+ • Weil ∥pi ∥ = pi⊤ pi = 1, sehen wir, dass x 7→ pi pi⊤ x eine
+   Projektion auf den Raum span{pi } entspricht.
+
+ • Also:
+                             n
+                             X
+                      Ax =         λi projspan{pi } x.
+                             i=1
+
+ • Der Vektor x wird separat auf die Geraden durch pi projiziert,
+   entlang dieser Geraden jeweils um λi gestreckt und zuletzt die
+   gestreckten Vektoren aufsummiert.
+
+
+
+
+                                                                    18 / 22
+Spektralzerlegung
+
+Beispiel:
+  • Angenommen, es sei gegeben, dass
+                                   
+         1 2                1     1 2
+    A=          ,      P=√              ,   Λ = diag(−3, 2).
+         2 −2                5 −2 1
+
+
+
+
+                                                           19 / 22
+Spektralzerlegung
+
+Beispiel:
+  • Angenommen, es sei gegeben, dass
+                                   
+         1 2                1     1 2
+    A=          ,      P=√              ,   Λ = diag(−3, 2).
+         2 −2                5 −2 1
+  • Entsprechend gilt
+                                       
+                     1 1              1 2        
+            A = −3 ·       1 −2 + 2 ·         2 1
+                     5 −2              5 1
+                                          
+                      1/5 −2/5       4/5 1/5
+              = −3              +2             .
+                     −2/5 4/5        1/5 1/5
+
+
+
+
+                                                           19 / 22
+Spektralzerlegung
+ • Wenden wir dies nun auf den Vektor x = (1, 1) an, dann gilt
+                             
+                        1 2    1        
+                  Ax =            = 3 0
+                        2 −2   1
+
+ • Und tatsächlich
+                                               
+                     1/5 −2/5      1       4/5 2/5   1
+      Ax = −3                         +2
+                    −2/5 4/5       1       2/5 1/5   1
+                                 
+                    −1/5        6/5
+          = −3             +2
+                     2/5        3/5
+                             
+                 3/5       12/5
+          =             +
+               −6/5         6/5
+               
+               3
+          =        .
+               0
+
+                                                                 20 / 22
+Spektralzerlegung
+
+
+
+
+Abbildung: Spektralzerlegung der Matrixtransformation x → Ax in
+(Fig. 7.2.1 in [AR].)
+
+
+                                                                  21 / 22
+Wrap-up
+
+
+Heute gelernt
+
+  • Orthogonale Diagonalisierung
+
+  • Äquivalenz zu symmetrischen Matrizen
+
+  • Algorithmus
+
+  • Spektralzerlegung
+
+Nächste Vorlesung
+
+  • Quadratische Formen
+
+
+
+                                            22 / 22
+

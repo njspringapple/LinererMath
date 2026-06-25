@@ -1,0 +1,71 @@
+Methoden der Linearen Algebra in der Statistik
+  4. Tutorium
+
+
+
+
+Eugen Gorich, <eugen.gorich@campus.lmu.de>
+Agenda
+
+
+
+
+ • Lineare Abbildungen
+
+ • Invertierbarkeit/Inversen berechnen
+
+ • Betreutes Lernen
+
+
+
+
+                                         1/4
+Invertierbarkeit/Inversen berechnen
+
+
+
+
+                                      3/4
+Invertierbarkeit/Inversen berechnen
+
+
+
+
+                                      3/4
+Invertierbarkeit/Inversen berechnen
+
+
+
+
+                                      3/4
+Invertierbarkeit/Inversen berechnen
+
+
+
+
+                                      3/4
+Determinanten
+
+
+
+
+                2/4
+Determinanten
+
+
+
+
+                2/4
+Determinanten
+
+
+
+
+                2/4
+Betreutes Lernen
+
+
+
+
+                   4/4
+

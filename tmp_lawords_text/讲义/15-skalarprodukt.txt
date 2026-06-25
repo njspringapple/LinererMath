@@ -1,0 +1,614 @@
+15. Das Skalarprodukt
+
+
+
+
+Methoden der Linearen Algebra in der Statistik
+Thomas Nagler <t.nagler@lmu.de>
+Agenda
+
+
+
+1 Norm eines Vektors
+
+
+
+2 Winkel
+
+
+
+3 Skalarprodukt
+
+
+
+
+                       1 / 27
+Agenda
+
+
+
+1 Norm eines Vektors
+
+
+2 Winkel
+
+
+3 Skalarprodukt
+
+
+
+
+                       2 / 27
+Norm eines Vektors
+
+
+
+
+        Abbildung: Die Länge/Norm eines Vektors im R2 .
+
+
+ • Nach dem Satz des Pythagoras gilt
+                                                q
+                   2
+            ∥v ∥       = v12 + v22   oder ∥v ∥ = v12 + v22 .
+
+
+                                                               3 / 27
+Norm eines Vektors
+
+
+
+
+           Abbildung: Die Länge/Norm eines Vektors im R3 .
+
+
+ • Zunächst:
+                                ∥v̂ ∥2 = v12 + v32 .
+
+ • Dann:
+
+                      ∥v ∥2 = ∥v̂ ∥2 + v22 = v12 + v22 + v32 .
+
+                                                                 4 / 27
+Norm eines Vektors
+
+Definition
+Die Norm eines Vektors v ∈ Rn ist definiert als
+                          q
+                   ∥v ∥ = v12 + · · · + vn2 .
+
+
+
+
+                                                  5 / 27
+Norm eines Vektors
+
+Definition
+Die Norm eines Vektors v ∈ Rn ist definiert als
+                          q
+                   ∥v ∥ = v12 + · · · + vn2 .
+
+
+Theorem
+Für v ∈ Rn und c ∈ R gilt:
+
+ (i) ∥v ∥ ≥ 0.
+(ii) ∥v ∥ = 0 genau dann, wenn v = 0.
+(iii) ∥cv ∥ = |c|∥v ∥.
+
+
+
+                                                  5 / 27
+Norm eines Vektors
+
+
+
+
+Definition
+Einen Vektor v mit ∥v ∥ = 1 nennen wir Einheitsvektor.
+
+
+
+
+                                                         6 / 27
+Norm eines Vektors
+
+
+
+
+Definition
+Einen Vektor v mit ∥v ∥ = 1 nennen wir Einheitsvektor.
+
+Anmerkung
+Die Menge aller Einheitsvektoren {v : ∥v ∥ = 1} wird auch
+Einheitsspähre genannt.
+
+
+
+
+                                                            6 / 27
+Norm eines Vektors
+
+
+Anmerkung
+
+ • Wir haben bisher die Vektoren ej der Standardbasis als
+   Einheitsvektoren bezeichnen.
+
+ • Für sie gilt ∥ej ∥ = 1.
+
+ • Es gibt aber auch andere Einheitsvektoren, wie zum Beispiel
+      √      √
+   (1/ 2, 1/ 2).
+
+ • Falls nötig, nennen wir ej Standardeinheitsvektor.
+
+
+
+
+                                                                 7 / 27
+Norm eines Vektors
+
+Anmerkung
+Jeden Vektor v können wir zu einem Einheitsvektor in die gleiche
+Richtung skalieren: Der Vektor w = v /∥v ∥ hat Norm
+
+                ∥w ∥ = ∥v /∥v ∥∥ = ∥v ∥/∥v ∥ = 1.
+
+
+
+
+                                                                    8 / 27
+Norm eines Vektors
+
+Anmerkung
+Jeden Vektor v können wir zu einem Einheitsvektor in die gleiche
+Richtung skalieren: Der Vektor w = v /∥v ∥ hat Norm
+
+                ∥w ∥ = ∥v /∥v ∥∥ = ∥v ∥/∥v ∥ = 1.
+
+
+Bemerkung:
+  • Der Abstand zwischen zwei Vektoren v , w ∈ Rn kann als die
+    Länge des Verbindungsstücks zwischen den Punkten v und w
+    definiert werden.
+
+  • Diese Länge beträgt ∥v − w ∥.
+
+
+                                                                    8 / 27
+Quiz
+
+          
+         2
+Sei v = −4 . Was ist die Norm/Länge von v ?
+         4
+
+ A. 2
+ B. 1
+ C. 6
+ D. 4
+ E. 9
+
+
+
+
+                                                 9 / 27
+Quiz
+            
+          2
+Sei v = −4 . Wie sieht der Einheitsvektor w , der in dieselbe
+          4
+Richtung wie v zeigt, aus?
+         
+      1/2
+ A.  1/4  .
+     −1/4
+         
+      1/2
+ B. −1/4 .
+      1/4
+         
+      2/6
+ C. −4/6 .
+      4/6
+
+                                                                  10 / 27
+Agenda
+
+
+
+1 Norm eines Vektors
+
+
+2 Winkel
+
+
+3 Skalarprodukt
+
+
+
+
+                       11 / 27
+Winkel
+
+
+
+
+ • Seien zwei Vektoren v , w ∈ R2 .
+
+ • Dann gilt für den Winkel θ zwischen v und w :
+                                  v1 w1 + v2 w2
+                       cos(θ) =
+                                     ∥v ∥∥w ∥
+
+
+
+
+                                                    12 / 27
+Winkel
+
+
+ • Genauso können wir im R3 einen Winkel θ zwischen v und w
+   in der Ebene span{v , w } definieren.
+
+ • Hier gilt
+                            v1 w1 + v2 w2 + v3 w3
+                 cos(θ) =                         .
+                                  ∥v ∥∥w ∥
+
+
+
+
+                                                               13 / 27
+Winkel
+
+
+ • Genauso können wir im R3 einen Winkel θ zwischen v und w
+   in der Ebene span{v , w } definieren.
+
+ • Hier gilt
+                              v1 w1 + v2 w2 + v3 w3
+                   cos(θ) =                         .
+                                    ∥v ∥∥w ∥
+
+
+ • Im Nenner werden die Vektoren zu Einheitsvektoren normiert.
+
+ • Der Term im Zähler ist wichtiger für den Winkel und
+   bekommt einen eigenen Namen.
+
+
+
+                                                                 13 / 27
+Winkel
+
+Definition
+Für v , w ∈ Rn definieren wir das (euklidische) Skalarprodukt als
+                          n
+                          X
+             ⟨v , w ⟩ =         vi wi = v1 w1 + · · · + vn wn .
+                          i=1
+
+
+
+
+                                                                     14 / 27
+Winkel
+
+Definition
+Für v , w ∈ Rn definieren wir das (euklidische) Skalarprodukt als
+                          n
+                          X
+             ⟨v , w ⟩ =         vi wi = v1 w1 + · · · + vn wn .
+                          i=1
+
+
+
+Anmerkung
+Fassen wir die Vektoren v , w ∈ Rn als (n × 1)-Matrizen auf,
+können wir das Skalarprodukt auch so schreiben:
+
+                            ⟨v , w ⟩ = v ⊤ w .
+
+
+
+                                                                     14 / 27
+Winkel
+
+
+
+Theorem
+Sei u, v , w ∈ Rn und c ∈ R. Dann gilt:
+
+ (i) ⟨v , w ⟩ = ⟨w , v ⟩. [Symmetrie]
+(ii) ⟨u, v + w ⟩ = ⟨u, v ⟩ + ⟨u, w ⟩. [Distributivgesetz]
+(iii) ⟨cv , w ⟩ = c⟨v , w ⟩. [Homogenität]
+(iv) ⟨v , v ⟩ ≥ 0 und ⟨v , v ⟩ = 0   ⇔        v = 0. [Positivität]
+
+
+
+
+                                                                      15 / 27
+Winkel
+
+
+
+ • Der Winkel θ zwischen v , w ̸= 0 ∈ R2 ist also
+                                           
+                                   ⟨v , w ⟩
+                     θ = cos−1               .
+                                  ∥v ∥∥w ∥
+
+
+
+
+                                                    16 / 27
+Winkel
+
+
+
+  • Der Winkel θ zwischen v , w ̸= 0 ∈ R2 ist also
+                                            
+                                    ⟨v , w ⟩
+                      θ = cos−1               .
+                                   ∥v ∥∥w ∥
+
+Definition
+Vektoren v , w ∈ Rn sind orthogonal, wenn ⟨v , w ⟩ = 0.
+
+
+
+
+                                                          16 / 27
+Winkel
+Beispiel
+
+  • Gegeben seien die Vektoren
+                                                        
+                 3                −1                    −1/2
+           u1 = 1 ,       u2 =  2  ,          u3 =  −2  .
+                 1                 1                     7/2
+
+  • Die Vektoren sind stehen alle im rechten Winkel aufeinander:
+
+                      ⟨u1 , u2 ⟩ = 3 · (−1) + 1 · 2 + 1 · 1 = 0,
+                                    −1                    7
+                   ⟨u1 , u3 ⟩ = 3 ·     + 1 · (−2) + 1 · = 0,
+                                     2                    2
+                                    −1                    7
+              ⟨u2 , u3 ⟩ = (−1) ·       + 2 · (−2) + 1 · = 0.
+                                     2                    2
+
+
+                                                                   17 / 27
+Winkel
+
+
+
+
+ Abbildung: Drei orthogonale Vektoren im R3 . (Fig. 5.2.1 in [LLM])
+
+                                                                      18 / 27
+Agenda
+
+
+
+1 Norm eines Vektors
+
+
+2 Winkel
+
+
+3 Skalarprodukt
+
+
+
+
+                       19 / 27
+Skalarprodukt
+
+
+Definition
+Sei V ein Vektorraum. Wir nennen ⟨·, ·⟩ : V × V → R ein
+Skalarprodukt,
+
+
+
+
+                                                          20 / 27
+Skalarprodukt
+
+
+Definition
+Sei V ein Vektorraum. Wir nennen ⟨·, ·⟩ : V × V → R ein
+Skalarprodukt, wenn es für alle u, v , w ∈ V und c ∈ R die
+folgenden Axiome erfüllt:
+
+ (i) ⟨v , w ⟩ = ⟨w , v ⟩. [Symmetrie]
+(ii) ⟨u, v + w ⟩ = ⟨u, v ⟩ + ⟨u, w ⟩. [Distributivgesetz]
+(iii) ⟨cv , w ⟩ = c⟨v , w ⟩. [Homogenität]
+(iv) ⟨v , v ⟩ ≥ 0 und ⟨v , v ⟩ = 0 genau dann, wenn v = 0.
+     [Positivität]
+
+
+
+
+                                                              20 / 27
+Skalarprodukt
+
+
+Definition
+Einen Vektorraum V zusammen mit einem Skalarprodukt
+⟨·, ·⟩ : V × V → R nennen wir Skalarproduktraum.
+
+
+
+
+                                                      21 / 27
+Skalarprodukt
+
+
+Definition
+Einen Vektorraum V zusammen mit einem Skalarprodukt
+⟨·, ·⟩ : V × V → R nennen wir Skalarproduktraum.
+
+Definition
+Vektoren v , w ∈ V sind orthogonal, wenn ⟨v , w ⟩ = 0 und wir
+schreiben v ⊥ w .
+
+
+
+
+                                                                21 / 27
+Skalarprodukt
+
+
+Definition
+Einen Vektorraum V zusammen mit einem Skalarprodukt
+⟨·, ·⟩ : V × V → R nennen wir Skalarproduktraum.
+
+Definition
+Vektoren v , w ∈ V sind orthogonal, wenn ⟨v , w ⟩ = 0 und wir
+schreiben v ⊥ w .
+
+Anmerkung
+Der Nullvektor 0 ist nach dieser Definition orthogonal zu jedem
+Vektor v , denn ⟨v , 0⟩ = 0 (wieso?).
+
+
+
+                                                                  21 / 27
+Skalarprodukt
+
+
+Definition
+Sei V ein Skalarproduktraum. Dann definieren wir die Norm eines
+Vektors v ∈ V als              p
+                         ∥v ∥ = ⟨v , v ⟩.
+
+
+
+
+                                                                  22 / 27
+Skalarprodukt
+
+
+Definition
+Sei V ein Skalarproduktraum. Dann definieren wir die Norm eines
+Vektors v ∈ V als              p
+                         ∥v ∥ = ⟨v , v ⟩.
+
+
+Theorem (Satz des Pythagoras)
+Für orthogonale Vektoren v , w ∈ V gilt
+
+                    ∥v + w ∥2 = ∥v ∥2 + ∥w ∥2 .
+
+
+
+
+                                                                  22 / 27
+Skalarprodukt
+
+
+Theorem (Cauchy-Schwarz-Ungleichung)
+Für v , w in einem Skalarproduktraum V gilt
+
+                       |⟨v , w ⟩| ≤ ∥v ∥∥w ∥.
+
+
+
+
+                                                23 / 27
+Skalarprodukt
+
+
+Theorem (Cauchy-Schwarz-Ungleichung)
+Für v , w in einem Skalarproduktraum V gilt
+
+                       |⟨v , w ⟩| ≤ ∥v ∥∥w ∥.
+
+
+Theorem (Dreiecksungleichung)
+Für alle v , w in einem Skalarproduktraum V gilt
+
+                      ∥u + v ∥ ≤ ∥u∥ + ∥v ∥.
+
+
+
+
+                                                    23 / 27
+Skalarprodukt
+
+
+
+Bemerkung:
+
+Die Funktion d(v , w ) = ∥v − w ∥ erfüllt alle Axiome einer
+Distanzfunktion:
+
+ (i) d(u, v ) = d(v , u).
+(ii) d(u, w ) ≤ d(u, v ) + d(v , w ).
+(iii) d(u, v ) = 0 genau dann, wenn u = v .
+
+
+
+
+                                                               24 / 27
+Quiz
+
+Beweise oder widerlege:
+
+    Wenn für die Vektoren v = (v1 , v2 ) und w = (w1 , w2 ) in
+    R2 das gewichtete Skalarprodukt wie folgt definiert ist:
+
+                    ⟨v , w ⟩ = 3v1 w1 + 2v2 w2 .
+
+    Dann erfüllt das Skalarprodukt alle Axiome aus der Defi-
+    nition.
+
+ A. Wahr
+ B. Falsch
+
+
+
+                                                                  25 / 27
+Quiz
+
+
+Welche Aussagen sind wahr?
+
+
+ A. ⟨u, v + w + z⟩ = ⟨u, v ⟩ + ⟨u, w ⟩ + ⟨u, v + w + z⟩.
+ B. ⟨ku, kv ⟩ = k 2 ⟨u, v ⟩.
+ C. Wenn ⟨ku, kv ⟩ = 0 für alle k ∈ R, dann u = 0 und v = 0.
+ D. Wenn ∥v ∥2 = 0, dann v = 0.
+ E. Für jedes A ∈ Rn×n definiert ⟨u, v ⟩ = u ⊤ Av ein
+    Skalarprodukt auf Rn .
+
+
+
+
+                                                                26 / 27
+Wrap-up
+
+
+
+Heute gelernt
+
+  • Norm eines Vektors
+
+  • Winkel
+
+  • Skalarprodukt
+
+Nächste Vorlesung
+
+  • Orthogonale Räume und Mengen
+
+
+
+
+                                    27 / 27
+

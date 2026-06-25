@@ -1,0 +1,667 @@
+11. Spaltenraum und Kern
+
+
+
+
+Methoden der Linearen Algebra in der Statistik
+Thomas Nagler <t.nagler@lmu.de>
+Agenda
+
+
+1 Untervektorräume eines LGS
+
+
+2 Spaltenraum
+
+
+3 Kern
+
+
+4 Äquivalenzen
+
+
+5 Allgemeine lineare Abbildungen
+
+
+
+
+                                   1 / 30
+Agenda
+
+
+1 Untervektorräume eines LGS
+
+
+2 Spaltenraum
+
+
+3 Kern
+
+
+4 Äquivalenzen
+
+
+5 Allgemeine lineare Abbildungen
+
+
+
+
+                                   2 / 30
+Untervektorräume eines LGS
+
+
+
+
+In der linearen Algebra entstehen Unterräume oft in zwei
+Varianten:
+  • Als Lösungsmenge eines LGS Ax = 0.
+
+  • Als Spann von gegebenen Vektoren span{v1 , . . . , vn }.
+
+
+
+
+                                                               3 / 30
+Agenda
+
+
+1 Untervektorräume eines LGS
+
+
+2 Spaltenraum
+
+
+3 Kern
+
+
+4 Äquivalenzen
+
+
+5 Allgemeine lineare Abbildungen
+
+
+
+
+                                   4 / 30
+Spaltenraum
+
+Definition
+Sei A ∈ Rm×n eine Matrix mit Spalten a1 , . . . , an ∈ Rm . Dann
+bezeichnen wir mit
+
+                    col(A) = span{a1 , . . . , an }
+
+den Spaltenraum von A.
+
+
+
+
+                                                                   5 / 30
+Spaltenraum
+
+Definition
+Sei A ∈ Rm×n eine Matrix mit Spalten a1 , . . . , an ∈ Rm . Dann
+bezeichnen wir mit
+
+                    col(A) = span{a1 , . . . , an }
+
+den Spaltenraum von A.
+
+  • Der Spaltenraum col(A) entspricht der Bildmenge der linearen
+    Transformation T : x 7→ Ax.
+
+  • Er enthält alle möglichen Vektoren in Rm , die wir aus der
+    Transformation x 7→ Ax bekommen könnten.
+
+
+                                                                   5 / 30
+Spaltenraum
+
+
+Beispiel:
+  • Sei                             
+                                1 2
+                            A=         .
+                                0 −2
+
+  • Wir betrachten nun die Bildmenge col(A) der Transformation
+    x 7→ Ax.
+
+  • Natürlich ist col(A) = span{a1 , a2 } = R2 , deshalb spannen
+    die Punkte den ganzen R2 und dim(col(A)) = 2.
+
+
+
+
+                                                                    6 / 30
+Spaltenraum
+
+
+
+                  1                           1
+
+
+
+            x2                          x2
+                  0                           0
+
+
+
+
+                 −1                          −1
+                      −1   0        1             −1   0   1    2   3
+                               x1                          x1
+
+
+
+Abbildung: Links ist eine Ausgangsmenge von fünf Punkten. Rechts
+wurden diese Punkte durch eine Matrixtransformation verschoben.
+
+
+
+
+                                                                        7 / 30
+Spaltenraum
+
+
+
+Beispiel:
+  • Sei                                 
+                                    2 −2
+                           A=              .
+                                    −1 1
+
+  • Dann ist span{a1 , a2 } = span{a1 }.
+
+  • Alle Punkte befinden sich auf einer Geraden und es gilt
+    dim(col(A)) = 1.
+
+
+
+
+                                                              8 / 30
+Spaltenraum
+
+
+
+                  1                           1
+
+
+
+            x2                          x2
+                  0                           0
+
+
+
+
+                                             −1
+                 −1
+                      −1   0        1             −1   0        1   2
+                               x1                          x1
+
+
+
+Abbildung: Links ist eine Ausgangsmenge von fünf Punkten. Rechts
+wurden diese Punkte durch eine Matrixtransformation verschoben.
+
+
+
+
+                                                                        9 / 30
+Spaltenraum
+
+
+Definition
+Der Rang einer Matrix A ist definiert als rang(A) = dim(col(A)).
+
+
+
+
+                                                                   10 / 30
+Spaltenraum
+
+
+Definition
+Der Rang einer Matrix A ist definiert als rang(A) = dim(col(A)).
+
+  • Die Dimension von col(A) können wir aus der
+    Zeilenstufenform bestimmen.
+
+  • In der reduzierten Zeilenstufenform bilden die Pivotspalten
+    eine unabhängige Menge.
+
+  • Die Pivotspalten von A (!) bilden eine Basis von col(A).
+
+
+
+
+                                                                   10 / 30
+Spaltenraum
+
+
+Lemma
+Die Dimension des Spaltenraums, dim(col(A)), ist gleich der
+Anzahl an gebundenen Variablen in A.
+
+
+
+
+                                                              11 / 30
+Spaltenraum
+
+
+Lemma
+Die Dimension des Spaltenraums, dim(col(A)), ist gleich der
+Anzahl an gebundenen Variablen in A.
+
+  • Der Zeilenraum von A ist der Spann der Zeilen in A oder,
+    äquivalent dazu, col(A⊤ ).
+
+  • Elementare Zeilenoperationen sind lediglich
+    Linearkombinationen der Zeilen von A.
+
+  • Die Nicht-Nullzeilen der Zeilenstufenform bilden dann eine
+    Basis für col(A⊤ ).
+
+
+
+                                                                 11 / 30
+Spaltenraum
+
+
+
+
+Lemma
+Die Dimension des Zeilenraums, dim(col(A⊤ )), ist gleich der
+Anzahl an gebundenen Variablen in A.
+
+
+
+
+                                                               12 / 30
+Spaltenraum
+
+
+
+
+Lemma
+Die Dimension des Zeilenraums, dim(col(A⊤ )), ist gleich der
+Anzahl an gebundenen Variablen in A.
+
+Corollary
+rang(A) = dim(col(A)) = dim(col(A⊤ )) = rang(A⊤ ).
+
+
+
+
+                                                               12 / 30
+Quiz
+
+Gegeben sei die Matrix
+                                   
+                              1 2 3
+                         A = 0 4 7 
+                              0 0 5
+
+Wie sieht der Spaltenraum von A aus?
+
+ A. Ein Punkt.
+ B. Eine Gerade durch den Ursprung.
+ C. Eine Ebene durch den Ursprung.
+ D. R3
+
+
+
+                                        13 / 30
+Quiz
+
+Gegeben sei die Matrix                     
+                                 1    2   1
+                            A = 0    3   1
+                                 1    2   1
+und die Vektoren                        
+                               3          1
+                         v1 = 3 , v2 = 0 .
+                               3          2
+Welche der gegebenen Vektoren sind im Spaltenraum enthalten?
+
+ A. Beide
+
+ B. v1
+
+ C. v2
+
+ D. Keiner
+
+
+
+                                                               14 / 30
+Agenda
+
+
+1 Untervektorräume eines LGS
+
+
+2 Spaltenraum
+
+
+3 Kern
+
+
+4 Äquivalenzen
+
+
+5 Allgemeine lineare Abbildungen
+
+
+
+
+                                   15 / 30
+Kern
+
+
+
+
+Definition
+Der Kern einer Matrix A ∈ Rm×n ist die Menge
+
+                   ker(A) = {x : Ax = 0}.
+
+
+
+
+                                               16 / 30
+Kern
+
+
+Beispiel
+
+  • Die Spalten von                    
+                                   1 2
+                               A=
+                                   0 −1
+    sind linear unabhängig.
+
+  • Also hat das homogene LGS Ax = 0 nur die triviale Lösung.
+
+  • Deshalb ist ker(A) = {0} und dim(ker(A)) = 0.
+
+
+
+
+                                                                 17 / 30
+Kern
+
+Beispiel
+
+  • Sei                                 
+                                    2 −2
+                           A=              .
+                                    −1 1
+
+  • Die Matrix lässt sich zu
+                                     
+                                 1 −1
+                                 0 0
+
+    reduzieren.
+
+  • Insbesondere ist dann ker(A) = {λ · (1, 1) : λ ∈ R} eine
+    Gerade und dim(ker(A)) = 1.
+
+
+                                                               18 / 30
+Kern
+
+
+
+         1                                 1
+
+
+
+   x2                                x2
+         0                                 0
+
+
+
+
+        −1                                −1
+             −1   0        1                   −1   0        1
+                      x1                                x1
+
+
+Abbildung: Links ist eine Ausgangsmenge von Punkten, die alle Ax = 0
+erfüllen. Rechts die Bildmenge {0}.
+
+
+
+
+                                                                       19 / 30
+Kern
+
+
+
+Lemma
+Die Dimension des Kerns, dim(ker(A)), ist gleich der Anzahl an
+freien Variablen in A.
+
+
+
+
+                                                                 20 / 30
+Kern
+
+
+
+Lemma
+Die Dimension des Kerns, dim(ker(A)), ist gleich der Anzahl an
+freien Variablen in A.
+
+Theorem
+Für jedes A ∈ Rm×n gilt
+
+                   rang(A) + dim(ker(A)) = n.
+
+
+
+
+                                                                 20 / 30
+Kern
+
+
+ • Die Räume col(A) und ker(A) ergänzen sich gewissermaßen.
+
+ • Sie sind im Allgemeinen Unterräume von verschiedenen
+   Vektorräumen.
+
+ • Es gilt col(A) ⊂ Rm , aber ker(A) ⊂ Rn .
+
+ • Es gilt ebenso
+
+                     rang(A⊤ ) + dim(ker(A⊤ )) = m
+
+   und
+                    dim(col(A)) + dim(ker(A⊤ )) = m.
+
+
+
+                                                                21 / 30
+Quiz
+Gegeben sei die Matrix
+                                                   
+                                  1    1   1   −1
+                         A=
+                                  1   −1   1    1
+
+und die Vektoren                         
+                                2          0
+                              2         1
+                         v1 = 
+                              −2 , v2 = 0 .
+                                          
+
+                                2          1
+Welche der gegebenen Vektoren sind im Kern enthalten?
+
+ A. Beide
+
+ B. v1
+
+ C. v2
+
+ D. Keiner
+
+
+                                                        22 / 30
+Quiz
+
+Gegeben sei die Matrix                             
+                                       1   −4   3
+                              A=
+                                       2   −3   1
+und der Vektor                       
+                                     1
+                                v = 1 .
+                                     1
+Welche Aussage ist wahr?
+
+ A. ker(A) ist eine Ebene durch den Ursprung und enthält v .
+
+ B. ker(A) ist eine Gerade durch den Ursprung, aber nicht in Richtung von v .
+
+ C. ker(A) ist eine Gerade durch den Ursprung in der Richtung von v .
+
+ D. Keine Aussage ist wahr.
+
+
+
+
+                                                                                23 / 30
+Quiz
+
+
+Gegeben sei eine 5 × 4 Matrix A mit 3 Pivotspalten. Welche
+Aussage ist wahr?
+
+ A. dim(ker(A)) = 1
+ B. dim(ker(A)) = 2
+ C. dim(ker(A)) = 3
+ D. dim(ker(A)) = 4
+ E. dim(ker(A)) kann nicht angegeben werden.
+
+
+
+
+                                                             24 / 30
+Quiz
+
+
+
+Beweise oder widerlege:
+
+    Wenn x ∈ col(AB), dann ist x ∈ col(A).
+
+ A. Wahr
+ B. Falsch
+
+
+
+
+                                             25 / 30
+Agenda
+
+
+1 Untervektorräume eines LGS
+
+
+2 Spaltenraum
+
+
+3 Kern
+
+
+4 Äquivalenzen
+
+
+5 Allgemeine lineare Abbildungen
+
+
+
+
+                                   26 / 30
+Äquivalenzen
+
+Theorem (Äquivalenzen)
+Sei A ∈ Rn×n . Dann sind die folgenden Aussagen äquivalent:
+
+(a) A ist invertierbar.
+(b) A⊤ ist invertierbar.
+(c) Die reduzierte Zeilenstufenform von A ist In .
+(d) Das LGS Ax = 0 hat nur die triviale Lösung.
+        ..
+         .
+ (l) rang(A) = n.
+(m) ker(A) = {0}.
+
+
+                                                               27 / 30
+Agenda
+
+
+1 Untervektorräume eines LGS
+
+
+2 Spaltenraum
+
+
+3 Kern
+
+
+4 Äquivalenzen
+
+
+5 Allgemeine lineare Abbildungen
+
+
+
+
+                                   28 / 30
+Allgemeine lineare Abbildungen
+
+
+Definition
+Sei T : V → W eine lineare Abbildung zwischen zwei
+Vektorräumen V und W .
+  • Die Bildmenge ist
+
+             Im(T ) = {w ∈ W : T (v ) = w für ein v ∈ V }.
+
+  • Der Kern ist
+
+                    ker(T ) = {v ∈ V : T (v ) = 0}.
+
+
+
+
+                                                              29 / 30
+Wrap-up
+
+
+Heute gelernt
+
+  • Spaltenraum
+
+  • Kern
+
+  • Äquivalenzen
+
+  • Verknüpfung mit allgemeinen linearen Abbildungen
+
+Nächste Vorlesung
+
+  • Eigenwerte
+
+
+
+                                                        30 / 30
+

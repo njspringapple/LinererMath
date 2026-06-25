@@ -1,0 +1,385 @@
+9. Vektorräume
+
+
+
+
+Methoden der Linearen Algebra in der Statistik
+Thomas Nagler <t.nagler@lmu.de>
+Agenda
+
+
+
+
+1 Definition
+
+
+
+2 Unterraum
+
+
+
+
+               1 / 19
+Agenda
+
+
+
+
+1 Definition
+
+
+2 Unterraum
+
+
+
+
+               2 / 19
+Definition
+
+
+Definition (Vektorraum)
+
+  • Ein Vektorraum ist eine nichtleere Menge V von Objekten,
+    die wir Vektoren nennen.
+
+  • Auf der Menge V gibt es zwei Operationen, Addition und
+    Multiplikation mit Skalaren (reellen Zahlen).
+
+  • Dabei sind die folgenden Axiome für alle u, v , w ∈ V und
+    Skalare c, d ∈ R erfüllt:
+
+
+
+
+                                                                 3 / 19
+Definition
+Definition (Vektorraumaxiome)
+
+  (i) u + v ∈ V .
+
+ (ii) u + v = v + u.
+
+ (iii) (u + v ) + w = u + (v + w ).
+
+ (iv) Es gibt einen Nullvektor 0, sodass u + 0 = u.
+
+ (v) Für jedes u ∈ V , gibt es ein −u ∈ V , sodass u + (−u) = 0.
+
+ (vi) cu ∈ V .
+
+(vii) c(u + v ) = cu + cv .
+
+(viii) (c + d)u = cu + du.
+
+ (ix) c(du) = (cd)u.
+
+ (x) 1u = u.
+
+                                                                    4 / 19
+Beispiele
+
+Beispiel
+Die Menge V = {0} mit den Operationen 0 + 0 = 0 und c0 = 0
+ist ein Vektorraum.
+
+
+
+
+                                                             5 / 19
+Beispiele
+
+Beispiel
+Die Menge V = {0} mit den Operationen 0 + 0 = 0 und c0 = 0
+ist ein Vektorraum.
+
+Beispiel
+Sei V die Menge aller Folgen v = (v1 , v2 , . . . ) = (vi )∞
+                                                           i=1 von
+reellen Zahlen v1 , v2 , . . . ∈ R. Wir definieren Addition und
+Skalarmultiplikation Komponentenweise als
+
+   u + v = (u1 , u2 , . . . ) + (v1 , v2 , . . . ) = (u1 + v1 , u2 + v2 , . . . )
+       cu = (cu1 , cu2 , . . . ).
+
+Dann ist V ein Vektorraum.
+
+
+                                                                                    5 / 19
+Definition
+
+
+
+
+Beispiel
+Die Menge aller Funktionen f : R → R ist ein Vektorraum, wenn
+wir Addition und Skalarmultiplikation wie folgt definieren:
+
+           (f + g )(x) = f (x) + g (x),   (cf )(x) = cf (x).
+
+
+
+
+                                                                6 / 19
+Quiz
+
+
+
+
+Gegeben sei k ∈ R und V = R2 mit den Operationen:
+u + v = (u1 + v1 , u2 + v2 ) und ku = (ku1 , 0). Ist V ein
+Vektorraum?
+
+ A. Ja
+ B. Nein
+
+
+
+
+                                                             7 / 19
+Quiz
+
+
+
+Beweise oder widerlege:
+
+    Die Menge aller (m × n)-Matrizen mit den üblichen Ope-
+    rationen für Addition und Skalarmultiplikation ist ein Vek-
+    torraum.
+
+ A. Wahr
+ B. Falsch
+
+
+
+
+                                                                   8 / 19
+Agenda
+
+
+
+
+1 Definition
+
+
+2 Unterraum
+
+
+
+
+               9 / 19
+Unterraum
+
+Definition (Unterraum)
+Eine nichtleere Teilmenge W ⊂ V ist ein Unterraum eines
+Vektorraums V , wenn die folgenden zwei Eigenschaften erfüllt
+sind:
+
+ (i) Für alle u, v ∈ W gilt u + v ∈ W .
+(ii) Für jedes c ∈ R und v ∈ W , gilt cv ∈ W .
+
+
+
+
+                                                                 10 / 19
+Unterraum
+
+Definition (Unterraum)
+Eine nichtleere Teilmenge W ⊂ V ist ein Unterraum eines
+Vektorraums V , wenn die folgenden zwei Eigenschaften erfüllt
+sind:
+
+ (i) Für alle u, v ∈ W gilt u + v ∈ W .
+(ii) Für jedes c ∈ R und v ∈ W , gilt cv ∈ W .
+
+
+Anmerkung
+Für beide Eigenschaften sagen wir, dass W geschlossen ist unter
+Addition und Skalarmultiplikation. Außerdem impliziert (ii) 0 ∈ W .
+
+
+
+                                                                      10 / 19
+Unterraum
+
+Beispiel
+Die Menge W = {0} ⊂ V ist ein Unterraum.
+
+
+
+
+                                           11 / 19
+Unterraum
+
+Beispiel
+Die Menge W = {0} ⊂ V ist ein Unterraum.
+
+Beispiel
+
+  • Jede Ebene in R3 durch den Nullpunkt ist ein Unterraum von
+    R3 .
+
+  • Sie lässt sich durch ein LGS Ax = 0 darstellen (dazu gleich
+    mehr).
+
+  • Eine Ebene in R3 , die nicht den Nullpunkt 0 enthält, kann
+    kein Unterraum sein.
+
+
+                                                                   11 / 19
+Unterraum
+
+
+
+
+Theorem
+Für jedes A ∈ Rm×n ist die Lösungsmenge des homogenen LGS
+Ax = 0 ein Unterraum von Rn .
+
+
+
+
+                                                              12 / 19
+Unterraum
+
+
+
+
+Beispiel
+Die Menge aller Polynome n-ten Grades
+
+           Pn = {a0 + a1 x + · · · + an x n : a0 , . . . , an ∈ R}
+
+ist ein Unterraum des Raums aller Funktionen f : R → R.
+
+
+
+
+                                                                     13 / 19
+Unterraum
+
+Definition (Linearkombination)
+Wir nennen einen Vektor v ∈ V eine Linearkombination von
+Vektoren v1 , . . . , vk ∈ V , wenn er sich als
+
+                          v = c1 v1 + · · · + ck vk
+
+mit c1 , . . . , ck ∈ R schreiben lässt.
+
+
+
+
+                                                           14 / 19
+Unterraum
+
+Definition (Linearkombination)
+Wir nennen einen Vektor v ∈ V eine Linearkombination von
+Vektoren v1 , . . . , vk ∈ V , wenn er sich als
+
+                          v = c1 v1 + · · · + ck vk
+
+mit c1 , . . . , ck ∈ R schreiben lässt.
+
+Definition (Spann)
+ie Menge aller Linearkombinationen von gegeben Vektoren
+v1 , . . . , vk ∈ V bezeichnen wir als Spann oder den von den
+Vektoren aufgespannten oder erzeugten Raum.
+
+
+
+                                                                14 / 19
+Unterraum
+
+
+
+Theorem
+Für alle Vektoren u1 , . . . , un in einem Vektorraum V , ist
+W = span{u1 , . . . , un } ein Unterraum von V .
+
+
+
+
+                                                                 15 / 19
+Unterraum
+
+
+
+Theorem
+Für alle Vektoren u1 , . . . , un in einem Vektorraum V , ist
+W = span{u1 , . . . , un } ein Unterraum von V .
+
+Theorem
+Sei V ein Vektorraum und W1 , . . . , Wn ⊂ V Unterräume. Dann ist
+W = W1 ∩ · · · ∩ Wn auch ein Unterraum von V .
+
+
+
+
+                                                                     15 / 19
+Quiz
+
+
+Gegeben seien a, b, c ∈ R. Welche der folgenden Mengen sind
+Unterräume von R3 ?
+
+ A. Alle Vektoren der Form (a, 0, 0)
+ B. Alle Vektoren der Form (a, 1, 1)
+ C. Alle Vektoren der Form (a, b, c) und b = a + c
+ D. Alle Vektoren der Form (a, b, c) und b = a + c + 1
+ E. Alle Vektoren der Form (a, b, 0)
+
+
+
+
+                                                              16 / 19
+Quiz
+
+
+
+Beweise oder widerlege:
+
+    Sei W die Menge aller Punkte (x, y ) ∈ R2 für die gilt:
+    x ≥ 0 und y ≥ 0.
+    Dann ist W ein Untervektorraum.
+
+ A. Wahr
+ B. Falsch
+
+
+
+
+                                                               17 / 19
+Quiz
+
+
+
+Beweise oder widerlege:
+
+    Sei W = {A ∈ Rn×n : A = A⊤ } die Menge aller symme-
+    trischen Matrizen. Dann ist W ein Unterraum von Rn×n .
+
+ A. Wahr
+ B. Falsch
+
+
+
+
+                                                             18 / 19
+Wrap-up
+
+
+
+Heute gelernt
+
+  • Vektorräume
+
+  • Unterräume
+
+Nächste Vorlesung
+
+  • Basis
+
+
+
+
+                     19 / 19
+

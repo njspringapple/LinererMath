@@ -1,0 +1,61 @@
+Methoden der Linearen Algebra in der Statistik
+  6. Tutorium
+
+
+
+
+Eugen Gorich, <eugen.gorich@campus.lmu.de>
+Agenda
+
+
+
+
+ • Feedback Hausaufgaben
+
+ • Basiswechsel
+
+ • Spaltenraum und Kern
+
+ • Betreutes Lernen
+
+
+
+
+                           1/5
+Basis
+
+
+
+
+        3/5
+Basis
+
+
+
+
+        3/5
+Basis
+
+
+
+
+        3/5
+Dimension
+
+
+
+
+            4/5
+Basis
+
+
+
+
+        3/5
+Basiswechsel
+
+
+
+
+               3/5
+

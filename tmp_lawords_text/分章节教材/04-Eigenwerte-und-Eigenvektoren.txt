@@ -1,0 +1,1198 @@
+4 Eigenwerte und Eigenvektoren
+4.1 Eigenwerte, Eigenvektoren, Eigenräume
+In Abschnitt 2.3.3 haben wir bereits ein Beispiel für einen Eigenvektor gesehen.
+Für eine gegebene (stochastische) Matrix M , gibt es einen Vektor q, sodass
+M q = q. Im Kontext dynamischer Systeme kann q als Gleichgewichtszustand
+gesehen werden: Er wird durch die Übergangsmatrix M nicht verändert. Wir
+bezeichnen dann q als einen Eigenvektor von M . Das Eigen“ soll ausdrücken,
+                                                         ”
+dass es sich hierbei um eine Charakteristik oder Eigenheit der Matrix M handelt.1
+  Dass es überhaupt einen solchen Vektor gibt, liegt daran, dass die Matrix M
+stochastisch ist (Spaltensumme gleich 1). Für allgemeine Matrizen A ∈ Rn×n
+muss es einen solchen Vektor aber nicht geben. Oft gibt es aber Vektoren x ∈ Rn ,
+auf die A eine ähnlich simple Wirkung hat.
+
+ Definition 4.1.1. Sei A ∈ Rn×n . Ein Vektor x ̸= 0 ∈ Rn wird Eigenvektor
+ von A genannt, wenn es ein Skalar λ ∈ R gibt, sodass
+
+                                          Ax = λx.
+
+ Der Skalar λ wird Eigenwert von A genannt und x auch der zu λ gehörige
+ Eigenvektor.
+
+  Multiplizieren wir einen Eigenvektor x mit A, hat das den einfachen Effekt,
+dass x um den Faktor λ gestreckt/gestaucht wird. Die Richtung des Vektors kann
+umgekehrt (wenn λ < 0), aber nicht anderweitig verändert werden.
+
+Beispiel 4.1.2. In Abbildung 4.1 ist die Wirkung der Matrixtransformation
+x 7→ Ax mit
+                                    1    0.5
+                                            !
+                             A=
+                                    0    0.5
+auf die Vektoren
+
+                     2                                                   1
+                          !                !                 !                !
+                                     −3                  −2
+                u1 =   ,        u2 =    ,           v1 =    ,      v2 =
+                     1               2                   2              −1
+
+
+
+ 1
+     Lustigerweise hat sich der Wortstamm eigen auch international durchgesetzt. Im Englischen
+      spricht man von eigenvalues, eigenvectors, eigenspaces.
+
+
+
+                                               74
+                              4 Eigenwerte und Eigenvektoren
+
+
+
+                3                 u2
+
+
+
+                2   v1
+
+                                                         Au2
+          x2
+                1                 Av1                                   u1
+
+                                                                                 Au1
+
+                0
+
+                                                         Av2
+
+               −1                                                  v2
+                         −2             −1          0          1             2
+                                                    x1
+
+
+Abbildung 4.1: Die Wirkung einer Matrix auf Eigenvektoren v1 , v2 und andere
+               Vektoren u1 , u2 .
+
+
+dargestellt. Man kann leicht nachrechnen, dass
+
+                               Av1 = 0.5v1 ,        Av2 = 0.5v2 ,
+
+also sind v1 , v2 beides Eigenvektoren zum Eigenwert 0.5. Die Matrixtransforma-
+tion staucht die Vektoren also lediglich um die Hälfte Richtung Nullpunkt. Die
+Vektoren u1 , u2 sind keine Eigenvektoren — hier ist die Transformation weniger
+einfach zu erklären.
+
+  Grundsätzlich kann es mehrere Eigenwerte und -vektoren geben. Im letzten
+Beispiel ist auch w = (1, 0) ein Eigenvektor zum Eigenwert 1. Außerdem haben
+wir gesehen, dass es zum selben Eigenwert mehrere Eigenvektoren geben kann.
+Genauer: Ist v ein Eigenvektor zum Eigenwert λ, dann ist auch jeder Vektor cv
+mit c ∈ R ein Eigenvektor zu λ. Denn
+
+                              A(cv) = c(Av) = c(λv) = λ(cv).
+
+Prinzipiell müssen für ein λ nicht alle Eigenvektoren auf einer Geraden liegen.
+Wir haben es jedoch immer mit (Unter-)Vektorräumen zu tun.
+
+ Definition 4.1.3. Der Eigenraum Eλ einer Matrix A ∈ Rn×n ist definiert
+ als die Menge aller Eigenvektoren zum Eigenwert λ (und dem Nullvektor):
+
+                                   Eλ = {x : Ax = λx}.
+
+  Das folgende Lemma darf gerne zur Übung bewiesen werden.
+
+
+
+
+                                               75
+                        4 Eigenwerte und Eigenvektoren
+
+
+Lemma 4.1.4. Für jede Matrix A ∈ Rn×n und λ ∈ R ist Eλ ein Unterraum des
+Rn .
+
+
+Beispiel 4.1.5. Ein einfaches Beispiel, wo es linear unabhängige Eigenvektoren
+zum gleichen Eigenwert gibt, ist die Nullmatrix
+
+                                     0 0
+                                               !
+                                  A=     .
+                                     0 0
+
+Hier ist jeder Vektor x ∈ R2 ein Eigenvektor zum Eigenwert 0, denn Ax = 0 =
+0 · x.
+
+
+Beispiel 4.1.6. Ein (minimal) interessanteres Beispiel ist die Diagonalmatrix
+
+                                    2 0 0
+                                                   
+
+                               A = 0 −1 0 .
+                                         
+
+                                    0 0 2
+
+Mit ein bisschen Nachdenken sehen wir, dass A die Eigenwerte 2 und −1 besitzt
+und
+
+                     E2 = span{e1 , e3 },     E−1 = span{e2 }.
+
+Der Eigenraum E2 ist die Ebene, die durch den ersten und dritten Einheitsvektor
+aufgespannt wird. Auf alle Vektoren in dieser Ebene hat die Multiplikation mit A
+den einfachen Effekt, dass sie um den Faktor 2 gestreckt werden. Der Eigenraum
+E−1 ist eine Gerade in Richtung e2 . Auf Vektoren dieser Gerade bewirkt A eine
+Richtungsumkehr bzw. Spiegelung an der Ebene E2 .
+
+
+Beispiel 4.1.7. Multiplikation von x ∈ R2 mit der Matrix
+
+                                      0 1
+                                                !
+                                   A=
+                                      1 0
+
+führt zu einer Spiegelung an der Geraden x1 = x2 (sh. Abschnitt 1.10.2). Die
+Eigenwerte sind 1 und −1 und es gilt
+
+                              1                          1
+                                 !                           !
+                   E1 = span{   },          E−1 = span{    }.
+                              1                         −1
+
+Der Raum E1 enthält alle Vektoren entlang der Spiegelachse; diese bleiben bei Mul-
+tiplikation mit A unverändert (Eigenwert 1). Der Raum E2 enthält alle Vektoren
+senkrecht zur Spiegelachse; diese kehren bei Multiplikation mit A ihre Richtung
+um (Eigenwert -1).
+
+
+
+
+                                         76
+                              4 Eigenwerte und Eigenvektoren
+
+
+  In allen Beispielen stellen wir fest, dass die Eigenvektoren eine Matrixtrans-
+formation gewissermaßen charakterisieren. Tatsächlich hätte man uns auch nur
+die Eigenräume und -werte sagen können und wir hätten daraus auf die Trans-
+formation schließen können. Und egal wie kompliziert die Transformation ist,
+innerhalb der Eigenräume ist sie ganz leicht zu verstehen. Wo auch immer wir es
+mit Matrixtransformationen zu tun haben, macht es deshalb Sinn, Eigenwerte
+und Eigenräume zu studieren.
+
+
+4.2 Die charakteristische Gleichung
+In den bisherigen Beispielen waren Eigenwerte und zugehörige Eigenvektoren
+einfach zu erkennen. Dies ist aber nicht immer der Fall. Wir wollen uns deshalb
+etwas allgemeiner mit der Existenz und der Suche nach Eigenwerten beschäftigen.
+Schreiben wir erstmal die Gleichung Ax = λx in ein LGS um:
+
+                                        (A − λIn )x = 0.
+
+Nun sehen wir, dass λ ein Eigenwert zu A ist, falls das LGS eine nichttriviale
+Lösung hat. Die zugehörige Lösungsmenge, ker(A − λIn ), entspricht dem Eigen-
+raum Eλ .2
+   Unsere Äquivalenzen (zuletzt Theorem 3.4.13) liefern uns jetzt eine ganze
+Menge Möglichkeiten, die (Nicht-)Existenz eines Eigenwerts λ zu charakterisieren.
+Eine besonders praktische Variante liefert die Determinante.3
+
+ Theorem 4.2.1. Ein Skalar λ ∈ R ist genau dann ein Eigenwert von A, wenn
+ er die charakteristische Gleichung
+
+                                        det(A − λI) = 0
+
+ erfüllt.
+
+     Für eine allgemeine Matrix
+
+                                       a11 a12 · · · a1n
+                                                              
+
+                                      a21 a22 · · · a2n 
+                                                        
+                                 A =  ..
+                                           ..  ...   .. 
+                                                         ,
+                                      .     .         . 
+                                      an1 an2 · · · ann
+
+
+
+
+ 2
+     Theorem 3.2.7 beweist jetzt übrigens Lemma 4.1.4. War trotzdem ’ne gute Übung.
+ 3
+     Die charakteristische Gleichung ist praktisch für Rechnungen, aber nicht besonders intuitiv.
+      Zur Interpretation empfiehlt es sich, die Definition Ax = λx im Kopf zu behalten.
+
+
+
+                                                77
+                        4 Eigenwerte und Eigenvektoren
+
+
+erhalten wir A − λI, indem wir λ von allen Diagonaleinträgen abziehen:
+
+                            a11 − λ                  ···
+                                                                     
+                                      a12                     a1n
+                           a21
+                          
+                                    a22 − λ          ···      a2n     
+                 A − λI =      ..      ..                     ..
+                                                                      
+                                                     ...              .
+                                 .       .                      .
+                                                                     
+                                                                     
+                              an1     an2            ···    ann − λ
+
+Berechnen wir diese Determinante und multiplizieren aus, erhalten wir ein Poly-
+nom der Form
+                   p(λ) = cn λn + cn−1 λn−1 + · · · + c1 λ + c0 .
+Es wird auch charakteristisches Polynom der Matrix A genannt. Die Nullstellen
+dieses Polynoms sind dann die Eigenwerte von A. Daraus folgt übrigens, dass es
+maximal n Eigenwerte geben kann.
+
+ Um Eigenwerte und Eigenvektoren rechnerisch zu finden geht man wie folgt
+ vor:
+
+    1. Finde Eigenwerte λk als die Nullstellen des charakteristischen Polynoms
+       p(λ) = det(A − λI).
+
+    2. Für jeden Eigenwert λk , berechne den Eigenraum Eλk durch Lösen des
+       LGS (A − λk I)x = 0.
+
+  Per Hand ist dies eigentlich nur für (2 × 2)- oder (3 × 3)-Matrizen machbar.
+Zumindest ein, zwei Mal im Leben sollte man das aber gemacht haben.
+
+Beispiel 4.2.2. Für
+                                     3 −2
+                                                 !
+                                  A=
+                                     1 −1
+erhalten wir
+                    3−λ
+                                       !
+                         −2
+  det(A − λI) = det            = (3 − λ)(−1 − λ) + 2 = λ2 − 2λ − 1.
+                     1  −1 − λ
+
+Lösen wir diese Gleichung nach λ, erhalten wir die beiden Eigenwerte
+                             q
+                        2±     (−2)2 − 4 · 1 · (−1)              √
+                   λ=                                      =1±       2.
+                                      2·1
+Um den Eigenraum E1+√2 zu finden, Lösen wir das LGS
+                                 √
+                       3−1−       2
+                                                       !
+                                           −2 √
+                                                   x = 0.
+                          2            −1 − 1 − 2.
+
+
+
+
+                                            78
+                          4 Eigenwerte und Eigenvektoren
+
+
+Wir reduzieren
+     √                        √       √                     √
+ 2− 2              0  (II)·(2− 2) 2 −  2    0  (II)−(I) 2 −  2    0
+                    !                        !                     !
+               √−2                    √  −2                    −2
+                           ∼                      ∼
+       1 −(2 + 2) 0               2 − 2 −2 0                 0  0 0
+
+Daraus erhalten wir
+                                                  √ !
+                                         2/(2 −    2)
+                           E1+√2 = span{                }
+                                              1
+
+und auf ähnliche Weise
+                                                  √ !
+                                        −2/(2 +    2)
+                          E1−√2 = span{               }.
+                                             1
+
+   Wir erinnern uns, dass die Determinante von Dreiecksmatrizen besonders
+einfach zu berechnen war (Theorem 2.4.6). Wenn wir λI von einer Dreiecksmatrix
+abziehen, ist das Resultat auch eine Dreiecksmatrix. Daraus folgt direkt das
+nächste Resultat.
+
+ Theorem 4.2.3. Ist A ∈ Rn×n eine Dreiecksmatrix, dann sind die Eigenwerte
+ von A gleich den Diagonaleinträgen aii , i = 1, . . . , n.
+
+
+
+4.3 Äquivalenzen
+Natürlich gibt es auch bei Eigenwerten zahlreiche Querverbindungen zum bisher
+gelernten. Insbesondere können wir eine Aussage zu Eigenwerten an unsere Liste
+von Äquivalenzen anknüpfen.
+  Zunächst intuitiv: Wenn λ = 0 ein Eigenwert ist, dann gibt es einen ganzen
+Unterraum E0 ̸= {0}, der auf den Nullvektor abgebildet wird: Für alle x ∈
+E0 gilt Ax = 0x = 0. Jedes Volumen in diesem Unterraum kollabiert, also
+muss det(A) = 0 gelten. Andersherum gilt das genauso. Wir können das leicht
+formalisieren und damit auch zu Invertierbarkeit von A etc. verknüpfen.
+
+
+
+
+                                       79
+                           4 Eigenwerte und Eigenvektoren
+
+
+ Theorem 4.3.1 (Äquivalenzen). Sei A ∈ Rn×n . Dann sind die folgenden
+ Aussagen äquivalent:
+
+ (a) A ist invertierbar.
+
+ (b) A⊤ ist invertierbar.
+
+ (c) Die reduzierte Zeilenstufenform von A ist In .
+
+ (d) Das LGS Ax = 0 hat nur die triviale Lösung.
+
+ (e) Das LGS Ax = b hat genau eine Lösung für jedes b ∈ Rn .
+
+ (f) Das LGS Ax = b hat eine Lösung für jedes b ∈ Rn .
+
+ (g) Die Spalten von A sind linear unabhängig.
+
+ (h) Die Zeilen von A sind linear unabhängig.
+
+ (i) Die Spalten von A spannen Rn .
+
+ (j) Die Zeilen von A spannen Rn .
+
+ (k) det(A) ̸= 0.
+
+ (l) rang(A) = n.
+
+(m) ker(A) = {0}.
+
+ (n) λ = 0 ist kein Eigenwert von A.
+
+
+Beweis. Äquivalenz von (a)–(m) haben wir bereits bewiesen. Wir zeigen jetzt
+(k) ⇔ (n). Ein Wert λ ist genau dann ein Eigenwert von A, wenn
+
+                                  det(A − λI) = 0.
+
+Also ist λ = 0 genau dann ein Eigenwert, wenn det(A) = 0. Andersherum ist
+λ = 0 also genau dann kein Eigenwert, wenn det(A) ̸= 0.
+  Zum Abschluss illustrieren wir einen Fall mit λ = 0 in einem ausführlichen
+Beispiel.
+
+Beispiel 4.3.2. Betrachten wir eine (orthogonale) Projektion von x ∈ R2 auf
+die Gerade in Richtung v = (2, 1). Was das genau bedeutet lernen wir später
+noch; für den Moment sollte Abbildung 4.2 zur Erklärung ausreichen. Die Ma-
+trixtransformation, die beliebige Vektoren auf diese Gerade span{v} projiziert,
+
+
+
+
+                                        80
+                               4 Eigenwerte und Eigenvektoren
+
+
+
+
+Abbildung 4.2: Projektion von u auf den Spann von v. Die Eigenvektoren der
+               Projektionsmatrix P sind v und w.
+
+ist gegeben4 durch
+
+                                            0.8 0.4
+                                                           !
+                                       Pv =         .
+                                            0.4 0.2
+
+Bevor wir ans Rechnen gehen, können wir uns intuitiv überlegen, was hier die
+Eigenwerte und Eigenvektoren sein sollen.
+      • Projiziert man einen Vektor aus span{v} auf eben diese Gerade, dann
+        passiert natürlich nichts. Also gilt Pv x = x für alle x ∈ span{v}. Anders
+        gesagt: v ist Eigenvektor zum Eigenwert 1 und E1 = span{v}.
+
+      • Betrachten wir nun Vektoren w die am Nullpunkt senkrecht auf der Gerade
+        span{v} stehen. Ein solcher Vektor ist in Abbildung 4.2 eingezeichnet.
+        Dann werden alle diese Punkte auf den Nullpunkt projiziert. Also ist w ein
+        Eigenvektor zum Eigenwert 0 und E0 = span{w}.
+  In Abschnitt 2.4.1 haben wir bereits gesehen, dass durch eine Projektion Flächen
+kollabieren. Also erwarten wir hier det(A) = 0 und deshalb auch einen Eigenwert
+λ = 0. Tatsächlich:
+                       0.8 0.4
+                                   !
+                   det         = 0.8 · 0.2 − 0.42 = 0.16 − 0.16 = 0.
+                       0.4 0.2
+
+  Zuletzt wollen wir noch den Eigenwert λ = 1 und E1 rechnerisch überprüfen.
+Es gilt
+
+    0.8 − 1   0.4         −0.2 0.4
+                           !                           !
+det                 = det           (−0.8) · (−0.2) − 0.42 = 0.16 − 0.16 = 0.
+      0.4   0.2 − 1        0.4 −0.8
+
+Reduzieren wir das LGS, erhalten wir
+
+                                0.4 0                      −0.2 0.4 0
+                                           !                        !
+                          −0.2                 (2)+2·(1)
+                                                  ∼                   ,
+                           0.4 −0.8 0                         0   0 0
+ 4
+     Auch diese Matrix zu finden lernen wir später.
+
+
+
+                                                 81
+                         4 Eigenwerte und Eigenvektoren
+
+
+woraus wir in der Tat den Eigenvektor v = (2, 1) ablesen können.
+
+
+
+4.4 Diagonalisierung
+4.4.1 Die Eigenvektorbasis
+Die Eigenvektoren einer Matrix A sind charakteristisch für die zugehörige Ab-
+bildung x 7→ Ax. In Richtung dieser Vektoren hat die Matrix eine besonders
+einfache Wirkung. Die Vektoren werden lediglich gestreckt, gestaucht oder in
+der Richtung umgekehrt. Seien v1 , . . . , vn Eigenvektoren von A ∈ Rn×n und
+λ1 , . . . , λn zugehörige Eigenwerte. Nehmen wir mal an, die Vektoren sind linear
+unabhängig. Dann wäre B = {v1 , . . . , vn } wegen Theorem 3.3.20 auch eine Basis
+für Rn . Für B = (v1 · · · vn ) und jedes x ∈ Rn gilt dann
+
+                         x = B[x]B      und B −1 x = [x]B .
+
+  Wir können damit die Transformation x 7→ Ax auch in der Basis B darstellen,
+sprich [x]B 7→ [Ax]B :
+
+  1. Wir bringen [x]B durch Multiplikation mit B in die Standardbasis.
+
+  2. Wir multiplizieren x mit A.
+
+  3. Wir bringen das Resultat Ax durch Multiplikation mit B −1 zurück in die
+     Koordinaten der Basis B.
+
+Es ergibt sich dann
+
+                               [Ax]B = B −1 AB[x]B .
+
+Der Vorgang lässt sich durch folgendes Diagramm verstehen:
+                                           −1 AB
+                                  [x]B B           [Ax]B
+                                  B                      B −1
+                                            A
+                                   x                 Ax
+Sei
+                                                           0     ···    0
+                                                                         
+                                                λ1
+                                               0          λ2    ···    0 
+                                               
+                  Λ = diag(λ1 , . . . , λn ) = 
+                                                ..         ..
+                                                                          
+                                                                 ..       
+                                                .           .      .    0 
+                                                                          
+
+                                                     0    ···     0     λn .
+
+
+
+
+                                            82
+                       4 Eigenwerte und Eigenvektoren
+
+
+Betrachten wir die Matrix B −1 AB genauer, stellen wir fest:
+
+                      B −1 AB = B −1 A(v1 · · · vn )
+                              = B −1 (Av1 · · · Avn )
+                              = B −1 (λ1 v1 · · · λn vn )
+                              = (λ1 B −1 v1 · · · λn B −1 vn )
+                              = Λ(B −1 v1 · · · B −1 vn )
+                              = ΛB −1 B
+                              = Λ.
+
+In der Eigenvektorbasis B ist die Transformation x 7→ Ax also lediglich eine
+Multiplikation mit einer Diagonalmatrix, gefüllt mit den Eigenwerten. Jede Ko-
+ordinate wird lediglich um den zugehörigen Eigenwert gestreckt. In der Basis B
+lässt sich die Transformation also bemerkenswert einfach verstehen. Wir sagen
+dann, dass B die Matrix A diagonalisiert.
+    Andersherum können wir A auch als BΛB −1 schreiben. Dies wird auch Spek-
+tralzerlegung genannt. Multiplikation mit A in der Standardbasis können wir
+dann auch so verstehen:
+  1. Wir bringen x durch Multiplikation mit B −1 in B-Koordinaten.
+  2. Wir multiplizieren das Resultat [x]B = B −1 x mit der Diagonalmatrix Λ.
+  3. Wir bringen das Resultat ΛB −1 x durch Multiplikation mit B zurück in die
+     Koordinaten der Standardbasis.
+                                              −1
+                                   x A=BΛB         Ax
+                                B −1                B
+
+                                  [x]B   Λ
+                                               [Ax]B
+
+4.4.2 Diagonalisierbarkeit
+
+ Definition 4.4.1. Wir nennen eine Matrix A ∈ Rn×n diagonalisierbar,
+ wenn es eine invertierbare Matrix P und eine Diagonalmatrix D gibt, sodass
+ P −1 AP = D.
+
+  Wir haben vorher angenommen, dass die Eigenvektoren linear unabhängig sind.
+Das ist nicht nur eine hinreichende Bedingung für Diagonalisierbarkeit, sondern
+auch notwendig.
+
+ Theorem 4.4.2. Für A ∈ Rn×n sind äquivalent:
+
+  (i) A ist diagonalisierbar.
+
+  (ii) A hat n linear unabhängige Eigenvektoren.
+
+
+
+                                         83
+                           4 Eigenwerte und Eigenvektoren
+
+
+Beweis. Die Richtung (ii) ⇒ (i) haben wir bereits gezeigt. Nehmen wir nun an,
+A ist diagonalisierbar. Dann gibt es invertierbares P und eine Diagonalmatrix
+D, sodass P −1 AP = D oder, äquivalent dazu, AP = P D. Seien p1 , . . . , pn die
+Spaltenvektoren von P und d1 , . . . , dn die Diagonaleinträge von D. Dann gilt
+
+                AP = (Ap1 · · · Apn ) und P D = (d1 p1 · · · dn pn ).
+
+Betrachten wir die Gleichung AP = P D spaltenweise, folgt also
+
+                           Ap1 = d1 p1 ,     . . . , Apn = dn pn .
+
+Also sind p1 , . . . , pn Eigenvektoren zu den Eigenwerten d1 , . . . , dn . Weil die Matrix
+P = (p1 · · · , pn ) invertierbar ist, müssen die Spaltenvektoren linear unabhängig
+sein, sh. Theorem 4.3.1 (a) & (g).
+  Um eine Matrix zu diagonalisieren, müssen wir also nur n linear unabhängige
+Eigenvektoren finden. Das ist nicht immer, aber häufig möglich. Das nächste
+Resultat zeigt uns einen wichtigen Fall.
+
+ Theorem 4.4.3. Seien λ1 ̸= · · · ̸= λr verschiedene Eigenwerte einer Matrix
+ A. Dann sind zugehörige Eigenvektoren v1 , . . . , vr linear unabhängig.
+
+Beweis. Angenommen v1 , . . . , vr sind linear abhängig. Dann lässt sich ein vk als
+Linearkombination der vorherigen Eigenvektoren schreiben. Sei k der kleinste
+Index, für den das möglich ist. Es gibt also c1 , . . . , ck−1 , sodass
+
+                              c1 v1 + · · · + ck−1 vk−1 = vk .                          (4.1)
+
+Multiplizieren wir die Gleichung mit A, erhalten wir
+
+                           c1 Av1 + · · · + ck−1 Avk−1 = Avk
+
+und, weil v1 , . . . , vk Eigenvektoren sind,
+
+        c1 λ1 v1 + · · · + ck−1 λk−1 vk−1 = λk vk = c1 λk v1 + · · · + ck−1 λk vk−1 ,
+
+wobei wir in der letzten Gleichheit (4.1) verwendet haben. Ziehen wir die rechte
+von der linken Seite ab, erhalten wir
+
+                   c1 (λ1 − λk )v1 + · · · + ck−1 (λk−1 − λk )vk−1 = 0.
+
+Weil v1 , . . . , vk−1 linear unabhängig sind, muss gelten
+
+                       c1 (λ1 − λk ) = · · · = ck−1 (λk−1 − λk ) = 0
+
+und, weil die Eigenwerte alle verschieden sind,
+
+                                  c1 = · · · = ck−1 = 0.
+
+
+
+                                             84
+                       4 Eigenwerte und Eigenvektoren
+
+
+Daraus erhalten wir vk = c1 v1 + · · · + ck−1 vk−1 = 0, aber dann kann vk kein
+Eigenvektor sein. Dies ist ein Widerspruch, also müssen die Vektoren linear
+unabhängig sein.
+  Aus den letzten beiden Resultaten folgt dann:
+
+Korollar 4.4.4. Hat A ∈ Rn×n n verschiedene Eigenwerte, so ist sie diagonali-
+sierbar.
+
+  Es stellt sich noch die Frage, was passiert, wenn es weniger als n verschiedene
+Eigenwerte gibt. Auch das können wir beantworten. Den Beweis dazu sparen wir
+uns mal, auch wenn er nicht allzu schwierig ist.
+
+ Theorem 4.4.5. Sei A ∈ Rn×n und λ1 , . . . , λr die verschiedenen Eigenwerte.
+ A genau dann diagonalisierbar, wenn es eine Basis aus Eigenvektoren gibt.
+ Dies ist äquivalent zu
+
+                        dim(Eλ1 ) + · · · + dim(Eλr ) = n.
+
+Hat ein Eigenraum Eλ Dimension k, dann steht der zugehörige Eigenwert k mal
+in der Matrix Λ. Die Zahl k nennen wir auch geometrische Multiplizät.
+
+4.4.3 Konsequenzen
+Die Diagonalisierung ist besonders nützlich um die Wirkung einer Matrixtrans-
+formation zu verstehen. Innerhalb eines Eigenraums werden Vektoren lediglich
+entlang der Eigenvektoren gestreckt. Die Transformation in die Basis bestehend
+aus Eigenvektoren nennen wir auch Hauptachsentransformation. In der Statistik
+spielt sie als principal component analysis (PCA) eine wichtige Rolle. Mehr dazu
+in Kürze. Andersherum können wir A auch als P ΛP −1 schreiben. Dies wird auch
+Spektralzerlegung genannt.
+   Es gibt aber noch andere nützliche Eigenschaften. So ist zum Beispiel
+                                                        1
+           det(A) = det(P ΛP −1 ) = det(P ) det(Λ)           = det(Λ).
+                                                     det(P )
+
+Das gilt übrigens unabhängig davon, ob P aus Eigenvektoren besteht und Λ
+diagonal ist.
+
+ Die Determinante einer Transformation ist unabhängig von der Basis, in der
+ wir die Transformation darstellen.
+  Insbesondere haben wir aber das folgende Resultat gezeigt:
+
+
+
+
+                                       85
+                        4 Eigenwerte und Eigenvektoren
+
+
+ Theorem 4.4.6. Sei A ∈ Rn×n diagonalisierbar zu A = P ΛP −1 mit Λ =
+ diag(λ1 , . . . , λn ). Dann gilt
+                                                n
+                                 det(A) =
+                                                Y
+                                                      λk .
+                                                k=1
+
+
+Die Determinante ist also nichts anderes als das Produkt der Eigenwerte. Ein
+Eigenwert kann in diesem Produkt aber häufiger vorkommen, wenn der zugehörige
+Eigenraum höherdimensional ist.
+  Eine weitere Anwendung findet sich in Matrixpotenzen.
+
+ Theorem 4.4.7. Sei A = P ΛP −1 . Dann gilt für alle k ∈ N
+
+                                  Ak = P Λk P −1 .
+
+
+Beweis. Machen wir in der Übung.
+  Die Matrix Λk ist leicht zu berechnen, weil Λ diagonal ist. Es gilt
+
+                              Λk = diag(λk1 , . . . , λkn ).
+
+Ähnlich verhält es sich mit Inversen. Ist A invertierbar, so gilt natürlich A−1 =
+P Λ−1 P −1 . Die Matrix Λ ist leicht zu invertieren:
+
+                            Λ−1 = diag(λ−1
+                                        1 , . . . , λn ).
+                                                     −1
+
+
+Für höhere Potenzen können wir nun A−k = (A−1 )k schreiben und das vorherige
+Theorem verwenden. Wir haben das folgende Resultat gezeigt.
+
+ Theorem 4.4.8. Sei A = P ΛP −1 invertierbar. Dann gilt für alle k ∈ N
+
+                                 A−k = P Λ−k P −1 .
+
+
+4.5 Komplexe Eigenwerte
+Man kann das ganze Spiel der linearen Algebra auch auf komplexen Zahlen
+treiben. Für Statistiker wird die Theorie dadurch aber unnötig abstrakt. Im
+Kontext von Eigenwerten kommen wir aber nicht ganz darum herum.
+  Wir erinnern uns, dass die Eigenwerte einer Matrix die Nullstellen des charak-
+teristischen Polynoms
+
+                   p(λ) = det(A − λI) = cn λn + · · · + c1 λ + c0
+
+sind. Es ist aber nicht gesagt, dass dieses Polynom überhaupt eine Nullstelle
+λ ∈ R besitzt.
+
+
+                                           86
+                              4 Eigenwerte und Eigenvektoren
+
+
+Beispiel 4.5.1. Nehmen wir die Rotationsmatrix um 90◦ gegen den Uhrzeiger-
+sinn:
+                                           0 −1
+                                                         !
+                                        M=      .
+                                           1 0
+
+Dann gilt
+                                                             !
+                                           −λ −1
+                         det(M − λI) = det       = λ2 + 1.
+                                            1 −λ
+
+Die Gleichung λ2 = −1 hat keine reellen Lösungen. Genauso kann es keinen
+reellen Eigenvektor geben. Eine Rotation verändert immer die Richtung eines
+Vektors (außer von 0).
+
+  Allerdings hat die Gleichung λ2 = −1 die komplexen Lösungen λ = ±i ∈ C.
+Allgemeiner sagt der Fundamentalsatz der Algebra, dass jedes Polynom zumin-
+dest eine (womöglich komplexe) Nullstelle hat. Wir können auch zugehörige
+Eigenvektoren finden, wenn wir komplexwertige Einträge zulassen.
+
+ Definition 4.5.2. Sei A ∈ Rn×n . Ein Vektor x ̸= 0 ∈ Cn wird Eigenvektor
+ von A genannt, wenn es ein Skalar λ ∈ C gibt, sodass
+
+                                            Ax = λx.
+
+ Der Skalar λ wird Eigenwert von A genannt und x auch der zu λ gehörige
+ Eigenvektor.
+
+
+Beispiel 4.5.3. Für die Rotationsmatrix oben finden wir für λ = i den Eigen-
+vektor (1, −i), denn
+
+                                0 −1       1         1
+                                       !        !        !         !
+                                                i
+                                              =   =i    .
+                                1 0        −i   1    −i
+
+Zum Eigenwert λ = −i finden wir den Eigenvektor (1, i):
+
+                               0 −1        1           1
+                                       !    !            !         !
+                                               −i
+                                             =    = −i   .
+                               1 0         i   1       i
+
+  Im Beispiel haben wir gesehen, dass die beiden Eigenwerte jeweils Konjugierte
+voneinander waren.5 Ebenso waren die Einträge in den zugehörigen Eigenvekto-
+ren Konjugierte voneinander. Das ist allgemein wahr und folgt direkt aus den
+Rechenregeln für komplexe Zahlen.
+
+ 5
+     Für eine komplexe Zahl z = a + ib ist die Konjugierte z = a − ib. Bei Vektoren verstehen wir
+      Konjugation komponentenweise.
+
+
+
+                                                    87
+                        4 Eigenwerte und Eigenvektoren
+
+
+ Theorem 4.5.4. Sei A ∈ Rn×n , λ ein Eigenwert von A und v ein zugehöriger
+ Eigenvektor. Dann ist auch λ ein Eigenwert von A und v ein zugehöriger
+ Eigenvektor.
+
+   Komplexe Eigenwerte tauchen meist bei Rotationen oder anderweitig periodi-
+schen Transformationen auf. Im Großen und Ganzen spielen sie in der Statistik
+eine untergeordnete Rolle. Deshalb belassen wir es nun bei diesem kleinen Ausflug.
+Merkt euch einfach, dass komplexe Eigenwerte und -vektoren auftreten können.
+Und falls euch sowas doch mal unterkommt, könnt ihr euch tiefer dazu einlesen.
+
+
+4.6 Anwendungen
+4.6.1 PCA
+Die Hauptkomponentenanalyse (englisch principal component analysis oder PCA)
+ist eins der wichtigsten Werkzeuge in der multivariaten Statistik. Es hilft dabei,
+Zusammenhänge in großen Datensätzen leichter zu verstehen oder die Dimension
+zu reduzieren, ohne wichtige Information zu verlieren.
+
+Die Idee
+Angenommen unsere Daten bestehen aus d Variablen. Eine Realisierung können
+wir dann als Vektor x ∈ Rd schreiben. Den zugehörigen Zufallsvektor schreiben
+wir als X ∈ Rd . Sei Σ = Cov(X) die Kovarianzmatrix von X. Die Diagonalein-
+träge beschreiben, wie viel Varianz in den einzelnen Variablen ist. Die anderen
+Einträge, ob und wie stark Abhängigkeit zwischen den Variablen besteht.
+   Wenn d groß ist, steckt eine unüberschaubare Menge an Information in Σ.
+Um die Variabilität und Zusammenhänge in den Daten leichter zu verstehen,
+können wir Σ diagonalisieren. Wir finden dazu die Eigenvektoren v1 , . . . , vn und
+zugehörigen Eigenwerte λ1 , . . . , λn . Dann gilt
+
+                                   Σ = P ΛP −1 ,
+
+wobei P = (v1 · · · vn ) und Λ = diag(λ1 , . . . , λn ). Die Matrizen P und P −1
+bringen uns in die Koordinaten der Eigenvektorbasis. Dort hat die Matrix Σ eine
+einfache Darstellung Λ.
+  Nehmen wir o.B.d.A an, die Eigenwerte sind der Größe nach geordnet: λ1 ≥
+λ2 ≥ · · · ≥ 0.6 Dann kann man zeigen, dass der Eigenvektor v1 die Richtung
+vorgibt, in der am meisten Variabilität besteht. Genauso ist vn die Richtung, wo
+am wenigsten passiert. Um die Daten zu verstehen, können wir uns also auf die
+Richtungen der ersten paar Eigenvektoren beschränken.
+
+
+
+
+                                        88
+                                    4 Eigenwerte und Eigenvektoren
+
+
+          4                                                     4
+
+
+
+
+          2                                                     2
+
+
+
+
+    x2    0                                               x2    0
+
+
+
+
+         −2                                                    −2
+
+
+
+
+         −4                                                    −4
+
+              −4      −2       0        2        4                  −4   −2    0        2        4
+                               x1                                              x1
+
+
+    Abbildung 4.3: Links: Datenpunkte und die Hauptkomponenten. Rechts: Die
+                   Gleichen Daten in der Eigenvektorbasis.
+
+    Illustration
+    Das Ganze ist im R2 in Abbildung 4.3 illustriert. Wir sehen links 100 Datenpunkte.
+    Die empirische Kovarianzmatrix berechnen wir durch
+
+1        Sig <- cov ( data )
+2        #>            [ ,1]    [ ,2]
+3        # > [1 ,] 1.787125 1.111877
+4        # > [2 ,] 1.111877 1.080091
+
+    Die Eigenwerte und Eigenvektoren bekommen wir so:
+
+1        eig <- eigen ( Sig )
+2        lambda <- eig $ values
+3        # > [1] 2.6003321 0.2668837
+4        P <- eig $ vectors
+5        #>              [ ,1]      [ ,2]
+6        # > [1 ,] -0.8071555 0.5903389
+7        # > [2 ,] -0.5903389 -0.8071555
+
+    Der Eigenvektor v1 (erste Spalte in P ) ist in Abbildung 4.3√ grün eingezeichnet,
+    v2 lila. Die Länge der Vektoren haben wir proportional zu λk gewählt, weil dies
+    der Standardabweichung in dieser Richtung entspricht. In Richtung von v1 ist
+    am meisten Variabilität; die Datenpunkte sind entlang dieser Achse am besten zu
+    unterscheiden. v2 ist die Richtung, in der am wenigsten Variabilität stattfindet.
+       Durch Transformation mit P −1 können wir die Daten auch im Koordinatensy-
+    stem {v1 , v2 } darstellen. Die transformierten Daten sind rechts in Abbildung 4.3
+    zu sehen. Man kann beweisen, dass die Daten in diesen Koordinaten unkorreliert
+    sind, was die Interpretation weiter erleichtert.
+     6
+         Dass die Eigenwerte einer symmetrischen Matrix alle positiv sind, beweisen wir später noch.
+
+
+
+                                                     89
+                            4 Eigenwerte und Eigenvektoren
+
+
+    Anwendung: Diskrimination auf dem Münchner Mietmarkt
+    Im R2 mag die PCA noch nicht sonderlich nützlich erscheinen. Schauen wir uns
+    deshalb noch ein ernst zu nehmendes Beispiel mit echten Daten an. Der Datensatz
+    ist ein Auszug einer Studie der Datenjournalisten von BR Data und SPIEGEL
+    ONLINE, sh. http:\www.hanna-und-ismail.de. In der Studie wurden unter
+    unterschiedlichem Namen Anfragen an Wohnungsinserate geschickt. Ziel war es
+    zu überprüfen, ob manche Bevölkerungsgruppen bei der Einladung zur Woh-
+    nungsbesichtigung diskriminiert werden. Wir beschränken uns hier auf Daten aus
+    München.
+       Der Datensatz sieht wie folgt aus:
+
+1  head ( data )
+2  # > # A tibble : 6 x 6
+ 3 #>     preis zimmer flaeche deutsch maennlich einladung
+ 4 #>     <dbl > <dbl >   <dbl > <dbl >   <dbl >    <dbl >
+ 5 #> 1     890       2    51.2       1        0         1
+ 6 #> 2     890       2    51.2       0        0         1
+ 7 #> 3     890       2    51.2       0        0         1
+ 8 #> 4     910       2    54.5       0        1         1
+ 9 #> 5     850       2    50         0        0         1
+10 # > 6    850       2    50         1        0         0
+
+    Die ersten drei Spalten beschreiben die Wohnung, für die eine Anfrage zur Be-
+    sichtigung gestellt wurde. Die vierte besagt, ob der Name der anfragenden Person
+    deutsch klingt (1 = ja, 0 = nein). Die fünfte, ob der Name männlich ist (1 = ja,
+    0 = nein). Die letzte Spalte sagt, ob die Anfrage zu einer Einladung geführt hat
+    (1 = ja, 0 = nein).
+       Um ein Verständnis für die Zusammenhänge zu bekommen, führen wir eine PCA
+    durch. Weil die Variablen so unterschiedliche Skalen haben, standardisieren wir
+    alle, sodass sie Varianz 1 haben. Äquivalent dazu, können wir die Diagonalisierung
+    auch auf die Korrelationsmatrix anwenden.
+
+1  R <- cor ( data )
+2  eig <- eigen ( R )
+ 3 lambda <- round ( eig $ values , 1)
+ 4 lambda
+ 5 # > [1] 2.3 1.2 1.0 0.8 0.6 0.1
+
+ 6 P <- round ( eig $ vectors , 1)
+ 7 rownames ( P ) <- names ( data )
+ 8 P
+ 9 #>              [ ,1] [ ,2] [ ,3] [ ,4]    [ ,5] [ ,6]
+10 # > preis       -0.4 -0.4 -0.1 -0.3          0.7 -0.2
+11 # > zimmer      -0.6 0.1 0.1 0.0           -0.5 -0.6
+12 # > flaeche     -0.6 -0.1 0.1 -0.1         -0.2 0.7
+13 # > deutsch       0.1 -0.6 0.5 0.6           0.0 0.0
+14 # > maennlich     0.0 -0.4 -0.9 0.3        -0.1 0.0
+15 # > einladung     0.3 -0.6 0.1 -0.7        -0.4 0.0
+
+    Die erste Spalte von P ist die wichtigste Richtung. Wandern wir entlang dieser
+
+
+
+                                            90
+                        4 Eigenwerte und Eigenvektoren
+
+
+Richtung, multiplizieren wir den Vektor mit einem Faktor. Preis, Zimmerzahl
+und Fläche bewegen sich dabei immer in die gleiche Richtung. Das macht Sinn,
+da die drei Variablen stark Korrelieren. Wir sehen auch, dass sich die Einladungs-
+wahrscheinlichkeit in die entgegengesetzte Richtung bewegt. Je teurer/größer eine
+Wohnung also ist, desto weniger wahrscheinlich war es also allgemein, eingeladen
+zu werden.
+   Interessant ist der zweitwichtigste Eigenvektor. Bewegen wir uns entlang dieser
+Richtung, bewegen sich Deutsch-Sein, Männlich-Sein und Eingeladen-Werden
+in die gleiche Richtung. Das bedeutet, dass Deutsche und Männer tendenziell
+eher zu Besichtigungen eingeladen werden. Ähnlich können wir auch die weiteren
+Spalten interpretieren, wobei deren Bedeutung entsprechend den zugehörigen
+Eigenwerten abnimmt.
+   Eine formale Modellierung, die gesicherte statistische Inferenz erlaubt, ist
+natürlich aufwändiger als das. Zur explorativen Analyse von multivariaten Daten
+ist die PCA aber unglaublich mächtig. Sie wird euch noch das ein oder andere
+Mal im Studium begegnen.
+
+4.6.2 Markovketten und Google
+In Abschnitt 2.3.3 haben wir bereits dynamische Systeme und Markovketten
+eingeführt. Wir wollen das jetzt ein bisschen vertiefen, mit einem Beispiel, das
+uns jeden Tag begegnet. Google’s Suchalgorithmus basiert im Wesentlichen auf
+einer Markovkette. Larry Page, einer der Gründer von Google, hat kurz vor
+der Jahrtausendwende den PageRank Algorithmus erfunden. Um die Idee zu
+verstehen, beschränken wir uns zunächst auf ein vereinfachtes Setting.
+
+Das stochastische Modell
+Angenommen es gibt nur 5 Webseiten zu einem Suchbegriff. Die Suchmaschine
+versucht nun die Webseiten in eine Rangliste zu ordnen, je nachdem wie wichtig die
+Webseiten sind. Manche der Webseiten haben Links zu anderen. Die grobe Idee ist,
+dass Seiten, zu denen mehr Links bestehen, wichtiger sind. Wir stellen uns dabei
+einen idiotischen Nutzer Bob vor. Bob surft endlos durch das Web (bestehend
+aus 5 Seiten) und klickt wahllos auf Links. Die Wahrscheinlichkeiten, dass Bob
+nach t Schritten auf einer der 5 Webseiten ist, lassen sich als Zustandsvektor
+
+                                   P(S (t) = 1)
+                                              
+
+                                  P(S (t) = 2)
+                                              
+
+                           p(t) = 
+                                  P(S = 3) ∈ R
+                                       (t)       5
+                                              
+                                               
+                                  P(S = 4)
+                                      (t)     
+
+                                   P(S (t) = 5)
+
+
+
+
+                                       91
+                           4 Eigenwerte und Eigenvektoren
+
+
+darstellen. Die Wahrscheinlichkeiten zum Zeitpunkt t + 1 modellieren wir durch
+Multiplikation mit einer Matrix von Übergangswahrscheinlichkeiten
+
+         P(S (t+1) = 1 | S (t) = 1) · · ·            P(S (t+1) = 1 | S (t) = 5)
+                                                                             
+
+    M =
+                    ..                                          ..             ∈ R5×5 .
+                                                                               
+                     .                                           .            
+              P(S (t+1) = 5 | S (t) = 1) · · ·       P(S (t+1) = 5 | S (t) = 5)
+
+Angenommen Bob ist so wahllos, dass er jedem auf der Seite vorhanden Link mit
+gleicher Wahrscheinlichkeit folgt. Dann könnte M zum Beispiel so aussehen:
+
+                               0 1/2 0    0 1/4
+                                                                  
+
+                             1/3  0 1/2 1/3 1/4
+                                               
+
+                             1/3
+                          M =     0  0 1/3 1/4
+                                               
+                                                .
+                              0  1/2 0   0 1/4
+                             
+                                                
+                              1/3 0 1/2 1/3 0
+
+Seite 1 hat also Links zu Seiten 2, 3 und 5. Seite 2 hat Links zu Seiten 1 und 4,
+usw. Wenn Bob mit gleicher Wahrscheinlichkeit auf jeder der fünf Seiten startet,
+dann ist
+                                               1/5
+                                                       
+
+                                              1/5
+                                                 
+
+                                              1/5
+                                       p(1) = 
+                                                 
+                                                  
+                                              1/5
+                                                 
+                                               1/5
+
+und, allgemein,
+
+                                      p(t) = M t−1 p(1) .
+
+Zum Beispiel gilt
+
+                      0.200                   0.183                     0.181
+                                                                         
+
+                     0.250                 0.259                  0.259
+                                                                        
+
+                     0.158 ,
+              p(3) ≈                        0.168 ,
+                                      p(5) ≈                         0.172 .
+                                                              p(10) ≈ 
+                                                                        
+                                                                           
+                     0.200                 0.183                  0.181
+                                                                        
+                      0.192                   0.206                     0.207
+
+Wir auch in Abschnitt 2.3.3 erreichen wir also einen Gleichgewichtszustand q. Die
+Wahrscheinlichkeiten in diesem Zustand können wir als Ranking der Webseiten be-
+trachten. Ein zufälliger User dürfte im Durchschnitt mit den Wahrscheinlichkeiten
+q auf den jeweiligen Webseiten landen.
+
+Der Gleichgewichtszustand als Eigenvektor
+Wir in Abschnitt 2.3.3 gezeigt, gilt für den Gleichgewichtszustand M q = q. Der
+Vektor q ist also Eigenvektor zum Eigenwert 1. So einen Vektor gibt es immer.
+
+
+
+                                              92
+                         4 Eigenwerte und Eigenvektoren
+
+
+ Theorem 4.6.1. Sei M ∈ Rn×n eine Matrix, des Spalten sich zu 1 summieren.
+ Dann hat M den Eigenwert 1.
+
+Beweis. Da die Determinante durch Transposition nicht verändert wird, gilt
+
+                det(M − λI) = det((M − λI)⊤ ) = det(M ⊤ − λI).
+
+Also haben M und M ⊤ die gleichen Eigenwerte. In M ⊤ summieren sich die Zeilen
+zu 1. Also gilt
+
+                                      M ⊤ 1 = 1.
+
+Also ist 1 ein Eigenwert von M ⊤ (mit 1 als Eigenvektor) und damit ist 1 auch
+ein Eigenwert von M .
+
+Probleme mit dem Modell
+In Abschnitt 2.3.3 haben wir aber noch mehr behauptet. Nämlich, dass die die
+Kette unabhängig von p(1) immer zum Gleichgewichtszustand q konvergiert. Das
+ist nicht für jede Matrix M der Fall und das können wir über die Spektralzerlegung
+verstehen. Sei M = P ΛP −1 , wobei P die Eigenvektoren in den Spalten hat und
+Λ = diag(λ1 , . . . , λn ) die zugehörigen Eigenwerte enthält. Dann ist
+
+          lim M n = P ( lim Λn )P −1 = P diag( lim λn1 , . . . , lim λnd )P −1 .
+         n→∞             n→∞                       n→∞            n→∞
+
+Damit λn konvergiert, muss λ ∈ (−1, 1] gelten. Sei aber zum Beispiel
+
+                               0       1 0    0 1/4
+                                                         
+
+                              1       0 1/2 1/3 1/4
+                                                   
+
+                              0
+                           M =        0 0 1/3 1/4
+                                                   
+                                                    .
+                              0       0 0    0 1/4
+                              
+                                                    
+                               0       0 1/2 1/3 0
+
+Startet ein User auf Seite 1, wird er sicher als Nächstes auf Seite 2 landen.
+Danach wird er zu Seite 2 zurückkehren, usw. Der Zustand kann sich so niemals
+stabilisieren. Tatsächlich können wir leicht überprüfen, dass −1 ein Eigenwert ist,
+denn
+                   0    1 0    0 1/4
+                                                              
+                                        −1            −1
+                  1    0 1/2 1/3 1/4  1          1 
+                                                    
+                  0    0 0 1/3 1/4   0  = −1 ·  0  .
+                                                    
+                                                      
+                  
+                  0    0 0    0 1/4  0           0 
+                                                    
+                   0    0 1/2 1/3 0      0             0
+
+Also kann M n nicht konvergieren.
+  Das Problem ist, dass die Markovkette ein periodisches Verhalten aufweist. Die-
+sen Fall auszuschließen, war eine der Hauptinnovationen des PageRank-Algorithmus.
+
+
+                                           93
+                          4 Eigenwerte und Eigenvektoren
+
+
+Der PageRank-Algorithmus
+Hier nimmt man eine etwas weniger idiotische Nutzerin Alice an. Alice klickt
+meistens mit gleicher Wahrscheinlichkeit auf die vorhanden Links, aber manchmal
+springt sie mit auch zu einer beliebigen Seite in Web. Sei δ > 0 die Wahrschein-
+lichkeit, dass Alice sich entscheidet, eine beliebige Seite aufzurufen. Dann ist die
+neue Übergangsmatrix
+                                                δ
+                              M̃ = (1 − δ)M +     1n×n ,
+                                                n
+wobei alle Einträge der Matrix 1n×n ∈ Rn×n gleich 1 sind. In M̃ sind alle Einträge
+strikt positiv. Damit kann sichergestellt werden, dass -1 kein Eigenwert ist. Das
+folgt zum Beispiel aus dem Perron-Frobenius-Theorem 7 .
+   Den PageRank-Algorithmus haben Larry Page und Sergey Brin 1996 in einem
+Forschungsprojekt an der Stanford University entwickelt. Kurz darauf haben sie
+Google gegründet und den Algorithmus patentiert. Google’s Kernprodukt, die
+Suchmaschine, basierte damals im Wesentlichen auf diesem Algorithmus. Aber
+selbst heute ist eine weiterentwickelte Variante noch (teilweise) im Einsatz.
+
+
+
+
+ 7
+     Sh. https://de.wikipedia.org/wiki/Satz_von_Perron-Frobenius. Die englische Wi-
+      kipedia enthält auch Beweise: https://en.wikipedia.org/wiki/Perron-Frobenius_
+      theorem#Proof_methods.
+
+
+
+                                          94
+

@@ -1,0 +1,1703 @@
+1 Lineare Gleichungssysteme in Rn
+1.1 Lineare Gleichungssysteme
+Lineare Gleichungssysteme sind der Kern der linearen Algebra und dienen als
+Motivation für viele der Konzepte, die wir im Verlauf dieser Vorlesungen kennen-
+lernen.
+   Eine lineare Gleichung beschreibt ein geradliniges“ (= linear) Objekt im
+                                            ”
+mehrdimensionalen Raum. Das simpelste Beispiel ist die Geradengleichung in der
+zwei-dimensionalen Ebene R2 :1
+
+                                           ax + by = c.
+
+Hier bezeichnen wir x, y ∈ R als Variablen und a, b, c ∈ R als Koeffizienten der
+Gleichung. Die Koeffizienten a und b bestimmen die Neigung der Geraden, c die
+Verschiebung vom Nullpunkt der x-y Ebene. Ähnlich lässt sich eine Ebene im
+drei-dimensionalen x-y-z-Raum R3 durch die Gleichung
+
+                                        ax + by + cz = d
+
+beschreiben.
+   In den Formeln schlägt sich die Geradlinigkeit der Objekte durch eine Ge-
+radlinigkeit der Gleichungen wieder. Die Variablen werden mit reellen Zahlen
+multipliziert und addiert. Andere Operationen sind nicht gestattet. Damit lässt
+sich das Konzept nun einfach auf beliebig-dimensionale Räume Rn erweitern.
+
+ Definition 1.1.1. Eine lineare Gleichung in Rn mit Variablen x1 , . . . , xn ∈ R
+ und Koeffizienten a1 , . . . , an , b ∈ R hat die Form
+
+                                    a1 x1 + · · · + an xn = b.
+
+  Ein lineares Gleichungssystem ist eine Kombination mehrerer solcher Gleichun-
+gen.
+
+
+
+
+ 1
+     Falls b ̸= 0, lässt sich die Gleichung in die möglicherweise bekanntere Form y = mx + k mit
+      k = a/b und m = −a/b umschreiben.
+
+
+
+                                                 1
+                       1 Lineare Gleichungssysteme in Rn
+
+
+
+
+      Abbildung 1.1: Beispiele von zwei Geraden und deren Schnittmenge.
+
+
+ Definition 1.1.2. Ein lineares Gleichungssystem (LGS) aus m Gleichungen
+ und n Unbekannten x1 , . . . , xn hat die Form
+
+                           a11 x1 + . . . + a1n xn = b1
+                           a21 x1 + . . . + a2n xn = b2
+                                         ..
+                                          .
+                           am1 x1 + . . . + amn xn = bm .
+
+   Eine Lösung des Systems besteht aus einer Kombination von Werten x1 , . . . , xn ,
+für die alle Gleichungen wahr sind. Jede Gleichung beschreibt dabei ein lineares
+Objekt und die Lösungen (x1 , . . . , xn ) sind deren Schnittmenge. Damit stellt sich
+auch schon die Frage, ob es überhaupt eine Lösung gibt — und wenn Ja, wie
+viele?
+   In der Ebene R2 lässt sich dies leicht veranschaulichen. Abbildung 1.1 zeigt
+drei Graphen mit jeweils zwei Geraden. Jeder Graph lässt sich also durch ein
+LGS
+
+                                 a11 x1 + a12 xn = b1
+                                 a21 x1 + a22 xn = b2
+
+beschreiben. Im linken Graphen sind die Koeffizienten so gewählt, dass die Gera-
+den parallel zueinander verlaufen. Die Geraden schneiden sich nicht, also hat das
+LGS keine Lösungen: Es gibt keinen Punkt (x1 , x2 ), an dem beide Geradenglei-
+chungen erfüllt sind. Im mittleren Graphen sind die Geraden nicht parallel. Dann
+schneiden sie sich in genau einem Punkt, also hat das LGS genau eine Lösung.
+Der dritte Fall ist rechts abgebildet. Die Geraden sind nicht nur parallel, sondern
+identisch. In dem Fall ist die Schnittmenge unendlich groß: alle Punkte auf der
+Gerade. Das LGS hat dann unendlich viele Lösungen.
+   Abbildung 1.2 zeigt die verschiedenen Fälle für Ebenen im R3 . In Teilabbil-
+dungen a–d schneiden sich alle drei Ebenen nie gleichzeitig, in Teil e genau in
+einem Punkt und in d–g in unendlich vielen Punkten. Wir werden sehen, dass es
+
+
+                                          2
+                       1 Lineare Gleichungssysteme in Rn
+
+
+
+
+Abbildung 1.2: Beispiele von drei Ebenen und deren Schnittmenge. (Basierend
+               auf Figure 1.1.2 in [AR])
+
+
+auch für allgemeine LGS nur diese Möglichkeiten gibt: keine Lösung, genau eine
+Lösung oder unendlich viele Lösungen.
+
+
+1.2 Die Zeilenstufenform
+Wie können wir die Lösungen eines LGS also mathematisch bestimmen? Für
+manche Systeme ist das einfach.
+
+Beispiel 1.2.1. Sei (x1 , x2 , x3 ) die Lösung des Systems
+
+                                x1 − 2x2 + 6x3 = 2
+                                     7x2 + 3x3 = 2
+                                           3x3 = 2.
+
+Aus der dritten Gleichung erhalten wir direkt x3 = 2/3. Setzen wir das in die
+zweite Gleichung ein, erhalten wir
+                             2
+                 7x2 + 3 ·     =2    ⇔     7x2 = 0    ⇔       x2 = 0,
+                             3
+und letztlich aus der ersten Gleichung
+                                         2
+                      x1 − 2 · 0 + 6 ·     =2   ⇔     x1 = −2.
+                                         3
+  Dieses Verfahren zum Lösen eines LGS nennt sich Rückwärtssubstitution. Das
+System im Beispiel war besonders einfach zu lösen. In jeder Gleichung müssen
+wir nur mit einer Variable hantieren, die anderen sind bereits bekannt. Das
+verdanken wir der Tatsache, dass das System nur eine Lösung hat, und außerdem
+der stufenartigen Form des Systems. Und wir haben Glück: jedes LGS lässt sich
+
+
+
+                                           3
+                            1 Lineare Gleichungssysteme in Rn
+
+
+in eine solche Stufenform umschreiben, ohne dabei die Lösungsmenge zu ändern.
+   Wir nennen zwei LGS äquivalent, wenn sie die gleichen Lösungen besitzen.
+Zum Beispiel sind diese beiden LGS äquivalent:
+
+               x1 − 2x2 + 6x3 = 2                        3x1 − 6x2 + 18x3 = 6
+                    7x2 + 3x3 = 2                                    3x3 = 2
+                          3x3 = 2                              7x2 + 3x3 = 2
+
+Das ist einfach zu sehen. Die beiden ersten Gleichungen sind äquivalent, weil
+wir aus der linken durch Multiplikation mit dem Faktor 3 die rechte erhalten.
+Die beiden unteren Gleichungen sind lediglich in vertauschter Reihenfolge. Die
+Lösungsmenge bleibt davon natürlich unberührt.
+   Zur Lösung eines LGS können wir es mit solchen Operationen zunächst in ein
+einfacheres, äquivalentes umwandeln. Um Schreibarbeit zu sparen ist es üblich,
+die Variablennamen auszulassen, ein LGS ist vollständig durch die Koeffizienten
+bestimmt. Deshalb können wir es auch mit einer (erweiterten)2 Koeffizien-
+tenmatrix darstellen, zum Beispiel:
+
+               x1 − 2x2 + 6x3 = 2                                   1 −2 6 2
+                                                                                  
+
+                    7x2 + 3x3 = 2                   −→             0
+                                                                   
+                                                                       7 3 2
+                                                                            .
+                          3x3 = 2                                    0 0 3 2
+
+Oder allgemein:
+
+            a11 x1 + . . . + a1n xn = b1
+                                                                                           
+                                                                    a11      ...   a1n   b1
+                                                                    .              ..    .. 
+                          ..                        −→              .
+                           .                                        .               .     . 
+                                                                                             .
+            am1 x1 + . . . + amn xn = bm                               am1 · · ·   amn bm
+
+
+Das Folgende lässt sich einfach verifizieren:
+
+ Um das LGS zu vereinfachen, ohne die Lösungsmenge zu ändern, sind folgende
+ elementare Zeilenoperationen erlaubt:
+
+       1. Multipliziere eine Zeile mit einer Konstante c ̸= 0.
+
+       2. Tausche zwei Zeilen.
+
+       3. Addiere eine Zeile c ̸= 0 mal zu einer anderen.
+
+Beispiel 1.2.2. Die folgenden LGS sind alle äquivalent. Die dabei durchgeführten
+elementaren Zeilenoperationen sind in Kurzschreibweise über dem Äquivalenzsymbol
+∼ angegeben. Im ersten Schritt multiplizieren wir die zweite Zeile mit 1/2. Im
+ 2
+     Das erweitert“ bezieht sich dabei auf die letzte Spalte. Lassen wir diese aus, sprechen wir
+         ”
+      nur von einer Koeffizientenmatrix.
+
+
+
+                                                4
+                       1 Lineare Gleichungssysteme in Rn
+
+
+nächsten vertauschen wir die erste und zweite Zeile. Im letzten addieren wir 3
+mal die erste Zeile zur dritten Zeile.
+                     1 5 3 −2 (II)· 1                1 5 3 −2
+                                                            
+
+                   2 2 4 8  ∼                     1 1 2 4 
+                                  2                       
+
+                    −3 2 9 1                        −3 2 9 1
+                                                     1 1 2 4
+                                                              
+                                         (I)↔(2)
+                                           ∼        1 5 3 −2
+                                                            
+
+                                                    −3 2 9 1
+                                                      1 1 2 4
+                                                              
+                                         (III)+3·(I) 
+                                             ∼       1 5  3 −2
+                                                      0 5 15 13
+
+Im letzten Schritt des Beispiels erhalten wir eine führende 0 in der letzten Zeile.
+Schreiben wir die Zeile aus, erhalten wir eine Gleichung, von der x1 verschwunden
+ist: 5x2 + 15x3 = 13. Ziel ist es nun, mit elemenaren Zeilenoperationen eine
+stufenartige Form zu erreichen. Das lässt sich formal definieren.
+
+ Definition 1.2.3. Eine Matrix ist in Zeilenstufenform, wenn:
+
+    1. Alle Nullzeilen (Zeilen, in der höchstens der letzte Eintrag ungleich 0
+       ist) befinden sich am Ende der Matrix.
+
+    2. Die Pivots (der erste Eintrag aij einer Zeile ungleich Null: ji =
+       min{j : aij ̸= 0}) der anderen Zeilen erfüllen die Stufenbedingung
+
+                                     j1 < j2 < · · · < jr .
+
+  Zwei schematische Beispiele für die Zeilenstufenform sind
+
+               □ ∗ ∗ ∗                       0 □ ∗ ∗ ∗ ∗        ∗
+                                                                 
+               0 □ ∗ ∗                    0 0 0 □ ∗ ∗        ∗
+                                                                 ,
+                                                              
+               0 0 0 ∗                    0 0 0 0 □ ∗        ∗
+                                          
+
+                0 0 0 ∗                      0 0 0 0 0 □        ∗
+
+wobei □ eine Zahl ungleich 0 und ∗ eine beliebige Zahl darstellen. Die □-Einträge
+sind die Pivots des Systems.
+
+Beispiel 1.2.4. Das System
+
+                             3   0    2  0  1 −3
+                                                         
+
+                            0   2    3 −2  3 −2
+                                                
+                            0   0    1  0  0 3
+                                                
+                                                
+                            0   0    0  0  0 2
+                            
+                                                 
+                             0   0    0  0 −2 12
+
+
+
+
+                                            5
+                        1 Lineare Gleichungssysteme in Rn
+
+
+ist nicht in Zeilenstufenform, weil die Nullzeile (4. Zeile) nicht am Schluss steht.
+Wir können die Zeilen einfach vertauschen, um eine Zeilenstufenform zu bekom-
+men:
+                              3   0   2  0  1 −3
+                                                      
+
+                             0   2   3 −2  3 −2
+                                                
+                             0   0   1  0  0 3
+                                                
+                                                
+                             0
+                             
+                                  0   0  0 −2 12 
+                                                 
+                              0   0   0  0  0 2
+
+Die Pivots sind den Zeilen nach geordnet 3, 2, 1, -2. Die Einträge hinter dem
+Strich (Koeffizienten bk ) werden in Definition 1.2.3 nicht gezählt. Nullzeilen haben
+also keine Pivots.
+
+
+Beispiel 1.2.5. Die folgenden Operationen bringen die Ausgangsmatrix in Zei-
+lenstufenform:
+
+                3  6 −6 3                             1  2 −2 1
+                                                                   
+                                        (I)· 31
+              1   2  0 3               ∼          1   2  0 3
+                                                  
+                                                                
+               −2 −1  9 −2                           −2 −1  9 −2
+                                                      1  2 −2 1
+                                                                     
+                                       (II)−(I)
+                                         ∼          0   0  2 2
+                                                   
+                                                                 
+                                                     −2 −1  9 −2
+                                                     1  2 −2 1
+                                                                     
+                                      (II)↔(III)
+                                         ∼         −2 −1
+                                                   
+                                                           9 −2
+                                                               
+                                                     0  0  2 2
+                                                     1 2 −2 1
+                                                               
+                                      (II)+2·(I)
+                                         ∼         0 3   5 0
+                                                             .
+                                                   
+
+                                                     0 0  2 2
+
+
+1.3 Anzahl von Lösungen
+Es ist einfach zu sehen, dass die Zeilenstufenform nicht eindeutig ist. Wir können
+zum Beispiel eine beliebige Zeile mit 2 multiplizieren und erhalten eine äquivalente
+Zeilenstufenform. Das macht aber nichts. Von der Zeilenstufenform können wir
+einfach die Anzahl der Lösungen des LGS ablesen. Dafür bezeichnen wir Variablen,
+die zu einem Pivot gehört gebunden und alle anderen Variablen nennen wir
+frei. In Beispiel 1.2.4 sind z.B. Variablen x1 , x2 , x3 und x5 gebunden, weil die
+zugehörigen Spalten Pivots haben. Variable x4 ist frei, weil die vierte Spalte
+keinen Pivot hat.
+
+
+
+
+                                          6
+                        1 Lineare Gleichungssysteme in Rn
+
+
+ Theorem 1.3.1.
+
+   (i) Ein LGS hat genau dann keine Lösung, wenn sich durch elementare
+       Zeilenoperationen eine Nullzeile
+                                                        
+                                         0 0 ···   0 c
+
+       mit c ̸= 0 erzeugen lässt.
+
+  (ii) Ein lösbares LGS hat genau eine Lösung, wenn es keine freien Variablen
+       gibt. Andernfalls gibt es unendlich viele Lösungen.
+
+
+Beweis. Schreiben wir die Nullzeile aus, erhalten wir die Gleichung
+
+                              0x1 + · · · + 0xn = 0 = c.
+
+Wenn c ̸= 0, ist dies ein Widerspruch. Eine Nullzeile mit c ̸= 0 impliziert deshalb,
+das das LGS keine Lösung hat. Nehmen wir nun an, es gibt keine Nullzeile mit
+c ̸= 0. Dann können wir jede andere Zeile in Gleichungen der Form
+
+                         xk = dk + dk+1 xk+1 + · · · + dn xn
+
+umschreiben. Wir stellen zunächst fest, dass diese Gleichungen sich für verschie-
+dene k nicht widersprechen können, es gibt also mindestens eine Lösung. Gibt es
+keine freien Variablen, lassen sich die Gleichungen durch Rückwärtssubstitution
+eindeutig lösen. Gibt es freie Variablen in einer Gleichung, hat diese (und alle
+folgenden) in der Rückwärtssubstitution unendlich viele Lösungen.
+
+Beispiel 1.3.2. Die erweiterte Koeffizientenmatrix
+
+                                 □ ∗ ∗ ∗ ∗          ∗
+                                                    
+                               0 □ ∗ ∗ ∗           ∗
+                                                     
+                               0 0 □ ∗ ∗           ∗
+                                                     
+
+                                 0 0 0 0 □          ∗
+
+ist in Zeilenstufenform. Die vierte Spalte hat keinen Pivot, also ist x4 eine freie
+Variable. Folglich hat das LGS unendlich viele Lösungen.
+
+
+
+1.4 Die reduzierte Zeilenstufenform
+Die Lösungsmenge eines LGS lässt sich aus der Zeilenstufenform durch Rückwärtssubstitution
+bestimmen. Noch bequemer wird es, wenn wir die Matrix zuerst noch weiter ver-
+einfachen.
+
+
+
+
+                                            7
+                          1 Lineare Gleichungssysteme in Rn
+
+
+ Definition 1.4.1. Eine Matrix ist in reduzierter Zeilenstufenform, wenn
+ sie die folgenden Bedingungen erfüllt:
+
+   (i) Sie ist in Zeilenstufenform.
+
+  (ii) Alle Pivoteinträge aiji sind gleich 1.
+
+ (iii) Alle Spalteneinträge über einem Pivot sind gleich 0.
+
+  Beispielswiese sind die folgenden Matrizen reduziert:
+
+                     1   0   ∗   ∗               0   1       ∗   0   0   0   ∗
+                                                                           
+                   0    1   ∗   ∗            0    0       0   1   0   0   ∗
+                                                                            
+                   0    0   0   ∗            0    0       0   0   1   0   ∗
+                                                                            
+
+                     0   0   0   ∗               0   0       0   0   0   1   ∗
+
+Man kann zeigen, dass die reduzierte Zeilenstufenform eindeutig ist. Für jedes
+LGS gibt es also genau eine reduzierte Zeilenstufenform. Von der reduzierten
+Form lassen sich Lösungen einfach ablesen.
+
+Beispiel 1.4.2. Das System
+
+                                         1 0 0 0
+                                                    
+
+                                       0 1 0 1
+                                               
+
+                                         0 0 1 2
+
+hat die Lösung (x1 , x2 , x3 ) = (0, 1, 2).
+
+Beispiel 1.4.3. Das System
+
+                                         1 0 3 0
+                                                        
+
+                                       0 1 −2 1
+                                               
+
+                                         0 0 0 0
+
+hat die Lösungsmenge {(0, 1, 0) + x3 · (−3, 2, 1) : x3 ∈ R}.
+
+  Wir werden uns später noch genauer mit den Lösungsmengen beschäftigen.
+Jedenfalls haben wir jetzt ein Verfahren entwickelt, um die Lösungsmenge eines
+LGS zu bestimmen. Dieses Verfahren ist als Gauss-Jordan-Verfahren bekannt:
+
+   1. Schreibe das LGS in eine Koeffizientenmatrix.
+
+   2. Bringe Matrix durch elementare Zeilenoperationen in Zeilenstufenform.
+
+   3. Stelle fest, ob das System lösbar ist.
+
+   4. Falls ja, reduziere die Matrix um Lösungen zu bestimmen.
+
+
+
+
+                                               8
+                       1 Lineare Gleichungssysteme in Rn
+
+
+1.5 Vektoren in Rn
+Ein LGS ist eine Beschreibung von Punkten im n-dimensional Raum Rn . Wir
+wollen das zunächst formalisiern.
+
+ Definition 1.5.1. Ein n-dimensionaler Vektor ist ein geordnetes n-Tupel
+ x = (x1 , . . . , xn ) von reellen Zahlen x1 , . . . , xn ∈ R, genannt Komponenten.
+
+
+
+ Definition 1.5.2. Die Menge aller möglichen n-dimensionalen Vektoren ist
+ der n-dimensionale reelle Standardraum
+
+                      Rn = {(x1 , . . . , xn ) : x1 , . . . , xn ∈ R}.
+
+Notation:
+
+  • Für gewöhnlich schreiben wir x ∈ Rn in Spaltenform:
+                                                          
+                                                x1
+                                               . 
+                                          x =  .. 
+                                              
+                                                   .
+                                                      xn
+
+  • Zwei Vektoren x, y ∈ Rn sind gleich, wenn alle Einträge gleich sind:
+
+                    x=y           ⇔         xi = yi für alle i = 1, . . . , n.
+
+  • Wir definieren den Nullvektor als
+
+                                       0 = (0, 0, 0, . . .),
+                                              |       {z       }
+                                                   n mal
+
+     und den j-ten Einheitsvektor als
+
+                             ej = (0, . . . , 0, |{z}
+                                                  1 , 0, . . . , 0).
+                                                  j-te Stelle
+
+
+  In linearen Gleichungen verwenden wir nur zwei Operationen: Addition und
+Multiplikation mit Konstanten. Wir können diese Operationen auch für Vektoren
+definieren.
+
+
+
+
+                                             9
+                            1 Lineare Gleichungssysteme in Rn
+
+
+
+
+Abbildung 1.3: Graphische Darstellung von Vektoraddition und Multiplikation
+               mit einem Skalar. (Bild 1.1 [FS])
+
+
+ Definition 1.5.3. Seien x, y ∈ Rn .
+
+       • Vektoraddition:
+                                                       x1 + y 1
+                                                                               
+                                    x1      y1
+                                   .  .               .. 
+                             x+y =
+                                   ..  +  ..  := 
+                                                     
+                                                           .   .
+                                                  
+                                          xn            yn               xn + y n
+
+       • Multiplikation mit einem Skalar λ ∈ R:
+                                                                    
+                                                    λ · x1
+                                                   . 
+                                         λ · x :=  .. 
+                                                  
+                                                           .
+                                                            λ · xn
+
+  In Abbildung 1.3 sind die beiden Operationen graphisch dargestellt. Vektor-
+addition lässt sich durch die Parallelogrammregel beschreiben. Wir zeichnen ein
+Parallelogramm mit dem Nullpunkt als Start. Die zwei anderen Ecken sind die
+Punkte x und y. Dadurch ist die verbleibende Ecke eindeutig bestimmt. Sie
+beschreibt den Punkt x + y. Multiplikation mit einem Skalar3 λ entspricht dem
+Strecken/Stauchen mit dem Faktor λ. Ist λ < 0, dreht sich die Richtung des
+Vektors (vom Nullpunkt aus gesehen).
+  Aus Definition 1.5.3 folgen direkt einige Eigenschaften.
+
+
+
+
+ 3
+     Ein Skalar ist eine einzelne Zahl. Ein Vektor sind mehrere Zahlen.
+
+
+
+                                                   10
+                         1 Lineare Gleichungssysteme in Rn
+
+
+ Theorem 1.5.4. Für alle x, y, z ∈ Rn und c, d ∈ R gilt:
+
+    1. x + y = y + x
+
+    2. (x + y) + z = x + (y + z)
+
+    3. x + 0 = x
+
+    4. x + (−x) = x − x = 0
+
+    5. c(x + y) = cx + cy
+
+    6. (c + d)x = cx + dx
+
+    7. c(dx) = (cd)x
+
+    8. 1 · x = x
+
+
+
+1.6 Linearkombinationen
+Aus ein paar gegebenen Vektoren lassen sich durch Addition und Multiplikation
+mit Skalaren neue Vektoren erzeugen. Solche Vektoren verdienen einen Namen.
+
+ Definition 1.6.1. Wir nennen einen Vektor b ∈ Rn eine Linearkombinati-
+ on von Vektoren a1 , . . . , ak , wenn er sich als
+
+                                b = c1 a1 + · · · + ck ak
+
+ mit c1 , . . . , ck ∈ R schreiben lässt. Die Zahlen c1 , . . . , ck nennen wir Gewichte
+ oder Koeffizienten.
+
+
+Beispiel 1.6.2. Seien
+
+                         5                    0                1
+                                                           
+
+                     b=
+                       −2 ,               1 ,
+                                      a1 =                  0 .
+                                                        a2 = 
+                                                              
+
+                         2                   −1                0
+
+Dann ist b eine Linearkombination aus a1 und a2 mit Koeffizienten c1 = −2 und
+c2 = 5. Kurz: b = −2a1 + 5a2 .
+
+  Wir können nun ein allgemeines lineares Gleichungssystem auch als Vektorglei-
+chung formulieren. Die Vektorgleichung
+
+                                x1 a1 + · · · + xn an = b
+
+
+
+
+                                           11
+                           1 Lineare Gleichungssysteme in Rn
+
+
+ist äquivalent zum LGS mit erweiterter Koeffizientenmatrix
+                                                               
+                                       a1 a2 · · ·    an | b ,
+
+wobei die Vektoren a1 , . . . , an , b als Spalten der Koeffizientenmatrix zu verstehen
+sind. Aus Definition 1.6.1 folgt dann, dass das LGS genau dann eine Lösung hat,
+wenn sich b als Linearkombination aus a1 , . . . , an schreiben lässt.
+   Die Menge aller Linearkombination bezeichnen wir als Spann.
+
+ Definition 1.6.3. Die Menge aller Linearkombinationen von gegeben Vek-
+ toren a1 , . . . , ak ∈ Rn bezeichnen wir als Spann oder die von den Vektoren
+ aufgespannte Menge:
+
+              span{a1 , . . . , ak } = {c1 a1 + · · · + ck ak : c1 , . . . , ck ∈ R}.
+
+
+Lemma 1.6.4. Es gilt:
+ (i) 0 ∈ span{a1 , . . . , ak },
+
+ (ii) ai ∈ span{a1 , . . . , ak } für alle i = 1, . . . , k,
+
+(iii) b ∈ span{a1 , . . . , ak } ⇔ LGS (a1           ···   ak | b) hat eine Lösung.
+
+Beweis.
+
+  (i) Setze c1 = · · · = ck = 0.
+
+ (ii) Setze ci = 1 und cj = 0 für alle j ̸= i.
+
+(iii) ⇒: Wenn b ∈ span{a1 , . . . , ak }, dann gibt es c1 , . . . , ck ∈ R, so dass
+         c1 a1 + · · · + ck ak = b. Also ist x = (c1 , . . . , ck ) eine Lösung für das
+         LGS (a1 · · · ak | b).
+       ⇐: Sei x eine Lösung des LGS (a1 · · · ak | b). Dann gilt x1 a1 +
+          · · · + xk ak = b, d.h. b ist eine Linearkombination von a1 , . . . , ak mit
+          Koeffizienten x1 , . . . , xn .
+   Abbildung 1.4 stellt den Spann graphisch dar. Der Spann eines Vektors v ̸= 0
+ist eine Gerade, die den Nullpunkt mit dem Punkt v verbindet. Der Spann zweier
+Vektoren u ̸= v ̸= 0 kann eine Ebene beschreiben. Ist allerdings u = cv ̸= 0 mit
+c ∈ R, dann spannen die Vektoren keine Ebene, sondern nur eine Gerade auf.
+Außerdem ist span{0} = {0}.
+   Daran sehen wir, dass die Dimension der aufgespannten Menge nicht nur von
+der Anzahl der Vektoren a1 , . . . , ak abhängt, sondern auch von den Vektoren
+selbst. Das lässt sich iterativ verstehen. Der Nullvektor 0 ist in jedem Spann.
+Nehmen wir einen Vektor a1 ̸= 0 hinzu, bekommen wir alle Punkte in Richtung
+von a1 . Fügen wir einen nächsten Vektor a2 hinzu, erweitert das den Spann nur,
+
+
+                                                12
+                       1 Lineare Gleichungssysteme in Rn
+
+
+
+
+Abbildung 1.4: Der Spann von einem Vektor (links) und zwei Vektoren (rechts).
+               (Figure 10-11 aus [LLM])
+
+
+wenn er kein Vielfaches von a1 ist. Nehmen wir a3 hinzu, erweitert das den Spann
+nur, wenn sich a3 nicht bereits als Linearkombination aus a1 und a2 schreiben
+lässt, usw. Auf diese Eigenschaft kommen wir in Kürze wieder zurück.
+
+Beispiel 1.6.5. Sei
+
+                1                 0                 1                2
+                                                               
+               1               0               1             2
+          a1 = 
+                ,         a2 =   ,        a3 =   ,      a4 =   .
+                                                               
+               1               1               2             6
+                0                 1                 1                4
+
+Dann gilt span{a1 , . . . , a4 } = span{a1 , a2 }, weil sich a3 und a4 als Linearkom-
+bination von a1 und a2 schreiben lassen.
+
+
+
+1.7 Matrix-Vektor-Produkt
+Ein allgemeines LGS lässt sich mithilfe von Matrizen noch kompakter schreiben.
+
+ Definition 1.7.1. Eine rechteckiges Schema mit m Zeilen und n Spalten gefüllt
+ mit reellen Zahlen aij ∈ R,
+                                                     
+                                 a11      ···   a1n
+                                .               .. 
+                             A=
+                                ..                 ,
+                                                  . 
+                                    am1 · · ·   amn
+
+ bezeichnen wir als (m × n)-Matrix und schreiben A ∈ Rm×n .
+
+
+
+
+                                         13
+                        1 Lineare Gleichungssysteme in Rn
+
+
+  Um die linke Seite eines LGS auszudrücken, “multiplizieren” wir diese Matrix
+mit den Unbekannten x.
+
+ Definition 1.7.2. Das Matrix-Vektor-Produkt von A ∈ Rm×n mit Spalten
+ a1 , . . . , an und x ∈ Rn ist definiert als
+
+                             Ax = x1 a1 + · · · + xn an .
+
+  Ax ist also eine Linearkombination der Spalten in A. Das bedeutet auch, dass
+x so viele Komponenten haben muss, wie es Spalten in A gibt. Formell: Ist
+A ∈ Rm×n , dann muss x ∈ Rn sein.
+
+Beispiel 1.7.3. Das Matrix-Vektor-Produkt
+
+                                    1 2     1
+                                                      
+
+                                   3 −2 −4
+                                           
+
+                                    0 1     3
+
+existiert nicht. Der Vektor hat drei Komponenten, die Matrix aber nur zwei
+Spalten.
+
+ Das Matrix-Vektor-Produkt ist auch außerhalb von LGS nützlich. Das Produkt
+Ax ergibt einen neuen Vektor b. Diesen Vektor kann man wie folgt berechnen:
+
+                                              x1 a11 + · · · + xn a1n
+                                                                          
+              a11      ···   a1n    x1
+              .              .. 
+              .                   ..  =             ..
+                                                                   
+              .               .  .                   .           .
+                                                                      
+                 am1 · · ·   amn       xn            x1 am1 + · · · + xn amn
+
+Beispiel 1.7.4. Es gilt
+
+                               1 2
+                                                           
+                                            −7
+                                    1
+                                       !
+                             3 −2      =  11 
+                                              
+                                     −4
+                               0 1          −4
+
+  Definition 1.7.2 ergibt direkt die folgenden Eigenschaften.
+
+ Theorem 1.7.5 (Rechenregeln Matrix-Vektor-Produkt). Sei A ∈ Rm×n ,
+ x, y ∈ Rn und c ∈ R. Dann gilt:
+
+  (i) A(x + y) = Ax + Ay,
+
+  (ii) A(cx) = c(Ax).
+
+
+
+
+                                                14
+                         1 Lineare Gleichungssysteme in Rn
+
+
+Beweis. Aus Definition 1.7.2 und Theorem 1.5.4 folgt
+
+              A(x + y) = a1 (x1 + y1 ) + · · · + an (xn + yn )
+                       = (a1 x1 + a1 y1 ) + · · · + (an xn + an yn )
+                       = (a1 x1 + · · · + an xn ) + (a1 y1 + · · · + an yn )
+                       = Ax + Ay.
+
+Das beweist (i). Eigenschaft (ii) ist dem Leser als Übung überlassen.
+   Wir können jetzt ein LGS mit erweiterter Koeffizientenmatrix (a1 · · · an | b)
+kompakt als Vektorgleichung Ax = b schreiben. Wie eingangs erwähnt sind
+LGS und deren Lösungen der Kern der linearen Algebra. Das folgende Resultat
+charakterisiert diese Lösungen und verknüpft dabei die bisher gelernten Konzepte.
+Wir machen diese Verbindungen in einer besonders starken Form, nämlich durch
+Äquivalenzen. Entweder sind alle Aussagen gleichzeitig wahr oder gleichzeitig
+falsch.
+
+ Theorem 1.7.6. Sei A ∈ Rm×n . Die folgenden Aussagen sind äquivalent:
+
+   (i) Ax = b hat eine Lösung für jedes b ∈ Rm .
+
+  (ii) Jedes b ∈ Rm ist eine Linearkombination der Spalten von A.
+
+ (iii) span{a1 , . . . , an } = Rm .
+
+  (iv) Die Zeilenstufenformen von A haben keine Nullzeile.
+
+
+Beweis. Äquivalenz der Aussagen (a)–(c) folgt direkt von denen Definitionen
+des Matrix-Vektor-Produkts (Definition 1.7.2), der Linearkombination (Defini-
+tion 1.6.1) und des Spanns (Definition 1.6.3). Wir zeigen nun die Äquivalenz
+(i) ⇔ (iv). Sei U eine Zeilenstufenform von A. Dann gibt es ein d ∈ Rm , sodass
+wir (A | b) durch Zeilenoperationen in (U | d) überführen können. Machen wir
+diese Operationen rückgängig, können wir für jedes d das System (U | d) in ein
+System (A | b) überführen.
+
+   • (iv) ⇒ (i): Angenommen es gibt keine Nullzeile in U . Dann ist das LGS
+     U x = d lösbar für jedes d und damit auch Ax = b für jedes b.
+
+   • (i) ⇒ (iv): Wir zeigen diese Richtung durch Kontraposition. Angenommen
+     es gibt eine Nullzeile in U . Sei d ein Vektor, dessen letzter Eintrag ungleich
+     Null ist. Dann hat das System U x = d keine Lösung. Machen wir die
+     Zeilenoperationen rückgängig, finden wir ein b, sodass Ax = b keine Lösung
+     hat.
+
+
+
+
+                                           15
+                        1 Lineare Gleichungssysteme in Rn
+
+
+1.8 Lösungsmengen
+Wir beschäftigen uns weiter mit Lösungsmengen von LGS. Statt nur der Anzahl
+von Lösungen, wollen wir nun etwas über deren Gestalt lernen. Es ist dabei
+sinnvoll zwischen zwei Arten von Systemen zu unterscheiden: homogene und
+inhomogene Systeme.
+
+1.8.1 Homogene Systeme
+ Definition 1.8.1. Ein LGS der Form Ax = 0 wird homogen genannt.
+
+  Es ist einfach zu sehen, dass der Nullvektor immer eine Lösung ist: A0 = 0 für
+jede Matrix A. Diese Lösung nennen wir trivial.
+
+ Theorem 1.8.2. Ein homogenes System hat genau dann nicht-triviale
+ Lösungen, wenn es zumindest eine freie Variable gibt.
+
+
+Beweis. Wie oben bemerkt, ist 0 immer eine Lösung. Aus Theorem 1.3.1 (ii)
+folgt, dass dies genau dann die einzige Lösung ist, wenn es keine freien Variablen
+gibt.
+  Gibt es nur die triviale Lösung, ist die Lösungsmenge L = {0} = span{0}.
+Allgemein können wir die Lösungsmenge als Spann mehrerer Vektoren schreiben.
+
+ Theorem 1.8.3. Die Lösungsmenge eines homogenen LGS kann als
+ span{v1 , . . . , vk } für Vektoren v1 , . . . , vk geschrieben werden.
+
+
+Beweis. Sei L = {x : Ax = 0} die Lösungsmenge eines homogenen LGS. Ist
+{v1 , . . . , vr } eine beliebige Teilmenge von L, dann liegt auch der Vektor u =
+t1 v1 + · · · + tr vr in L für alle t1 , . . . , tr ∈ R, denn
+
+    Au = A(t1 v1 + · · · + tr vr ) = t1 Av1 + · · · + tr Avr = t1 0 + · · · + tr 0 = 0.
+
+Wir haben also gezeigt, das span{v1 , . . . , vr } ⊂ L.
+   Nehmen wir nun an, es gibt eine weitere Lösung vr+1 ∈ L, aber vr+1 ∈               /
+span{v1 , . . . , vr }. Dann gilt vr+1 ∈ span{v1 , . . . , vr+1 } ⊂ L und wir können so
+fortfahren, bis span{v1 , . . . , vk } = L. Dass dafür wir nur endlich viele Schritte
+nötig sind, sehen wir später.
+
+Beispiel 1.8.4. Wir starten mit dem folgenden homogenen LGS in reduzierter
+Form:
+                                    1 0 3 0 0
+                                                     
+
+                                  0 1 −2 5 0
+                                            
+
+                                    0 0 0 0 0
+
+
+
+                                            16
+                       1 Lineare Gleichungssysteme in Rn
+
+
+
+
+Abbildung 1.5: Die Lösungsmenge span{u, v} eines homogenen LGS. (Fig 1.5.2
+               aus [LLLM])
+
+
+Ausgeschrieben bedeutet dass
+
+                                     x1 + 3x3 = 0
+                               x2 − 2x3 + 5x4 = 0,
+
+was wir auch wiefolgt ausdrücken können:
+
+                              x1   = −3x3        +   0x4
+                              x2   =  2x3        −   5x4
+                                                         .
+                              x3   =  1x3        +   0x4
+                              x4   =  0x3        +   1x4
+
+Wir sehen, also dass sich jeder Lösungsvektor schreiben lässt als
+
+                     x1      −3          0
+                                                
+                   x       2       −5
+                     = c3     + c4 
+                    2
+                                           ,                c3 , c4 ∈ R,
+                                        
+                    x3     1        0 
+                     x4       0          1
+
+oder
+
+                                   ( −3     0 )
+                                           
+                                     2  −5
+                           L = span   ,   .
+                                           
+                                     1   0 
+                                         0               1
+
+   Die Lösungsmenge eines LGS lässt sich also immer als linearer Spann von
+Vektoren darstellen. Daraus folgt, dass die Lösungsmenge eines homogenen LGS
+immer entweder nur den Nullpunkt oder eine Gerade/Hyperebene durch den
+Nullpunkt beschreibt. Eine Lösungsmenge span{u, v} kann zum Beispiel eine
+Ebene im R3 beschreiben, wie in Abbildung 1.5 illustriert. Sind u = v = 0,
+dann enthält die Ebene“ nur denn Nullpunkt. Ist u = cv für ein c ∈ R, dann
+                  ”
+reduziert sich die Ebene“ zu einer Geraden. In jedem Fall ist die Lösung ein
+                   ”
+lineares Objekt. Über dessen Dimension werden wir in Kürze mehr lernen.
+
+
+
+                                        17
+                         1 Lineare Gleichungssysteme in Rn
+
+
+1.8.2 Inhomogene Systeme
+
+ Definition 1.8.5. Ein LGS der Form Ax = b mit b ̸= 0 wird inhomogen
+ genannt.
+
+
+
+ Theorem 1.8.6. Sei Lh = {x : Ax = 0} und x0 ein Vektor mit Ax0 = b.
+ Dann ist Menge aller Lösungen des inhomogenen Systems
+
+                               Li = {x0 + xh : xh ∈ Lh }.
+
+
+Beweis. Sei x0 eine beliebige Lösung von Ax = b. Wir müssen zwei Dinge zeigen:
+
+  (i) dass jedes x0 + xh mit xh ∈ Lh eine Lösung ist,
+
+ (ii) dass wir alle Lösungen als x0 + xh mit xh ∈ Lh schreiben können.
+
+Eigenschaft (i) gilt, denn
+
+                       A(x0 + xh ) = Ax0 + Axh = b + 0 = b.
+
+Sei nun x eine weitere Lösung von Ax = b. Dann wählen wir xh = x − x0 , wofür
+
+                    Axh = A(x − x0 ) = Ax − Ax0 = b − b = 0.
+
+Also gilt x = x0 + xh für ein xh ∈ Lh .
+  Theorem 1.8.6 sagt, dass sich jede Lösung eines inhomogenen LGS in eine
+Summe aus zwei Komponenten aufteilen lässt:
+
+   • einer speziellen Lösung x0 des inhomogenen Systems,
+
+   • einer allgemeinen Lösung xh des homogenen Systems.
+
+Zur Interpretation hilft es, die spezielle Lösung zu fixieren. Die gesamte Lösungsmenge
+des inhomogenen Systems ist dann einfach die gesamte Lösungsmenge des homo-
+genen Systems, aber um x0 vom Nullpunkt verschoben. Das ist in Abbildung 1.6
+illustriert. Intuitiv sollte nun auch klar sein, dass wir x0 beliebig aus den inho-
+mogenen Lösungen wählen können.
+
+
+1.9 Lineare Unabhängigkeit
+Es ist nicht ohne weiteres klar, ob die Lösungsmenge eine Gerade, eine Ebene oder
+eine höherdimensionale Hyperebene beschreibt. Das hängt mit der Definition des
+Spanns (Definition 1.6.3) zusammen. Für gegebene Vektoren v1 , . . . , vk kann es
+zum Beispiel sein, dass span{v1 , . . . , vk } = span{v1 , . . . , vk−1 }. Dies ist der Fall,
+
+
+                                            18
+                          1 Lineare Gleichungssysteme in Rn
+
+
+
+
+Abbildung 1.6: Die Lösungen eines inhomogenen Systemes sind die um eine spezi-
+               elle Lösung x0 verschobenen Lösungen des homogenen Systemes.
+               (Fig 3.4.7 aus [AR].)
+
+wenn sich vk bereits als Linearkombination aus v1 , . . . , vk−1 darstellen lässt. Das
+heißt, es gibt Koeffizienten c1 , . . . , ck−1 ∈ R, so dass
+
+                             vk = c1 v1 + · · · + ck−1 vk−1 ,
+
+oder, äquivalent dazu,
+
+                                0 = c1 v1 + · · · + ck vk ,
+
+mit ck = −1 ̸= 0. Wegen seiner Wichtigkeit, bekommt dieser Umstand einen
+eigenen Namen.
+
+ Definition 1.9.1. Eine Menge {v1 , . . . , vk } ⊂ Rn ist linear unabhängig,
+ wenn die Vektorgleichung
+
+                                x1 v1 + · · · + xk vk = 0
+
+ nur die triviale Lösung x = 0 besitzt. Andernfalls nennen wir die Vektoren
+ linear abhängig.
+
+Zugegeben, die Definition ist die weniger intuitive Variante der vorherigen Glei-
+chungen. Die beiden Varianten sind allerdings tatsächlich äquivalent. Wir wissen
+nur im Vorhinein nicht, welcher der Vektoren sich als Linearkombination der
+anderen schreiben lässt.
+
+ Theorem 1.9.2. Eine Menge M = {v1 , . . . , vk } ist genau dann linear
+ abhängig, wenn es ein vj ∈ M gibt, so dass vj ∈ span(M \ {vj }).
+
+
+Beweis.
+
+ ⇒: Nehmen wir an, dass M = {v1 , . . . , vk } linear abhängig ist. Dann gilt
+
+                                   0 = c1 v1 + · · · + ck vk
+
+
+                                            19
+                           1 Lineare Gleichungssysteme in Rn
+
+
+
+
+Abbildung 1.7: Darstellung dreier abhängiger (links) und unabhängiger (rechts)
+               Vektoren. (Fig 1.7.2 [LLM])
+
+
+         für c1 , . . . , ck nicht alle gleich 0. Sei j der größte Index mit cj ̸= 0. Wenn
+         j = 1, muss v1 = 0 gelten und damit v1 ∈ span{M \ v1 }. Falls j > 1, gilt
+                                           c1              cj−1
+                                  vj = −      v1 − · · · −      vj−1 .
+                                           cj               cj
+
+         Also ist vj ∈ span(M \ {vj }).
+
+ ⇐: Sei nun vj ∈ span(M \ {vj }). Nehmen wir der Einfachheit halber an, dass
+    v1 ∈ span(M \ {v1 }) = span{v2 , . . . , vk }.4 Dann gibt es c2 , . . . , ck ∈ R,
+    sodass
+                            v1 = c2 v2 + · · · + ck vk .
+         Subtrahieren wir v1 auf beiden Seiten, erhalten wir
+
+                                   0 = c1 v1 + c2 v2 + · · · + ck vk
+
+        mit c1 = −1. Die Vektorgleichung hat also eine nichttriviale Lösung
+        (bezüglich c1 , . . . , ck ) und M ist deshalb linear abhängig.
+
+
+Anmerkung 1.9.3. Im Voraus wissen wir nicht, welcher Vektor sich als Line-
+arkombination der anderen darstellen lässt. Um Unabhängigkeit zu überprüfen,
+suggeriert der erste Teil des Beweises eine einfache Vorgehensweise. Startend mit
+k = 2, überprüfen wir ob vk sich als Linearkombination der vorherigen Vektoren
+v1 , . . . , vk−1 darstellen lässt.
+
+  Zur Interpretation betrachten wir Abbildung 1.7. Die zwei Vektoren u und v
+zeigen in verschiedene Richtungen und spannen deshalb eine Ebene span{u, v}
+auf. Jeden Vektor in der Ebene können wir als Linearkombination aus u und
+v schreiben. Links liegt der Vektor w auf dieser Ebene: wir können ihn als
+Linearkombination aus u und v schreiben. Also ist {u, v, w} linear abhängig und
+es gilt span{u, v, w} = span{u, v}. Die Vektoren rechts sind linear unabhängig.
+ 4
+     Das ist ohne Beschränkung der Allgmeinheit (o.b.d.A), weil wir die Vektoren andernfalls
+      einfach umordnen können.
+
+
+
+                                               20
+                         1 Lineare Gleichungssysteme in Rn
+
+
+
+
+Abbildung 1.8: Linear abhängige (links und mittig) und unabhängige (rechts)
+               Vektoren. (Fig 4.3.3 in [AR])
+
+
+Insbesondere liegt w nicht auf der Ebene span{u, v}, und damit ist span{u, v, w}
+höherdimensional als span{u, v}.
+   Im Fall von ein oder zwei Vektoren, ist lineare Abhängigkeit besonders leicht zu
+bestimmen. Das folgende Resultat folgt direkt aus Theorem 1.9.2, einen Beweis
+überlassen wir als Fingerübung.
+
+Korollar 1.9.4.
+
+  (i) Eine Menge {v} ist genau dann linear abhängig, wenn v = 0. Eine Menge
+      {v1 , v2 } ist genau dann linear abhängig, wenn v1 = cv2 oder v2 = cv1 für
+      ein c ∈ R.
+
+ Abbildung 1.8 zeigt zwei linear abhängige (links und mitte) und unabhängige
+(rechts) Vektoren.
+   Wir können lineare Unabhängigkeit auch durch LGS beschreiben. Sei A =
+(v1 · · · vk ) ∈ Rn×k , so dass Ax = x1 v1 + · · · + xk vk . Dann sind v1 , . . . , vk nach
+Definition 1.9.1 genau dann linear unabhängig, wenn Ax = 0 nur die triviale
+Lösung hat. Daraus erhalten wir folgendes Resultat.
+
+ Theorem 1.9.5. Jede Menge {v1 , . . . , vk } ⊂ Rn mit k > n ist linear abhängig.
+
+
+Beweis. Definiere A = (v1 · · · vk ). Da k > n, kann A nicht in jeder Spalte einen
+Pivot haben und es gibt zumindest eine freie Variable. Theorem 1.3.1 sagt uns,
+dass das homogene LGS dann unendlich viele Lösungen besitzt. Es gibt dann auf
+jeden Fall nicht-triviale Lösungen des LGS Ax = 0 und deshalb ist {v1 , . . . , vk }
+linear abhängig.
+
+Beispiel 1.9.6. Die Vektoren
+
+                            3                               1
+                                !                !              !
+                                           −2
+                       v1 =   ,       v2 =    ,        v3 =   ,
+                            1               2               7
+
+sind linear abhängig, da es mehr Vektoren (k = 3) als Komponenten (n = 2) gibt.
+
+
+
+                                            21
+                         1 Lineare Gleichungssysteme in Rn
+
+
+Beispiel 1.9.7. Die Vektoren
+
+                                   3
+                                        !                         !
+                                                  −12
+                              v1 =   ,       v2 =     ,
+                                   1              −4
+
+sind linear abhängig, da v1 = −4v2 und deshalb v1 ∈ span{v2 }.
+
+
+Beispiel 1.9.8. Die Vektoren
+
+                            3                                       0
+                                                                   
+                                             −12
+                      v1 = 1 ,       v2 =  −4  ,          v3 = 0 ,
+                                                                
+
+                            0                  1                    1
+
+sind linear abhängig, weil v1 = − 14 v2 + 14 v3 .
+
+
+Beispiel 1.9.9. Die Vektoren
+
+                                3                             0
+                                                       
+                                          −12
+                               1 ,      −5  ,         0 ,
+                                                       
+
+                                0           1                 1
+
+sind linear unabhängig, denn das LGS
+
+                                     3 −12 0 0
+                                                         
+
+                                    1
+                                    
+                                        −5 0 0
+                                              
+                                     0   1 1 0
+
+hat nur die triviale Lösung.
+
+   Der Nullvektor liegt in jedem Spann. Also ist jede Menge, die ihn enthält,
+linear abhängig.
+
+ Theorem 1.9.10. Jede Menge M = {v1 , . . . , vk } mit 0 ∈ M ist linear
+ abhängig.
+
+Beweis. Nehmen wir o.b.d.A an, dass v1 = 0. Dann gilt insbesondere
+
+                              0 = 1v1 + 0v2 + · · · + 0vk ,
+
+also ist M linear abhängig.
+
+Anmerkung 1.9.11. Die Beweise der folgenden Eigenschaften, lassen wir als
+Übung:
+  (i) Erweitern wir eine abhängige Menge {v1 , . . . , vk } zu {v1 , . . . , vk+1 }, bleibt
+      sie linear abhängig. Andersherum gilt das nicht. Ist {v1 , . . . , vk } abhängig,
+      kann {v1 , . . . , vk−1 } sowohl unabhängig als auch abhängig sein.
+
+
+                                             22
+                          1 Lineare Gleichungssysteme in Rn
+
+
+ (ii) Reduzieren wir eine unabhängige Menge {v1 , . . . , vk } zu {v1 , . . . , vk−1 } bleibt
+      diese unabhängig. Über die Unabhängigkeit einer Erweiterung {v1 , . . . , vk+1 }
+      wissen wir allerdings nichts.
+
+
+
+1.10 Lineare Abbildungen
+Für gegebenes A ∈ Rm×n transformiert das Matrix-Vektor-Produkt jeden Vektor
+x ∈ Rn in einen Vektor Ax ∈ Rm . Durch die Transformation wird also eine
+Abbildung/Funktion T : Rn 7→ Rm definiert durch T (x) = Ax. Solche Abbil-
+dungen nennen wir linear. Wir können das etwas abstrahieren. Wir nennen jede
+Abbildung linear, die die Eigenschaften aus Theorem 1.7.5 erfüllt.
+
+1.10.1 Allgemeine lineare Abbildungen
+ Definition 1.10.1. Wir nennen eine Abbildung T : D → W linear, wenn
+
+    1. T (x + y) = T (x) + T (y) für alle x, y ∈ D,
+
+    2. T (cx) = cT (x) für alle c ∈ R, x ∈ D.
+
+   Lineare Abbildungen haben ein besonderes Verhalten bezüglich Addition und
+Multiplikation mit Skalaren. Es ist egal, welche Operation wir zuerst durchführen.
+Durch wiederholte Anwendung der Eigenschaften sehen wir, dass T genau dann
+linear ist, wenn
+
+                   T (c1 x1 + · · · + ck xk ) = c1 T (x1 ) + · · · + ck T (xk )
+
+für alle c1 , . . . , ck ∈ R und x1 , . . . , xk ∈ D.
+   Erstmal reicht es aus, lineare Abbildungen zwischen euklidischen Räumen
+D = Rn und W = Rm zu verstehen. Lineare Transformationen zwischen solchen
+lassen sich immer eindeutig als Matrix-Vektor-Produkt darstellen.
+
+ Theorem 1.10.2. Eine Abbildung T : Rn → Rm ist genau dann linear, wenn
+ es eine Matrix A ∈ Rm×n gibt, sodass T (x) = Ax für alle x ∈ Rm . Diese
+ Matrix ist eindeutig.
+
+
+Beweis. Für jede Matrix A ∈ Rm×n , wissen wir von Theorem 1.7.5, dass die
+Abbildung T (x) = Ax linear ist. Sei nun T : Rn → Rm linear. Sei ej der j-te
+Einheitsvektor (bei dem die j-te Komponente 1 und alle anderen 0 sind) und
+A = (T (e1 ) · · · T (en )) ∈ Rm×n . Dann gilt für jedes x ∈ Rn ,
+
+         T (x) = T (x1 e1 + · · · + xn en ) = x1 T (e1 ) + · · · + xn T (en ) = Ax.
+
+
+
+
+                                               23
+                        1 Lineare Gleichungssysteme in Rn
+
+
+   Wir zeigen nun, dass die Matrix A eindeutig ist. Angenommen B ist eine
+weitere Matrix, sodass T (x) = Bx für alle x ∈ Rn . Dann gilt insbesondere, dass
+T (ej ) = Aej = aj und T (ej ) = Bx = bj , wobei aj und bj die j-ten Spalten von
+A und B sind. Es sind also alle Spalten der Matrizen A und B gleich und damit
+auch die Matrizen A und B selbst.
+   Geometrisch gesehen werden durch lineare Abbildungen geradlinige Objekte
+in andere geradlinige Objekte überführt. Transformieren wir zum Beispiel alle
+Punkte einer Geraden in Rn linear, erhalten wir eine andere Gerade (oder einen
+Punkt) in Rm . Aus Definition 1.10.1 (ii) mit c = 0 folgt außerdem, dass T (0) = 0.
+Ist der Nullpunkt in der ursprünglichen Menge enthalten, ist er also auch in der
+transformierten Menge.
+
+1.10.2 Lineare Abbildungen R2 → R2
+Um Intuition zu entwickeln, betrachten wir einige Beispiele von linearen Trans-
+formationen in der Ebene R2 . In den folgenden Abbildungen sind die grauen
+Punkte die Ausgangsmenge. Diese Menge wird dann durch eine lineare Funktion
+T : R2 → R2 , also T (x) = Ax mit A ∈ R2×2 , transformiert. Das Ergebnis sind
+die grünen Punkte.
+   Die Standardmatrix A der Transformationen finden wir einfach, indem wir
+überlegen wie die Vektoren e1 = (1, 0) und e2 = (0, 1) transformiert werden. Aus
+dem Beweis von Theorem 1.10.2, wissen wir dann, dass A = (T (e1 ) T (e2 )).
+
+Stauchung und Streckung
+(a) Stauchung/Streckung um Faktor k ∈ R entlang der x1 -Achse:
+
+
+                                                   1
+
+
+
+
+                                             x2    0
+            k 0
+                    !
+         A=     ,         k∈R
+            0 1
+                                                  −1
+
+
+
+                                                       −1   0    1
+                                                            x1
+
+
+(b) Stauchung/Streckung um Faktor k ∈ R entlang der x2 -Achse:
+
+
+
+
+                                        24
+                       1 Lineare Gleichungssysteme in Rn
+
+
+
+                                                 1
+
+
+
+
+                                           x2    0
+           1 0
+                   !
+        A=     ,         k∈R
+           0 k
+                                                −1
+
+
+
+                                                     −1   0    1
+                                                          x1
+
+
+
+Spiegelung
+(a) Spiegelung an der Geraden x2 = 0:
+
+
+                                                 1
+
+
+
+
+                                           x2    0
+                1 0
+                          !
+             A=
+                0 −1
+                                                −1
+
+
+
+                                                     −1   0    1
+                                                          x1
+
+
+(b) Spiegelung an der Geraden x1 = 0:
+
+
+                                                 1
+
+
+
+
+                                           x2    0
+                −1 0
+                          !
+             A=
+                 0 1
+                                                −1
+
+
+
+                                                     −1   0    1
+                                                          x1
+
+
+(c) Spiegelung an der Geraden x1 = x2 :
+
+
+                                                 1
+
+
+
+
+                                           x2    0
+                0 1
+                         !
+             A=
+                1 0
+                                                −1
+
+
+
+                                                     −1   0    1
+                                                          x1
+
+
+
+
+                                      25
+                     1 Lineare Gleichungssysteme in Rn
+
+
+(d) Spiegelung an der Geraden x1 = −x2 :
+
+
+                                                  1
+
+
+
+
+                                            x2    0
+               0 −1
+                           !
+           A=
+              −1 0
+                                                 −1
+
+
+
+                                                      −1   0    1
+                                                           x1
+
+
+(e) Spiegelung am Punkt x1 = x2 = 0:
+
+
+                                                  1
+
+
+
+
+                                            x2    0
+              −1 0
+                           !
+           A=
+               0 −1
+                                                 −1
+
+
+
+                                                      −1   0    1
+                                                           x1
+
+
+
+Scherung
+(a) Horizontale Scherung um Faktor k ∈ R:
+
+
+                                                  1
+
+
+
+
+                                            x2    0
+                1 k
+                       !
+             A=
+                0 1
+                                                 −1
+
+
+
+                                                      −1   0    1
+                                                           x1
+
+
+(b) Vertikale Scherung um Faktor k ∈ R:
+
+
+
+
+                                       26
+                      1 Lineare Gleichungssysteme in Rn
+
+
+
+                                                     1
+
+
+
+
+                                               x2    0
+                  1 0
+                         !
+               A=
+                  k 1
+                                                    −1
+
+
+
+                                                         −1   0    1
+                                                              x1
+
+
+
+Rotation
+Auch Rotationen um den Nullpunkt sind lineare Transformationen. Die Ma-
+trix A lässt sich für solche Transformationen am Einheitskreis ablesen. Ei-
+ne Drehung des Vektors e1 = (1, 0) um ϕ gegen den Uhrzeigersinn ergibt
+den Vektor (cos(ϕ), sin(ϕ)). Drehen wir bspw. um 90◦ , erhalten wir den Punkt
+(cos(π/2), sin(π/2)) = (0, 1). Ähnlich sehen wir, dass der Vektor e2 = (0, 1) zu
+(sin(−ϕ), cos(−ϕ)) transformiert wird.
+
+(a) Rotation um Winkel ϕ gegen den Uhrzeigersinn:
+
+
+                                                     1
+
+
+
+
+                                               x2    0
+           cos(ϕ) − sin(ϕ)
+                                  !
+        A=
+           sin(ϕ) cos(ϕ)
+                                                    −1
+
+
+
+                                                         −1   0    1
+                                                              x1
+
+
+(b) Rotation um Winkel ϕ im Uhrzeigersinn:
+
+
+                                                     1
+
+
+
+            cos(−ϕ) − sin(−ϕ)
+                                      !
+      A=
+            sin(−ϕ) cos(−ϕ)
+                                               x2    0
+
+
+
+             cos(ϕ) sin(ϕ)
+                              !
+        =
+            − sin(ϕ) cos(ϕ)
+                                                    −1
+
+
+
+                                                         −1   0    1
+                                                              x1
+
+
+
+Projektionen
+Mit Projektionen werden uns später noch ausführlicher beschäftigen. Erstmal be-
+trachten wir zwei simple Fälle, nämlich Projektionen auf die beiden Hauptachsen.
+
+
+
+                                          27
+                        1 Lineare Gleichungssysteme in Rn
+
+
+(a) Projektion auf die Gerade x1 = 0:
+
+
+                                                      1
+
+
+
+
+                                                x2    0
+                  0 0
+                           !
+               A=
+                  0 1
+                                                     −1
+
+
+
+                                                          −1   0     1
+                                                               x1
+
+
+(b) Projektion auf die Gerade x2 = 0:
+
+
+                                                      1
+
+
+
+
+                                                x2    0
+                  1 0
+                           !
+               A=
+                  0 0
+                                                     −1
+
+
+
+                                                          −1   0     1
+                                                               x1
+
+
+
+
+1.10.3 Lineare Abbildungen in Funktionenräumen
+Definition 1.10.1 ist allgemein gehalten, weil es wichtige Beispiele von linearen
+Abbildungen zwischen nicht-euklidischen Räumen gibt. Das wichtigste Beispiel
+sind Räume von Funktionen. Das können wir jetzt schon mal kurz anteasern.
+   Räume von Funktionen sind in der modernen Statistik nicht wegzudenken. In
+Regressionsproblemen suchen wir beispielsweise eine Funktion f , sodass Y =
+f (X) + ϵ, für Zufallsvariablen Y, X ∈ R und Rauschen ϵ mit E[ϵ | X] = 0.
+Gegeben X = x, können wir dann Y durch f (x) vorhersagen, denn
+
+                   E[Y | X = x] = E[f (X) + ϵ | X = x] = f (x).
+
+In der Praxis sucht dann ein Algorithmus eine geschätzte Funktion fb aus einer
+ganzen Menge von Funktionen F. Durch Resultate der linearen Algebra können
+wir solche Mengen (und dadurch die Algorithmen) besser verstehen.
+
+Beispiel   1.10.3. Sei F = L2 ([0, 1]) die Menge aller Funktionen f : [0, 1] → R
+mit 0 f R(x)dx < ∞. Fixiere g ∈ F und definiere die Abbildung T : F → R durch
+     R1 2
+
+T (f ) = 01 g(x)f (x)dx. Es lässt sich leicht überprüfen, dass T linear ist: für alle
+
+
+
+
+                                           28
+                       1 Lineare Gleichungssysteme in Rn
+
+
+f1 , f2 ∈ F und c ∈ R, gilt
+                            Z        
+           T (f1 + f2 ) =       g(x) f1 (x) + f2 (x))dx
+                            Z                      Z
+                       =        g(x)f1 (x)dx +         g(x)f2 (x)dx
+                       = T (f1 ) + T (f2 ),
+                            Z                           Z
+               T (cf1 ) =       cg(x)f1 (x)dx = c1              g(x)f1 (x)dx = cT (f1 ).
+
+   Eine intuitive Verbindung zu euklidischen Abbildungen lässt sich leicht herstel-
+len. Für gegebene Punkte xj = j/n, j = 1, . . . , n, schreiben wir
+
+                                           f (x1 )
+                                                   
+                                          . 
+                                     f =  .. 
+                                         
+                                                   ∈R
+                                                      n
+
+                                          f (xn )
+
+und definieren die lineare Abbildung Tn durch das Matrix-Vektor-Produkt
+
+                                                                  f (x1 )
+                                                                                 
+
+                                                       g(xn )/n  ... 
+                                                              
+                    Tn (f ) = g(x1 )/n · · ·
+                                                                          
+                                                                          .
+                                                                
+                                                                        f (xn )
+
+Dann erhalten wir für n → ∞, dass Tn (x) → 01 f (x)g(x) dx.
+                                                            R
+
+
+   Weil diese nicht-euklidischen Beispiele in der Statistik relevant sind, beweisen
+wir in den folgenden Kapiteln manchmal Eigenschaften für allgemeine lineare
+Abbildungen T : D → W . Selbstverständlich gelten diese dann auch für Matrix-
+Transformationen T (x) = Ax von Rn nach Rm . Zum einfacheren Verständnis
+ist es empfehlenswert, die Resultate immer erst im euklidischen Kontext zu
+betrachten.
+
+
+
+
+                                              29
+

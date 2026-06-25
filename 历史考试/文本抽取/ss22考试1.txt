@@ -1,0 +1,489 @@
+120- MINÜTIGE N ACHKLAUSUR ZUR V ORLESUNG „M ETHODEN DER LINEAREN
+        A LGEBRA IN DER S TATISTIK “ (S OMMERSEMESTER 2022),
+                      T. N AGLER , H. B LOCHER
+                     N ACHKLAUSUR AM 04.10.2022, 12:30 – 14:30 U HR
+
+
+   V ORNAME :
+
+   N ACHNAME :
+
+   M ATRIKELNUMMER :
+
+   S TUDIENGANG + PO:
+
+   U NTERSCHRIFT:
+
+
+• Überprüfen Sie, ob Ihre Angabe vollständig ist. Sie sollte 5 Aufgaben auf 13 Seiten umfassen.
+
+• Füllen Sie bitte das obenstehende Formular umgehend aus. Schreiben Sie bitte leserlich.
+
+• Halten Sie für die Kontrolle bitte einen Lichtbildausweis und Ihren Studierendenausweis bereit.
+
+• Die Bearbeitungszeit beträgt 120 Minuten. Eine vorzeitige Abgabe ist in den ersten 30 und in den
+  letzten 30 Minuten der Bearbeitungszeit nicht möglich.
+
+• Verwenden Sie für die Bearbeitung ausschließlich die Ihnen zur Verfügung gestellten Papierbögen.
+  Kennzeichnen Sie jedes zur Abgabe vorgesehene Blatt mit Namen und Matrikelnummer.
+
+• Alle Lösungen müssen nachvollziehbar sein. Dazu gehört auch lesbare Schrift. Ergebnisse müssen
+  klar erkennbar und zuzuordnen sein. Nur Lösungen die direkt unterhalb der Aufgabe (bzw. auf der
+  Seite danach) bearbeitet worden sind und bei denen klar die Teilaufgabe gekennzeichnet wurde,
+  können gewertet werden. Falls der Platz nicht ausreicht, muss an der Stelle ein Verweis zur Lösung
+  zu finden sein.
+
+• Machen Sie kenntlich, falls Sie mit einem Ersatzergebnis weiterrechnen!
+
+• Es dürfen nur dokumentenechte Stifte und keine roten Stifte verwendet werden.
+
+• Zugelassene Hilfsmittel: Taschenrechner (nicht programmierbar, ohne Grafik-Funktion), Wörter-
+  buch, beidseitig handbeschriebenes A4-Blatt.
+
+• Bei Unterschleif erfolgt eine Meldung an das Prüfungsamt. Sie sind verpflichtet, durch Ihr Verhal-
+  ten jegliche Missverständnisse diesbezüglich auszuschließen. Sorgen Sie insbesondere dafür, dass
+  sich keinerlei Mobiltelefone und Uhren an Ihrem Arbeitsplatz befinden.
+
+• Verlassen Sie den Prüfungsraum erst, nachdem Sie der Aufsicht die Klausur persönlich übergeben
+  haben. Für den Eingang der kompletten Klausur bei der Aufsicht sind Sie selbst verantwortlich.
+
+
+                                   mögliche Punkte      erreichte Punkte
+                     1. Aufgabe           20
+                     2. Aufgabe           20
+                     3. Aufgabe           35
+                     4. Aufgabe           20
+                     5. Aufgabe           25
+                     Summe               120
+Nachklausur (Sommersemester 2022)                              Methoden der linearen Algebra in der Statistik
+N AME :
+
+
+Aufgabe 1
+Berechne die Kleinste-Quadrate-Lösung zum System Ax = b mit
+                                                  
+                                    2 −2             2
+                             A= 1 1 ,
+                                              b = −1 .
+                                                   
+                                    3 1              1
+                                                                                                                20 P UNKTE
+
+
+
+       Lösung:
+     Die Lösungsmenge zu dem Kleinste-Quadrate-Problem kann mit der Normalenglei-
+     chung gelöst werden.
+     Schritt 1: Aufstellen der Normalengleichung
+                                                    
+                                        ⊤       14 0
+                                       A A=
+                                                0 6
+                                               
+                                                 6
+                                       A⊤ b =
+                                                −4
+
+     Damit ist die Lösungsmenge des Kleinsten-Quadrate-Problems gleich der Menge aller
+     Lösungen der Gleichung
+                                                               
+                       ⊤      ⊤                     14 0          6
+                     A Ax̂ = A b ⇔                         x̂ =       .
+                                                     0 6         −4
+
+     Schritt 2: Lösen der Normalengleichung.
+       (i) Direkt lösen der Gleichung (einfaches ablesen) folgt:
+                                                  3 
+                                            x̂ =   7   .
+                                                  − 23
+
+          (ii) A⊤ A ist eine invertierbare Matrix mit
+                                                               1        
+                                                 ⊤    −1        14
+                                                                     0
+                                            (A A)          =         1
+                                                                0    6
+
+              und somit ist
+                                                                          3 
+                                             ⊤       −1    ⊤                  7
+                                      x̂ = (A A) A b = x̂ =                         .
+                                                                             − 23
+
+
+
+     Man kann das Kleinste-Quadrate-Problem auch mit Theorem 5.8.3 lösen.
+
+
+
+
+                                                                                            Seite 2 von 13
+Nachklausur (Sommersemester 2022)   Methoden der linearen Algebra in der Statistik
+
+N AME :
+
+
+
+          Lösung:
+
+
+
+
+                                                                 Seite 3 von 13
+Nachklausur (Sommersemester 2022)                              Methoden der linearen Algebra in der Statistik
+
+N AME :
+
+
+Aufgabe 2
+Im Graph in Abbildung 1 ist links eine Ausgangsmenge von Punkten x ∈ R2 und rechts deren
+Bild unter der Transformation x 7→ Ax mit einer Matrix A ∈ R2×2 dargestellt. Zur Orientierung
+sind zwei Punkte besonders markiert (Quadrat und Dreieck).
+(a) Bestimme ker(A), col(A), rang(A) und det(A) und begründe die Antwort anhand des Gra-
+    phen.                                                                                (16 Punkte)
+
+(b) Bestimme Matrix A.                                                                                          (4 Punkte)
+
+
+                     2                                     2
+
+
+
+
+                     1                                     1
+
+
+
+
+               x2    0                               y2    0
+
+
+
+
+                    −1                                    −1
+
+
+
+
+                    −2                                    −2
+
+                         −2   −1   0      1      2             −2     −1      0      1       2
+                                   x1                                         y1
+
+
+
+Abbildung 1: Ausgangsmenge (links) und Bild der Menge unter der Matrixtransformation x 7→
+Ax (rechts).
+                                                                                                                20 P UNKTE
+
+
+
+          Lösung:
+
+     (a)
+     Nach der Graphik ist A ∈ R2×2 . Sei also A = (a1 a2 ) mit a1 , a2 ∈ R2 . Nach Definition
+     gilt
+
+                                        col(A) = span{a1 , a2 }
+
+     und somit entspricht der Spaltenraum dem Bild der Abbildung x 7→ Ax.
+     Die
+      Bildmenge
+                 ist in der rechten Graphik zu sehen und man sieht, dass der Punkt
+        0        0
+            auf     abgebildet wird. Damit enthält der Kern von A mehr als {0}. Zudem
+       −1        0
+     sieht man, dass das Bild von A nicht nur die Null enthält und somit folgt mit der
+     Dimensionsformel dim(R2 ) = rang(A) + dim(ker(A)). Mit dim(R2 ) = 2 folgt, dass
+     dim(ker(A)) = 1 und rang(A) = 1. Damit erhalten wir
+                                                           
+                                     −2                           0
+                   col(A) = span           ,    ker(A) = span          .
+                                      0                          −1
+
+     Da ker(A) ̸= {0} ist, folgt aus dem großen Äquivalenzsatz, dass det(A) = 0 sein muss.
+
+
+
+
+                                                                                            Seite 4 von 13
+Nachklausur (Sommersemester 2022)                     Methoden der linearen Algebra in der Statistik
+
+N AME :
+
+
+
+          Lösung:
+
+     Hinweis: Die hier verwendeten Theoreme/Definitionen/Beispiele sind: Beispiel 3.4.2,
+     Beispiel 3.4.3, Beispiel 3.4.9, Beispiel 3.4.10, Definition 3.4.1, Theorem 3.4.12, Theo-
+     rem 5.4.8. und Kapitel 2.4.1.
+
+
+
+     (b)
+
+     Die Matrix A = (a1 , a2 ) lässt sich über aj = Aej bestimmen, wobei e1 , e2 die Ein-
+     heitsvektoren sind. Diese sind in der Graphik nicht gegeben, sondern −2e1 (Quadrat)
+     und −e1 (Dreieck). Es gilt
+                                                                     
+                    −1                                                  1/2
+                         = A(−2e1 ) = −2A(e1 ) = −2a1 ,       ⇒ a1 =
+                     0                                                   0
+
+     und
+                                                                    
+                      0                                               0
+                         = A(−e2 ) = −A(e2 ) = −a2 ,          ⇒ a1 =     ,
+                      0                                               0
+
+     also
+                                                      
+                                                 1/2 0
+                                        A=               .
+                                                  0 0
+
+
+
+
+                                                                                   Seite 5 von 13
+Nachklausur (Sommersemester 2022)                         Methoden der linearen Algebra in der Statistik
+N AME :
+
+
+Aufgabe 3
+Bestimme, welche der folgenden Aussagen wahr oder falsch sind (mit Begründung).
+(a) Wenn A positiv definit ist, dann ist −A negativ definit.                                               (5 Punkte)
+
+(b) Wenn A ∈ Rn×n invertierbar ist, dann gilt ker(A) = ker(A−1 ).                                          (5 Punkte)
+
+(c) Seien A, B zwei Matrizen. Wenn die Produkte AB und BA beide definiert sind, müssen
+    sowohl AB als auch BA quadratische Matrizen sein.                                 (5 Punkte)
+
+(d) Sei {v1 , . . . , vn } eine Basis des Skalarproduktraums V . Dann ist der Nullvektor der einzige
+    Vektor, der orthogonal zu allen Basisvektoren ist.                                               (5 Punkte)
+
+(e) Wenn A ∈ Rn×n invertierbar ist, dann sind die Spalten von A−1 eine Basis des Rn .                      (5 Punkte)
+
+(f) Sei f1 (x) = 1, f2 (x) = x2 + 1 und f3 (x) = x2 − 1. Dann ist {f1 , f2 , f3 } eine Basis für P2 , den
+    Raum aller Polynome zweiten Grades.                                                                   (5 Punkte)
+
+(g) Sei Rn×n der Vektorraum aller (n × n)-Matrizen mit der üblichen Addition und Skalarmulti-
+    plikation. Dann ist die Teilmenge aller invertierbaren (n×n)-Matrizen ein Untervektorraum
+    von Rn×n .                                                                                (5 Punkte)
+                                                                                                           35 P UNKTE
+
+
+          Lösung:
+
+      (a) Diese Behauptung ist wahr, da für alle x ̸= 0 gilt (da A positiv definit ist)
+
+                                           x(−A)x = −xAx < 0.
+
+     (b) Diese Behauptung ist wahr. Da A invertierbar ist folgt dass A−1 ebenfalls inver-
+          tierbar ist und nach dem (großen) Äquivalenzsatz gilt
+          A invertierbar ⇒ ker(A) = {0}
+          A−1 invertierbar ⇒ ker(A−1 ) = {0}
+          Also ker(A) = ker(A−1 ).
+     (c) Diese Behauptung ist wahr. Sei A ∈ Rk×m und B ∈ Rn×ℓ . Damit AB und BA
+          definiert sind, muss m = n und k = ℓ gelten. Die Matrix AB hat Dimensionen
+          k × ℓ = k × k und die Matrix BA hat Dimensionen n × m = n × n. Also sind AB
+          und BA quadratisch.
+     (d) Diese Behauptung ist wahr.
+          Schritt 1: Der Nullvektor ist orthogonal zu jedem Vektor v, da ⟨0, v⟩ = 0.
+          Schritt 2: Gäbe es einen weiteren Vektor w ∈ V der orthogonal auf allen Vek-
+          toren v1 , . . . , vn steht, dann wäre dieser auch linear unabhängig zu v1 , . . . , vn .
+          Dann würde aber v1 , . . . , vn , w eine Basis bilden, was ein Widerspruch zu der
+          Annahme ist, dass v1 , . . . , vn bereits eine Basis ist.
+     (e) Diese Behauptung ist wahr. Da A invertierbar ist folgt dass A−1 ∈ Rn×n ebenfalls
+          invertierbar ist und nach dem (großen) Äquivalenzsatz gilt, dass die n Spalten
+          von A−1 linear unabhängig sind und den gesamten Rn aufspannen. Somit folgt
+          mit der Definition einer Basis, dass die Spalten von A−1 eine Basis des Rn defi-
+          nieren.
+      (f) Diese Behauptung ist falsch. Die Funktion x 7→ x ist ein Element von P2 , aber
+          kann nicht durch eine Kombination aus Skalarmultiplikation und Addition der
+          Funktionen f1 , f2 , f3 dargestellt werden.
+
+
+
+
+                                                                                          Seite 6 von 13
+Nachklausur (Sommersemester 2022)                       Methoden der linearen Algebra in der Statistik
+
+N AME :
+
+
+
+           Lösung:
+
+          (g) Diese Aussage ist falsch. Betrachte
+                                                             
+                                              1 0           0 1
+                                        A=          ,   B=        .
+                                              0 1           1 0
+
+              Dann sind A und B offensichtlich invertierbar, aber A + B ist es nicht. Alter-
+              nativ: Die Nullmatrix ist nicht invertierbar, aber jeder Unterraum muss den
+              Nullvektor enthalten.
+
+
+
+
+                                                                                     Seite 7 von 13
+Nachklausur (Sommersemester 2022)                           Methoden der linearen Algebra in der Statistik
+
+N AME :
+
+
+Aufgabe 4
+
+Sei M ⊂ Rn eine nichtleere Menge von Vektoren. Beweise: M ist genau dann linear unabhängig,
+wenn für jedes v ∈
+                 / span(M ) die Menge M ∪ {v} linear unabhängig ist.                        20 P UNKTE
+
+
+
+       Lösung:
+     Wir bemerken zuerst, dass 0 ∈ span(M ) und somit v ̸= 0 sein muss.
+     ⇒: Wir nehmen an, dass die Vektoren in M linear unabhängig sind.
+     Sei nun v ∈ / span(M ). Wir führen ein Beweis per Widerspruch und nehmen daher
+     zusätzlich an, dass die Menge M ∪ {v} linear abhängig ist, d.h., es gibt c1 , . . . , ck+1
+     nicht alle gleich 0, sodass
+                                       k
+                                       X
+                                              ci mi + ck+1 v = 0.
+                                        i=1
+
+     Fall 1: Ist ck+1 = 0, dann muss eins der c1 , . . . , ck ungleich 0 sein und
+                                              k
+                                              X
+                                                     ci mi = 0.
+                                              i=1
+
+     Damit wäre M linear abhängig, was im Widerspruch zur Annahme ist.
+     Fall 2: Ist ck+1 ̸= 0, dann gilt
+                                              k
+                                             X    ci
+                                         v=−         mi ,
+                                                c
+                                             i=1 k+1
+
+     also v ∈ span(M ), was auch ein Widerspruch zur Annahme ist.
+
+     ⇐: Sei M = {m1 , . . . , mk } (k ≤ n) und sei v ∈
+                                                     / span(M ) mit M ∪ {v} linear unab-
+     hängige Menge. Dann hat die Vektorengleichung
+                                        k
+                                        X
+                                              ci mi + ck+1 v = 0
+                                        i=1
+
+     nur die triviale Lösung. Insbesondere hat dann auch die Vektorengleichung
+                                              n
+                                              X
+                                                     ci m i = 0
+                                               i=1
+
+     ebenfalls nur die trivial Lösung und somit sind die Vektoren in M linear unabhängig.
+     Allgemeiner: eine Teilmenge einer linear unabhängigen Menge ist immer linear un-
+     abhängig.
+
+
+
+
+                                                                                         Seite 8 von 13
+Nachklausur (Sommersemester 2022)   Methoden der linearen Algebra in der Statistik
+
+N AME :
+
+
+
+
+                                                                 Seite 9 von 13
+Nachklausur (Sommersemester 2022)                       Methoden der linearen Algebra in der Statistik
+
+N AME :
+
+
+Aufgabe 5
+
+Sei n ≥ 1 und V = {f : Rn → R2 } der Vektorraum aller Funktionen von Rn nach R2 mit den
+üblichen Regeln für Addition von Funktionen und Multiplikation mit Skalaren. Sei außerdem
+L = {f : Rn → R2 linear} die Menge aller linearen Abbildungen von Rn auf R2 .
+(a) Sei B eine Basis für R2×n , die Menge aller (2 × n)-Matrizen. Zeige, dass die Menge von
+    Funktionen
+
+                                        L = {fB (x) = Bx : B ∈ B}
+
+    eine Basis für L bilden. (Tipp: Bedenke wie sich lineare Funktionen darstellen lassen.)              (10 Punkte)
+
+(b) Bestimme die Dimension von L.                                                                        (5 Punkte)
+
+(c) Beweise, dass L ein Untervektorraum von V ist.                                                       (10 Punkte)
+                                                                                                         25 P UNKTE
+
+
+           Lösung:
+
+          (a) Jede lineare Abbildung f : Rn → R2 lässt sich eindeutig als f (x) = Ax für
+              eine Matrix A ∈ Rn×2 darstellen. Da B eine Basis für Rn×2 ist, gibt es dann
+              Koeffizienten {cB : B ∈ B}, sodass
+                                       X            X          X
+                          f (x) = Ax =       cB B x =    cB Bx =     cB fB (x).
+                                          B∈B            B∈B          B∈B
+
+              Die Koeffizienten in dieser Darstellung müssen eindeutig sein, da sonst A nicht
+              eindeutig in der Basis B dargestellt würde. Also ist L eine Basis für L.
+          (b) Da dim(R2×n ) = 2n, muss B aus 2n Basismatrizen bestehen. Entsprechend be-
+              steht L aus 2n Funktionen und deshalbe dim(L) = 2n.
+          (c) Hierfür gehen wir die Definition 3.2.1 durch. Offensichtlich ist L eine Teilmenge
+              von V .
+                (i) Da die Nullfunktion eine lineare Abbildung ist, ist L ̸= ∅.
+               (ii) Seien nun f, g ∈ L. Wir müssen nun zeigen, dass auch f + g ∈ L gilt. Wir
+                    stellen f und g als fA (x) = Ax und fB (x) = Bx dar. Dann ist
+
+                                     fA (x) + fB (x) = Ax + Bx = (A + B)x,
+
+                    also fA + fB = fA+B ∈ L.
+              (iii) Ebenso gilt für alle c ∈ R
+
+                                       cfA (x) = c(Ax) = (cA)x = fcA (x),
+
+                   also cfA = fcA ∈ L.
+              Insgesamt haben wir nun bewiesen, dass L ein Untervektorraum von V ist.
+
+
+
+
+                                                                                    Seite 10 von 13
+Nachklausur (Sommersemester 2022)   Methoden der linearen Algebra in der Statistik
+
+N AME :
+
+
+
+
+                                                                Seite 11 von 13
+Nachklausur (Sommersemester 2022)   Methoden der linearen Algebra in der Statistik
+
+N AME :
+
+
+Zusatzblatt
+
+
+
+
+                                                                Seite 12 von 13
+Nachklausur (Sommersemester 2022)   Methoden der linearen Algebra in der Statistik
+
+N AME :
+
+
+Zusatzblatt
+
+
+
+
+                                                                Seite 13 von 13
+

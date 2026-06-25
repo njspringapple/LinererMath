@@ -1,0 +1,435 @@
+6. Inverse
+
+
+
+
+Methoden der Linearen Algebra in der Statistik
+Thomas Nagler <t.nagler@lmu.de>
+Agenda
+
+
+
+1 Inverse Matrizen
+
+
+
+2 Berechnung
+
+
+
+3 Äquivalenzen
+
+
+
+
+                     1 / 20
+Agenda
+
+
+
+1 Inverse Matrizen
+
+
+2 Berechnung
+
+
+3 Äquivalenzen
+
+
+
+
+                     2 / 20
+Inverse Matrizen
+
+
+
+Definition
+Sei A ∈ Rn×n gegeben. Wenn es eine Matrix B ∈ Rn×n gibt,
+sodass
+                       AB = BA = In ,
+nennen wir A invertierbar und bezeichnen B als inverse Matrix
+zu A.
+Wenn es keine inverse Matrix gibt, nennen wir A auch singulär.
+
+
+
+
+                                                                  3 / 20
+Inverse Matrizen
+
+
+
+Die Matrix B in der Definition schreiben wir normalerweise als A−1
+und bezeichnen sie als die“ Inverse. Damit gelten die Regeln
+                      ”
+                    A−1 A = In ,   AA−1 = In .
+
+
+
+
+                                                                     4 / 20
+Inverse Matrizen
+
+
+
+Die Matrix B in der Definition schreiben wir normalerweise als A−1
+und bezeichnen sie als die“ Inverse. Damit gelten die Regeln
+                      ”
+                    A−1 A = In ,   AA−1 = In .
+
+Lemma
+Sind B und C zwei inverse Matrizen zu A, dann ist B = C .
+
+
+
+
+                                                                     4 / 20
+Inverse Matrizen
+
+Theorem
+
+ (i) Ist A invertierbar, dann ist auch A−1 invertierbar und
+
+                             (A−1 )−1 = A.
+
+(ii) Sind A, B ∈ Rn×n invertierbar, dann ist auch AB invertierbar
+     und
+                         (AB)−1 = B −1 A−1 .
+(iii) Ist A invertierbar, dann ist auch A⊤ invertierbar und
+
+                           (A⊤ )−1 = (A−1 )⊤ .
+
+
+
+
+                                                                    5 / 20
+Inverse Abbildungen
+
+
+ • Ist T (x) = Ax und T −1 (x) = A−1 x, dann gilt
+
+   T −1 (T (x)) = A−1 Ax = x   und T (T −1 (x)) = AA−1 x = x.
+
+ • Die Abbildung T −1 macht also die Transformation T
+   rückgängig und andersherum.
+
+ • In solchen Fällen nennen wir T −1 die inverse Abbildung zu
+   T.
+
+
+
+
+                                                                 6 / 20
+Inverse Abbildungen
+
+
+  • Ist T (x) = Ax und T −1 (x) = A−1 x, dann gilt
+
+    T −1 (T (x)) = A−1 Ax = x   und T (T −1 (x)) = AA−1 x = x.
+
+  • Die Abbildung T −1 macht also die Transformation T
+    rückgängig und andersherum.
+
+  • In solchen Fällen nennen wir T −1 die inverse Abbildung zu
+    T.
+Beispiel
+Eine Stauchung T lässt sich um den Faktor k ∈ R durch eine
+Streckung T −1 um den Faktor 1/k wieder aufheben.
+
+
+
+                                                                  6 / 20
+Agenda
+
+
+
+1 Inverse Matrizen
+
+
+2 Berechnung
+
+
+3 Äquivalenzen
+
+
+
+
+                     7 / 20
+Berechnung
+
+
+
+
+Theorem
+Wenn A ∈ Rn×n invertierbar ist, dann hat das LGS Ax = b für
+jedes b ∈ Rn genau eine Lösung, nämlich x = A−1 b.
+
+
+
+
+                                                               8 / 20
+Quiz
+
+
+Sei das LGS Ax = b mit A als invertierbarer n × n Matrix
+gegeben. Dann ist (A | b) äquivalent zu:
+ A. (In | A−1 b)
+ B. (A−1 | Ab)
+ C. (A | A−1 b)
+ D. (In | Ab)
+
+
+
+
+                                                           9 / 20
+Quiz
+
+
+Sei das LGS Ax = b mit A als invertierbarer n × n Matrix
+gegeben. Dann ist (A | b) äquivalent zu:
+ A. (In | A−1 b)
+ B. (A−1 | Ab)
+ C. (A | A−1 b)
+ D. (In | Ab)
+
+
+
+
+                                                           9 / 20
+Quiz
+
+
+Sei das LGS Ax = b mit A als invertierbarer n × n Matrix
+gegeben. Dann ist (A | b) äquivalent zu:
+ A. (In | A−1 b)
+ B. (A−1 | Ab)
+ C. (A | A−1 b)
+ D. (In | Ab)
+
+Algorithmus zur Berechnung von A−1 :
+ 1. Schreibe erweiterte Matrix (A | In ).
+ 2. Berechne Zeilenstufenform.
+ 3. Das Ergebnis ist (In | A−1 ).                          9 / 20
+Berechnung
+
+
+
+Für den Spezialfall A ∈ R2×2 gibt es eine einfache Formel zur
+Berechnung. Ist                       
+                                  a b
+                           A=
+                                  c d
+dann ist                                 
+                             1       d −b
+                  A−1 =                     .
+                          ad − bc    −c a
+
+
+
+
+                                                                 10 / 20
+Berechnung
+
+
+Beispiel
+Für A ∈ R2×2 können wir die Formel zur Illustration des
+allgemeinen Algorithmus kurz überprüfen. Sei
+                                      
+                                1 −2
+                         A=              ,
+                                3 4
+
+dann ergibt die Formel
+                                         
+                         −1      1    4 2
+                         A    =             .
+                                10   −3 1
+
+
+
+
+                                                            11 / 20
+Quiz
+
+
+            
+         1 1
+Sei A =        . Ist A invertierbar?
+         2 2
+ A. Ja, da eine quadratische 2 × 2 Matrix B existiert, sodass
+    AB = I .
+ B. Ja, weil alle Einträge der Matrix A größer als Null sind.
+ C. Nein, weil alle Einträge der Matrix A größer als Null sind.
+ D. Nein, weil das LGS Ax = 0 unendlich viele Lösungen besitzt.
+
+
+
+
+                                                                    12 / 20
+Quiz
+                 
+            2 −1
+Sei A =             . Wie sieht A−1 aus?
+           −3 5
+                
+     1     2 −1
+ A. 13
+          −3 5
+               
+     1    2 −1
+ B. 7
+        −3 5
+             
+     1    5 1
+ C. 13
+          3 2
+            
+     1 5 1
+ D. 7
+        3 2
+ E. A ist nicht invertierbar
+
+
+                                           13 / 20
+Agenda
+
+
+
+1 Inverse Matrizen
+
+
+2 Berechnung
+
+
+3 Äquivalenzen
+
+
+
+
+                     14 / 20
+Äquivalenzen
+
+
+
+Theorem (Äquivalenzen)
+Sei A ∈ Rn×n . Dann sind die folgenden Aussagen äquivalent:
+
+(a) A ist invertierbar.
+(b) Die reduzierte Zeilenstufenform von A ist In .
+(c) Das LGS Ax = 0 hat nur die triviale Lösung.
+
+
+
+
+                                                               15 / 20
+Äquivalenzen
+
+
+
+
+Theorem
+Eine Matrix A ∈ Rn×n ist invertierbar, wenn eine Matrix B gibt,
+die BA = In oder (!) AB = In erfüllt. Es gilt dann B = A−1 .
+
+
+
+
+                                                                  16 / 20
+Äquivalenzen
+Theorem (Äquivalenzen)
+Sei A ∈ Rn×n . Dann sind die folgenden Aussagen äquivalent:
+
+ (a) A ist invertierbar.
+
+ (b) A⊤ ist invertierbar.
+
+ (c) Die reduzierte Zeilenstufenform von A ist In .
+
+ (d) Das LGS Ax = 0 hat nur die triviale Lösung.
+
+ (e) Das LGS Ax = b hat genau eine Lösung für jedes b ∈ Rn .
+
+ (f) Das LGS Ax = b hat eine Lösung für jedes b ∈ Rn .
+
+
+
+
+                                                                 17 / 20
+Äquivalenzen
+Theorem (Äquivalenzen)
+Sei A ∈ Rn×n . Dann sind die folgenden Aussagen äquivalent:
+
+ (a) A ist invertierbar.
+
+ (b) A⊤ ist invertierbar.
+
+ (c) Die reduzierte Zeilenstufenform von A ist In .
+
+ (d) Das LGS Ax = 0 hat nur die triviale Lösung.
+
+ (e) Das LGS Ax = b hat genau eine Lösung für jedes b ∈ Rn .
+
+ (f) Das LGS Ax = b hat eine Lösung für jedes b ∈ Rn .
+
+ (g) Die Spalten von A sind linear unabhängig.
+
+ (h) Die Zeilen von A sind linear unabhängig.
+
+ (i) Die Spalten von A spannen Rn .
+
+ (j) Die Zeilen von A spannen Rn .
+                                                                 17 / 20
+Quiz
+
+
+             
+         −4 3
+Sei A =         . Für welche Werte x ist A singulär?
+          x 1
+
+ A. x = 43
+ B. Für alle x mit x ̸= 34
+ C. Für alle x mit x ̸= − 43
+ D. x = − 34
+
+
+
+
+                                                         18 / 20
+Quiz
+
+
+
+Beweise oder widerlege:
+
+    Sei A ∈ Rn×n mit n linear unabhängigen Spalten. Dann
+    ist A2 invertierbar.
+
+ A. Wahr
+ B. Falsch
+
+
+
+
+                                                            19 / 20
+Wrap-up
+
+
+
+Heute gelernt
+
+  • Inverse Matrizen
+
+  • Berechnung
+
+  • Äquivalenzen zu anderen Konzepten
+
+Nächste Vorlesung
+
+  • Anwendungen und Beweisübung
+
+
+
+
+                                         20 / 20
+

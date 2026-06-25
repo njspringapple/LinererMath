@@ -1,0 +1,829 @@
+1. Lineare Gleichungssysteme
+
+
+
+
+Methoden der Linearen Algebra in der Statistik
+Thomas Nagler <t.nagler@lmu.de>
+Organisatorisches
+
+Vorlesung (Thomas Nagler)
+
+  • Di, 08:30-10:00 Schellingstr. 3 - S 001
+
+  • Mi, 10:15-11:45 Schellingstr. 3 - S 005
+
+Übung (Tobias Brock)
+
+  • Option 1: Mo, 16:15-17:45, B 006
+
+  • Option 2: Do, 12:15-13:45, B 106
+
+Tutorium (Eugen Gorich)
+
+  • Fr, 12:15-13:45, Schellingstr. 3 - S 004
+
+                                               1 / 28
+Organisatorisches
+
+Ziele
+
+  • für Statistik wichtige Konzepte der LA lernen
+
+  • Intuition entwickeln
+
+  • (einfache) mathematische Beweise verstehen/schreiben
+
+
+
+
+                                                           2 / 28
+Organisatorisches
+
+Ziele
+
+  • für Statistik wichtige Konzepte der LA lernen
+
+  • Intuition entwickeln
+
+  • (einfache) mathematische Beweise verstehen/schreiben
+
+Konzept
+
+  • Vorlesung mit Slides und Quizzes
+
+  • Vorlesungsskript zur Nachbereitung
+
+  • Übungsblatt mit Zentralübungs- und Hausaufgaben-Teil
+
+  • Wiederholung und Hilfe in Tutorium
+                                                             2 / 28
+Organisatorisches
+
+
+
+Prüfung
+
+  • Schriftliche Klausur
+
+  • 20% Rechnen, 40% Verständnis, 40% Beweisen
+
+Hausaufgaben
+
+  • Freiwillige Abgabe von Hausaufgaben zur Korrektur
+
+  • Eine Aufgabe pro Woche pro Gruppe
+
+
+
+
+                                                        3 / 28
+Agenda
+
+
+1 Lineare Gleichungssysteme
+
+
+2 Koeffizientenmatrix und Zeilenoperationen
+
+
+3 Zeilenstufenform
+
+
+4 Anzahl von Lösungen
+
+
+5 Reduzierte Zeilenstufenform
+
+
+
+
+                                              4 / 28
+Agenda
+
+
+1 Lineare Gleichungssysteme
+
+
+2 Koeffizientenmatrix und Zeilenoperationen
+
+
+3 Zeilenstufenform
+
+
+4 Anzahl von Lösungen
+
+
+5 Reduzierte Zeilenstufenform
+
+
+
+
+                                              5 / 28
+Lineare Gleichungen
+
+ • Gleichung für eine Gerade/Linie in R2 : ax + by = c
+    ▶ Variablen: x, y ∈ R
+
+    ▶ Koeffizienten: a, b, c ∈ R
+
+
+
+
+                                                          6 / 28
+Lineare Gleichungen
+
+ • Gleichung für eine Gerade/Linie in R2 : ax + by = c
+    ▶ Variablen: x, y ∈ R
+
+    ▶ Koeffizienten: a, b, c ∈ R
+
+ • Gleichung für Ebene in R3 : ax + by + cz = d
+    ▶ Variablen: x, y , z ∈ R
+
+    ▶ Koeffizienten: a, b, c, d ∈ R
+
+
+
+
+                                                          6 / 28
+Lineare Gleichungen
+
+ • Gleichung für eine Gerade/Linie in R2 : ax + by = c
+     ▶ Variablen: x, y ∈ R
+
+     ▶ Koeffizienten: a, b, c ∈ R
+
+ • Gleichung für Ebene in R3 : ax + by + cz = d
+     ▶ Variablen: x, y , z ∈ R
+
+     ▶ Koeffizienten: a, b, c, d ∈ R
+
+ • Allgemeine lineare Gleichung in Rn : a1 x1 + · · · + an xn = b
+     ▶ Variablen: x1 , . . . , xn ∈ R
+
+     ▶ Koeffizienten: a1 , . . . , an , b ∈ R
+
+                                                                    6 / 28
+Lineare Gleichungssysteme
+
+
+Definition
+Ein lineares Gleichungssystem (LGS) aus m Gleichungen und n
+Unbekannten x1 , . . . , xn hat die Form
+
+                  a11 x1 + · · · + a1n xn   = b1 ,
+                  a21 x1 + · · · + a2n xn   = b2 ,
+                             ..               ..
+                              .                .
+                  am1 x1 + · · · + amn xn = bm .
+
+
+
+
+                                                              7 / 28
+Lineare Gleichungssysteme
+
+
+Definition
+Ein lineares Gleichungssystem (LGS) aus m Gleichungen und n
+Unbekannten x1 , . . . , xn hat die Form
+
+                       a11 x1 + · · · + a1n xn   = b1 ,
+                       a21 x1 + · · · + a2n xn   = b2 ,
+                                  ..               ..
+                                   .                .
+                      am1 x1 + · · · + amn xn = bm .
+
+
+Eine Lösung dieses Systems ist ein Punkt (x1 , . . . , xn ), für das alle
+Gleichungen wahr sind.
+
+
+                                                                              7 / 28
+Quiz
+
+Wie viele Lösungen kann ein lineares Gleichungssystem haben?
+
+ A. 0
+ B. 1
+ C. 2
+ D. ∞
+
+
+
+
+                                                                8 / 28
+Quiz
+
+Wie viele Lösungen kann ein lineares Gleichungssystem haben?
+
+ A. 0 ✓
+ B. 1 ✓
+ C. 2
+ D. ∞ ✓
+
+
+
+
+                                                                8 / 28
+Quiz
+
+Wie viele Lösungen kann ein lineares Gleichungssystem haben?
+
+ A. 0 ✓
+ B. 1 ✓
+ C. 2
+ D. ∞ ✓
+
+
+
+
+                                                                8 / 28
+Anzahl von Lösungen in 3D
+
+
+
+
+LGS mit 3 Gleichungen und 3 Unbekannten mit keiner (a–d), einer
+(e), und unendlich vielen (d-f) Lösungen.
+
+
+   Fig 1.1.2 in Anton, Rorres. Elementary Linear Algebra.
+                                                                  9 / 28
+Quiz
+
+
+Sei (x1 , x2 , x3 ) die Lösung des Systems
+
+                          x1 − 2x2 + 6x3 = 2
+                                7x2 + 3x3 = 2
+                                       3x3 = 2
+
+Was ist x1 ?
+
+ A. -2
+ B. 0
+ C. 12
+ D. 2
+                                                 10 / 28
+Quiz
+
+
+Sei (x1 , x2 , x3 ) die Lösung des Systems
+
+                          x1 − 2x2 + 6x3 = 2
+                                7x2 + 3x3 = 2
+                                       3x3 = 2
+
+Was ist x1 ?
+
+ A. -2 ✓
+ B. 0
+ C. 12
+ D. 2
+                                                 10 / 28
+Äquivalente Systeme
+
+
+Zwei LGS sind äquivalent, wenn sie die gleichen Lösungen
+besitzen.
+
+     x1 − 2x2 + 6x3 = 2           3x1 − 6x2 + 18x3 = 6
+          7x2 + 3x3 = 2                        3x3 = 2
+                3x3 = 2                 7x2 + 3x3 = 2
+
+
+
+
+                                                             11 / 28
+Äquivalente Systeme
+
+
+Zwei LGS sind äquivalent, wenn sie die gleichen Lösungen
+besitzen.
+
+     x1 − 2x2 + 6x3 = 2             3x1 − 6x2 + 18x3 = 6
+          7x2 + 3x3 = 2                          3x3 = 2
+                 3x3 = 2                  7x2 + 3x3 = 2
+
+
+Zur Lösung eines LGS wollen wir es in ein einfacheres, äquivalentes
+umwandeln.
+
+
+
+
+                                                                        11 / 28
+Agenda
+
+
+1 Lineare Gleichungssysteme
+
+
+2 Koeffizientenmatrix und Zeilenoperationen
+
+
+3 Zeilenstufenform
+
+
+4 Anzahl von Lösungen
+
+
+5 Reduzierte Zeilenstufenform
+
+
+
+
+                                              12 / 28
+Die Koeffizientenmatrix
+
+
+
+ • Ein LGS wird vollständig durch die Koeffizienten bestimmt.
+
+ • Deshalb können wir es auch mit einer (erweiterten)
+   Koeffizientenmatrix darstellen.
+
+     x1 + 5x2 + 3x3 = 2                 
+                                          1 5 3 2
+                                                  
+                             −→
+    2x1 + 2x2 + 4x3 = 8                  2 2 4 8
+  −3x1 + 2x2 + 9x3 = 1                   −3 2 9 1
+
+
+
+
+                                                                 13 / 28
+Elementare Zeilenoperationen
+Um das LGS zu vereinfachen ohne die Lösungsmenge zu ändern,
+sind folgende elementare Zeilenoperationen erlaubt:
+
+
+
+
+                   !
+  1   5   3   −2
+  2   2   4    8
+ −3   2   9    1
+
+
+
+
+                                                                14 / 28
+Elementare Zeilenoperationen
+Um das LGS zu vereinfachen ohne die Lösungsmenge zu ändern,
+sind folgende elementare Zeilenoperationen erlaubt:
+
+ 1. Multipliziere eine Zeile mit einer Konstante c ̸= 0.
+
+
+
+
+                   !                                 !
+  1   5   3   −2       (II )· 12    1   5   3   −2
+  2   2   4    8         ∼          1   1   2    4
+ −3   2   9    1                   −3   2   9    1
+
+
+
+
+                                                                14 / 28
+Elementare Zeilenoperationen
+Um das LGS zu vereinfachen ohne die Lösungsmenge zu ändern,
+sind folgende elementare Zeilenoperationen erlaubt:
+
+ 1. Multipliziere eine Zeile mit einer Konstante c ̸= 0.
+ 2. Tausche zwei Zeilen.
+
+
+
+
+                   !                                  !
+  1   5   3   −2       (II )· 12     1   5   3   −2
+  2   2   4    8         ∼           1   1   2    4
+ −3   2   9    1                    −3   2   9    1
+                                                      !
+                       (I )↔(II )
+                                     1   1   2    4
+                            ∼        1   5   3   −2
+                                    −3   2   9    1
+
+
+
+                                                                14 / 28
+Elementare Zeilenoperationen
+Um das LGS zu vereinfachen ohne die Lösungsmenge zu ändern,
+sind folgende elementare Zeilenoperationen erlaubt:
+
+ 1. Multipliziere eine Zeile mit einer Konstante c ̸= 0.
+ 2. Tausche zwei Zeilen.
+ 3. Addiere eine Zeile c ̸= 0 mal zu einer anderen.
+
+
+                   !                                  !
+  1   5   3   −2       (II )· 12     1   5   3   −2
+  2   2   4    8         ∼           1   1   2    4
+ −3   2   9    1                    −3   2   9    1
+                                                      !                                 !
+                       (I )↔(II )
+                                     1   1   2    4       (III )+3·(I )
+                                                                          1   1    2    4
+                            ∼        1   5   3   −2            ∼          1   5    3   −2
+                                    −3   2   9    1                       0   5   15   13
+
+
+
+                                                                                            14 / 28
+Agenda
+
+
+1 Lineare Gleichungssysteme
+
+
+2 Koeffizientenmatrix und Zeilenoperationen
+
+
+3 Zeilenstufenform
+
+
+4 Anzahl von Lösungen
+
+
+5 Reduzierte Zeilenstufenform
+
+
+
+
+                                              15 / 28
+Zeilenstufenform
+
+Definition
+Eine Matrix ist in Zeilenstufenform, wenn:
+
+
+
+
+                                             
+       □ ∗ ∗ ∗                  0 □ ∗ ∗ ∗ ∗   ∗
+      0 □ ∗ ∗                0 0 0 □ ∗ ∗   ∗
+                                             
+      0 0 0 ∗                0 0 0 0 □ ∗   ∗
+       0 0 0 ∗                  0 0 0 0 0 □   ∗
+                                                    16 / 28
+Zeilenstufenform
+
+Definition
+Eine Matrix ist in Zeilenstufenform, wenn:
+
+ 1. Alle Nullzeilen befinden sich am Ende der Matrix.
+
+
+
+
+                                                       
+       □ ∗ ∗ ∗                  0 □ ∗ ∗ ∗ ∗             ∗
+      0 □ ∗ ∗                0 0 0 □ ∗ ∗             ∗
+                                                       
+      0 0 0 ∗                0 0 0 0 □ ∗             ∗
+       0 0 0 ∗                  0 0 0 0 0 □             ∗
+                                                              16 / 28
+Zeilenstufenform
+
+Definition
+Eine Matrix ist in Zeilenstufenform, wenn:
+
+ 1. Alle Nullzeilen befinden sich am Ende der Matrix.
+ 2. Die Pivots (der erste Eintrag aji einer Zeile ungleich Null:
+    ji = min{j : aij ̸= 0}) der anderen Zeilen erfüllen die
+    Stufenbedingung
+                            j1 < j2 < · · · < jr .
+
+
+                                                         
+       □ ∗ ∗ ∗                    0 □ ∗ ∗ ∗ ∗             ∗
+      0 □ ∗ ∗                  0 0 0 □ ∗ ∗             ∗
+                                                         
+      0 0 0 ∗                  0 0 0 0 □ ∗             ∗
+       0 0 0 ∗                    0 0 0 0 0 □             ∗
+                                                                   16 / 28
+Quiz
+
+
+Ist das folgende System in Zeilenstufenform?
+                                            
+                      3 0 2       0    1 −3
+                    0 2 3 −2          3 −2
+                                            
+                    0 0 1
+                                 0    0 3  
+                    0 0 0        0    0 2
+                      0 0 0       0 −2 12
+
+ A. Ja
+ B. Nein
+
+
+
+
+                                                 17 / 28
+Quiz
+
+
+Ist das folgende System in Zeilenstufenform?
+                                            
+                      3 0 2       0    1 −3
+                    0 2 3 −2          3 −2
+                                            
+                    0 0 1
+                                 0    0 3  
+                    0 0 0        0    0 2
+                      0 0 0       0 −2 12
+
+ A. Ja
+ B. Nein ✓
+
+
+
+
+                                                 17 / 28
+Beispiel
+
+Bring die folgende Matrix in Zeilenstufenform:
+
+                                
+                       3  6 −6 3
+                      1  2  0 3
+                      −2 −1  9 −2
+
+
+
+
+                                                 18 / 28
+Beispiel
+
+Bring die folgende Matrix in Zeilenstufenform:
+
+                                
+                       3  6 −6 3
+                      1  2  0 3
+                      −2 −1  9 −2
+
+Mögliche Lösung:
+
+                                  
+                          1 2 −2 1
+                         0 3  5 0
+                          0 0  2 2
+
+
+
+                                                 18 / 28
+Zeilenstufenform: Eigenschaften
+
+
+
+
+ • Die Zeilenstufenform ist nicht eindeutig.
+
+ • Von jeder Zeilenstufenform kann man die Anzahl der
+   Lösungen bestimmen.
+
+
+
+
+                                                        19 / 28
+Agenda
+
+
+1 Lineare Gleichungssysteme
+
+
+2 Koeffizientenmatrix und Zeilenoperationen
+
+
+3 Zeilenstufenform
+
+
+4 Anzahl von Lösungen
+
+
+5 Reduzierte Zeilenstufenform
+
+
+
+
+                                              20 / 28
+Anzahl von Lösungen
+
+Definition
+Die Variablen, die zu einem Pivot gehört, nennen wir gebunden.
+Alle anderen Variablen nennen wir frei.
+
+
+
+
+                                                                  21 / 28
+Anzahl von Lösungen
+
+Definition
+Die Variablen, die zu einem Pivot gehört, nennen wir gebunden.
+Alle anderen Variablen nennen wir frei.
+
+Theorem
+
+ (i) Ein LGS hat genau dann keine Lösung, wenn sich durch
+     elementare Zeilenoperationen eine Nullzeile
+                                            
+                           0 0 ··· 0 c
+
+    mit c ̸= 0 erzeugen lässt.
+(ii) Ein lösbares LGS hat genau eine Lösung, wenn es keine freien
+     Variablen gibt. Andernfalls gibt es unendlich viele Lösungen.
+
+
+                                                                      21 / 28
+Quiz
+
+
+Ist die folgende Matrix in Zeilenstufenform
+
+                                              
+                      □ ∗ ∗ ∗ ∗               ∗
+                     0 □ ∗ ∗ ∗
+                                             ∗
+                                               
+                     0 0 □ ∗ ∗               ∗
+                       0 0 0 0 □              ∗
+
+ A. Ja
+ B. Nein
+
+
+
+
+                                                   22 / 28
+Quiz
+
+
+Ist die folgende Matrix in Zeilenstufenform
+
+                                              
+                      □ ∗ ∗ ∗ ∗               ∗
+                     0 □ ∗ ∗ ∗
+                                             ∗
+                                               
+                     0 0 □ ∗ ∗               ∗
+                       0 0 0 0 □              ∗
+
+ A. Ja ✓
+ B. Nein
+
+
+
+
+                                                   22 / 28
+Quiz
+
+Wie viele Lösungen hat das LGS?
+
+                                   
+                     □ ∗ ∗ ∗ ∗     ∗
+                    0 □ ∗ ∗ ∗     ∗
+                                   
+                    0 0 □ ∗ ∗     ∗
+                      0 0 0 0 □    ∗
+
+ A. 0
+ B. 1
+ C. 2
+ D. ∞
+
+
+                                        23 / 28
+Quiz
+
+Wie viele Lösungen hat das LGS?
+
+                                   
+                     □ ∗ ∗ ∗ ∗     ∗
+                    0 □ ∗ ∗ ∗     ∗
+                                   
+                    0 0 □ ∗ ∗     ∗
+                      0 0 0 0 □    ∗
+
+ A. 0
+ B. 1
+ C. 2
+ D. ∞ ✓
+
+
+                                        23 / 28
+Agenda
+
+
+1 Lineare Gleichungssysteme
+
+
+2 Koeffizientenmatrix und Zeilenoperationen
+
+
+3 Zeilenstufenform
+
+
+4 Anzahl von Lösungen
+
+
+5 Reduzierte Zeilenstufenform
+
+
+
+
+                                              24 / 28
+Reduzierte Zeilenstufenform
+
+Definition
+Eine Matrix ist in reduzierter Zeilenstufenform, wenn:
+
+ 1. Sie ist in Zeilenstufenform.
+ 2. Alle Pivoteinträge aiji sind gleich 1.
+ 3. Alle Einträge über einem Pivot sind gleich 0.
+
+
+
+                                                            
+         1   0   ∗   ∗              0    1    ∗   0   0   0   ∗
+       0
+            1   ∗   ∗
+                                   0
+                                        0    0   1   0   0   ∗
+                                                               
+       0    0   0   ∗            0    0    0   0   1   0   ∗
+         0   0   0   ∗              0    0    0   0   0   1   ∗
+
+                                                                   25 / 28
+Reduzierte Zeilenstufenform
+ • Die reduzierte Form ist eindeutig.
+
+ • Von der reduzierten Form lassen sich Lösungen einfach
+   ablesen.
+
+
+
+
+                                                            26 / 28
+Reduzierte Zeilenstufenform
+  • Die reduzierte Form ist eindeutig.
+
+  • Von der reduzierten Form lassen sich Lösungen einfach
+    ablesen.
+Beispiele
+                    
+             1 0 0 0
+            0 1 0 1         ⇒ (x1 , x2 , x3 ) = (0, 1, 2)
+             0 0 1 2
+
+           
+    1 0  3 0
+   0 1 −2 1          ⇒ (x1 , x2 , x3 ) = (0, 1, 0) + t · (−3, 2, 1)
+    0 0  0 0
+
+
+                                                                        26 / 28
+Gauss-Jordan-Verfahren zum Lösen eines LGS
+
+
+
+
+ 1. Schreibe das LGS in eine Koeffizientenmatrix.
+ 2. Bringe Matrix durch elementare Zeilenoperationen in
+    Zeilenstufenform.
+ 3. Stelle fest, ob das System lösbar ist.
+ 4. Falls ja, reduziere die Matrix um Lösungen zu bestimmen.
+
+
+
+
+                                                                27 / 28
+Wrap-up
+
+
+Heute gelernt
+
+  • Lineare Gleichungssysteme
+
+  • Zeilenstufenform
+
+  • Anzahl von Lösungen ablesen
+
+  • Gauss-Jordan-Verfahren
+
+Nächste Vorlesung
+
+  • Vektor/Matrix-Rechnung und Gleichungen
+
+
+
+                                             28 / 28
+

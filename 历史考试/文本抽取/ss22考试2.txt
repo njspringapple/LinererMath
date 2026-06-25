@@ -1,0 +1,493 @@
+120- MINÜTIGE H AUPTKLAUSUR ZUR V ORLESUNG „M ETHODEN DER LINEAREN
+        A LGEBRA IN DER S TATISTIK “ (S OMMERSEMESTER 2022),
+                      T. N AGLER , H. B LOCHER
+                     H AUPTKLAUSUR AM 04.08.2022, 09:30 – 11:30 U HR
+
+
+   V ORNAME :
+
+   N ACHNAME :
+
+   M ATRIKELNUMMER :
+
+   S TUDIENGANG + PO:
+
+   U NTERSCHRIFT:
+
+
+
+• Überprüfen Sie, ob Ihre Angabe vollständig ist. Sie sollte 5 Aufgaben auf 12 Seiten umfassen.
+
+• Füllen Sie bitte das obenstehende Formular umgehend aus. Schreiben Sie bitte leserlich.
+
+• Halten Sie für die Kontrolle bitte einen Lichtbildausweis und Ihren Studierendenausweis bereit.
+
+• Die Bearbeitungszeit beträgt 120 Minuten. Es ist keine vorzeitige Abgabe möglich.
+
+• Verwenden Sie für die Bearbeitung ausschließlich die Ihnen zur Verfügung gestellten Papierbögen.
+  Kennzeichnen Sie jedes zur Abgabe vorgesehene Blatt mit Namen und Matrikelnummer.
+
+• Alle Lösungen müssen nachvollziehbar sein. Dazu gehört auch lesbare Schrift. Ergebnisse müssen
+  klar erkennbar und zuzuordnen sein. Nur Lösungen die direkt unterhalb der Aufgabe (bzw. auf der
+  Seite danach) bearbeitet worden sind und bei denen klar die Teilaufgabe gekennzeichnet wurde,
+  können gewertet werden. Falls der Platz nicht ausreicht, muss an der Stelle ein Verweis zur Lösung
+  zu finden sein.
+
+• Machen Sie kenntlich, falls Sie mit einem Ersatzergebnis weiterrechnen!
+
+• Es dürfen nur dokumentenechte Stifte und keine roten Stifte verwendet werden.
+
+• Zugelassene Hilfsmittel: Taschenrechner (nicht programmierbar, ohne Grafik-Funktion), Wörter-
+  buch, beidseitig handbeschriebenes A4-Blatt.
+
+• Bei Unterschleif erfolgt eine Meldung an das Prüfungsamt. Sie sind verpflichtet, durch Ihr Verhal-
+  ten jegliche Missverständnisse diesbezüglich auszuschließen. Sorgen Sie insbesondere dafür, dass
+  sich keinerlei Mobiltelefone und Uhren an Ihrem Arbeitsplatz befinden.
+
+• Verlassen Sie den Prüfungsraum erst, nachdem Sie der Aufsicht die Klausur persönlich übergeben
+  haben. Für den Eingang der kompletten Klausur bei der Aufsicht sind Sie selbst verantwortlich.
+
+
+                                   mögliche Punkte      erreichte Punkte
+                     1. Aufgabe           20
+                     2. Aufgabe           20
+                     3. Aufgabe           30
+                     4. Aufgabe           20
+                     5. Aufgabe           30
+                     Summe               120
+Hauptklausur (Sommersemester 2022)                  Methoden der linearen Algebra in der Statistik
+N AME :
+
+
+Aufgabe 1
+Finde eine Orthogonalmatrix P , welche die Matrix
+                                              
+                                           3 1
+                                    A=           ∈ R2×2
+                                           1 3
+
+diagonalisiert.                                                                                      20 P UNKTE
+
+
+
+       Lösung:
+     Schritt 1: Berechnung der Eigenwerte über die charakteristische Gleichung für λ ∈ R.
+
+                                det(A − λI) = 0
+                                               
+                                     3−λ     1
+                              ⇔ det               =0
+                                       1    3−λ
+                              ⇔(3 − λ)2 − 1 = λ2 − 6λ + 8 = 0
+
+     Aus der Mitternachtsformel folgt, dass λ1 = 2 und λ2 = 4 die charakteristische Glei-
+     chung löst.
+
+     Schritt 2: Berechnung der Eigenvektoren
+        • λ1 = 2. Löse das folgende LGS
+                                                         
+                                                      1 1
+                                 (A − λ1 I)x = 0 ⇔          x=0
+                                                      1 1
+                                                                     
+                                       −1                                −1
+            Alle Vektoren aus span            lösen das LGS. Daher ist        Eigenvektor
+                                         1                               1
+            zum Eigenwert λ1 = 2.
+          • λ2 = 4. Löse das folgende LGS
+                                                           
+                                                    −1 1
+                               (A − λ2 I)x = 0 ⇔              x=0
+                                                    1 −1
+                                                                  
+                                       1                              1
+            Alle Vektoren aus span          lösen das LGS. Daher ist     Eigenvektor zum
+                                       1                              1
+            Eigenwert λ2 = 4.
+
+     Schritt 3: Verwende nun die Basis die gegeben ist durch die Eigenvektoren und or-
+     thogonalisiere und normalisiere diese. Da die beiden Vektoren schon orthogonal auf-
+     einander stehen:
+                                  
+                                   −1       1
+                                        ,       = −1 + 1 = 0
+                                    1       1
+
+     müssen die beiden Vektoren nur noch normalisiert werden:
+
+
+
+
+                                                                                 Seite 2 von 12
+Hauptklausur (Sommersemester 2022)                         Methoden der linearen Algebra in der Statistik
+
+N AME :
+
+
+
+          Lösung:
+
+                                                                   √ !
+                                                              −√ 22
+                                                    
+                                   1               −1
+                             w1 =                    =            2
+                                   −1              1
+                                                                   2
+                                   1
+                                                           √ !
+                                                             2
+                                               
+                                   1           1           √2
+                             w2 =               =          2
+                                                               .
+                                   1           1
+                                                            2
+                                   1
+
+     Damit erhalten wir, dass
+                    √    √ !                                 √          √ !
+                  −√ 22 √22                                −√ 22          2
+                                                                                     
+                                         −1        ⊤                    √2
+                                                                                  2 0
+           P =      2     2
+                                     P        =P       =      2           2
+                                                                              Λ=
+                                                                                  0 4
+                    2    2                                   2           2
+
+
+     und A = P ⊤ AP .
+     Hinweis: Vorgehen wie in Kapitel 5.10.2 Algorithmus
+
+
+
+
+                                                                                        Seite 3 von 12
+Hauptklausur (Sommersemester 2022)                             Methoden der linearen Algebra in der Statistik
+
+N AME :
+
+
+Aufgabe 2
+Im Graph in Abbildung 1 ist links eine Ausgangsmenge von Punkten x ∈ R2 und rechts deren
+Bild unter der Transformation x 7→ Ax mit einer Matrix A ∈ R2×2 dargestellt. Zur Orientierung
+sind zwei Punkte besonders markiert (Quadrat und Dreieck).
+(a) Bestimme ker(A), col(A), rang(A) und det(A) und begründe die Antwort anhand des Gra-
+    phen.                                                                                (16 Punkte)
+
+(b) Bestimme Matrix A.                                                                                          (4 Punkte)
+
+
+                   2                                       2
+
+
+
+
+                                                           1
+                   1
+
+
+
+                                                           0
+             x2    0                                 y2
+
+
+                                                          −1
+                  −1
+
+
+                                                          −2
+
+                  −2
+
+                       −2   −1   0      1        2             −2     −1      0      1       2
+                                 x1                                           y1
+
+
+
+Abbildung 1: Ausgangsmenge (links) und Bild der Menge unter der Matrixtransformation x 7→
+Ax (rechts).
+                                                                                                                20 P UNKTE
+
+
+
+        Lösung:
+     (a)
+     Nach der Graphik ist A ∈ R2×2 . Sei also A = (a1 a2 ) mit a1 , a2 ∈ R2 . Nach Definition
+     gilt
+
+                                      col(A) = span{a1 , a2 }
+
+     und somit entspricht der Spaltenraum dem Bild der Abbildung x 7→ Ax.
+     Die Bildmenge ist in der rechten Graphik zu sehen und man sieht, dass die Punkte in
+     keinem niedriger-dimensionalen Unterraum von R2 liegen. Also
+
+                                            col(A) = R2
+
+     Insbesondere gilt rang(A) = dim(col(A)) = 2.
+
+     Nach der Dimensionsformel gilt dim(R2 ) = rang(A) + dim(ker(A)). Mit dim(R2 ) =
+     2 = rang(A) folgt, dass dim(ker(A)) = 0 und damit ist ker(A) = {0}. Graphisch
+     bedeutet das, dass nur der Nullvektor auf den Nullvektor abgebildet wird.
+     Da ker(A) = {0} ist, folgt aus dem großen Äquivalenzsatz, dass det(A) ̸= 0 sein
+     muss. Nun betrachten wir wie sich die Einheitsvektoren verändern. Man sieht, dass
+     der Einheitsvektor in Richtung y1 Richtung um den Faktor 0.5 gestaucht wird und
+     das der zweite Einheitsvektor in Richtung y2 um den Faktor 2 gestreckt wird. Die
+     Fläche des Einheitsquadrats ändert sich damit um den Faktor det(A) = 0.5 · 2 = 1.
+
+
+
+                                                                                            Seite 4 von 12
+Hauptklausur (Sommersemester 2022)                   Methoden der linearen Algebra in der Statistik
+
+N AME :
+
+
+
+          Lösung:
+
+     Hinweis: Die hier verwendeten Theoreme/Definitionen/Beispiele sind: Beispiel 3.4.2,
+     Beispiel 3.4.3, Beispiel 3.4.9, Beispiel 3.4.10, Definition 3.4.1, Theorem 3.4.12, Theo-
+     rem 5.4.8. und Kapitel 2.4.1.
+
+
+
+     (b)
+
+     Um die Matrix A zu bestimmen, bemerken wir, dass aj = Aej für j = 1, 2. Die
+     Einheitsvektoren e1 , e2 sind im Graphen markiert. Wir können deshalb ablesen, dass
+     Ae1 = (0.5, 0) und Ae2 = (0, 2). Daraus ergibt sich:
+                                                          
+                                                     0.5 0
+                                    A = (a1 a2 ) =           .
+                                                      0 2
+
+     Jeweils 2 Punkte auf jede einzelne Spalte
+
+
+
+
+                                                                                  Seite 5 von 12
+Hauptklausur (Sommersemester 2022)                     Methoden der linearen Algebra in der Statistik
+
+N AME :
+
+
+Aufgabe 3
+Bestimme, welche der folgenden Aussagen wahr oder falsch sind (mit Begründung).
+(a) Die Matrix
+                                                  
+                                              1 −3
+                                              0 2
+
+    ist indefinit.                                                                                      (3 Punkte)
+
+(b) Wenn λ ein Eigenwert von A ist, dann hat das LGS (λI − A)x = 0 nur die triviale Lösung.
+                                                                                                        (4 Punkte)
+
+(c) Jeder Eigenwert einer Orthogonalmatrix hat Betrag 1.                                                (4 Punkte)
+
+(d) Wenn A ∈ Rn×n invertierbar ist, dann gilt ker(A)⊥ = Rn .                                            (4 Punkte)
+
+(e) Wenn die Zeilen von A ∈ Rm×n eine Basis des Rn sind, dann hat das LGS Ax = 0 genau
+    eine Lösung.                                                                      (5 Punkte)
+
+(f) Seien w1 , w2 ∈ R und x, y ∈ R2 . Dann definiert
+
+                                     ⟨x, y⟩ = w1 x1 y1 + w2 x2 y2
+
+    genau dann ein Skalarprodukt auf R2 , wenn w1 , w2 > 0.                                             (5 Punkte)
+
+(g) Sei F = {f : R → R} der Vektorraum aller Funktionen von R nach R mit den üblichen
+    Operationen für Addition von Funktionen und Multiplikation mit Skalaren. Dann ist M =
+    {f : R → R mit f (−x) = f (x)} ein Untervektorraum von F .                            (5 Punkte)
+                                                                                                        30 P UNKTE
+
+
+          Lösung:
+
+      (a) Anmerkung: Für eine asymmetrische Matrix A ist die Definitheit über die mög-
+          lichen Vorzeichen der quadratischen Form xT Ax definiert. Der Zusammenhang
+          zu den Eigenwerten besteht nicht!
+          Die Aussage ist wahr: Es gilt
+                                                      
+                       1 −3       x1            x1 − 3x2
+                x1 x2                   = x1 x2              = x21 − 3x1 x2 + 2x22
+                         0 2       x2                2x2
+                                                                          2
+                                                                       3          1
+                                                             = x1 − x2 − x22 .
+                                                                       2          4
+
+           Dieser Ausdruck kann sowohl positive als auch negative Werte annehmen, zum
+           Beispiel für x = (1 0)T den Wert 1, für x = (3 2)T den Wert −1.
+
+
+     (b) Nein, diese Aussage ist falsch. Betrachte z.B. die Matrix
+                                                   
+                                               2 0
+                                                      .
+                                               0 2
+                                                            
+                                                         0 0
+         Dann ist λ = 2 der Eigenwert und λI − A =             und dann ist jedes Element
+                                                         0 0
+         in x ∈ R2 eine Lösung von (λI − A)x = 0.
+
+
+                                                                                    Seite 6 von 12
+Hauptklausur (Sommersemester 2022)                          Methoden der linearen Algebra in der Statistik
+
+N AME :
+
+
+
+       Lösung:
+     (Bemerkung: Es ist auch mit weniger ausführlichen Begründungen möglich, volle
+     Punkte zu erreichen.)
+      (c) Die Aussage ist wahr, denn für Orthogonalmatrizen Q gilt ∥Qx∥ = ∥x∥ für alle
+          x ∈ Rn . Wenn x ̸= 0 ein Eigenvektor zum Eigenwert λ ist, gilt damit
+
+                                         ∥x∥ = ∥Qx∥ = ∥λx∥ = |λ|∥x∥.
+
+               Also muss |λ| = 1 sein.
+          (d) Diese Aussage ist wahr. Da A ∈ Rn×n invertierbar ist folgt aus dem großen
+               Äquivalenzsatz, dass ker(A) = {0}. Nach Definition des orthogonalen Komple-
+               mentraum zum ker(A) ist jedes v ∈ Rn mit ⟨0, v⟩ = 0. Dies gilt für alle v ∈ Rn
+               (da ⟨0, v⟩ = ⟨0 · 0, v⟩ = 0 · ⟨0, v⟩ = 0) und daher ist ker(A)⊥ = Rn .
+          (e) Diese Aussage ist wahr. Seien a·1 , . . . , a·m ∈ Rn die Zeilen von A. Da die Zeilen
+               eine Basis bilden muss m = n sein und daher ist A ∈ Rn×n . Aus dem großen
+               Äquivalenzsatz folgt nun, dass LGS Ax = 0 genau eine (nämlich die triviale)
+               Lösung besitzt.
+           (f) Diese Aussage ist wahr. Wir zeigen die Eigenschaften für ein Skalarprodukt. Sei
+               x = (x1 , x2 ), y = (y1 , y2 ), z = (z1 , z2 ) ∈ R2 und c ∈ R und es gilt:
+                  • ⟨x, y⟩ = w1 x1 y1 + w2 x2 y2 = w1 y1 x1 + w2 y2 x2 = ⟨y, x⟩,
+                  • ⟨x, y + z⟩ = w1 x1 (y1 + z1 ) + w2 x2 (y2 + z2 ) = w1 x1 y1 + w2 x2 y2 + w1 x1 z1 +
+                    w2 x2 z2 = ⟨x, y⟩ + ⟨x, z⟩,
+                  • ⟨cx, y⟩ = w1 cx1 y1 + w2 cx2 y2 = c⟨x, y⟩,
+                  • Es gilt ⟨x, x⟩ = w1 x21 +w2 x22 ≥ 0 für alle x1 , x2 genau dann, wenn w1 , w2 > 0
+                    ist.
+                    Für x = 0 gilt ⟨x, x⟩ = ⟨0, 0⟩ = w1 0 · 0 + w2 0 · 0 = 0
+                    Nun nehmen wir an, dass ⟨x, x⟩ = 0. Dann muss aber auch w1 x21 +w2 x22 = 0
+                    gelten. Da w1 , w2 > 0 (echt größer Null!) ist dies nur möglich für x = 0 =
+                    (0, 0).
+          (g) Diese Aussage ist wahr. Wir zeigen die Eigenschaften für einen Untervektor-
+               raum. Sei f, g ∈ M und x ∈ R.
+                  • Der Untervektorraum M ist nicht leer, da die konstanten Funktionen f :
+                    R → R, x 7→ c mit c ∈ R Elemente von M sind.
+                  • M ⊆F
+                  • (f + g)(−x) = f (−x) + g(−x) = f (x) + g(x) = (f + g)(x). Also ist auch
+                    f +g ∈M
+                  • (cf )(−x) = c(f (−x)) = c(f (x)) = (cf )(x). Daher ist cf ∈ M .
+
+
+
+
+                                                                                           Seite 7 von 12
+Hauptklausur (Sommersemester 2022)                  Methoden der linearen Algebra in der Statistik
+
+N AME :
+
+
+Aufgabe 4
+Sei A ∈ Rm×n und Q ∈ Rn×n invertierbar. Beweise: Die Gleichung Ax = 0 genau dann nur die
+triviale Lösung, wenn AQx = 0 nur die triviale Lösung hat.                               20 P UNKTE
+
+
+
+       Lösung:
+     Angenommen Ay = 0 hat nur die triviale Lösung. Definieren wir y = Qx, folgt aus
+     AQx = 0 dann Qx = 0. Weil Q invertierbar ist, muss dann x = 0 gelten.
+     Sei nun y ̸= 0 eine nichttriviale Lösung von Ay = 0. Weil Q invertierbar ist, ist dann
+     auch x = Q−1 y ̸= 0 und außerdem AQx = AQQ−1 y = Ay = 0. Also hat auch
+     AQx = 0 eine nichttriviale Lösung.
+
+
+
+
+                                                                                 Seite 8 von 12
+Hauptklausur (Sommersemester 2022)   Methoden der linearen Algebra in der Statistik
+
+N AME :
+
+
+
+
+                                                                  Seite 9 von 12
+Hauptklausur (Sommersemester 2022)                                 Methoden der linearen Algebra in der Statistik
+
+N AME :
+
+
+Aufgabe 5
+
+Seien V1 , . . . , Vn Vektorräume.
+(a) Definiere Operationen für Addition und Multiplikation und einen Nullvektor, sodass V =
+    V1 × · · · × Vn auch ein Vektorraum ist. (Die Axiome müssen im Anschluss nicht überprüft
+    werden.)                                                                                 (10 Punkte)
+
+(b) Zeige, dass V1 kein Untervektorraum von V ist.                                                                       (5 Punkte)
+
+(c) Zeige, dass wenn W1 , . . . , Wn jeweils Unterräume von V1 , . . . , Vn sind, W = W1 × · · · × Wn
+    ein Unterraum von V ist.                                                                          (15 Punkte)
+                                                                                                                         30 P UNKTE
+
+
+          Lösung:
+
+      (a) Wir definieren die Operationen wie folgt
+
+                + : V × V → V, ((v1 , . . . , vn ), (ṽ1 , . . . , ṽn )) 7→ (v1 + ṽ1 , . . . , vn + ṽn )
+                · : R × V → V, (c, (v1 , . . . , vn )) 7→ (c · v1 , . . . , c · vn )
+
+     (b) Ein Untervektorraum muss eine Teilmenge des Vektorraums sein. Aber V1 ist
+         keine Teilmenge von V .
+     (c) Wir zeigen die Eigenschaften für einen Untervektorraum.
+           • Der Untervektorraum ist nicht leer: Da für alle i ∈ {1, . . . , n}, Wi Untervek-
+              torraum ist und somit nicht leer folgt, dass für alle i = 1, . . . , n ein wi ∈ Wi
+              existiert und somit folgt mit diesen wi ’s
+
+                                                    (w1 , . . . , wn ) ∈ W.
+
+              • Sei w̃ = (w̃1 , . . . , w̃n ), ŵ = (ŵ1 , . . . , ŵn ) ∈ W . Betrachte nun
+
+                                            w̃ + ŵ = (w̃1 + ŵ1 , . . . , w̃n + ŵn ).
+
+                Da für alle i ∈ {1, . . . , n} gilt, das w̃i + ŵi ∈ Wi (Wi ist Untervektorraum
+                von Vi ) ist auch w̃ + ŵ ∈ W .
+              • Sei w̃ = (w̃1 , . . . , w̃n ) und c ∈ R. Dann folgt aus Wi Untervektorraum für
+                alle i = 1, . . . , n, dass cwi ∈ Wi . Also ist
+
+                                               cw̃ = (cw̃1 , . . . , cw̃n ) ∈ W.
+
+           Damit ist alles nötige gezeigt und W ist ein Untervektorraum von V .
+
+
+
+
+                                                                                                       Seite 10 von 12
+Hauptklausur (Sommersemester 2022)   Methoden der linearen Algebra in der Statistik
+
+N AME :
+
+
+Zusatzblatt
+
+
+
+
+                                                                 Seite 11 von 12
+Hauptklausur (Sommersemester 2022)   Methoden der linearen Algebra in der Statistik
+
+N AME :
+
+
+Zusatzblatt
+
+
+
+
+                                                                 Seite 12 von 12
+

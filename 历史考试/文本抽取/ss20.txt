@@ -1,0 +1,131 @@
+MATHEMATISCHES INSTITUT                                                   WS 20/21
+DER UNIVERSITÄT MÜNCHEN                                                 24.02.2021
+  Dr. W. Spann, S. Aristarkhov
+
+
+  Online-Hausarbeit Lineare Algebra für Statistiker (9 ECTS)
+
+Bitte umgehend ausfüllen:
+
+Name und Vorname                                         Matrikelnummer
+
+
+Studiengang mit Abschluss                                Jahr PO         Fachsemester
+
+
+
+
+Erzieltes Ergebnis:
+           Aufgabe                  1        2      3        4     Summe
+           maximale Punktzahl       12      12      12      12       48
+            erreichte
+            Punktzahl
+
+           Bearbeitungszeit:   180 Minuten (9 ECTS - Statistikstudiengang)
+
+Für Bachelorstudierende der Statistik besteht die Online-Hausarbeit aus 4 Aufgaben.
+Maximal können Sie 48 Punkte erreichen. Mit 36 Punkten oder mehr erhalten Sie die
+Bestnote. Zum Bestehen genügen 16 Punkte.
+
+
+Erklärung: Ich versichere, dass ich die Online-Hausarbeit selbstständig und ohne fremde
+            Hilfe verfasst habe.
+
+
+
+                                                                 (Unterschrift)
+
+
+
+
+                                   Viel Erfolg!
+Name und Vorname:
+
+
+
+
+  1. Betrachten Sie die folgende Menge reeller 3 × 3-Matrizen
+                                                           
+                                 1 a1 a2                     
+                           G :=  0 1 0  : a1 , a2 ∈ R
+                                    0 0 1
+                                                             
+
+     (a) Sei A ∈ G. Zeigen Sie, dass A invertierbar ist und berechnen Sie A−1 .
+     (b) Zeigen Sie, dass (G, ·) mit der Matrixmultiplikation als Verknüpfung eine kom-
+         mutative Untergruppe von GL(3, R) ist.
+                                                                 
+                                                       1 a1 a2
+     (c) Zeigen Sie, dass φ : R2 → G, φ(a1 , a2 ) =  0 1 0  ein Gruppenisomor-
+                                                       0 0 1
+                                2
+         phismus zwischen (R , +) und (G.·) ist.
+     (d) Formulieren Sie die Gleichung
+
+                    φ(na1 , na2 ) = (φ(a1 , a2 ))n   (a1 , a2 ∈ R, n ∈ N0 )   (∗)
+
+         als Matrixgleichung und beweisen Sie (∗) durch vollständige Induktion.
+     (e) Zeigen Sie ohne vollständige Induktion, dass (∗) auch für n ∈ Z \ N0 gilt.
+         Verwenden Sie dabei vorrangig die Homomorphie-Eigenschaften von φ und
+         vermeiden Sie das Ausmultiplizieren konkreter 3 × 3-Matrizen.
+Name und Vorname:
+
+
+
+                                               
+                                   1  1 0
+  2. Seien α, β ∈ C und A :=                        ∈ C2×3 .
+                                   α −α β
+
+     (a) Berechnen Sie AAT und AT A.
+     (b) Berechnen Sie rang A in Abhängigkeit von α, β ∈ C.
+     (c) Bestimmen Sie alle α, β ∈ C, so dass
+                                          rang AAT 6= rang A
+         und geben Sie jeweils mindestens einen konkreten Wert für α und β mit dieser
+         Eigenschaft an.
+     (d) Zeigen Sie ohne Berechnung der Zeilenstufenform von AT A, dass
+                                           1 ≤ rang AT A ≤ 2
+     (e) Sei K ein Körper, k, n ∈ N mit k ≤ n, M = (mij )i,j=1,...,n ∈ K n×n . Zeigen Sie:
+                             det (mij )i,j=1,...,k 6= 0   ⇒    rang M ≥ k
+     (f) Bestimmen Sie rang AT A in Abhängigkeit von α, β ∈ C. Vermeiden Sie dabei
+         für α 6= 0 die Berechnung der Zeilenstufenform von AT A.
+Name und Vorname:
+
+
+
+
+  3. Sei n ∈ N und b, c ∈ Rn . Betrachten Sie die Abbildung
+                                                               
+                             n+1      n+1      x         x − ξ ·b
+                        f :R     →R ,              7→               .
+                                               ξ         cT x + ξ
+         
+           x
+     In        sei dabei x ∈ Rn und ξ ∈ R.
+           ξ
+
+     (a) Zeigen Sie: f ist linear.
+     (b) Bestimmen Sie die darstellende Matrix M von f und geben Sie sie in Block-
+         matrixschreibweise an.
+      (c) Berechnen Sie rang M und det M in Abhängigkeit von b und c.
+     (d) Geben Sie die Dimension von kern f in Abhängigkeit von b und c an.
+      (e) Berechnen Sie kern f in Abhängigkeit von b und c.
+Name und Vorname:
+
+
+
+
+  4. Sei α ∈ R und                        
+                                     1 0 1
+                               A =  0 0 α  ∈ R3×3 .
+                                     1 0 1
+
+     (a) Berechnen Sie das charakteristische Polynom von A und geben Sie alle Ei-
+         genwerte von A mit ihren algebraischen Vielfachheiten in Abhängigkeit von α
+         an.
+     (b) Bestimmen Sie zu jedem Eigenwert den zugehörigen Eigenraum in Abhängig-
+         keit von α.
+     (c) Untersuchen Sie die Diagonalisierbarkeit von A in Abhängigkeit von α.
+     (d) Zeigen Sie, dass A + E3 invertierbar ist und geben Sie die Eigenwerte von
+         (A + E3 )−1 in Abhängigkeit von α an.
+

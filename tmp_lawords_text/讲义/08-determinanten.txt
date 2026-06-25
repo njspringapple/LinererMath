@@ -1,0 +1,679 @@
+8. Determinanten
+
+
+
+
+Methoden der Linearen Algebra in der Statistik
+Thomas Nagler <t.nagler@lmu.de>
+Agenda
+
+
+
+1 Intuition und Interpretation
+
+
+2 Berechnung über Kofaktoren
+
+
+3 Berechnung über Zeilenumformungen
+
+
+4 Eigenschaften
+
+
+
+
+                                       1 / 26
+Agenda
+
+
+
+1 Intuition und Interpretation
+
+
+2 Berechnung über Kofaktoren
+
+
+3 Berechnung über Zeilenumformungen
+
+
+4 Eigenschaften
+
+
+
+
+                                       2 / 26
+Intuition und Interpretation
+
+
+ • Formel der Inversen einer (2 × 2)-Matrix:
+                                                  
+               a b             −1        1      d −b
+        A=               ⇒    A     =                  .
+               c d                    ad − bc   −c a
+
+ • Die Inverse existiert genau dann, wenn ad − bc ̸= 0
+
+ • Die Zahl ad − bc wird Determinante der Matrix A genannt
+   und als det(A) geschrieben.
+
+
+
+
+                                                             3 / 26
+Intuition und Interpretation
+
+
+ • Formel der Inversen einer (2 × 2)-Matrix:
+                                                  
+               a b             −1        1      d −b
+        A=               ⇒    A     =                  .
+               c d                    ad − bc   −c a
+
+ • Die Inverse existiert genau dann, wenn ad − bc ̸= 0
+
+ • Die Zahl ad − bc wird Determinante der Matrix A genannt
+   und als det(A) geschrieben.
+
+ • Interpretation: Fläche eines Objekts wird um det(A)
+   verändert.
+
+
+
+                                                             3 / 26
+Intuition und Interpretation
+
+Beispiele:
+  • Eine Streckung um den Faktor 2 entlang einer Achse,
+    verdoppelt die Fläche:
+                             
+                          2 0
+                    det         = 2 · 1 − 0 · 0 = 2.
+                          0 1
+
+
+
+
+                                                          4 / 26
+Intuition und Interpretation
+
+Beispiele:
+  • Eine Streckung um den Faktor 2 entlang einer Achse,
+    verdoppelt die Fläche:
+                             
+                          2 0
+                    det         = 2 · 1 − 0 · 0 = 2.
+                          0 1
+
+  • Eine Spiegelung verändert nicht das Volumen, aber die
+    Orientierung. Es gilt dann det(A) = −1. Für eine Spiegelung
+    entlang der Geraden x1 = x2 erhalten wir:
+                            
+                         0 1
+                   det         = 0 · 0 − 1 · 1 = −1.
+                         1 0
+
+
+
+                                                                   4 / 26
+Intuition und Interpretation
+
+
+ • Eine Scherung ändert weder Fläche noch Orientierung, also
+   muss det(A) = 1 gelten:
+                           
+                       1 k
+                  det         = 1 · 1 − k · 0 = 1.
+                       0 1
+
+
+
+
+                                                                 5 / 26
+Intuition und Interpretation
+
+
+ • Eine Scherung ändert weder Fläche noch Orientierung, also
+   muss det(A) = 1 gelten:
+                           
+                       1 k
+                  det         = 1 · 1 − k · 0 = 1.
+                       0 1
+
+ • Bei einer Projektion kollabiert das Objekt zu einer Linie.
+   Entsprechend ist die Fläche nach der Transformation gleich 0,
+   also muss det(A) = 0 sein:
+                               
+                           1 0
+                     det          = 1 · 0 − 0 · 0.
+                           0 0
+
+
+
+
+                                                                    5 / 26
+Quiz
+
+
+Sei T : R2 7→ R2 eine lineare Transformation mit Matrix A und Q
+ein Quradrat mit Fläche gleich
+                               2.
+                                 Wie groß ist die Fläche des
+                           3 2
+Bildes von Q, wenn A =             ist?
+                           2 2
+ A. 4
+ B. 8
+ C. 16
+ D. 32
+
+
+
+
+                                                                  6 / 26
+Agenda
+
+
+
+1 Intuition und Interpretation
+
+
+2 Berechnung über Kofaktoren
+
+
+3 Berechnung über Zeilenumformungen
+
+
+4 Eigenschaften
+
+
+
+
+                                       7 / 26
+Berechnung über Kofaktoren
+
+
+
+ • Angenommen, wir können bereits die Determinante einer
+   (n − 1) × (n − 1)-Matrix berechnen.
+
+ • Sei nun A ∈ Rn×n . Dann gilt:
+
+   det(A) = a11 det(A11 )−a12 det(A12 )+· · ·+(−1)n+1 a1n det(A1n ),
+
+   wobei die Matrizen A1j ∈ R(n−1)×(n−1) dadurch entstehen,
+   dass wir aus A die erste Zeile und j-te Spalte streichen.
+
+
+
+
+                                                                   8 / 26
+Berechnung über Kofaktoren
+
+Beispiel
+
+  • Sei                    
+                     3 −2 1
+               A = −5 0  1 .
+                     1 2 −3
+
+
+
+
+                                 9 / 26
+Berechnung über Kofaktoren
+
+Beispiel
+
+  • Sei                           
+                            3 −2 1
+                      A = −5 0  1 .
+                            1 2 −3
+
+  • Dann
+                                                           
+           0 1                     −5 1                    −5 0
+    A11 =         ,   A12       =          ,   A13 =              .
+           2 −3                     1 −3                    1 2
+
+
+
+
+                                                                      9 / 26
+Berechnung über Kofaktoren
+
+Beispiel
+
+  • Sei                                
+                                 3 −2 1
+                           A = −5 0  1 .
+                                 1 2 −3
+
+  • Dann
+                                                                 
+           0 1                           −5 1                    −5 0
+    A11 =         ,         A12       =          ,   A13 =              .
+           2 −3                           1 −3                    1 2
+
+  • Also gilt:
+
+           det(A) = 3 · det(A11 ) − (−2) · det(A12 ) + 1 · det(A13 )
+                  = 3 · (−2) − (−2) · 14 + 1 · (−10)
+                  = −6 + 28 − 10 = 12.
+                                                                            9 / 26
+Berechnung über Kofaktoren
+
+
+Kofaktorenentwicklung entlang Zeilen
+Sei A ∈ Rn×n . Dann gilt für jedes i = 1, . . . , n
+                n
+                X
+     det(A) =     (−1)i+j aij det(Aij )
+                j=1
+
+             = (−1)i+1 ai1 det(Ai1 ) + · · · + (−1)i+n ain det(Ain ),
+
+wobei die Matrizen Aij ∈ R(n−1)×(n−1) dadurch entstehen, dass wir
+aus A die i-te Zeile und j-te Spalte streichen.
+
+Die Zahlen cij = (−1)i+j det(Aij ) werden dabei (i, j)-Kofaktoren
+genannt.
+
+
+                                                                        10 / 26
+Berechnung über Kofaktoren
+
+
+
+ • Die Vorzeichen (−1)i+j wechseln immer nach folgendem
+   Muster:
+                                        
+                       + − + − ...
+                     − + − + . . . 
+                                        
+                     + − + − . . . 
+                                        
+                     − + − + . . . 
+                                        
+                        .. .. .. ..
+                         . . . .
+
+
+
+
+                                                          11 / 26
+Berechnung über Kofaktoren
+Beispiel
+
+  • Sei                    
+                     3 −2 1
+               A = −5 0  1 .
+                     1 2 −3
+
+
+
+
+                                 12 / 26
+Berechnung über Kofaktoren
+Beispiel
+
+  • Sei                          
+                           3 −2 1
+                     A = −5 0  1 .
+                           1 2 −3
+
+  • Dann ist
+                                                        
+             −2 1                    3 1                3 −2
+    A21 =            ,   A22 =             ,   A23 =           .
+              2 −3                   1 −3               1 2
+
+
+
+
+                                                                   12 / 26
+Berechnung über Kofaktoren
+Beispiel
+
+  • Sei                               
+                                3 −2 1
+                          A = −5 0  1 .
+                                1 2 −3
+
+  • Dann ist
+                                                             
+             −2 1                         3 1                3 −2
+    A21 =            ,        A22 =             ,   A23 =           .
+              2 −3                        1 −3               1 2
+
+  • Also gilt:
+
+          det(A) = −(−5) · det(A21 ) + 0 · det(A22 ) − 1 · det(A23 )
+                 = 5 · 4 + 0 − 1 · 8 = 12.
+
+                                                                        12 / 26
+Berechnung über Kofaktoren
+
+
+Kofaktorenentwicklung entlang Spalten
+Sei A ∈ Rn×n . Dann gilt für jedes j = 1, . . . , n
+               n
+               X
+    det(A) =     (−1)i+j aij det(Aij )
+                i=1
+             = (−1)1+j a1j det(A1j ) + · · · + (−1)n+j anj det(Anj ),
+
+wobei die Matrizen Aij ∈ R(n−1)×(n−1) dadurch entstehen, dass wir
+aus A die i-te Zeile und j-te Spalte streichen.
+
+
+
+
+                                                                        13 / 26
+Berechnung über Kofaktoren
+Beispiel
+
+  • Sei                    
+                     3 −2 1
+               A = −5 0  1 .
+                     1 2 −3
+
+
+
+
+                                 14 / 26
+Berechnung über Kofaktoren
+Beispiel
+
+  • Sei                          
+                           3 −2 1
+                     A = −5 0  1 .
+                           1 2 −3
+
+  • Dann ist
+                                                       
+             −5 1                    3 1                3 1
+    A12 =            ,   A22 =             ,   A32 =          .
+              1 −3                   1 −3              −5 1
+
+
+
+
+                                                                  14 / 26
+Berechnung über Kofaktoren
+Beispiel
+
+  • Sei                               
+                                3 −2 1
+                          A = −5 0  1 .
+                                1 2 −3
+
+  • Dann ist
+                                                            
+             −5 1                         3 1                3 1
+    A12 =            ,        A22 =             ,   A32 =          .
+              1 −3                        1 −3              −5 1
+
+  • Also gilt:
+
+          det(A) = −(−2) · det(A12 ) + 0 · det(A22 ) − 2 · det(A32 )
+                 = 2 · 14 + 0 − 2 · 8 = 12.
+
+                                                                       14 / 26
+Berechnung über Kofaktoren
+
+Definition
+Eine Matrix A = (aij ) ∈ Rn×n nennen wir
+  • obere Dreiecksmatrix, falls aij = 0 für alle i > j,
+
+  • untere Dreiecksmatrix, falls aij = 0 für alle i < j.
+
+Eine obere/untere Dreiecksmatrix in R5×5 hat zum Beispiel die
+Form
+                                                   
+        ∗ ∗ ∗ ∗ ∗                       ∗ 0 0 0 0
+      0 ∗ ∗ ∗ ∗                     ∗ ∗ 0 0 0
+                                                   
+      0 0 ∗ ∗ ∗            bzw.     ∗ ∗ ∗ 0 0  .
+                                                   
+      0 0 0 ∗ ∗                     ∗ ∗ ∗ ∗ 0
+        0 0 0 0 ∗                       ∗ ∗ ∗ ∗ ∗
+
+
+                                                                15 / 26
+Berechnung über Kofaktoren
+
+Theorem
+Wenn A ∈ Rn×n eine Dreiecksmatrix ist, Q
+                                       dann ist det(A) das
+Produkt der Diagonaleinträge: det(A) = ni=1 aii .
+
+
+
+
+                                                             16 / 26
+Berechnung über Kofaktoren
+
+Theorem
+Wenn A ∈ Rn×n eine Dreiecksmatrix ist, Q
+                                       dann ist det(A) das
+Produkt der Diagonaleinträge: det(A) = ni=1 aii .
+
+Beispiel:
+Die Matrix
+                                  
+                         3 −1 17 3
+                       0 −2 2 −2 
+                     A=
+                       0 0
+                                   
+                              5  0 
+                         0 0  0  1
+
+hat Determinante
+
+                   det(A) = 3 · (−2) · 5 · 1 = −30.
+
+
+                                                             16 / 26
+Quiz
+
+Berechne die Determinante von
+                                      
+                            5 0   0   2
+                          1 4    6   1
+                     A=  3 0
+                                       .
+                                  0   0
+                            3 1   0   1
+
+ A. -12
+ B. -36
+ C. 36
+ D. 12
+
+
+
+                                            17 / 26
+Agenda
+
+
+
+1 Intuition und Interpretation
+
+
+2 Berechnung über Kofaktoren
+
+
+3 Berechnung über Zeilenumformungen
+
+
+4 Eigenschaften
+
+
+
+
+                                       18 / 26
+Berechnung über Zeilenumformungen
+
+
+Theorem
+Seien A, B ∈ Rn×n .
+
+ (i) Erhalten wir B aus A, indem wir eine Zeile von A mit k ∈ R
+     multiplizieren, gilt det(B) = k det(A).
+(ii) Erhalten wir B aus A, indem wir eine Zeile k mal zu einer
+     anderen addieren, gilt det(B) = det(A).
+(iii) Erhalten wir B aus A, indem wir zwei Zeilen von A
+      miteinander vertauschen, gilt det(B) = − det(A).
+
+
+
+
+                                                                  19 / 26
+Agenda
+
+
+
+1 Intuition und Interpretation
+
+
+2 Berechnung über Kofaktoren
+
+
+3 Berechnung über Zeilenumformungen
+
+
+4 Eigenschaften
+
+
+
+
+                                       20 / 26
+Eigenschaften
+
+
+
+
+Theorem (Äquivalenzen)
+Sei A ∈ Rn×n . Dann sind die folgenden Aussagen äquivalent:
+
+
+
+
+                                                               21 / 26
+Eigenschaften
+
+
+Theorem (Äquivalenzen)
+Sei A ∈ Rn×n . Dann sind die folgenden Aussagen äquivalent:
+
+(a) A ist invertierbar.
+(b) A⊤ ist invertierbar.
+(c) Die reduzierte Zeilenstufenform von A ist In .
+         ..
+          .
+(k) det(A) ̸= 0.
+
+
+
+
+                                                               22 / 26
+Eigenschaften
+
+Nützliche Rechenregeln
+
+ (i) Für jedes A ∈ Rn×n und k ∈ R gilt det(kA) = k n det(A).
+(ii) Für jedes A ∈ Rn×n gilt det(A) = det(A⊤ ).
+
+
+
+
+                                                                23 / 26
+Eigenschaften
+
+Nützliche Rechenregeln
+
+ (i) Für jedes A ∈ Rn×n und k ∈ R gilt det(kA) = k n det(A).
+(ii) Für jedes A ∈ Rn×n gilt det(A) = det(A⊤ ).
+
+
+Theorem
+Für alle A, B ∈ Rn×n gilt det(AB) = det(A) det(B).
+
+
+
+
+                                                                23 / 26
+Eigenschaften
+
+Nützliche Rechenregeln
+
+ (i) Für jedes A ∈ Rn×n und k ∈ R gilt det(kA) = k n det(A).
+(ii) Für jedes A ∈ Rn×n gilt det(A) = det(A⊤ ).
+
+
+Theorem
+Für alle A, B ∈ Rn×n gilt det(AB) = det(A) det(B).
+
+Für die meisten Matrizen gilt
+
+                  det(A + B) ̸= det(A) + det(B).
+
+
+
+                                                                23 / 26
+Quiz
+
+
+
+Seien A und B 2 × 2 Matrizen und B zusätzlich invertierbar.
+Welche Aussagen sind wahr?
+
+ A. det(AB) = det(BA)
+ B. det(−A) = det(A)
+                  det(A)
+ C. det(AB −1 ) = det(B)
+
+ D. det(2A) = 2 det(A)
+
+
+
+
+                                                               24 / 26
+Quiz
+
+
+
+Beweise oder widerlege:
+
+    Sei A eine n × n Matrix und det(A2 ) = 0, dann ist A
+    singulär
+
+ A. Wahr
+ B. Falsch
+
+
+
+
+                                                           25 / 26
+Wrap-up
+
+
+Heute gelernt: Determinanten
+
+  • Intuition und Interpretation
+
+  • Berechnung über Kofaktoren
+
+  • Berechnung über Zeilenumformungen
+
+  • Eigenschaften
+
+Nächste Vorlesung
+
+  • Vektorräume
+
+
+                                         26 / 26
+

@@ -1,0 +1,468 @@
+3. Lösungsmengen und lineare Unabhängigkeit
+
+
+
+
+Methoden der Linearen Algebra in der Statistik
+Thomas Nagler <t.nagler@lmu.de>
+Agenda
+
+
+
+1 Homogene Systeme
+
+
+
+2 Inhomogene Systeme
+
+
+
+3 Lineare Unabhängigkeit
+
+
+
+
+                           1 / 20
+Agenda
+
+
+
+1 Homogene Systeme
+
+
+2 Inhomogene Systeme
+
+
+3 Lineare Unabhängigkeit
+
+
+
+
+                           2 / 20
+Homogene Systeme
+
+Definition
+Ein LGS der Form Ax = 0 wird homogen genannt.
+
+
+
+
+                                                3 / 20
+Homogene Systeme
+
+Definition
+Ein LGS der Form Ax = 0 wird homogen genannt.
+
+Theorem
+
+ (i) Jedes homogene System hat zumindest die triviale Lösung
+     x = 0.
+
+
+
+
+                                                               3 / 20
+Homogene Systeme
+
+Definition
+Ein LGS der Form Ax = 0 wird homogen genannt.
+
+Theorem
+
+ (i) Jedes homogene System hat zumindest die triviale Lösung
+     x = 0.
+(ii) Die Lösungsmenge des LGS kann als span{v1 , . . . , vk } für
+     Vektoren v1 , . . . , vk geschrieben werden.
+
+
+
+
+                                                                    3 / 20
+Homogene Systeme
+
+Definition
+Ein LGS der Form Ax = 0 wird homogen genannt.
+
+Theorem
+
+ (i) Jedes homogene System hat zumindest die triviale Lösung
+     x = 0.
+(ii) Die Lösungsmenge des LGS kann als span{v1 , . . . , vk } für
+     Vektoren v1 , . . . , vk geschrieben werden.
+(iii) Ein homogenes System hat genau dann eine nicht-triviale
+      Lösung, wenn es zumindest eine freie Variable gibt.
+
+
+
+                                                                    3 / 20
+Homogene Systeme
+Die Lösungsmenge eines homogenen LGS ist entweder
+  • Der Nullpunkt 0,
+
+  • Eine Gerade/Hyperebene durch den Nullpunkt.
+
+
+
+
+   Fig 1.5.2 in [LLM]
+                                                    4 / 20
+Homogene Systeme
+Nehmen wir an, das homogene LGS ist in reduzierter Form:
+
+                      1 0  3 0 0
+                               
+                     0 1 −2 5 0
+                      0 0  0 0 0
+
+
+
+
+                                                           5 / 20
+Homogene Systeme
+Nehmen wir an, das homogene LGS ist in reduzierter Form:
+
+                      1 0  3 0 0
+                               
+                     0 1 −2 5 0
+                      0 0  0 0 0
+
+
+
+Dann           x1 + 3x3 = 0
+         x2 − 2x3 + 5x4 = 0
+
+
+
+
+                                                           5 / 20
+Homogene Systeme
+Nehmen wir an, das homogene LGS ist in reduzierter Form:
+
+                      1 0  3 0 0
+                               
+                     0 1 −2 5 0
+                      0 0  0 0 0
+
+                                 x1    = −3x3     +   0x4
+Dann           x1 + 3x3 = 0    ⇔ x2    =  2x3     −   5x4
+         x2 − 2x3 + 5x4 = 0      x3    =  1x3     +   0x4
+                                 x4    =  0x3     +   1x4
+
+
+
+
+                                                            5 / 20
+Homogene Systeme
+Nehmen wir an, das homogene LGS ist in reduzierter Form:
+
+                      1 0  3 0 0
+                               
+                     0 1 −2 5 0
+                      0 0  0 0 0
+
+                                    x1   = −3x3   +   0x4
+Dann           x1 + 3x3 = 0       ⇔ x2   =  2x3   −   5x4
+         x2 − 2x3 + 5x4 = 0         x3   =  1x3   +   0x4
+                                    x4   =  0x3   +   1x4
+oder
+                                   0 
+                                
+                            −3
+                            2  −5
+                         
+                 x ∈ span  1 , 0  .
+                                 
+
+                             0     1
+                                                            5 / 20
+Agenda
+
+
+
+1 Homogene Systeme
+
+
+2 Inhomogene Systeme
+
+
+3 Lineare Unabhängigkeit
+
+
+
+
+                           6 / 20
+Inhomogene Systeme
+Definition
+Ein LGS der Form Ax = b mit b 6= 0 wird inhomogen genannt.
+
+
+
+
+   Fig 3.4.7 aus Anton, Rorres. Elementary Linear Algebra.
+                                                             7 / 20
+Inhomogene Systeme
+Definition
+Ein LGS der Form Ax = b mit b 6= 0 wird inhomogen genannt.
+
+Theorem
+Sei Lh = {x : Ax = 0} und x0 ein Vektor mit Ax0 = b. Dann ist
+Menge aller Lösungen des inhomogenen Systems
+
+                      Li = {x0 + xh : xh ∈ Lh }.
+
+
+
+  • x0 : spezielle Lösung
+
+  • Lh : allgemeine Lösung
+
+   Fig 3.4.7 aus Anton, Rorres. Elementary Linear Algebra.
+                                                                7 / 20
+Quiz
+
+Die Menge aller Lösungen des homogenen Systems mit Matrix
+
+                         0 ∗ ∗ 0
+                                     
+                       0  ∗ ∗ 0
+                        0 0 0 0 0
+
+ist …
+
+ A. Ein Punkt
+ B. R3
+ C. Der Spann zweier Vektoren in R3
+ D. Der Spann zweier Vektoren in R4
+
+
+
+                                                            8 / 20
+Agenda
+
+
+
+1 Homogene Systeme
+
+
+2 Inhomogene Systeme
+
+
+3 Lineare Unabhängigkeit
+
+
+
+
+                           9 / 20
+Lineare Unabhängigkeit
+
+
+
+Definition
+Eine Menge {v1 , . . . , vk } ⊂ Rn ist linear unabhängig, wenn die
+Vektorgleichung
+                          x1 v1 + · · · + xk vk = 0
+nur die triviale Lösung x = 0 besitzt.
+
+Andernfalls nennen wir die Vektoren linear abhängig.
+
+
+
+
+                                                                     10 / 20
+Lineare Unabhängigkeit
+
+Theorem
+Eine Menge M = {v1 , . . . , vk } ist genau dann linear abhängig,
+wenn es ein vj ∈ M gibt, so dass vj ∈ span(M \ {vj }).
+
+
+
+
+   Fig 1.7.2 [LLM]
+                                                                    11 / 20
+Lineare Unabhängigkeit
+
+Lemma
+
+(i) Eine Menge {v} ist genau dann linear abhängig, wenn v = 0.
+(ii) Eine Menge {v1 , v2 } ist genau dann linear abhängig, wenn
+     v1 = cv2 oder v2 = cv1 für ein c ∈ R.
+
+
+
+
+  Fig 4.3.3 in [AR]
+                                                                  12 / 20
+Lineare Unabhängigkeit: große Mengen
+
+
+Theorem
+Sei A = (v1 · · · vk ) ∈ Rn×k . Die Vektoren v1 , . . . , vk sind genau
+dann linear unabhängig, wenn Ax = 0 nur die triviale Lösung hat.
+
+
+
+
+                                                                          13 / 20
+Lineare Unabhängigkeit: große Mengen
+
+
+Theorem
+Sei A = (v1 · · · vk ) ∈ Rn×k . Die Vektoren v1 , . . . , vk sind genau
+dann linear unabhängig, wenn Ax = 0 nur die triviale Lösung hat.
+
+Theorem
+Jede Menge {v1 , . . . , vk } ⊂ Rn mit k > n ist linear abhängig.
+
+
+
+
+                                                                          13 / 20
+Lineare Unabhängigkeit: große Mengen
+
+
+Theorem
+Sei A = (v1 · · · vk ) ∈ Rn×k . Die Vektoren v1 , . . . , vk sind genau
+dann linear unabhängig, wenn Ax = 0 nur die triviale Lösung hat.
+
+Theorem
+Jede Menge {v1 , . . . , vk } ⊂ Rn mit k > n ist linear abhängig.
+
+Theorem
+Jede Menge M = {v1 , . . . , vk } mit 0 ∈ M ist linear abhängig.
+
+
+
+
+                                                                          13 / 20
+Quiz
+
+
+
+Sind die Vektoren
+                  3                                1
+                                               
+                                    −2
+            v1 =     ,   v2 =            ,   v3 =     ,
+                  1                  2             7
+
+linear unabhängig?
+
+ A. Ja
+ B. Nein
+
+
+
+
+                                                          14 / 20
+Quiz
+
+
+
+Sind die Vektoren
+                           3
+                                             
+                                             −12
+                     v1 =     ,   v2 =            ,
+                           1                 −4
+
+linear unabhängig?
+
+ A. Ja
+ B. Nein
+
+
+
+
+                                                      15 / 20
+Quiz
+
+
+Sind die Vektoren
+                  3                           0
+                                          
+                              −12
+           v1 = 1 ,   v2 =  −4  ,   v3 = 0 ,
+                  0             1             1
+
+linear unabhängig?
+
+ A. Ja
+ B. Nein
+
+
+
+
+                                                     16 / 20
+Quiz
+
+
+Sind die Vektoren
+                      3                  0
+                                     
+                              −12
+                     1 ,    −5  ,   0 ,
+                      0         1        1
+
+linear unabhängig?
+
+ A. Ja
+ B. Nein
+
+
+
+
+                                                17 / 20
+Quiz
+
+
+
+Beweise oder widerlege:
+
+    Seien v1 , v2 , v3 ∈ Rn und {v1 , v2 } linear abhängig. Dann
+    ist auch {v1 , v2 , v3 } linear abhängig.
+
+ A. Wahr
+ B. Falsch
+
+
+
+
+                                                                   18 / 20
+Quiz
+
+
+
+Beweise oder widerlege:
+
+    Seien v1 , v2 , v3 ∈ Rn . Ist {v1 , v2 , v3 } linear abhängig, dann
+    ist auch {v1 , v2 } linear abhängig.
+
+ A. Wahr
+ B. Falsch
+
+
+
+
+                                                                          19 / 20
+Wrap-up
+
+
+
+Heute gelernt
+
+  • Lösungsmengen homogener LGS
+
+  • Lösungsmengen inhomogener LGS
+
+  • Lineare Abhängigkeit
+
+Nächste Vorlesung
+
+  • Matrix-Vektor-Produkt als lineare Abbildung
+
+
+
+
+                                                  20 / 20
+

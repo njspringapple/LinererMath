@@ -1,0 +1,707 @@
+7. Anwendungen
+
+
+
+
+Methoden der Linearen Algebra in der Statistik
+Thomas Nagler <t.nagler@lmu.de>
+Agenda
+
+
+1 Interpolation
+
+
+2 Lineare Modelle
+
+
+3 Beweisübung 1
+
+
+4 Markovketten
+
+
+5 Beweisübung 2
+
+
+
+
+                    1 / 28
+Agenda
+
+
+1 Interpolation
+
+
+2 Lineare Modelle
+
+
+3 Beweisübung 1
+
+
+4 Markovketten
+
+
+5 Beweisübung 2
+
+
+
+
+                    2 / 28
+Interpolation
+
+    10                                           10
+
+
+
+
+     5                                            5
+
+
+
+
+y                                            y
+     0                                            0
+
+
+
+
+    −5                                           −5
+
+
+
+
+               −2         0         2                 −2        0           2
+                          x                                     x
+
+
+
+
+         • Wir haben n Datenpunkte (yj , xj ), j = 1, . . . , n.
+
+         • Durch Interpolation der Punkte (yj , xj ) finden wir eine
+           Funktion fn , sodass yj = fn (xj ) für alle j = 1, . . . , n.
+
+                                                                                3 / 28
+Interpolation
+
+Beispiel
+
+  • Für separierte Inputs (xi ̸= xj für i ̸= j) gibt es genau ein
+    Polynom (n − 1)-ten Grades fn , sodass
+
+    yj = fn (xj ) := c1 + c2 xj1 + · · · + cn xjn−1 ,   für alle j = 1, . . . , n.
+
+
+
+
+                                                                                      4 / 28
+Interpolation
+
+Beispiel
+
+  • Für separierte Inputs (xi ̸= xj für i ̸= j) gibt es genau ein
+    Polynom (n − 1)-ten Grades fn , sodass
+
+    yj = fn (xj ) := c1 + c2 xj1 + · · · + cn xjn−1 ,        für alle j = 1, . . . , n.
+
+  • Die Koeffizienten c = (c1 , . . . , cn ) des Polynoms lassen sich
+    durch das LGS
+               1 x1 x12 · · · x1n−1
+                                               
+                                                  c1       y1
+                            ..                 ..   .. 
+                                              .  =  . 
+            
+                            .
+                 1 xn xn2 · · ·         xnn−1           cn            yn
+
+    bestimmen.
+
+                                                                                           4 / 28
+    Interpolation
+
+
+    Für 5 Beobachtungen, brauchen wir also ein Polynom 4ten Grades:
+
+1 # Beobachtete Daten
+2 x <- seq ( -2 , 2 , l = 5)
+3 y <- 10 * sin (1 + x )
+4
+5   # Matrix mit Potenzen x _ j ^( k - 1)
+6   A <- sapply (1:5 , function ( k ) x ^( k - 1) )
+7
+8  # L ö se Ac = y
+9  solve (A , y )
+10 # > [1]    8.4147098    5.2431570 -4.1645916 -0.6966699
+        0.2963688
+
+
+
+
+                                                                       5 / 28
+Interpolation
+
+    10                                   10
+
+
+
+
+     5                                    5
+
+
+
+
+y                                    y
+     0                                    0
+
+
+
+
+    −5                                   −5
+
+
+
+
+          −2       0         2                −2      0          2
+                   x                                  x
+
+
+
+
+Rechts:
+
+           fn (x) = 8.41 + 5.24x − 4.16x 2 − 0.70x 3 + 0.30x 4
+
+
+
+                                                                     6 / 28
+Interpolation
+
+
+
+ • Ähnliche LGS lassen sich immer aufstellen, wenn fn als
+   Linearkombination von Basis-Funktionen φ1 , . . . , φn erzeugt
+   wird:
+
+         fn (x) = c1 φ1 (x) + · · · + cn φn (x),   c1 , . . . , cn ∈ R.
+
+ • Im Beispiel war φj (x) = x j−1 .
+
+ • Andere Beispiele: Fourierbasis, Splines, Wavelets.
+
+
+
+
+                                                                          7 / 28
+Agenda
+
+
+1 Interpolation
+
+
+2 Lineare Modelle
+
+
+3 Beweisübung 1
+
+
+4 Markovketten
+
+
+5 Beweisübung 2
+
+
+
+
+                    8 / 28
+Lineare Modelle
+
+
+
+ • Die Daten (y1 , x1 ), . . . , (yn , xn ) ∈ R1+p folgen dem Modell
+
+                       yi = xi⊤ b,    i = 1, . . . , n,
+
+   für ein b ∈ Rp , das wir aber nicht kennen.
+
+
+
+
+                                                                       9 / 28
+Lineare Modelle
+
+
+
+ • Die Daten (y1 , x1 ), . . . , (yn , xn ) ∈ R1+p folgen dem Modell
+
+                       yi = xi⊤ b,    i = 1, . . . , n,
+
+   für ein b ∈ Rp , das wir aber nicht kennen.
+
+ • Die Daten (yi , xi ) ∈ R1+p liegen alle auf einer p-dimensionalen
+   Ebene, die durch den Vektor b charakterisiert wird.
+
+ • Übung: Schreibe die Ebene als Spann von Vektoren.
+
+
+
+
+                                                                       9 / 28
+Lineare Modelle
+
+
+Die Gleichungen
+
+                     yi = xi⊤ b,    i = 1, . . . , n,
+
+ergeben das LGS
+                                             ⊤
+                                             x1
+                                             .. 
+                  Xb = y      mit       X =  . .
+                                                  xn⊤
+
+
+
+
+                                                        10 / 28
+Quiz
+
+
+
+Sei b ∈ Rp , y ∈ Rn und X ∈ Rn×p mit n < p.
+
+Hat das LGS: X b = y eine eindeutige Lösung?
+
+ A. Ja
+ B. Nein
+ C. vielleicht
+
+
+
+
+                                                11 / 28
+Lineare Modelle
+
+ • In realen Daten ist ein Modell wie yi = xi⊤ b niemals exakt.
+
+
+
+
+                                                                  12 / 28
+Lineare Modelle
+
+ • In realen Daten ist ein Modell wie yi = xi⊤ b niemals exakt.
+
+ • In der Statistik liest sich ein lineares Modell
+
+                              yi = xi⊤ b + ϵi ,
+
+   wobei ϵ1 , . . . , ϵn unabhängige Zufallsfehler sind.
+
+ • Beispielsweise folgt ϵi einer Normalverteilung.
+
+
+
+
+                                                                  12 / 28
+Lineare Modelle
+
+ • In realen Daten ist ein Modell wie yi = xi⊤ b niemals exakt.
+
+ • In der Statistik liest sich ein lineares Modell
+
+                              yi = xi⊤ b + ϵi ,
+
+   wobei ϵ1 , . . . , ϵn unabhängige Zufallsfehler sind.
+
+ • Beispielsweise folgt ϵi einer Normalverteilung.
+
+ • Das LGS X b = y ist nicht mehr lösbar, da die Daten nicht
+   mehr auf einer Ebene liegen.
+
+
+
+
+                                                                  12 / 28
+Lineare Modelle
+
+ • In realen Daten ist ein Modell wie yi = xi⊤ b niemals exakt.
+
+ • In der Statistik liest sich ein lineares Modell
+
+                              yi = xi⊤ b + ϵi ,
+
+   wobei ϵ1 , . . . , ϵn unabhängige Zufallsfehler sind.
+
+ • Beispielsweise folgt ϵi einer Normalverteilung.
+
+ • Das LGS X b = y ist nicht mehr lösbar, da die Daten nicht
+   mehr auf einer Ebene liegen.
+
+ • Lösung: Minimiere die Diskrepanz y − X b durch die Formel
+   b = (X ⊤ X )−1 X ⊤ y .
+
+                                                                  12 / 28
+Agenda
+
+
+1 Interpolation
+
+
+2 Lineare Modelle
+
+
+3 Beweisübung 1
+
+
+4 Markovketten
+
+
+5 Beweisübung 2
+
+
+
+
+                    13 / 28
+Übung 1
+
+
+
+Aussage: Seien A und B zwei 3 × 3 Matrizen. Wenn die Spalten
+von A linear unabhängig sind, dann sind auch die Spalten von BA
+linear unabhängig.
+
+Diese Aussage ist
+
+ A. Wahr
+ B. Falsch
+
+
+
+
+                                                                   14 / 28
+Übung 1
+
+Aussage: Seien A und B zwei 3 × 3 Matrizen. Wenn die
+Spalten von A linear unabhängig sind, dann sind auch die Spalten
+von BA linear unabhängig.
+
+
+
+
+                                                                    15 / 28
+Übung 1
+
+Aussage: Seien A und B zwei 3 × 3 Matrizen. Wenn die
+Spalten von A linear unabhängig sind, dann sind auch die Spalten
+von BA linear unabhängig.
+
+Wie sieht die Definition
+                       der lineare Unabhängigkeit für die Spalten
+von A = a1 a2 a3 aus?
+
+ A. Keiner der drei Vektoren ist das Mehrfache eines anderen
+    Vektors.
+ B. x1 a1 + x2 a2 + x3 a3 = 0 hat eine nicht triviale Lösung.
+ C. a3 ist nicht durch eine Linearkombination von a1 und a2
+    darstellbar.
+ D. x1 a1 + x2 a2 + x3 a3 = 0 hat nur die triviale Lösung.
+
+
+                                                                       15 / 28
+Übung 1
+
+Aussage: Seien A und B zwei 3 × 3 Matrizen. Wenn die Spalten
+von A linear unabhängig sind, dann sind auch die
+Spalten von BA linear unabhängig.
+
+Wie sieht die erste Spalte von BA
+                                 aus?   
+Wir schreiben A = a1 a2 a3 , B = b1 b2 b3 , T (x) = Ax
+und S(x) = Bx.
+
+ A. Ba1
+ B. Ab1
+ C. S(T (a1 ))
+ D. T (S(e1 ))
+
+
+                                                               16 / 28
+Übung 1
+
+
+
+Aussage: Seien A und B zwei 3 × 3 Matrizen. Wenn die Spalten
+von A linear unabhängig sind, dann sind auch die Spalten von BA
+linear unabhängig.
+
+Diese Aussage ist
+
+ A. Wahr
+ B. Falsch
+
+
+
+
+                                                                   17 / 28
+Agenda
+
+
+1 Interpolation
+
+
+2 Lineare Modelle
+
+
+3 Beweisübung 1
+
+
+4 Markovketten
+
+
+5 Beweisübung 2
+
+
+
+
+                    18 / 28
+Markovketten
+
+
+
+
+ • In dynamischen Systemen beschreiben Vektoren x (t) ∈ Rn
+   den Zustand des Systems zum Zeitpunkt t.
+
+ • Der Übergang von einem zum nächsten Zustand wird oft
+   durch eine Matrixtransformation beschrieben:
+
+                         x (t) = Ax (t−1) .
+
+
+
+
+                                                             19 / 28
+Markovketten
+
+
+ • In Markovketten besteht der Zustandsvektor aus
+   Wahrscheinlichkeiten.
+
+ • Sei zum Beispiel V (t) das Ereignis, dass jemand in die t-te
+   Vorlesung geht.
+
+ • Wir modellieren Vektoren
+                                                         !
+                               (t)       P(V (t) )
+                           p         =         (t)           .
+                                         P(V         )
+
+ • Also gilt: p1(t) + p2(t) = 1
+
+
+
+                                                                  20 / 28
+Markovketten
+
+ • Allgemein gilt:
+                                                                       (t−1)          (t−1)
+   P(V (t) ) = P(V (t) | V (t−1) )P(V (t−1) )+P(V (t) | V                      )P(V           )
+         (t)             (t)                                (t)        (t−1)          (t−1)
+   P(V         ) = P(V         | V (t−1) )P(V (t−1) )+P(V         |V           )P(V           ).
+
+
+
+
+                                                                                       21 / 28
+Markovketten
+
+ • Allgemein gilt:
+                                                                           (t−1)           (t−1)
+   P(V (t) ) = P(V (t) | V (t−1) )P(V (t−1) )+P(V (t) | V                           )P(V           )
+         (t)             (t)                                   (t)         (t−1)           (t−1)
+   P(V         ) = P(V         | V (t−1) )P(V (t−1) )+P(V            |V             )P(V           ).
+
+ • Kompakt geschrieben: p (t) = Mp (t−1)
+
+ • M enthält die Übergangswahrscheinlichkeiten:
+                                                                   (t−1)
+                                                                            !
+                         P(V (t) | V (t−1) ) P(V (t) | V                   )
+                M=              (t)                     (t)        (t−1)        .
+                         P(V          | V (t−1) ) P(V         |V           )
+
+
+
+                                                                                            21 / 28
+Markovketten
+
+
+Beispiel:
+                      
+               0.9 0.8
+  • Sei M =              .
+               0.1 0.2
+
+  • Angenommen die erste Vorlesung wird sicher besucht:
+    p (1) = (1, 0).
+
+  • Gegeben p (1) können wir jetzt rekursiv Wahrscheinlichkeiten
+    für die t-te Vorlesung berechnen:
+
+            p (t) = Mp (t−1) = M 2 p (t−2) = · · · = M t−1 p (1) .
+
+
+
+
+                                                                     22 / 28
+    Markovketten
+
+
+
+1  M <- cbind ( c (0.9 , 0.1) , c (0.8 , 0.2) )
+2  p1 <- c (1 , 0)
+ 3 M % * % p1            # 2 te Vorlesung
+ 4 #>         [ ,1]
+ 5 # > [1 ,]    0.9
+ 6 # > [2 ,]    0.1
+ 7 library ( expm )
+ 8 ( M % ^ % 5) % * % p1 # 6 te Vorlesung
+ 9 #>             [ ,1]
+10 # > [1 ,] 0.88889
+11 # > [2 ,] 0.11111
+
+
+
+
+                                                  23 / 28
+    Markovketten
+
+
+     • Für jemanden, der nicht in der ersten Vorlesung war
+       (p (1) = (0, 1) bekommen wir:
+
+1 p1 <- c (0 , 1)
+2 M % * % p1            # 2 te Vorlesung
+3 #>         [ ,1]
+4 # > [1 ,]    0.8
+5 # > [2 ,]    0.2
+6 ( M % ^ % 5) % * % p1 # 6 te Vorlesung
+7 #>             [ ,1]
+8 # > [1 ,] 0.88888
+9 # > [2 ,] 0.11112
+
+
+
+
+                                                              24 / 28
+Markovketten
+
+
+ • Es lässt sich zeigen, dass es einen Vektor q gibt mit
+
+                            lim M n p = q.
+                           n→∞
+
+
+
+
+                                                            25 / 28
+Markovketten
+
+
+ • Es lässt sich zeigen, dass es einen Vektor q gibt mit
+
+                            lim M n p = q.
+                           n→∞
+
+ • Genauso gilt:
+
+                   lim M n p = M lim M n−1 p = Mq.
+                   n→∞           n→∞
+
+
+
+
+                                                            25 / 28
+Markovketten
+
+
+ • Es lässt sich zeigen, dass es einen Vektor q gibt mit
+
+                            lim M n p = q.
+                           n→∞
+
+ • Genauso gilt:
+
+                   lim M n p = M lim M n−1 p = Mq.
+                   n→∞           n→∞
+
+ • Damit erhalten wir:
+                              Mq = q.
+
+ • Beim Zustand q ist das System also im Gleichgewicht.
+
+
+
+                                                            25 / 28
+Agenda
+
+
+1 Interpolation
+
+
+2 Lineare Modelle
+
+
+3 Beweisübung 1
+
+
+4 Markovketten
+
+
+5 Beweisübung 2
+
+
+
+
+                    26 / 28
+Übung 2
+
+
+
+Aussage: Wenn A ∈ Rn×n und Ax = b keine Lösung für ein
+bestimmtes b ∈ Rn besitzt, dann hat A⊤ x = 0 unendlich viele
+Lösungen.
+
+Diese Aussage ist
+
+ A. Wahr
+ B. Falsch
+
+
+
+
+                                                               27 / 28
+Wrap-up
+
+
+
+Heute kennengelernt
+
+  • Interpolation
+
+  • Lineare Modelle
+
+  • Markovketten
+
+Nächste Vorlesung
+
+  • Determinanten
+
+
+
+
+                      28 / 28
+

@@ -1,0 +1,67 @@
+# Erste Klausur zu Lineare Algebra für Informatiker
+
+**Mathematisches Institut der Universität München**  
+**P. Schauenburg**
+
+**WS 2001/2002**  
+**8. Dezember 2001**
+
+---
+
+**Alle fünf Aufgaben zählen gleich viel.**
+
+Nachname: ............... Vorname: ............... Gruppe: ...............
+
+| 1 | 2 | 3 | 4 | 5 | Σ |
+|---|---|---|---|---|---|
+|   |   |   |   |   |   |
+
+---
+
+## Aufgabe 1
+
+Bestimmen Sie die Inverse von
+
+$$A := \begin{pmatrix} 1 & 1 & 1 & 0 \\ 1 & 1 & -1 & 0 \\ 1 & -1 & 0 & 1 \\ 1 & -1 & 0 & -1 \end{pmatrix} \in {}^{4}\mathbb{R}^{4}$$
+
+und machen Sie die Probe.
+
+---
+
+## Aufgabe 2
+
+Bestimmen Sie, abhängig von $\lambda \in \mathbb{R}$, alle Lösungen des Gleichungssystems $Ax = b$, bei
+
+$$A := \begin{pmatrix} 1 & 2 & 4 & 3 \\ 1 & 2 & 2 & -1 \\ 0 & 0 & 1 & 2 \end{pmatrix} \in {}^{3}\mathbb{R}^{4} \quad \text{und} \quad b := \begin{pmatrix} \lambda \\ -1 \\ 1 \end{pmatrix} \in {}^{3}\mathbb{R}.$$
+
+---
+
+## Aufgabe 3
+
+Klären Sie, ob das Produkt $A \cdot B$ der Matrizen
+
+$$A := \begin{pmatrix} 1 & -2 & 5 \\ 3 & -1 & -1 \\ 0 & 4 & 0 \\ 17 & 1 & 0 \\ 7 & 9 & -5 \end{pmatrix} \in {}^{5}\mathbb{R}^{3} \quad \text{und} \quad B := \begin{pmatrix} 1 & 3 & 7 & 15 & 9 \\ 2 & 6 & 8 & -1 & 0 \\ 3 & 4 & 9 & 1 & -3 \end{pmatrix} \in {}^{3}\mathbb{R}^{5}$$
+
+regulär ist.
+
+_Hinweis: Mit einem abstrakten Argument ersparen Sie sich jeglichen Rechenaufwand._
+
+---
+
+## Aufgabe 4
+
+Stellen Sie fest, wie viele reguläre Matrizen es in ${}^{2}(\mathbb{F}_{2})^{2}$ gibt, und begründen Sie Ihre Aussage.
+
+_Hinweis: Es gibt eine Lösung, bei der man nicht alle möglichen Matrizen hinschreiben muss._
+
+---
+
+## Aufgabe 5
+
+Sei $A \in {}^{m}\mathbb{R}^{n}$, und sei der Einfachheit halber $A \neq 0$ und $\text{Rang}(A) < m$. Zeigen Sie, dass es $l \in \mathbb{N}$ und $P \in {}^{l}\mathbb{R}^{m}$ gibt, so dass gilt:
+
+$$\forall b \in {}^{m}\mathbb{R}\;[\mathcal{L}(A, b) \neq \emptyset \Leftrightarrow Pb = 0]$$
+
+Das heißt: Für alle $b \in {}^{m}\mathbb{R}$ ist das Gleichungssystem $Ax = b$ genau dann lösbar, wenn $Pb$ gleich Null ist.
+
+_Hinweis: Nehmen Sie zunächst an, dass $A$ Zeilenstufenform hat mit $r$ Stufen. Dann ist $P := (0, E_{m-r})$, mit $0 \in {}^{m-r}\mathbb{R}^{r}$ eine geeignete Matrix. Warum?_

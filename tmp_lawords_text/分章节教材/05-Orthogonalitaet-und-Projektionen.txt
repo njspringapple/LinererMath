@@ -1,0 +1,2080 @@
+5 Orthogonalität und Projektionen
+Aus der Schule sind uns im R2 die Konzepte Länge, Abstand, Winkel und Pro-
+jektion bereits bekannt. Sie geben dem Raum eine geometrische Struktur. Diese
+Struktur gibt uns nicht nur Intuition, sie ist auch ein mächtiges Werkzeug. Wir
+wollen diese Konzepte erweitern und so auch dem Rn und anderen Vektorräumen
+eine vergleichbare Struktur verschaffen. Wir legen hierbei den Fokus hauptsächlich
+auf den Rn , auch wenn viele Konzepte und Resultate bereits für allgemeine Vek-
+torräume hergleitet werden. Es ist zum einfacheren Verständnis aber ratsam, sich
+immer den Rn vor Augen zu halten. Konkrete Beispiele in anderen Vektorräumen
+besprechen wir erst am Ende.
+
+
+5.1 Norm eines Vektors
+
+
+
+
+                 (a)                                       (b)
+
+         Abbildung 5.1: Die Länge/Norm eines Vektors im R2 und R3 .
+
+   Zunächst wollen wir die Konzepte Länge und Abstand im R2 in Vektornotation
+umschreiben. Als Länge oder Norm ∥v∥ eines Vektors verstehen wir die Länge
+des Verbindungsstücks zwischen dem Nullpunkt (0, 0) und dem Punkt (v1 , v2 ). In
+Abbildung 5.1a sehen wir den Vektor v als grünen Pfeil vom Nullpunkt zum Punkt
+v = (v1 , v2 ). Wir sehen, dass der Pfeil in einem Dreieck mit den Punkten (0, 0)
+und (0, v1 ) gegenüber eines rechten Winkels liegt. Nach dem Satz des Pythagoras
+gilt dann                                             q
+                      ∥v∥2 = v12 + v22 oder ∥v∥ = v12 + v22 .
+Eine ähnliche Formel können wir im R3 herleiten. Zunächst Berechnen wir die
+Länge des Vektors v̂ in der v1 -v3 -Fläche wie zuvor im R2 :
+
+                                 ∥v̂∥2 = v12 + v32 .
+
+
+                                         95
+                       5 Orthogonalität und Projektionen
+
+
+Nun können wir über das Dreieck 0-v̂-v, die Länge von v berechnen als
+
+                        ∥v∥2 = ∥v̂∥2 + v22 = v12 + v22 + v32 .
+
+Genauso definieren wir die Norm auch in höheren Dimensionen.
+
+ Definition 5.1.1. Die Norm eines Vektors v ∈ Rn ist definiert als
+                                      q
+                              ∥v∥ =       v12 + · · · + vn2 .
+
+Die folgenden Eigenschaften lassen sich leicht aus der Definition beweisen.
+
+ Theorem 5.1.2. Für v ∈ Rn und c ∈ R gilt:
+
+   (i) ∥v∥ ≥ 0.
+
+  (ii) ∥v∥ = 0 genau dann, wenn v = 0.
+
+ (iii) ∥cv∥ = |c|∥v∥
+
+Vektoren mit Norm 1 spielen eine besondere Rolle.
+
+ Definition 5.1.3. Einen Vektor v mit ∥v∥ = 1 nennen wir Einheitsvektor.
+
+
+Anmerkung 5.1.4. Die Menge aller Einheitsvektoren {v : ∥v∥ = 1} wird auch
+Einheitsspähre genannt.
+
+
+Anmerkung 5.1.5. Wir haben bisher die Vektoren ej der Standardbasis als
+                                      gilt ∥e√j ∥ = 1. Es gibt aber auch andere
+Einheitsvektoren bezeichnet. Für sie √
+Einheitsvektoren, wie zum Beispiel (1/ 2, 1/ 2). Normalerweise kommt es durch
+die doppelte Wortbelegung nicht zur Verwechslung. Falls nötig, nennen wir ej
+Standardeinheitsvektor.
+
+
+Anmerkung 5.1.6. Jeden Vektor v können wir zu einem Einheitsvektor in die
+gleiche Richtung skalieren: Der Vektor w = v/∥v∥ hat Norm
+
+                        ∥w∥ = ∥v/∥v∥∥ = ∥v∥/∥v∥ = 1.
+
+   Ähnlich können wir den Abstand zwischen zwei Vektoren v, w ∈ Rn als die
+Länge des Verbindungsstücks zwischen den Punkten v und w definieren. Diese
+Länge beträgt ∥v − w∥.
+
+
+
+
+                                           96
+                              5 Orthogonalität und Projektionen
+
+
+5.2 Winkel
+Auch wissen wir aus der Geometrie, wie wir einen Winkel zwischen zwei Vektoren
+v, w ∈ R2 berechnen. Nehmen wir an sowohl v als auch w liegen auf dem
+Einheitskreis. Dann kann man sich überlegen1 , dass für den Winkel θ zwischen v
+und w
+                                                   v1 w1 + v2 w2
+                                      cos(θ) =
+                                                     ∥v∥∥w∥
+
+gelten muss. Genauso können wir im R3 einen Winkel θ so definieren, dass er
+dem Winkel zwischen v und w in der Ebene span{v, w} misst. Hier gilt
+                                              v1 w1 + v2 w2 + v3 w3
+                                 cos(θ) =                           .
+                                                    ∥v∥∥w∥
+
+Im Nenner werden die Vektoren zu Einheitsvektoren normiert. Der Term im
+Zähler ist wichtiger für den Winkel und bekommt einen eigenen Namen.
+
+ Definition 5.2.1. Für v, w ∈ Rn definieren wir das (euklidische) Skalar-
+ produkta als
+                                       n
+                            ⟨v, w⟩ =         vi wi = v1 w1 + · · · + vn wn .
+                                       X
+
+                                       i=1
+
+     a
+         Auch inneres Produkt und im Englischen inner product oder dot product.
+
+
+
+Anmerkung 5.2.2. Fassen wir die Vektoren v, w ∈ Rn als (n × 1)-Matrizen
+auf, können wir das Skalarprodukt auch so schreiben:
+
+                                          ⟨v, w⟩ = v ⊤ w.
+
+Die folgenden Eigenschaften des Skalarprodukts kann man direkt nachrechnen.
+
+ Theorem 5.2.3. Sei u, v, w ∈ Rn und c ∈ R. Dann gilt:
+
+      (i) ⟨v, w⟩ = ⟨w, v⟩. [Symmetrie]
+
+     (ii) ⟨u, v + w⟩ = ⟨u, v⟩ + ⟨u, w⟩. [Distributivgesetz]
+
+ (iii) ⟨cv, w⟩ = c⟨v, w⟩. [Homogenität]
+
+     (iv) ⟨v, v⟩ ≥ 0 und ⟨v, v⟩ = 0 genau dann, wenn v = 0. [Positivität]
+
+
+
+
+ 1
+     Das ist nicht ganz trivial, aber nicht Thema dieser Vorlesung.
+
+
+
+                                                   97
+                      5 Orthogonalität und Projektionen
+
+
+
+
+    Abbildung 5.2: Drei orthogonale Vektoren im R3 . (Fig. 5.2.1 in [LLM])
+
+
+  Der Winkel θ zwischen v, w ̸= 0 ∈ R2 ist also
+                                                     !
+                                              ⟨v, w⟩
+                              θ = cos −1
+                                                     .
+                                             ∥v∥∥w∥
+
+Durch die gleiche Formel können wir nun auch in allgemeinen Vektorräumen
+einen Winkel definieren. Hauptsächlich interessiert uns aber ob die Vektoren
+orthogonal sind (= ein rechter Winkel vorliegt). Das ist der Fall, wenn cos(θ) = 0
+oder, äquivalent dazu, ⟨v, w⟩ = 0.
+
+ Definition 5.2.4. Vektoren v, w ∈ Rn sind orthogonal, wenn ⟨v, w⟩ = 0.
+
+
+Beispiel 5.2.5. Abbildung 5.2 zeigt die Vektoren
+
+                     3
+                                                                 
+                                      −1                    −1/2
+               u1 = 1 ,
+                     
+                                u2 =  2 
+                                     
+                                         ,          u3 =  −2 
+                                                          
+                                                                 .
+                     1                 1                     7/2
+
+Die Vektoren sind stehen alle im rechten Winkel aufeinander:
+
+                         ⟨u1 , u2 ⟩ = 3 · (−1) + 1 · 2 + 1 · 1 = 0,
+                                       −1                    7
+                      ⟨u1 , u3 ⟩ = 3 ·     + 1 · (−2) + 1 · = 0,
+                                        2                    2
+                                       −1                    7
+                  ⟨u2 , u3 ⟩ = (−1) ·      + 2 · (−2) + 1 · = 0.
+                                        2                    2
+
+
+
+
+                                            98
+                             5 Orthogonalität und Projektionen
+
+
+5.3 Skalarprodukt
+Es ist an der Zeit, das erste Mal über allgemeine Vektorräume zu sprechen.
+In diesem Kontext macht Definition 5.2.1 keinen Sinn. Wir wollen aber auch
+allgemeine Vektorräume mit einer ähnlichen geometrischen Struktur ausstatten.
+Wir gehen dabei ähnlich vor, wie wir auch vom Rn zu allgemeinen Vektorräumen
+V gekommen sind. Wir nehmen die wichtigsten Eigenschaften des euklidischen
+Skalarprodukts und nehmen sie als Axiome für ein allgemeines Skalarprodukt
+an.2
+
+ Definition 5.3.1. Sei V ein Vektorraum. Wir nennen ⟨·, ·⟩ : V × V → R ein
+ Skalarprodukt, wenn es für alle u, v, w ∈ V und c ∈ R die folgenden Axiome
+ erfüllt:
+
+      (i) ⟨v, w⟩ = ⟨w, v⟩. [Symmetrie]
+
+     (ii) ⟨u, v + w⟩ = ⟨u, v⟩ + ⟨u, w⟩. [Distributivgesetz]
+
+ (iii) ⟨cv, w⟩ = c⟨v, w⟩. [Homogenität]
+
+     (iv) ⟨v, v⟩ ≥ 0 und ⟨v, v⟩ = 0 genau dann, wenn v = 0. [Positivität]
+
+
+ Definition 5.3.2. Einen Vektorraum V zusammen mit einem Skalarprodukt
+ ⟨·, ·⟩ : V × V → R nennen wir Skalarproduktraum.
+
+     Auch Orthogonalität können wir analog zum Rn definieren.
+
+ Definition 5.3.3. Vektoren v, w ∈ V sind orthogonal, wenn ⟨v, w⟩ = 0 und
+ wir schreiben v ⊥ w.
+
+
+Anmerkung 5.3.4. Der Nullvektor 0 ist nach dieser Definition orthogonal zu
+jedem Vektor v, denn ⟨v, 0⟩ = 0 (wegen Homogenität).
+
+Das euklidische
+      q         Skalarprodukt hat außerdem die folgende Verbindung zur Norm:
+∥v∥ = ⟨v, v⟩. In allgemeinen Vektorräumen definieren wir die Norm nun genau-
+so.
+
+ Definition 5.3.5. Sei V ein Skalarproduktraum. Dann definieren wir die
+ Norm eines Vektors v ∈ V als
+                                                 q
+                                         ∥v∥ =     ⟨v, v⟩.
+
+ 2
+     Über diese Axiome hinaus werden wir selten andere Eigenschaften für unsere Beweise brauchen.
+      Wir formulieren die meisten folgenden Resultate direkt für allgemeine Vektorräume. Wie
+      gesagt, es reicht für den Moment alles im Rn zu verstehen; andere Vektorräume besprechen
+      wir später.
+
+
+
+                                                 99
+                      5 Orthogonalität und Projektionen
+
+
+  Das Skalarprodukt misst also nicht nur den Winkel, sondern auch die Länge
+von Vektoren. Wir können nun auch den Satz des Pythagoras auf allgemeine
+Vektorräume erweitern.
+ Theorem 5.3.6 (Satz des Pythagoras). Für orthogonale Vektoren v, w ∈ V
+ gilt
+
+                           ∥v + w∥2 = ∥v∥2 + ∥w∥2 .
+
+
+Beweis. Übungsaufgabe.
+   Das nächste Theorem enthält eine weitere wichtige Eigenschaft, die weniger
+offensichtlich ist. Auf die Beweisidee zu kommen ist nicht einfach, die einzelnen
+Schritte sollten aber zu folgen sein.
+
+ Theorem 5.3.7 (Cauchy-Schwarz-Ungleichung). Für v, w in einem Skalar-
+ produktraum V gilt
+
+                              |⟨v, w⟩| ≤ ∥v∥∥w∥.
+
+Beweis. Ist v = 0 oder w = 0 ist die Ungleichung trivialerweise erfüllt. Seien
+nun v, w ̸= 0. Für jedes λ ∈ R gilt nach Definition 5.3.1
+
+             0 ≤ ⟨v + λw, v + λw⟩ = ∥v∥2 + λ2 ∥w∥2 + 2λ⟨v, w⟩.
+
+Lösen wir die Ungleichung nach λ⟨v, w⟩ auf, erhalten wir
+
+                                    1      λ2
+                          −λ⟨v, w⟩ ≤ ∥v∥2 + ∥w∥2 .
+                                    2      2
+Wir wählen λ = −⟨v, w⟩/∥w∥2 und erhalten
+
+                          ⟨v, w⟩2   1        1 ⟨v, w⟩2
+                                  ≤   ∥v∥2
+                                           +           .
+                           ∥w∥2     2        2 ∥w∥2
+
+Multiplizieren wir beide Seiten mit ∥w∥2 und lösen nach ⟨v, w⟩ bekommen wir
+wie gewünscht
+
+                              ⟨v, w⟩2 ≤ ∥v∥2 ∥w∥2 .
+
+  Die Norm ∥ · ∥ spielt in V die gleiche Rolle wie der Betrag | · | in R. Mit der
+Cauchy-Schwarz-Ungleichung können wir nun auch eine wichtige Eigenschaft des
+Betrags verallgemeinern.
+
+ Theorem 5.3.8 (Dreiecksungleichung). Für alle v, w in einem Skalarproduk-
+ traum V gilt
+                         ∥u + v∥ ≤ ∥u∥ + ∥v∥.
+
+
+
+                                       100
+                            5 Orthogonalität und Projektionen
+
+
+Beweis. Es gilt
+
+                ∥u + v∥2 = ⟨u + v, u + v⟩
+                         = ⟨u, u⟩ + 2⟨u, v⟩ + ⟨v, v⟩
+                         = ∥u∥2 + 2⟨u, v⟩ + ∥v∥2
+                         ≤ ∥u∥2 + 2|⟨u, v⟩| + ∥v∥2
+                         ≤ ∥u∥2 + 2∥u∥∥v∥ + ∥v∥2 [Cauchy-Schwarz]
+                         = (∥u∥ + ∥v∥)2 .
+
+Wir schließen den Beweis, indem wir auf beiden Seiten die Wurzel ziehen.
+
+Anmerkung 5.3.9. Vielleicht habt ihr in der Analysis bereits von Distanzfunk-
+tionen gehört. Für u, v, w ∈ V erfüllt die Funktion d(v, w) = ∥v − w∥ die
+Dreiecksungleichung
+
+                                d(u, w) ≤ d(u, v) + d(v, w),
+
+denn
+
+            d(u, w) = ∥u − w∥ = ∥u − v + v − w∥
+                              ≤ ∥u − v∥ + ∥v − w∥ = d(u, v) + d(v, w).
+
+Zusammen mit Theorem 5.1.2 sind dann auch die anderen beiden Axiome einer
+Distanzfunktion erfüllt:
+
+ (i) d(u, v) = d(v, u).
+
+ (ii) d(u, v) = 0 genau dann, wenn u = v.
+
+   Wir fassen nochmal kurz zusammen, was gerade passiert ist. Durch das Ska-
+larprodukt geben wir dem Vektorraum eine geometrische Struktur. Aus dem
+R2 bekannte Konzepte wie Länge, Abstand, Winkel und Orthogonalität lassen
+sich damit direkt übertragen. Die Analogie zwischen der Geometrie von Vek-
+torräumen und dem R2 ist damit so stark, dass viele elementare geometrische
+Zusammenhänge erhalten bleiben. Insbesondere gelten der Satz vom Pythagoras
+und die Dreiecksungleichung. Dies gibt uns eine mathematisch fundierte Recht-
+fertigung, uns jeden Vektorraum als R2 oder R3 vorzustellen, um Intuition zu
+entwickeln.3
+
+
+5.4 Orthogonale Räume
+Orthogonalität ist ein so wichtiges Konzept, dass es weitaus mehr Aufmerksam-
+keit verdient. Es wird sich als nützlich erweisen, Vektorräume in orthogonale
+ 3
+     Selbst die besten Mathematiker fertigen regelmäßig Skizzen im R2 an, wenn sie über Funk-
+      tionenräume sprechen!
+
+
+
+                                              101
+                      5 Orthogonalität und Projektionen
+
+
+Unterräume aufzuteilen. Zunächst definieren wir Orthogonalität zu einem ganzen
+Raum.
+
+ Definition 5.4.1. Sei W ein Unterraum eines Skalarproduktraums V . Wir
+ nennen v ∈ V orthogonal zu W, wenn ⟨v, w⟩ = 0 für alle w ∈ W , und
+ schreiben v ⊥ W .
+
+
+
+ Definition 5.4.2. Sei W ein Unterraum von V . Dann nennen wir die Menge
+ W ⊥ = {v ∈ V : v ⊥ W } den (orthogonalen) Komplementärraum oder
+ das (orthogonale) Komplement zu W .
+
+Das Komplement W ⊥ enthält all jene Vektoren, die zu jedem Vektor in W ortho-
+gonal sind. Wie immer wollen wir zunächst die Teile Raum“ und Komplement“
+                                                    ”           ”
+im Namen rechtfertigen.
+
+ Theorem 5.4.3. Sei W ein Unterraum von V . Dann gilt:
+
+   (i) W ⊥ ist ein Unterraum von V .
+
+  (ii) W ∩ W ⊥ = {0}.
+
+
+Beweis. Übungsaufgabe.
+
+Beispiel 5.4.4. Sei V = R2 und W = span{e1 }. Dann ist W ⊥ = span{e2 } und
+damit W ∩ W ⊥ = {0}.
+
+Das Komplement“ ist nur teilweise gerechtfertigt. Um dem Namen gerecht zu
+     ”
+werden, erwarten wir auch so etwas wie W ∪ W ⊥ = V . Das kann aber nicht
+gelten, da Linearkombinationen aus W und W ⊥ nicht alle in W ∪ W ⊥ liegen.
+Stattdessen definieren wir
+
+                      W + U = {w + u : w ∈ W, u ∈ U }.
+
+ Theorem 5.4.5. Sei W ein Unterraum von V . Dann gilt W + W ⊥ = V .
+
+Die Mittel, um das zu beweisen, werden wir erst später entwickeln.
+
+Anmerkung 5.4.6. Sind die Räume W und U orthogonal zueinander, also
+W ⊥ U , dann schreibt man statt W + U auch W ⊕ U und spricht von der
+direkten Summe von W und U .
+
+  Um zu überprüfen ob v ∈ W ⊥ , können wir uns auf Basisvektoren von W
+beschränken.
+
+
+
+                                       102
+                        5 Orthogonalität und Projektionen
+
+
+ Theorem 5.4.7. Sei W ein Unterraum eines Vektorraums V und W =
+ {w1 , . . . , wk } eine Basis von W . Dann gilt v ⊥ W genau dann, wenn v ⊥ wi
+ für alle i = 1, . . . , k.
+
+
+Beweis.
+
+  • ⇒: Weil alle w1 , . . . , wk in W liegen, muss v ∈ W ⊥ per Definition orthogo-
+    nal zu jedem dieser Vektoren sein.
+
+  • ⇐: Angenommen v ⊥ wi für alle i = 1, . . . , k. Jedes w ∈ W lässt sich
+    schreiben als
+
+                                  w = c1 w1 + · · · + ck wk
+
+     und es gilt
+
+                        ⟨v, w⟩ = c1 ⟨v, w1 ⟩ + · · · + ck ⟨v, wk ⟩ = 0.
+
+     Also ist v ⊥ W .
+  Man kann sich außerdem überlegen, dass
+
+                                    (W ⊥ )⊥ = W.
+
+  Wir kommen jetzt zu einem wichtigen Beispiel für Komplemente — und damit
+kurz zurück zu linearen Gleichungssystemen. Sei A ∈ Rm×n , dann besteht die
+Lösungsmenge ker(A) des homogenen Systems Ax = 0 aus allen Vektoren, die
+orthogonal zu den Zeilen aus A sind. Optional können wir auch sagen, dass ker(A)
+orthogonal zu den Spalten in A⊤ sind. Damit haben wir unsere Behauptung am
+Ende von Abschnitt 3.4.2 gezeigt.
+
+ Theorem 5.4.8. Für jede Matrix A ∈ Rm×n gilt
+
+                   col(A⊤ )⊥ = ker(A) und       col(A)⊥ = ker(A⊤ ).
+
+
+
+5.5 Orthogonale Mengen
+ Definition 5.5.1.
+
+    • Wir nennen M = {v1 , . . . , vn } ⊂ V eine orthogonale Menge, wenn
+      vi ⊥ vj für alle i ̸= j.
+
+    • Gilt zusätzlich ∥vj ∥ = 1 für alle j, nennen wir M orthonormal.
+
+
+
+
+                                          103
+                          5 Orthogonalität und Projektionen
+
+
+Beispiel 5.5.2. Die Vektoren der Standardbasis e1 , . . . , en sind orthonormal.
+
+
+Beispiel 5.5.3. Die Vektoren
+
+                                    1           2          0
+                                                      
+
+                                  −2 ,       1 ,     0
+                                                      
+
+                                    0           0          3
+
+sind orthogonal, aber nicht orthonormal.
+
+  Zunächst stellen wir fest, dass (nichttriviale) orthogonale Vektoren auch un-
+abhängig sind.
+
+ Theorem 5.5.4. Eine orthogonale Menge M = {v1 , . . . , vn } mit 0 ∈
+                                                                    / M ist
+ linear unabhängig.
+
+
+Anmerkung 5.5.5. Andersherum gilt das nicht. Zum Beispiel sind die Vektoren
+(1, 1) und (1, 0) linear unabhängig, aber nicht orthogonal, denn ⟨(1, 1), (1, 0)⟩ =
+1 ̸= 0.
+
+Beweis. Ist M orthogonal, gilt ⟨vi , vj ⟩ = 0 für alle i ̸= j und ⟨vi , vi ⟩ = ∥vi ∥2 > 0.
+Angenommen M ist linear abhängig. Dann lässt sich o.B.d.A vn als Linearkom-
+bination der anderen darstellen, also
+
+                               vn = c1 v1 + · · · + cn−1 vn−1 .
+
+Da vn ̸= 0 muss ein Koeffizient ungleich 0 sein. Sei zum Beispiel c1 ̸= 0. Dann ist
+
+     ⟨vn , v1 ⟩ = c1 ⟨v1 , v1 ⟩ + · · · + cn−1 ⟨vn−1 , v1 ⟩ = c1 ⟨v1 , v1 ⟩ = c1 ∥v1 ∥2 ̸= 0,
+
+da auch ∥v1 ∥ ̸= 0. Also können vn und v1 nicht orthogonal gewesen sein. Weil
+das ein Widerspruch ist, müssen v1 , . . . , vn linear unabhängig sein.
+  Angenommen wir sind in einem n-dimensionalen Vektorraum. Jede Menge von
+n orthogonalen Vektoren ist auch unabhängig. Mit Theorem 3.3.20 ist die Menge
+dann auch eine Basis. Basen aus orthogonalen Vektoren sind besonders schön,
+weil sie uns oft das Leben erleichtern werden. Deshalb verdienen sie einen Namen.
+
+ Definition 5.5.6. Eine Orthogonalbasis eines Vektorraums V ist eine Basis
+ von V , welche auch eine orthogonale Menge ist. Ist die Basis auch orthonormal,
+ sprechen wir von einer Orthonormalbasis.
+
+Fangen wir gleich mit der ersten Erleichterung an. Die Koordinaten bezüglich
+einer Orthogonalbasis lassen sich einfach durch das Skalarprodukt berechnen.
+
+
+
+                                              104
+                          5 Orthogonalität und Projektionen
+
+
+ Theorem 5.5.7. Sei V = {v1 , . . . , vn } eine Orthogonalbasis für den Vektor-
+ raum V . Dann sind für jedes v ∈ V die V-Koordinaten, also die Koeffizienten
+ c1 , . . . , cn in
+
+                                     v = c1 v1 + · · · + cn vn ,
+
+ gegeben durch
+
+                                      ⟨v, vj ⟩
+                              cj =               ,         j = 1, . . . , n.
+                                      ⟨vj , vj ⟩
+
+
+Beweis. Wie im vorangegangen Beweis gilt
+
+                 ⟨v, v1 ⟩ = c1 ⟨v1 , v1 ⟩ + · · · + cn ⟨vn , v1 ⟩ = c1 ⟨v1 , v1 ⟩.
+
+Den Koeffizienten c1 finden wir, indem wir beide Seiten durch ⟨v1 , v1 ⟩ ̸= 0 teilen.
+Das Gleiche können wir nun für alle cj , j = 1, . . . , n wiederholen.
+
+Beispiel 5.5.8. Die Standardbasis {e1 , . . . , en } ⊂ Rn ist orthogonal. Dann ist
+
+                                                ⟨v, ej ⟩
+                                        cj =               = vj
+                                                ⟨ej , ej ⟩
+
+und entsprechend
+
+                                     v = v1 e1 + · · · + vn en .
+
+
+Beispiel 5.5.9. Die Vektoren
+
+                               1                     2                         0
+                                                                        
+
+                        v1 = −2 ,            v2 = 1 ,           v3 = 0
+                                                                      
+
+                               0                     0                         3
+
+sind eine Orthogonalbasis des R3 . Sei zum Beispiel
+
+                                                  3
+                                                          
+
+                                            v =  0 .
+                                                   
+
+                                                 −1
+
+Dann ist
+             ⟨v, v1 ⟩    3               ⟨v, v2 ⟩    6                  ⟨v, v3 ⟩     −3   1
+      c1 =              = ,     c2 =                = ,          c3 =              =    =− .
+             ⟨v1 , v1 ⟩  5               ⟨v2 , v2 ⟩  5                  ⟨v3 , v3 ⟩   9    3
+
+
+
+
+                                                     105
+                         5 Orthogonalität und Projektionen
+
+
+Tatsächlich gilt
+
+                                   1     2     0      3
+                                                                          
+                                3  6  1   
+         c1 v1 + c2 v2 + c3 v3 = −2 + 1 − 0 =  0  = v.
+                                5      5     3
+                                   0     0     3     −1
+
+  Noch einfacher wirds, wenn die Basis orthonormal ist.
+
+ Korollar 5.5.10. Sei V = {v1 , . . . , vn } eine Orthonormalbasis für den Vek-
+ torraum V . Dann sind für jedes v ∈ V die V-Koordinaten c1 , . . . , cn gegeben
+ durch
+
+                            cj = ⟨v, vj ⟩,          j = 1, . . . , n.
+
+
+5.6 Orthogonale Matrizen
+Wir können orthonormale Mengen im Rn auch über Matrizen charakterisieren.
+
+ Theorem 5.6.1.
+
+    • Eine Matrix U ∈ Rm×n hat genau dann orthonormale Spalten, wenn
+      U ⊤ U = In .
+
+    • Eine Matrix U ∈ Rm×n hat genau dann orthonormale Zeilen, wenn
+      U U ⊤ = Im .
+
+
+Beweis. Nach den Rechenregeln für die Matrixmultiplikation gilt
+
+              u⊤                  u⊤
+                                                                                  
+               1 u1 · · ·          1 un     ⟨u1 , u1 ⟩ · · ·            ⟨u1 , un ⟩
+                .                   ..         ..                          ..
+              ..                       =
+        U U =
+         ⊤                                                                          = In .
+                                                                                 
+                                     .   
+                                                 .                           .     
+                    u⊤
+                     n u1 · · ·   u⊤
+                                   n un             ⟨un , u1 ⟩ · · ·    ⟨un , un ⟩
+
+Ähnlich können wir auch mit orthogonalen Zeilen verfahren.
+
+ Definition 5.6.2. Eine Matrix U ∈ Rn×n mit orthonormalen Spalten und
+ Zeilen nennen wir Orthogonalmatrix.
+
+
+Anmerkung 5.6.3. Vorsicht: Eine Matrix mit lediglich orthogonalen Spalten/Zei-
+len ist nicht automatisch eine Orthogonalmatrix. Die Spalten müssen orthonormal
+(!) sein.
+
+  Aus dem letzten Theorem folgt außerdem, dass Orthogonalmatrizen eine be-
+sonders einfache Inverse haben:
+
+
+
+                                              106
+                       5 Orthogonalität und Projektionen
+
+
+Korollar 5.6.4. U ∈ Rn×n ist genau dann orthogonal, wenn U invertierbar ist
+mit U −1 = U ⊤ .
+
+Mit Theorem 2.2.13 folgt dann außerdem das folgende überraschende Resultat.
+
+Korollar 5.6.5. Für U ∈ Rn×n sind äquivalent:
+
+ (i) U hat orthonormale Spalten.
+
+ (ii) U hat orthonormale Zeilen.
+
+  Orthogonalmatrizen werden später noch eine große Rolle spielen. Wir halten
+schon mal ein paar wichtige Eigenschaften fest.
+
+ Theorem 5.6.6. Für Orthogonalmatrizen U, W ∈ Rn×n gilt:
+
+   (i) U ⊤ und U −1 sind orthogonal.
+
+  (ii) Sind U, W ∈ Rn×n orthogonal, dann ist auch U W orthogonal.
+
+ (iii) det(U ) = ±1.
+
+  (iv) ∥U x∥ = ∥x∥ für alle x ∈ R.
+
+  (v) ⟨U x, U y⟩ = ⟨x, y⟩ für alle x, y ∈ Rn .
+
+
+Beweis. Übung.
+ Eigenschaften (iv)–(v) zeigt, dass Orthogonalmatrizen Längen Winkel erhalten.
+Man kann sogar zeigen, dass es die einzigen Matrizen sind, die das tun.
+
+
+5.7 Orthogonale Projektionen
+5.7.1 Die Idee
+Theorem 5.4.5 (noch unbewiesen) besagt, dass wir für jedes v ∈ V und einem
+Unterraum W , ein v̂ ∈ W und ein z ∈ W ⊥ finden, sodass
+
+                                    v = v̂ + z.
+
+Wir haben also v aufgeteilt in einen Vektor des Unterraums W und einen der
+orthogonal auf W steht. Den Vektor v̂ ∈ W nennen wir dann Projektion von v
+auf W und z = v − v̂ das Residuum. Wir schreiben auch v̂ = projW v.
+  Der Vorgang ist in Abbildung 5.3 illustriert. Wir haben einen Vektor y und
+einen Vektor u. Wir wollen y auf den Unterraum (die Gerade) L = span{u}
+projizieren. Wir finden dann einen Punkt ŷ auf der Geraden L, sodass z = y − ŷ
+orthogonal auf u steht. Außerdem ist ŷ der Punkt in L, der am nächsten an y
+
+
+                                        107
+                       5 Orthogonalität und Projektionen
+
+
+
+
+Abbildung 5.3: Orthogonale Projektion von y auf den Spann von u. (Fig. 6.2.3
+               in [LLM])
+
+liegt. Das ist kein Zufall, wie wir noch sehen werden. Weil z = y − ŷ orthogonal
+zu u ist und ŷ = cu gelten muss, ist
+
+              0 = ⟨u, y − ŷ⟩ = ⟨u, y⟩ − ⟨u, ŷ⟩ = ⟨u, y⟩ − c⟨u, u⟩.
+
+Also gilt
+
+                          ⟨u, y⟩                          ⟨u, y⟩
+                     c=              oder     projL y =          u.
+                          ⟨u, u⟩                          ⟨u, u⟩
+
+5.7.2 Das Projektionstheorem
+Wir werden nun diese Formel verallgemeinern und beweisen, dass so eine Zerlegung
+immer möglich ist. Damit wäre dann auch Theorem 5.4.5 bewiesen.
+
+ Theorem 5.7.1 (Projektionstheorem). Sei W ein endlich-dimensionaler Un-
+ terraum eines Skalarproduktraums V .
+
+   (i) Jedes v ∈ V kann eindeutig als
+
+                                          v = v̂ + z
+
+       dargestellt werden mit v̂ ∈ W und z ∈ W ⊥ .
+
+  (ii) Für jede Orthogonalbasis W = {w1 , . . . , wk } von W gilt
+
+                                       ⟨v, w1 ⟩                ⟨v, wk ⟩
+                  v̂ = projW v =                 w1 + · · · +            wk .
+                                      ⟨w1 , w1 ⟩              ⟨wk , wk ⟩
+
+Beweis. Sei W = {w1 , . . . , wk } eine Orthogonalbasis für W . (Dass es so eine
+Basis immer gibt, zeigen wir später.) Definiere
+
+                              ⟨v, w1 ⟩                ⟨v, wk ⟩
+                      v̂ =              w1 + · · · +            wk .
+                             ⟨w1 , w1 ⟩              ⟨wk , wk ⟩
+
+
+
+                                            108
+                             5 Orthogonalität und Projektionen
+
+
+
+
+Abbildung 5.4: Orthogonale Projektion von y auf den Spann von u. (Fig. 6.3.2
+               in [AR])
+
+
+Der Vektor v̂ ist eine Linearkombination aus W, also v̂ ∈ W = span(W). Für
+z = v − v̂ gilt dann
+
+          ⟨z, w1 ⟩ = ⟨v − v̂, w1 ⟩ = ⟨v, w1 ⟩ − ⟨v̂, w1 ⟩
+                                                 ⟨v, w1 ⟩
+                                   = ⟨v, w1 ⟩ −            ⟨w1 , w1 ⟩ − 0 − · · · − 0
+                                                ⟨w1 , w1 ⟩
+                                   = ⟨v, w1 ⟩ − ⟨v, w1 ⟩ = 0.
+
+Genauso können wir ⟨z, wj ⟩ = 0 für alle j = 1, . . . , k zeigen. Also ist nach
+Theorem 5.4.7 z ⊥ W .
+  Wir zeigen noch, dass die Darstellung eindeutig ist. Seien v̂ ′ ∈ W, z ′ ∈ W ⊥
+Vektoren, sodass v = v̂ ′ + z ′ . Für v ′ = c1 w1 + · · · + ck wk gilt dann
+
+                 ⟨v, w1 ⟩ = ⟨v̂ ′ , w1 ⟩ + ⟨z ′ , w1 ⟩
+                                            |   {z   }
+                                                =0
+                           = c1 ⟨w1 , w1 ⟩ + c2 ⟨w2 , w1 ⟩ + · · · + ck ⟨wk , w1 ⟩ .
+                                                |              {z                }
+                                                               =0
+
+Lösen der Gleichung ergibt c1 = ⟨v, w1 ⟩/⟨w1 , w1 ⟩. Wiederhole nun das Argument
+für cj , j = 2, . . . , k.
+
+Anmerkung 5.7.2. Eine Einschränkung in Theorem 5.7.1 ist, dass der Unter-
+raum W endlich-dimensional ist. Man kann es auch auf unendlich-dimensionale
+Räume erweitern, braucht aber eine weitere, milde Einschränkung. Statt eines
+Skalarproduktraums, muss man sich hier auf Hilberträume4 beschränken. Dort
+ist das Resultat auch als Hilbert’s Projektionstheorem bekannt.
+
+  Das Theorem ist in Abbildung 5.4 illustriert. Hier wird der Punkt u ganz oben
+auf die Ebene W = span{v1 , v2 } projiziert. Die Projektion û = projW u ist der
+
+ 4
+     Ein Hilbertraum ist ein Skalarproduktraum, in dem alle Cauchyfolgen bezüglich der durch
+      das Skalarprodukt induzierte Norm konvergieren.
+
+
+
+                                                    109
+                         5 Orthogonalität und Projektionen
+
+
+Punkt in der Fläche, sodass die Gerade durch û und u senkrecht auf der Ebene
+W steht. Weil v1 und v2 orthogonal sind, ist außerdem projW u die Summe der
+Projektionen auf die einzelnen Unterräume span{v1 } und span{v2 }.
+
+                                                      ⟨u, v1 ⟩        ⟨u, v2 ⟩
+             projW u = projv1 u + projv2 u =                     v1 +            v2 .
+                                                      ⟨v1 , v1 ⟩      ⟨v2 , v2 ⟩
+
+   Projektionen sind lineare Operationen. In Euklidischen Räumen lassen sie sich
+also als Matrix-Vektor-Multiplikation darstellen.
+
+ Theorem 5.7.3. Ist U ∈ Rn×k eine Matrix, dessen Spalten eine Orthogonal-
+ basis für einen Unterraum W ⊂ Rn ist, dann gilt
+
+                              projW v = U (U ⊤ U )−1 U ⊤ v.
+
+
+Beweis. Übungsaufgabe.
+
+5.7.3 Das Gram-Schmidt-Verfahren
+Wir können jetzt auch zeigen, dass jeder Vektorraum eine Orthogonalbasis besitzt.
+Wir starten dabei bei einer beliebigen Basis {v1 , . . . , vn } und verwandeln sie in
+eine Basis {u1 , . . . , un } aus orthogonalen Vektoren.
+
+ Gram-Schmidt-Verfahren
+
+    1. u1 = v1 .
+
+    2. u2 = v2 − projspan{u1 } v2 .
+
+    3. u3 = v3 − projspan{u1 ,u2 } v3 .
+
+       ...
+
+    n. un = vn − projspan{u1 ,...,un−1 } vn .
+
+
+ Theorem 5.7.4. Sei S = {v1 , . . . , vn } ⊂ V . Dann ist für jedes k = 1, . . . , n,
+ die durch das Gram-Schmidt-Verfahren erzeugte Menge {u1 , . . . , uk } orthogo-
+ nal und
+
+                        span{v1 , . . . , vk } = span{u1 , . . . , uk }.
+
+
+Beweis (optional). Wir zeigen das Resultat durch Induktion über k. Da u1 =
+v1 , ist die Aussage offensichtlich wahr für k = 1. Nehmen wir nun an, dass
+
+
+
+
+                                              110
+                         5 Orthogonalität und Projektionen
+
+
+{u1 , . . . , uk } orthogonal ist und definieren wir der Einfachheit halber Uk =
+span{u1 , . . . , uk }. Da
+                                uk+1 = vk+1 − projUk vk+1
+das Residuum der Projektion auf Uk ist, ist es nach Theorem 5.7.1 orthogonal zu
+Uk . Nehmen wir zusätlich an, dass
+
+                        span{v1 , . . . , vk } = span{u1 , . . . , uk }.
+
+Dann gilt per Definition auch
+
+                               vk+1 = uk+1 + projUk vk+1
+
+und weil projUk vk+1 ∈ Uk , gilt dann auch
+
+                              vk+1 ∈ span{u1 , . . . , uk+1 }.
+
+Daraus folgt span{v1 , . . . , vk+1 } ⊆ span{u1 , . . . , uk+1 }. Außerdem ist
+
+             uk+1 = vk+1 + projspan{v1 ,...,vk } vk+1 ∈ span{v1 , . . . , vk+1 }
+
+und darum auch span{v1 , . . . , vk+1 } ⊇ span{u1 , . . . , uk+1 }.
+
+Korollar 5.7.5. Ist {v1 , . . . , vn } eine Basis für V , dann ist die durch das Gram-
+Schmidt-Verfahren erzeugte Menge {u1 , . . . , uk } eine Orthgonalbasis für V .
+
+
+Anmerkung 5.7.6. Genauso kann man auch eine Orthonormalbasis {w1 , . . . , wn }
+erzeugen, in dem man die Vektoren der Orthogonalbasis standardisiert: wj =
+uj /∥uj ∥.
+
+Das Gram-Schmidt-Verfahren ersetzt die ursprünglichen Basisvektoren mit einem
+Projektionsresiduum. Dabei wird immer auf den Raum projiziert, der bereits
+durch die vorher generierten Vektoren u1 , . . . , uk erzeugt wird. Per Konstruktion
+sind die Vektoren dann orthogonal zueinander. Weil es sich damit auch um n
+linear unabhängige Vektoren handelt, müssen sie eine Basis sein (Theorem 3.3.20).
+Wir haben damit das folgende bewiesen.
+
+ Theorem 5.7.7. Jeder endlich-dimensionale Skalarproduktraum hat eine Or-
+ thogonalbasis.
+
+
+
+5.7.4 Projektion als beste Annäherung
+Zuletzt wollen wir noch eine andere intuitive Eigenschaft formalisieren. Die
+Projektion von v auf W ist der Punkt in W , der am nächsten an v liegt. Der
+Abstand zum Vektor v wird also minimiert.
+
+
+
+
+                                             111
+                        5 Orthogonalität und Projektionen
+
+
+ Theorem 5.7.8. Sei W ein Unterraum von V und v ∈ V . Dann ist projW v
+ die beste Annäherung zu v in W :
+
+          ∥v − projW v∥ < ∥v − w∥            für alle w ∈ W, w ̸= projW v.
+
+
+Beweis. Für jedes w ∈ W gilt
+
+                     v − w = (v − projW v) + (projW v − w).
+
+Weil v − projW v per Konstruktion orthogonal zu W ist, ist v − projW v ∈ W ⊥ .
+Weil außerdem projW v ∈ W und w ∈ W , ist projW v − w ∈ W . Insbesondere
+gilt (v − projW v) ⊥ (projW v − w) und dann mit dem Satz des Pythagoras
+
+                 ∥v − w∥2 = ∥v − projW v∥2 + ∥ projW v − w∥2 .
+
+Für w ̸= projW v gilt ∥ projW v − w∥2 > 0. Also ist
+
+                            ∥v − w∥2 > ∥v − projW v∥2 ,
+
+wie behauptet.
+
+
+5.8 Die Methode der kleinsten Quadrate
+5.8.1 Das Problem
+Erinnern wir uns an die linearen Modelle aus Abschnitt 2.3.2. Hier hatten wir
+Daten (y1 , x1 ), . . . , (yn , xn ) ∈ R1+p gegeben, die für ein unbekanntes β ∈ Rp dem
+Modell
+
+                                      yi = x⊤
+                                            i β
+
+folgen. Schreiben wir nun alle Gleichungen zusammen als das LGS
+
+                                                    x⊤
+                                                            
+                                                      1
+                                                    . 
+                         Xβ = y        mit       X= .
+                                                    . .
+                                                        
+                                                        x⊤
+                                                         n
+
+Jetzt können wir den passenden Parametervektor β finden, in dem wir das LGS
+lösen. Solche Daten sind nicht besonders realistisch, weshalb wir in der Statistik
+Zufallsfehler ϵi zulassen:
+
+                                    yi = x⊤
+                                          i β + ϵi .
+
+Das LGS Xβ = y hat dann in der Regel keine Lösung.
+  Stattdessen wollen wir nun den Parameter β finden, der am besten die Daten
+beschreibt: der Abstand zwischen Xβ und y soll möglichst klein sein. Den Abstand
+
+
+                                          112
+                       5 Orthogonalität und Projektionen
+
+
+zweier Vektoren messen wir durch die Norm deren Differenz, hier also ∥Xβ − y∥.
+Je kleiner dieser Abstand, desto besser approximiert Xβ die Beobachtungen y.
+Wir wollen also den Vektor β finden, der diese Norm minimiert. Haben wir dieses
+β gefunden, können wir die Variable yi durch x⊤i β vorhersagen.
+   Bevor wir uns an die Lösung machen, formulieren wir zunächst das Problem
+in unserer üblichen Notation:
+
+ Kleinste-Quadrate-Problem. Gegeben einem LGS Ax = b mit A ∈ Rm×n
+ und b ∈ Rm , wollen wir einen Vektor x
+                                      b ∈ Rn finden, sodass ∥Ax̂ − b∥ minimal
+ ist.
+
+Anmerkung 5.8.1. Hat das LGS eine Lösung x∗ , dann gilt natürlich ∥Ax∗ −
+b∥ = 0 und x∗ ist automatisch auch eine Lösung des Kleinste-Quadrate-Problems.
+Interessant ist die Problemstellung insbesondere für LGS die keine Lösung besit-
+zen.
+
+
+Anmerkung 5.8.2. Den Abstand ∥Ax − b∥ zu minimieren ist äquivalent dazu,
+∥Ax − b∥2 = ϵ21 + · · · + ϵ2n zu minimieren, wobei
+                                         
+                                     ϵ1
+                                   .
+                               ϵ =  .. 
+                                   
+                                         := Ax − b
+                                     ϵn
+
+der Fehlervektor ist. Wir finden also das x, dass die Summe der quadrierten
+Fehler ϵ2i minimiert. Das erklärt auch den Namen kleinste Quadrate“.
+                                                 ”
+
+
+5.8.2 Die Lösung
+Zunächst ein paar Bemerkungen. Der Vektor b liegt irgendwo im Rm . Egal welches
+x wir wählen, kann Ax allerdings nur in col(A) liegen. Wir suchen also ein Element
+bb = Ax
+      b ∈ col(A), das den Abstand zu b minimiert. Laut Theorem 5.7.8 ist dieses
+b eindeutig durch die Projektion von b auf col(A) gegeben. Wir halten fest:
+ b
+
+
+ Theorem 5.8.3. Die Lösungsmenge des Kleinste-Quadrate-Problems ist gleich
+ der Lösungsmenge des LGS
+
+                          b = b,
+                         Ax   b        mit bb = projcol(A) b.
+
+Da bb ∈ col(A) ist, hat das LGS Ax  b =bb immer eine Lösung. Aber Obacht: Obwohl
+bb eindeutig ist, muss x̂ nicht eindeutig sein. Nichtsdestotrotz haben wir jetzt ein
+Lösungsverfahren für das Kleinste-Quadrate-Problem gefunden:
+
+  1. Projiziere b auf col(A): bb = projcol(A) b.
+
+
+
+
+                                          113
+                       5 Orthogonalität und Projektionen
+
+
+  2. Löse das LGS Ax
+                    b = b.
+                        b
+
+Die Projektion können wir uns auch sparen, indem wir das Problem umschreiben.
+
+ Theorem 5.8.4. Die Menge aller Lösungen des Kleinsten-Quadrate-Problems
+ ist gleich der Menge aller Lösungen der Normalengleichungen
+
+                                     b = A⊤ b.
+                                 A⊤ Ax
+
+
+Beweis. Es gilt
+
+                  Lösungsmenge der Normalengleichungen
+               = {x : A⊤ Ax = A⊤ b}
+               = {x : A⊤ (Ax − b) = 0}                         (subtrahiere A⊤ b)
+               = {x : Ax − b ∈ ker(A⊤ )}                    (Definition ker(A⊤ ))
+               = {x : Ax − b ∈ col(A)⊥ }                         (Theorem 5.4.8)
+               = {x : Ax = projcol(A) b}                         (Theorem 5.7.1)
+               = Lösungsmenge des KQ-Problems.                  (Theorem 5.8.3)
+
+Der vorletzte Schritt benötigt etwas mehr Erklärung. Beachte dass die Glei-
+chung b = Ax − (Ax − b) immer trivialerweise erfüllt ist. Wissen wir zusätzlich,
+dass −(Ax − b) ∈ col(A)⊥ , dann muss wegen der Eindeutig der Zerlegung in
+Theorem 5.7.1 auch Ax = projcol(A) b gelten. Andersherum folgt aus Ax =
+projcol(A) b,bereits −(Ax − b) ∈ col(A)⊥ .
+
+   Ist die Matrix A⊤ A invertierbar haben die Normalengleichungen die eindeutige
+Lösung x b = (A⊤ A)−1 A⊤ b. Dies ist genau dann der Fall, wenn die Spalten von A
+unabhängig sind.
+
+ Theorem 5.8.5. Die folgenden Aussagen sind äquivalent:
+
+   (i) Die Spalten von A sind linear unabhängig.
+
+  (ii) A⊤ A ist invertierbar.
+
+ (iii) Das Kleinste Quadrate-Problem hat die eindeutige Lösung
+
+                                  b = (A⊤ A)−1 A⊤ b.
+                                  x
+
+
+Beweis.
+
+  • (i) ⇔ (ii): Wir bemerken zunächst, dass
+
+          {x : A⊤ Ax = 0} = {x : Ax ∈ col(A), Ax ∈ ker(A⊤ )} = {x : Ax = 0},
+
+
+
+                                       114
+                       5 Orthogonalität und Projektionen
+
+
+
+
+Abbildung 5.5: Datenpunkte, die um die Regressionsgerade y = a+bx fluktuieren.
+               (Fig. 6.5.2 in [AR])
+
+
+      da col(A) ∩ ker(A⊤ ) = col(A) ∩ col(A)⊥ = 0 nach Theorem 5.4.8 und
+      Theorem 5.4.3. Nun gilt aber
+
+                    (ii) ⇔ {x : A⊤ Ax = 0} = {0}              (Theorem 4.3.1a)
+                         ⇔ {x : Ax = 0} = {0}
+                         ⇔ (i).                (Definition von Unabhängigkeit)
+
+   • (ii) ⇔ (iii): Folgt aus Theorem 5.8.4 und unseren Äquivalenzen (zuletzt
+     Theorem 4.3.1).
+
+  Die Formel
+                                b = (A⊤ A)−1 A⊤ b
+                                x
+ist vorranging in theoretischen Herleitungen nützlich. Numerisch ist sie nämlich
+verhältnismäßig aufwändig und instabil. Wir werden noch bessere Möglichkeiten
+dafür kennenlernen.
+
+5.8.3 Anwendung in der Statistik: (nicht-)lineare Regression
+Wir kehren jetzt zu den linearen Modellen aus der Statistik zurück. Ihr werdet
+das folgende noch in aller Ausführlichkeit im 4. Semester besprechen, aber ich
+möchte ich euch schonmal einen Vorgeschmack geben.
+  Seien X und Y zwei Zufallsvariablen und (x1 , y1 ), . . . , (xn , yn ) beobachtete
+Werte von ihnen. Wir möchten auf Basis von der Variable X eine Vorhersage für
+den Wert von Y treffen. Zum Beispiel könnten X die Außentemperatur an einem
+bestimmten Tag und Y die Verkäufe eines Eisstands im Englischen Garten sein.
+Ein Datenpunkt (xi , yi ) ist dann ein beobachtetes Temperatur-Verkauf-Paar für
+den Tag i. Wir nehmen an, dass ein linearer Zusammenhang besteht. Das heißt:
+Es gibt a, b ∈ R, sodass
+
+                                 Y = a + bX + D
+
+wobei D eine weitere Zufallsvariable ist, die Abweichungen vom linearen Zusam-
+
+
+
+                                        115
+                       5 Orthogonalität und Projektionen
+
+
+
+
+Abbildung 5.6: Datenpunkte, die um die Regressionskurven y = a + b1 x + b2 x2
+               (links) und y = a + b1 x + b2 x2 + b3 x3 fluktuieren. (Fig. 6.5.1 in
+               [AR])
+
+
+menhang auffängt. In der Statistik nennen wir das eine lineare Regression von Y
+auf X. Für die Daten heißt das dann
+
+                        yi = a + bxi + di ,     i = 1, . . . , n.
+
+Die Situation ist beispielhaft in Abbildung 5.5 dargestellt.
+  Wir wollen nun Parameterwerte ab, bb finden, die die Daten am besten beschreiben.
+Genauer gesagt, wollen wir damit die Gerade y = ab + bbx bestimmen, die die
+Summe der Quadrate der Residuuen
+
+                                  dbi = yi − ab − bbxi
+
+minimiert. Schreiben wir
+                             1 x1
+                                       
+                                                             
+                                                     y1
+                            1 x2                  . 
+                                   
+                         M =
+                             .. .. 
+                                    ,              ..  ,
+                                                 y=    
+                            .    .
+                                                         yn
+                             1 xn
+
+ist (ab, bb) dann die Lösung des Kleinste-Quadrate-Problems von
+                                            !
+                                      a
+                                    M   = y,
+                                      b
+
+sprich:
+                                !
+                              ab
+                                 = (M ⊤ M )−1 M ⊤ y.
+                               b
+                               b
+
+  Auch wenn ein linearer Zusammenhang zwischen Y und X zu simpel ist,
+kann die lineare Algebra Abhilfe verschaffen. Wir folgen dabei einer ähnlichen
+Idee, wie bei der Funktionsinterpolation (sh. Abschnitt 2.3.1). In Abbildung 5.6
+sehen wir Situationen, wo die Daten um eine quadratische oder kubische Kurve
+
+
+
+                                         116
+                       5 Orthogonalität und Projektionen
+
+
+fluktuieren. In letzerem Fall nehmen wir zum Beispiel an, dass der nicht-lineare
+Zusammenhang
+
+                        Y = a + b1 X + b 2 X 2 + b3 X 3 + D
+
+besteht. Die optimalen Parameter finden wir durch
+                              
+                               ab
+                              b1 
+                             b 
+                               = (M ⊤ M )−1 M ⊤ y,
+                              b2 
+                             b   
+                              bb3
+
+wobei diesmal
+                                   1 x1 x21 x31
+                                                   
+
+                                  1 x2 x2 x2 
+                                        2   3
+                             M =  .. ..
+                                               .
+                                 .    .
+                                                
+                                                
+                                   1 xn xn xn
+                                         2   3
+
+
+Um für den nächsten Tag richtig zu kalkulieren, kann der Eisverkäufer jetzt den
+Wetterbericht verfolgen und dann aufgrund der vermuteten Temperatur x ein
+wahrscheinliches Verkaufsvolumen y = ab + bb1 x + bb2 x2 + bb3 x3 berechnen. Wie ihr
+seht, stehen ausgebildeten Statistikern beruflich wirklich alle Möglichkeiten offen.
+
+5.8.4 Historische Anmerkung
+Die Geschichte des Problems und deren Lösung ist bemerkenswert. Um 1800
+versuchten weltweit die besten Mathematiker (damals auch alles Astronomen)
+Umlaufbahnen von Planeten anhand von Himmelsbeobachtungen zu bestimmen.
+Im Alter von nur 24 Jahren entwickelte Carl Friedrich Gauß dazu die neue Metho-
+                                                                          ”
+de der kleinsten Quadrate“. Damit konnte er die Umlaufbahn des Zwergplaneten
+Ceres so genau vorhersagen, dass der Planet danach regelmäßig wiedergefunden
+werden konnte.
+  Das war in vielerlei Hinsicht ein Durchbruch. In der Astronomie ist die Methode
+bis heute das Standardverfahren für Umlaufberechnung und vieles darüber hinaus.
+Auch für die Mathematik war das einen riesiger Schub. Gauß entwickelte nämlich
+in diesem Kontext auch das bereits bekannte Gauß’sche Eliminationsverfahren
+zur Lösung eines LGS, die LR-Zerlegung zur effizienteren Berechnung und den
+Gauß-Newton-Algorithmus zum Lösen von nicht-linearen Gleichungen (nächstes
+Semester).
+  Als wäre das nicht genug, entstanden daraus auch wichtige Grundlagen der
+modernen Statistik. Gauß modellierte die Fehler nämlich explizit probabilistisch
+durch die (deswegen oft nach ihm benannte und bis dahin kaum bekannte) Nor-
+malverteilung und leitete die Methode als optimale Lösung dafür her. Das rief
+Pierre-Simon Laplace auf den Plan, der bereits seit einigen Jahren am gleichen
+Problem arbeitete. Er bewies daraufhin den ersten allgemeinen Zentralen Grenz-
+
+
+
+                                        117
+                      5 Orthogonalität und Projektionen
+
+
+wertsatz, um damit die Methode der kleinsten Quadrate zu rechtfertigen.
+  Das alles passierte in einer Spanne von nur 10 Jahren. Doch bis heute sind die
+erwähnten Errungenschaften fundamentale Bestandteile der modernen Linearen
+Algebra, Optimierung, Statistik und Wahrscheinlichkeitstheorie.
+
+
+5.9 Andere Skalarprodukträume
+Aus gutem Grund haben wir die Resultate in Abschnitt 5.3–5.7 für allgemeine
+Skalarprodukträume formuliert. Sie haben zahlreiche nützliche Anwendungen
+außerhalb der euklidischen Welt. Wir wollen zum Abschluss nun ein paar an-
+dere Skalarprodukträume besprechen und dabei insbesondere die Beispiele aus
+Abschnitt 3.1 wieder aufgreifen. Wir steigern uns dabei in der Komplexität der
+Beispiele. Es ist in Ordnung, wenn damit auch der Grad der Verwirrung steigt.
+Aber auch mit Verwirrtheit ist es nützlich, diese Beispiele mal gesehen zu haben.
+
+5.9.1 Gewichtetes euklidisches Skalarprodukt
+Zunächst bleiben wir kurz im Rn . Das euklidische Skalarprodukt
+                                 n
+                      ⟨u, v⟩ =         ui vi = u1 v1 + · · · + un vn
+                                 X
+
+                                 i=1
+
+ist nicht die einzig sinnvolle Variante ein Skalarprodukt auf Rn zu definieren
+(im Sinne von Definition 5.3.1). Oft ist es nützlich, die einzelnen Komponenten
+eines Vektors zu gewichten. Das ist insbesondere der Fall, wenn die einzelnen
+Komponenten der Vektoren auf anderen Skalen leben.
+   Als Beispiel können wir Vektoren u, v ∈ R2 betrachten, bei denen die erste
+Komponente ein Zeitintervall in Sekunden und die zweite Komponente eine
+Strecke in Meter beschreibt. Die Distanz zwischen zwei Vektoren u, v, ist dann
+
+             ∥u − v∥2 = ⟨u − v, u − v⟩ = (u1 − v1 )2 + (u2 − v2 )2 .
+
+Je nach Anwendung sind Sekunden und Meter aber vielleicht keine sinnvollen
+Einheiten. Definieren wir nun ũ, ṽ als die gleichen Vektoren, nur dass die erste
+Komponente in Zentimetern gegeben ist, also
+
+                           100u1                         100v1
+                       !                !            !             !
+                     ũ1                           ṽ1
+                         =       ,                     =       .
+                     ũ2    u2                     ṽ2    v2
+
+Dann wird plötzlich die erste Komponente viel höher gewichtet, denn
+
+                   ∥ũ − ũ∥2 = ⟨ũ − ṽ, ũ − ṽ⟩
+                              = (ũ1 − ṽ1 )2 + (ũ2 − ṽ2 )2
+                              = 10000(u1 − v1 )2 + (u2 − v2 )2 .
+
+
+
+
+                                            118
+                        5 Orthogonalität und Projektionen
+
+
+Anstatt die Einheiten der Vektoren zu ändern, können wir hier aber genauso das
+Skalarprodukt als
+
+                            ⟨u, v⟩ := 10000u1 v1 + u2 v2
+
+definieren. In geometrischer Hinsicht (Länge, Winkel, Orthogonalität, Projektion)
+sind die beiden Varianten äquivalent. Oft ist die zweite Variante — Änderung
+des Skalarprodukts — aber bequemer.
+
+ Definition 5.9.1. Für u, v, w ∈ Rn mit wi > 0, 1 ≤ i ≤ n, definieren wir das
+ durch w = (w1 , . . . , wn ) gewichtete euklidische Skalarprodukt als
+
+                      ⟨u, v⟩w = w1 (u1 v1 ) + · · · + wn (un vn ).
+
+  Das gewichtete Skalarprodukt ist in der Statistik zum Beispiel sinnvoll, wenn die
+erhobenen Daten x1 , . . . , xn nicht repräsentativ für die Population sind, sondern
+xj eigentlich wj mal so häufig auftreten sollte.
+  Man kann leicht verifizieren, dass das gewichtete Skalarprodukt die Axiome
+von Definition 5.3.1 erfüllt. Wir müssen aber beachten, dass sich die Geometrie
+des Raumes (Längen, Winkel) ändert, wenn wir das Skalarprodukt wechseln.
+
+Beispiel 5.9.2. Die Vektoren
+
+                                  1                 1
+                                       !               !
+                                           und
+                                  −1                1
+
+sind orthogonal unter dem üblichen euklidischen Skalarprodukt, aber nicht unter
+dem durch w = (1, 2) gewichteten Skalarprodukt. In letzterem wären zum Beispiel
+
+                                  2                 1
+                                       !               !
+                                           und
+                                  −1                1
+
+orthogonal. Außerdem sind die Vektoren
+
+                                   1               0
+                                    !               !
+                                           und
+                                   0               1
+
+nicht mehr gleich lang. Nur der erste ist ein Einheitsvektor.
+
+
+5.9.2 Matrixräume
+Wir betrachten nun den Vektorraum aller (m × n)-Matrizen, Rm×n (für fixes
+m und n). Das gängigste Skalarprodukt entsteht hier, indem wir die Matrizen
+als einen langen euklidischen Vektor in Rmn auffassen und dann das euklidische
+Skalarprodukt anwenden.
+
+
+
+                                           119
+                            5 Orthogonalität und Projektionen
+
+
+ Definition 5.9.3. Das Standardskalarprodukt auf dem Vektorraum Rm×n
+ ist gegeben durch.
+                                                   m X
+                                                     n
+                                   ⟨A, B⟩ =
+                                                   X
+                                                             aij bij .
+                                                   i=1 j=1
+
+
+
+
+Anmerkung 5.9.4. Das Standardskalarprodukt wird oft anders dargestellt. Sei
+dazu die Spur (englisch: trace) einer quadratischen Matrix C ∈ Rn×n definiert
+als tr(C) = ni=1 cii . Dann ist ⟨A, B⟩ = tr(A⊤ B).
+           P
+
+
+Die dadurch induzierte Norm
+                                                    v
+                                                    um
+                                       q            uX n
+                              ∥A∥ =        ⟨A, A⟩ = t
+                                                       X
+                                                         a2 .            ij
+                                                             i=1 j=1
+
+
+Wird auch Frobeniusnorm 5,6 bezeichnet und als ∥A∥F geschrieben.
+
+Beispiel 5.9.5. Unter dem Standardskalarprodukt sind die Matrizen
+
+                                 1 1 1                           0 0
+                                               !                         !
+                                √                   und
+                                  3 1 0                          0 1
+
+orthogonal zueinander. Beide haben Norm 1.
+
+   Eine Anwendung findet dieses Skalarprodukt zum Beispiel in der Physik. Dort
+gibt es viele theoretische Modelle, die durch spezielle Matrixtransformationen
+charakterisiert werden. Oft gibt es theoretische Gründe zu glauben, dass die
+Matrizen eine bestimmte Struktur besitzen. Nehmen wir zum Beispiel an, dass
+die Matrizen eigentlich nur Rotationsmatrizen sein können. Im R2×2 lassen sich
+alle Rotationsmatrizen darstellen als
+                                        !
+                                  a −b
+                                       ,             mit a, b ∈ R.                 (∗)
+                                  b a
+
+Matrizen dieser Form bilden einen zwei-dimensionalen Unterraum von R2×2 ,
+nämlich R = span{M1 , M2 } mit
+
+                                1 0                        0 −1
+                                           !                                  !
+                           M1 =     ,                 M2 =      .
+                                0 1                        1 0
+
+In Experimenten versucht man dann solche Matrizen zu messen“. Messfehler sind
+                                                     ”
+dabei eigentlich unvermeidbar, z.B. aufgrund schwankender Messbedingungen
+oder technischen Limitationen der Instrumente. Eine gemessene Matrix A wird
+ 5
+     In der Analysis wird die Norm oft auch als Hilbert-Schmidt-Norm bezeichnet.
+ 6
+     Andere Matrixnormen lernen wir noch gegen Ende des Semester kennen.
+
+
+
+                                                   120
+                       5 Orthogonalität und Projektionen
+
+
+dann die Struktur (∗) nicht mehr exakt erfüllen. Stattdessen können wir A mit
+einer Matrix Ab ∈ R approximieren. Wählen wir Ab = projR A, minimieren wir
+dabei nach Theorem 5.7.8 den Approximationsfehler ∥Â − A∥F .
+  Ist zum Beispiel
+
+                                       1 −0.5
+                                                           !
+                                   A=         ,
+                                      0.4 1.1
+
+erhalten wir
+                                              2.1      0.9      1.05 −0.45
+                                                                                  !
+               ⟨A, M1 ⟩        ⟨A, M2 ⟩
+Ab = projRA =            M1 +            M2 =     M1 +     M2 =            .
+              ⟨M1 , M1 ⟩      ⟨M2 , M2 ⟩       2        2       0.45 1.05
+
+Hierbei haben wir Theorem 5.7.1 und die Tatsache, dass {M1 , M2 } eine Orthogo-
+nalbasis für R ist, verwendet. Das ist eine echte Rotationsmatrix und möglichst
+nah dran an unserer fehlerhaften Messung A.
+
+5.9.3 Folgenräume
+Wir gehen jetzt zu unendlich-dimensionalen Vektorräumen über. Wir bezeichnen
+mit ℓ2 den Raum aller Folgen mit quadratisch summierbaren Folgengliedern:
+                                                     n
+                               (                                     )
+                        ℓ2 =       x = (xi )∞
+                                            i=1 :          x2i < ∞
+                                                     X
+                                                                         .
+                                                     i=1
+
+Das ist ein Unterraum des Raums aller Folgen aus Beispiel 3.1.3. In Anwendungen
+entsteht er oft als Grenzfall des Rn , wenn wir die Dimension n gegen unendlich
+gehen lassen. So eine Betrachtung ist in der Statistik zum Beispiel nützlich, wenn
+wir Modelle mit sehr vielen Parametern haben (z.B. große neuronale Netze).
+  Am naheliegendsten ist das folgende Skalarprodukt:
+
+ Definition 5.9.6. Das Standardskalarprodukt auf dem Vektorraum ℓ2 ist
+ gegeben durch
+                                               ∞
+                                    ⟨x, y⟩ =
+                                               X
+                                                     xi y i .
+                                               i=1
+
+
+Die dadurch induzierte Norm ist
+                                                  v
+                                       q          u∞
+                            ∥x∥ =        ⟨x, x⟩ = t x2 .
+                                                  uX
+                                                                 i
+                                                           i=1
+
+
+Beispiel 5.9.7. Sei ej ∈ ℓ2 die Folge die überall 0 ist außer einer 1 an der j-ten
+Stelle. Dann sind die Vektoren e1 , e2 , . . . eine Orthonormalbasis von ℓ2 .
+
+Indem wir uns auf Folgen mit ni=1 x2i < ∞ beschränken, stellen wir also sicher,
+                                   P
+
+dass sowohl ∥x∥ < ∞ als auch |⟨x, y⟩| < ∞ für alle x, y ∈ ℓ2 . Wäre dies
+
+
+                                            121
+                           5 Orthogonalität und Projektionen
+
+
+nicht der Fall, könnten wir die Homogenität in Definition 5.3.1 nicht mehr so
+einfach gewähren. Um einen Vektorraum zu einem Skalarproduktraum zu machen,
+müssen wir uns also manchmal auf einen Unterraum beschränken.
+
+5.9.4 Funktionenräume
+Sei nun V der Vektorraum aller stetigen Funktionen f : [a, b] → R. Um ein
+sinnvolles Skalarprodukt zu definieren, schränken wir uns erstmal auf einen
+großen, aber besser kontrollierbaren Unterraum ein. Wir bezeichnen mit C([a, b])
+den Unterraum aller stetigen Funktionen, also
+                                              (                                )
+                           C([a, b]) = f : [a, b] → R stetig .
+
+Insbesondere ist dann f beschränkt auf [a, b]. Das Standardskalarprodukt defi-
+nieren wir hier als
+                                                  Z b
+                                      ⟨f, g⟩ =          f (x)g(x)dx
+                                                   a
+
+und entsprechend die Norm einer Funktion als
+                                                  s
+                                                   Z b
+                                       ∥f ∥ =              f (x)2 dx.
+                                                       a
+
+Beispiel 5.9.8. Sei [a, b] = [−1, 1]. Dann sind die Funktionen f (x) = 1 und
+g(x) = x orthogonal, denn
+                              Z 1                            Z 1
+                                      f (x)g(x)dx =                xdx = 0.
+                                 −1                           −1
+
+Insbesondere gilt der Satz des Pythagoras:
+
+                                    ∥f + g∥2 = ∥f ∥2 + ∥g∥2 ,
+
+oder genauer
+                           Z 1                         Z 1           Z 1
+                                 (1 + x) dx =
+                                          2
+                                                             1dx +           x2 dx
+                            −1                          −1              −1
+
+  Die Funktion h(x) = x2 ist nicht orthogonal zu f und g. Mann kann aber
+nachrechnen7
+                                               1
+                                        h̃(x) = (3x2 − 1)
+                                               2
+orthogonal zu f und g ist. f, g und h̃ sind die ersten drei Legendre-Polynome.
+ 7
+     Man kann h̃ auch selbst herleiten, indem man das Gram-Schmidt-Verfahren auf {1, x, x2 }
+      anwendet.
+
+
+
+                                                   122
+                              5 Orthogonalität und Projektionen
+
+
+                12
+
+
+
+
+                8
+
+
+         f(x)
+                4
+
+
+
+
+                0
+
+
+                     −1.0            −0.5                  0.0                0.5        1.0
+                                                           x
+
+                                   Funktion         f     n=3       n=5        n=8
+
+
+                                              √
+Abbildung 5.7: Die Funktion f (x) = e2 sin(3x) 2 + x und Approimationen durch
+               n-dimensionale Legendre-Polynom-Basen.
+
+
+Diese sind eine Menge von Polynomen ansteigenden Grades, die alle orthogonal
+zueinander sind. Die ersten n+1 Legendrepolynome sind also eine Orthogonalbasis
+des Raums alle Polynome n-ten Grades.
+
+
+Beispiel 5.9.9. Sei [a, b] = [0, 2π]. Die Funktionen
+
+   1, cos(x), cos(2x), cos(3x), . . . , cos(nx), sin(1x), sin(2x), . . . , sin(nx).
+
+sind alle orthogonal zueinander. Sie werden als Fourierbasis bezeichnet.
+
+   Orthogonalbasen für Unterräume das C([a, b]) sind extrem nützlich. Wir können
+sie zur Funktionsapproximation verwenden; ein Kernproblem in nichtparametri-
+scher Statistik und Machine Learning. Sei zum Beispiel f ∈ C([a, b]) beliebig und
+{ϕ1 , . . . , ϕn } eine Orthogonalbasis eines n-dimensionalen Unterraums
+                                              n
+                               (                                                     )
+                            Φ = ϕ(x) =              ci ϕi (x), : c1 , . . . , cn ∈ R .
+                                              X
+
+                                              i=1
+
+Während f in einem unendlich-dimensionalen Raum liegt, wird jede Funktion
+in Φ durch den Koeffizientenvektor (c1 , . . . , cn ) ∈ Rn charakterisiert. Wir wollen
+jetzt die komplizierte Funktion f möglichst genau durch eine einfache“ Funktion
+                                                                  ”
+in Φ approximieren. Die bestmögliche Approximation ist nach Theorem 5.7.8
+                                                           n
+                                                               ⟨ϕi , f ⟩
+                                   fb = projΦ f =
+                                                           X
+                                                                      2 i
+                                                                         ϕ.
+                                                           i=1 ∥ϕi ∥
+                                                                            √
+In Abbildung 5.7 sind solche Approximationen der Funktion f (x) = e2 sin(3x) 2 + x
+durch Legendre-Polynome mit n = 3, 5, 8 dargestellt. Wir sehen, dass die appro-
+
+
+
+                                                        123
+                            5 Orthogonalität und Projektionen
+
+
+ximierenden Funktionen fˆ der wahren Funktion f mit steigendem n immer näher
+kommt.
+
+5.9.5 Zufallsvariablen
+Zugegeben: jetzt wird es ein bisschen esoterisch. Als (angehende) Statistiker
+sollten wir das folgende Beispiel aber nicht übergehen. Die technischen Details
+müssen hier nicht präzise verstanden werden. Ihr werdet aber hoffentlich trotzdem
+die bisher erlerntern Konzepte und Resultate wiedererkennen. Ihr dürft das dann
+gerne einfach als irgendwie geht da was mit linearer Algebra“ abspeichern.
+                   ”
+  Sei L2 die Menge aller Zufallsvariablen X : Ω → R mit E(X 2 ) < ∞. Dann ist
+L2 mit den üblichen Additions- und Multiplikationsoperationen ein Vektorraum.
+Die Kovarianz gibt uns ein Skalarprodukt8
+
+                                      ⟨X, Y ⟩ = Cov(X, Y ).
+
+Die zugehörige Norm ist die Standardabweichung der Zufallsvariable, denn
+                                  q                  q
+                                      Cov(X, X) =        Var(X).
+
+Man kann auch zeigen, dass der Raum vollständig, also ein Hilbertraum ist.
+  Zwei Zufallsvariablen sind in diesem Skalarprodukt orthogonal, wenn sie un-
+korreliert sind. Für sie gilt dann zum Beispiel der Satz des Pythagoras
+
+                             Var(X + Y ) = Var(X) + Var(Y ).
+
+Und für alle Zufallsvariablen gilt die Cauchy-Schwarz-Ungleichung
+                                                q
+                              |Cov(X, Y )| ≤      Var(X)Var(Y ).
+
+Beide Eigenschaften dürften bereits bekannt sein (letzteres weil |Corr(X, Y )| ≤ 1).
+   Der Blickwinkel des Skalarproduktraums ist trotzdem nützlich — schon des-
+halb, weil er uns eine geometrische Analogie zwischen Zufallsvariablen und dem
+R2 herstellen lässt. In der mathematischen Statistik bringt er manchmal auch
+tiefere Einblicke. Eine wichtige Anwendung ist die Formulierung des bedingten
+Erwartungswerts als Projektion.
+
+
+
+
+ 8
+     Das stimmt nicht ganz, denn die Positivität in Definition 5.3.1 ist nicht erfüllt. Sei zum
+      Beispiel Ω = [0, 1] und X(ω) = 0 für alle ω ∈ [0, 1) und X(ω) = 1 für ω = 1. Dann ist
+      ⟨X, X⟩ = Var(X) = 0 obwohl X ̸= 0. Allgemeiner können wir zwei Zufallsvariablen X, Y
+      mit P(X = Y ) = 1 hier nicht unterscheiden. Das ist allerdings eine Formalität, die keine
+      größeren Auswirkungen hat.
+
+
+
+                                               124
+                      5 Orthogonalität und Projektionen
+
+
+Theorem 5.9.10. Seien Y, X ∈ L2 zwei fixe Zufallsvariablen und W ⊂ L2 die
+Untermenge aller Zufallsvariablen, die sich als g(X) für eine beliebige Funktion
+g schreiben lassen. Dann ist W ein Untervektorraum von L2 und
+
+                             projW Y = E(Y | X).
+
+
+Beweis. Zu zeigen, dass W ein Untervektorraum ist, überlassen wir als Übung. Die
+Projektionseigenschaft zeigen wir im Wesentlichen durch wiederholte Anwendung
+der Turmeigenschaft“. Wir bemerken zunächst, dass g(X) = E(Y | X) eine
+    ”
+Funktion von X ist und
+                                     Jensen
+         E[g(X)2 ] = E[E(Y | X)2 ]      ≤         E[E(Y 2 | X)] = E[Y 2 ] < ∞,   (5.1)
+
+also gilt E(Y | X) ∈ W . Definieren wir Z = Y − E(Y | X) gilt außerdem
+
+     E(Z | X) = E(Y | X) − E[E(Y | X) | X] = E(Y | X) − E(Y | X) = 0
+
+und damit auch E(Z) = E[E(Z | X)] = 0. Für eine beliebige Funktion g gilt nun
+
+                   Cov[g(X), Z] = E[g(X)Z] − E[g(X)] E(Z)
+                                                               | {z }
+                                                                 =0
+                                                          
+                                 = E E[g(X)Z | X]
+                                                          
+                                 = E g(X)E[Z | X]
+                                                    
+                                 = E g(X) · 0
+                                 = 0.
+
+Das bedeutet, dass Z orthogonal zu W ist, also Z ∈ W ⊥ . Nach dem Projektions-
+theorem lässt sich X eindeutig (!) als Y = projW Y + Z mit projW Y ∈ W und
+Z ∈ W ⊥ schreiben. Also gilt
+
+                         projW Y = Z − Y = E(Y | X).
+
+Anmerkung 5.9.11. Aus Theorem 5.7.8 folgt dann
+                                                 auch, dass g ∗ (X) = E(Y | X)
+die Funktion ist, die den Fehler E [Y − g(X)]2 minimiert. So gesehen gibt uns
+die Funktion g ∗ (X) = E(Y | X) die bestmögliche Vorhersage für Y , wenn wir
+nur die Information aus X zur Verfügung haben.
+
+  Nach diesem Ausflug werden wir nun für den Rest des Semesters wieder zum
+euklidischen Skalarprodukt zurückkehren.
+
+
+
+
+                                            125
+                       5 Orthogonalität und Projektionen
+
+
+5.10 Orthogonale Diagonalisierung
+5.10.1 Definition
+In Abschnitt 5.6 haben wir kurz orthogonale Matrizen kennengelernt. Diese haben
+viele konzeptionelle und rechnerische Vorteile. Insbesondere bekommen wir die
+Inverse einer orthogonalen Matrix U einfach durch Transposition: U −1 = U ⊤
+(Korollar 5.6.4). Denken wir nun zurück an das Konzept der Diagonalisierung einer
+Matrix (Abschnitt 4.4.2) A als A = P DP −1 , wobei P eine invertierbare Matrix
+und D diagonal ist. Es wäre natürlich praktisch, wenn P nicht nur invertierbar,
+sondern sogar orthogonal ist. Dann gilt nämlich A = P DP ⊤ .
+
+ Definition 5.10.1. Wir nennen eine Matrix A ∈ Rn×n orthogonal diago-
+ nalisierbar, wenn es eine Orthogonalmatrix P und eine Diagonalmatrix D
+ gibt, sodass P ⊤ AP = D bzw. A = P DP ⊤ .
+
+
+
+5.10.2 Äquivalenz zu symmetrischen Matrizen
+Es stellt sich erstmal die Frage, für welche Matrizen eine orthogonale Diagonali-
+sierung möglich ist. Es gilt das folgende, bemerkenswerte Resultat.
+
+ Theorem 5.10.2. Eine Matrix A ∈ Rn×n ist genau dann orthogonal diagona-
+ lisierbar, wenn sie symmetrisch ist.
+
+Daraus folgt zum Beispiel, dass die Hauptkomponenten in der PCA (Abschnitt 4.6)
+orthogonal zueinander sind.
+  Wir werden das Theorem schrittweise herleiten und dabei auch ein paar wichtige
+Eigenschaften von symmetrischen Matrizen beleuchten. Die eine Richtung ist
+einfach: Wir können leicht sehen, dass A symmetrisch sein muss, denn
+
+                A⊤ = (P DP ⊤ )⊤ = (P ⊤ )⊤ D⊤ P ⊤ = P DP ⊤ = A.
+
+Andererseits gilt für symmetrische Matrizen das Folgende.
+
+Lemma 5.10.3. Wenn A ∈ Rn×n symmetrisch ist, dann sind alle Eigenräume
+von A orthogonal zueinander.
+
+Beweis. Seien v1 , v2 Eigenvektoren aus zwei Eigenräumen Eλ1 , Eλ2 mit λ1 ̸= λ2 .
+Wir wollen zeigen, dass v1 ⊥ v2 bzw. v1⊤ v2 = 0. Dazu berechnen wir
+
+              λ1 v1⊤ v2 = (Av1 )⊤ v2 = v1⊤ A⊤ v2 = v1⊤ Av2 = λ2 v1⊤ v2 .
+
+Da λ1 ̸= λ2 muss v1⊤ v2 = 0 gelten.
+
+
+
+                                         126
+                           5 Orthogonalität und Projektionen
+
+
+  Wären alle Eigenwerte verschieden, wären wir nun am Ziel. Dann gibt es n
+orthogonale Eigenvektoren, diese können wir normieren und wie im Beweis von
+Theorem 4.4.2 in die Spalten der Matrix P schreiben. Diese Einschränkung ist
+aber nicht notwendig, wie Theorem 5.10.2 zeigt. Damit kommen wir zur nächsten
+wichtigen Einsicht:
+
+ Theorem 5.10.4. Alle Eigenwerte einer symmetrischen Matrix sind reell.
+
+
+Beweis. Sei λ ∈ C ein Eigenwert von A und v ∈ Cn ein zugehöriger Eigenvektor
+mit ∥v∥ = v ⊤ v = 1. Dann ist nach Theorem 4.5.4 auch λ ein Eigenwert mit
+zugehörigem Eigenvektor v. Es gilt
+
+                               v ⊤ Av = v ⊤ (λv) = λv ⊤ v = λ
+
+und außerdem
+
+                        v ⊤ Av = v ⊤ A⊤ v = (Av)⊤ v = λv ⊤ v = λ.
+
+Wir haben gezeigt, dass λ = λ und damit λ ∈ R.
+   Das Resultat ist selbst schon interessant. Da wir es in der Statistik so oft
+mit symmetrischen Matrizen zu tun bekommen, erklärt es auch unsere etwas
+stiefmütterliche Behandlung von komplexen Eigenwerten und Vektoren in Ab-
+schnitt 4.5.
+   Dass alle Eigenwerte reell sind, benötigen wir auch für den schwierigsten Schritt
+des Beweises von Theorem 5.10.2. Es erlaubt uns nämlich, die Matrix A als P DP ⊤
+mit P orthogonal und einer oberen Dreiecksmatrix D zu schreiben. Dies wird als
+Schur-Zerlegung 9 bezeichnet.
+
+ Theorem 5.10.5 (Schur-Zerlegung). Sei A ∈ Rn×n mit reellen Eigenwerten.
+ Dann gibt es eine Orthogonalmatrix P ∈ Rn×n , sodass D = P ⊤ AP eine obere
+ Dreiecksmatrix mit den Eigenwerten auf der Diagonalen ist.
+
+
+Beweis (optional). Wir zeigen das Resultat durch Induktion über n. Für n = 1 ist
+die Eigenschaft trivialerweise erfüllt. Wir nehmen nun an, dass jede (n×n)-Matrix
+eine Schur-Zerlegung besitzt, und zeigen, dass auch jede Matrix A ∈ R(n+1)×(n+1)
+eine Schur-Zerlegung besitzt.
+   Sei λ ein Eigenwert von A und v1 ein zugehöriger Eigenvektor mit Länge 1. Wir
+erweitern v1 zu einer Orthonormalbasis {v1 , . . . , vn+1 } des Rn+1 und definieren
+die Orthogonalmatrix
+
+                               V = (v1 · · · vn+1 ) = (v1 V2 ).
+
+ 9
+     Benannt nach dem russisch-deutschen Mathematiker Issai Schur (1875-1941), der in Berlin
+      lehrte, bis er 1938 vor den Nazis nach Israel floh.
+
+
+
+                                             127
+                      5 Orthogonalität und Projektionen
+
+
+Es gilt dann
+               !               !                           !
+           v1⊤           v1⊤           v1⊤ Av1 v1⊤ AV2
+    V AV =
+     ⊤
+                 A v1 V2 =       Av1 AV2 =
+           V2⊤             V2⊤             V2⊤ Av1 V2⊤ AV2
+                                                                            !
+                                                             λ v1⊤ AV2
+                                                           =           .
+                                                             0 V2⊤ AV2
+
+Die Matrix V2⊤ AV2 ∈ Rn×n hat per Induktionsannahme eine Schur-Zerlegung
+U ⊤ RU mit U orthogonal und einer oberen Dreiecksmatrix R. Also gilt
+
+                            1 0⊤                                         1 0⊤
+                              !                !                     !       !
+                λ v1⊤ AV2                          λ U v1⊤ AV2 U ⊤
+         V AV =
+          ⊤
+                          =                                                   .
+                0 U ⊤ RU    0 U⊤                   0       R             0 U
+
+Da U orthogonal ist, ist auch
+                                     1 0⊤
+                                               !
+
+                                     0 U
+orthogonal. Es gilt deshalb
+
+                    1 0⊤             1 0⊤
+                          !                    !                !
+                                            λ v1⊤ AV2
+                         V ⊤ AV           =           ,
+                    0 U              0 U⊤   0    R
+
+wobei auf der rechten Seite eine Dreiecksmatrix steht. Da außerdem das Produkt
+von Orthogonalmatrizen orthogonal ist, ist auch die Matrix
+
+                                          1 0⊤
+                                                    !
+                                  P =V
+                                          0 U⊤
+
+orthogonal.
+  Die Schur-Zerlegung ist selbst schon bemerkenswert. Die Symmetrie der Matrix
+A wird hierfür nicht benötigt, nur dass die Eigenwerte reell sind. Die Symmetrie
+von A ermöglicht uns aber nun den letzten Schritt im Beweis von Theorem 5.10.2:
+Für die Schur-Zerlegung gilt dann
+
+                  D = P ⊤ AP = P ⊤ A⊤ P = (P ⊤ AP )⊤ = D⊤ .
+
+Deshalb muss die Dreiecksmatrix D eine Diagonalmatrix sein.
+
+5.10.3 Algorithmus
+Aus den vorangegangen Resultaten ergibt sich der folgende Algorithmus zur
+orthogonalen Diagonalisierung einer symmmetrischen Matrix A:
+
+    1. Finde eine Basis für jeden Eigenraum von A.
+
+    2. Konstruiere durch das Gram-Schmidt-Verfahren eine Orthonormalbasis
+
+
+
+
+                                         128
+                           5 Orthogonalität und Projektionen
+
+
+       für jeden Eigenraum. Alle Basisvektoren zusammen ergeben eine Ortho-
+       normalbasis des Rn .
+
+    3. Schreibe die Vektoren der Orthonormalbsis in die Spalten der Matrix P
+       und die zugehörigen Eigenwerte (in gleicher Reihenfolge) auf die Diago-
+       nale der Diagonalmatrix D.
+
+Beispiel 5.10.6. (Bsp. 7.2.2 aus [AR]). Die Matrix
+
+                                        1 2
+                                                            !
+                                     A=
+                                        2 −2
+
+hat die Eigenwerte λ1 = −3 und λ2 = 2 mit zugehörigen Eigenvektoren
+
+                                    1                            2
+                                       !                                 !
+                               v1 =            und          v2 =   .
+                                    −2                           1
+
+Die Vektoren sind bereits orthogonal, aber wir müssen sie normalisiert in die
+Spalten von P schreiben:
+
+                                      1   1 2
+                                                                !
+                                   P =√
+                                       5 −2 1
+
+und D = diag(−3, 2). Damit gilt
+
+                           1  1 2                       −3 0 1 1 −2
+                                                   !                 !               !
+               A = P DP = √
+                       ⊤
+                                                             √       .
+                            5 −2 1                       0 2   5 2 1
+
+
+5.10.4 Spektralzerlegung
+Sei nun A = P ΛP ⊤ die Spektralzerlegung von A. Die Spalten von P sind orthonor-
+male Eigenvektoren p1 , . . . , pn und Λ = diag(λ1 , . . . , λn ) enthält die zugehörigen
+Eigenwerte. Es gilt also
+
+                                                                0      p⊤
+                                                                            
+                                           λ
+                                          1                            1    n
+                                                       ..             . 
+                                                                      .  =
+                           
+        A = P ΛP ⊤ = p1 · · ·                                                   λ i pi p⊤
+                                                                              X
+                                     pn 
+                                                           .           .
+                                                                                     i .
+                                               0                λn        p⊤
+                                                                           n
+                                                                                   i=1
+
+
+
+Die Matrix A lässt sich also in eine Summe aus n Matrizen λi pi p⊤ i ∈ R
+                                                                           n×n
+
+zerlegen.
+  So lässt sich die Wirkung der Matrixmultiplikation x 7→ Ax besonders gut
+interpretieren. Weil ∥pi ∥ = p⊤
+                              i pi = 1, sehen wir mit Theorem 5.7.3, dass x 7→
+
+
+
+
+                                           129
+                         5 Orthogonalität und Projektionen
+
+
+    i x eine Projektion auf den Raum span{pi } entspricht. Also:
+pi p⊤
+                                      n
+                              Ax =          λi projspan{pi } x.
+                                      X
+
+                                      i=1
+
+Der Vektor x wird also separat auf die Geraden durch pi projiziert, entlang
+dieser Geraden jeweils um λi gestreckt und zuletzt die gestreckten Vektoren
+aufsummiert.
+
+Beispiel 5.10.7. Wir erinnern uns aus Beispiel 5.10.6, dass
+
+             1 2                     1   1 2
+                        !                                  !
+          A=      ,               P =√       ,                    Λ = diag(−3, 2).
+             2 −2                     5 −2 1
+
+Enstprechend gilt auch
+
+                              1 1             1 2 
+                                      !                           !
+                                                        
+                     A = −3 ·       1 −2 + 2 ·       2 1
+                              5 −2             5 1
+                            1/5 −2/5    4/5 1/5
+                                               !                      !
+                      = −3           +2         .
+                           −2/5 4/5     1/5 1/5
+
+Wenden wir dies nun auf den Vektor x = (1, 1) an. Es gilt
+
+                                 1 2               1
+                                              !        !
+                                                          
+                            Ax =                     = 3 0
+                                 2 −2              1
+
+und, tatsächlich,
+
+                        1/5 −2/5                   1    4/5 2/5               1
+                                             !     !                      !   !
+                Ax = −3                              +2
+                        −2/5 4/5                   1    2/5 1/5               1
+                                  6/5
+                                  !                !
+                          −1/5
+                     = −3      +2
+                          2/5     3/5
+                        3/5   12/5
+                              !              !
+                     =      +
+                       −6/5    6/5
+                       3
+                          !
+                     =   .
+                       0
+
+Die Rechnung kann grafisch in Abbildung 5.8 nachvollzogen werden.
+
+
+
+
+                                             130
+                    5 Orthogonalität und Projektionen
+
+
+
+
+Abbildung 5.8: Spektralzerlegung der Matrixtransformation x → Ax in Bei-
+               spiel 5.10.7. (Fig. 7.2.1 in [AR].)
+
+
+
+
+                                   131
+

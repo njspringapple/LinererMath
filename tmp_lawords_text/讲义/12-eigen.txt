@@ -1,0 +1,786 @@
+12. Eigenwerte und Eigenvektoren
+
+
+
+
+Methoden der Linearen Algebra in der Statistik
+Thomas Nagler <t.nagler@lmu.de>
+Agenda
+
+
+1 Eigenwerte, Eigenvektoren, Eigenräume
+
+
+2 Charakteristische Gleichung
+
+
+3 Äquivalenzen
+
+
+4 Beispiel und Eigenschaften
+
+
+
+
+                                           1 / 30
+Agenda
+
+
+
+1 Eigenwerte, Eigenvektoren, Eigenräume
+
+
+2 Charakteristische Gleichung
+
+
+3 Äquivalenzen
+
+
+4 Beispiel und Eigenschaften
+
+
+
+
+                                           2 / 30
+Eigenwerte, Eigenvektoren, Eigenräume
+
+
+
+Definition
+Sei A ∈ Rn×n . Ein Vektor x ̸= 0 ∈ Rn wird Eigenvektor von A
+genannt, wenn es ein Skalar λ ∈ R gibt, sodass
+
+                           Ax = λx.
+
+Der Skalar λ wird Eigenwert von A genannt und x auch der zu λ
+gehörige Eigenvektor.
+
+
+
+
+                                                                3 / 30
+Eigenwerte, Eigenvektoren, Eigenräume
+Beispiel:
+  • Gegeben sei die Matrixtransformation x 7→ Ax mit
+                                        
+                                 1    0.5
+                          A=
+                                 0    0.5
+    und den Vektoren
+                                                           
+            2          −3                    −2                 1
+     u1 =      , u2 =     ,       v1 =           ,   v2 =           .
+            1          2                     2                  −1
+
+
+
+
+                                                                        4 / 30
+Eigenwerte, Eigenvektoren, Eigenräume
+Beispiel:
+  • Gegeben sei die Matrixtransformation x 7→ Ax mit
+                                        
+                                 1    0.5
+                          A=
+                                 0    0.5
+    und den Vektoren
+                                                              
+            2          −3                       −2                 1
+     u1 =      , u2 =     ,          v1 =           ,   v2 =           .
+            1          2                        2                  −1
+
+
+  • Damit ergibt sich:
+                     Av1 = 0.5v1 ,   Av2 = 0.5v2 .
+  • v1 , v2 sind Eigenvektoren zum Eigenwert 0.5.
+
+  • Die Vektoren u1 , u2 sind keine Eigenvektoren.
+                                                                           4 / 30
+Eigenwerte, Eigenvektoren, Eigenräume
+
+ • Es kann zum selben Eigenwert mehrere Eigenvektoren geben.
+
+ • Ist v ein Eigenvektor zum Eigenwert λ, dann ist auch jeder
+   Vektor cv mit c ∈ R ein Eigenvektor zu λ.
+
+
+
+
+                                                                5 / 30
+Eigenwerte, Eigenvektoren, Eigenräume
+
+  • Es kann zum selben Eigenwert mehrere Eigenvektoren geben.
+
+  • Ist v ein Eigenvektor zum Eigenwert λ, dann ist auch jeder
+    Vektor cv mit c ∈ R ein Eigenvektor zu λ.
+
+Definition
+Der Eigenraum Eλ einer Matrix A ∈ Rn×n ist definiert als die
+Menge aller Eigenvektoren zum Eigenwert λ (und dem Nullvektor):
+
+                      Eλ = {x : Ax = λx}.
+
+
+
+
+                                                                  5 / 30
+Eigenwerte, Eigenvektoren, Eigenräume
+
+  • Es kann zum selben Eigenwert mehrere Eigenvektoren geben.
+
+  • Ist v ein Eigenvektor zum Eigenwert λ, dann ist auch jeder
+    Vektor cv mit c ∈ R ein Eigenvektor zu λ.
+
+Definition
+Der Eigenraum Eλ einer Matrix A ∈ Rn×n ist definiert als die
+Menge aller Eigenvektoren zum Eigenwert λ (und dem Nullvektor):
+
+                      Eλ = {x : Ax = λx}.
+
+
+Lemma
+Für jede Matrix A ∈ Rn×n und λ ∈ R ist Eλ ein Unterraum des Rn .
+
+
+                                                                    5 / 30
+Eigenwerte, Eigenvektoren, Eigenräume
+
+
+Beispiel
+
+  • Für die Nullmatrix                   
+                                     0 0
+                            A=
+                                     0 0
+    gibt es linear unabhängige Eigenvektoren zum gleichen
+    Eigenwert.
+
+
+
+
+                                                             6 / 30
+Eigenwerte, Eigenvektoren, Eigenräume
+
+
+Beispiel
+
+  • Für die Nullmatrix                   
+                                     0 0
+                            A=
+                                     0 0
+    gibt es linear unabhängige Eigenvektoren zum gleichen
+    Eigenwert.
+
+  • Jeder Vektor x ∈ R2 ist ein Eigenvektor zum Eigenwert 0,
+    denn Ax = 0 = 0 · x.
+
+
+
+
+                                                               6 / 30
+Eigenwerte, Eigenvektoren, Eigenräume
+
+
+Beispiel
+
+  • Sei                    
+                      2 0 0
+                 A = 0 −1 0 .
+                      0 0 2
+
+
+
+
+                                         7 / 30
+Eigenwerte, Eigenvektoren, Eigenräume
+
+
+Beispiel
+
+  • Sei                           
+                             2 0 0
+                        A = 0 −1 0 .
+                             0 0 2
+
+  • Dann besitzt A die Eigenwerte 2 und −1 mit
+
+               E2 = span{e1 , e3 },   E−1 = span{e2 }.
+
+
+
+
+                                                         7 / 30
+Eigenwerte, Eigenvektoren, Eigenräume
+
+Beispiel
+
+  • Multiplikation von x ∈ R2 mit Matrix
+                                     
+                                  0 1
+                            A=
+                                  1 0
+
+    führt zu einer Spiegelung an der Geraden x1 = x2 .
+
+
+
+
+                                                          8 / 30
+Eigenwerte, Eigenvektoren, Eigenräume
+
+Beispiel
+
+  • Multiplikation von x ∈ R2 mit Matrix
+                                     
+                                  0 1
+                            A=
+                                  1 0
+
+    führt zu einer Spiegelung an der Geraden x1 = x2 .
+
+  • Die Eigenwerte sind 1 und −1 und es gilt
+                                             
+                         1                      1
+            E1 = span{      },    E−1 = span{     }.
+                         1                     −1
+
+
+
+
+                                                          8 / 30
+Quiz
+
+
+
+Gegeben sei eine beliebige n × n Matrix A und Skalar λ ∈ R. Wie
+viele Lösungen hat die Gleichung Ax = λx?
+
+ A. 0, 1 oder ∞
+ B. 0 oder ∞
+ C. 1 oder ∞
+ D. ∞
+
+
+
+
+                                                                  9 / 30
+Agenda
+
+
+
+1 Eigenwerte, Eigenvektoren, Eigenräume
+
+
+2 Charakteristische Gleichung
+
+
+3 Äquivalenzen
+
+
+4 Beispiel und Eigenschaften
+
+
+
+
+                                           10 / 30
+Quiz
+
+
+
+Welche der angegebenen Gleichungen ist äquivalent zu der
+Gleichung Ax = λx?
+
+ A. A/λ = 1
+ B. (A − λ1n×n )x = 0 (1n×n ist Einsermatrix)
+ C. (A − λIn )x = 0
+ D. Ax = 0
+
+
+
+
+                                                            11 / 30
+Charakteristische Gleichung
+
+
+Vorüberlegung:
+  • Umschreiben der Gleichung Ax = λx in ein LGS:
+
+                         (A − λIn )x = 0.
+
+
+
+
+                                                    12 / 30
+Charakteristische Gleichung
+
+
+Vorüberlegung:
+  • Umschreiben der Gleichung Ax = λx in ein LGS:
+
+                           (A − λIn )x = 0.
+
+  • Also ist Eλ = ker(A − λIn ).
+
+
+
+
+                                                    12 / 30
+Charakteristische Gleichung
+
+
+Vorüberlegung:
+  • Umschreiben der Gleichung Ax = λx in ein LGS:
+
+                           (A − λIn )x = 0.
+
+  • Also ist Eλ = ker(A − λIn ).
+
+  • λ ist Eigenwert ⇔ ker(A − λIn ) ̸= {0}
+
+
+
+
+                                                    12 / 30
+Charakteristische Gleichung
+
+
+Vorüberlegung:
+  • Umschreiben der Gleichung Ax = λx in ein LGS:
+
+                           (A − λIn )x = 0.
+
+  • Also ist Eλ = ker(A − λIn ).
+
+  • λ ist Eigenwert ⇔ ker(A − λIn ) ̸= {0}
+                    ⇔ A − λIn nicht invertierbar
+
+
+
+
+                                                    12 / 30
+Charakteristische Gleichung
+
+
+Vorüberlegung:
+  • Umschreiben der Gleichung Ax = λx in ein LGS:
+
+                           (A − λIn )x = 0.
+
+  • Also ist Eλ = ker(A − λIn ).
+
+  • λ ist Eigenwert ⇔ ker(A − λIn ) ̸= {0}
+                    ⇔ A − λIn nicht invertierbar
+                    ⇔ det(A − λIn ) = 0.
+
+
+
+
+                                                    12 / 30
+Charakteristische Gleichung
+
+
+
+
+Theorem
+Ein Skalar λ ∈ R ist genau dann ein Eigenwert von A, wenn er die
+charakteristische Gleichung
+
+                        det(A − λI ) = 0
+
+erfüllt.
+
+
+
+
+                                                                   13 / 30
+Charakteristische Gleichung
+
+
+                                             
+                       a11 a12 · · ·      a1n
+                     a21 a22 · · ·       a2n 
+                   A= .                   ..  ,
+                                             
+                            .. ..
+                      ..    .     .        . 
+                      an1 an2 · · ·       ann
+
+erhalten wir A − λI , indem wir λ von allen Diagonaleinträgen
+abziehen:
+                                                     
+                       a11 − λ    a12     ···    a1n
+                      a21      a22 − λ · · ·    a2n 
+          A − λI =  .                            ..  .
+                                                     
+                                    ..    ..
+                      ..            .       .     . 
+                        an1       an2    ···    ann − λ
+
+
+                                                                 14 / 30
+Charakteristische Gleichung
+
+
+ • Berechnen wir die Determinante und multiplizieren aus,
+   erhalten wir ein Polynom der Form
+
+            p(λ) = cn λn + cn−1 λn−1 + · · · + c1 λ + c0 .
+
+ • Es wird auch charakteristisches Polynom der Matrix A
+   genannt.
+
+
+
+
+                                                             15 / 30
+Charakteristische Gleichung
+
+
+ • Berechnen wir die Determinante und multiplizieren aus,
+   erhalten wir ein Polynom der Form
+
+            p(λ) = cn λn + cn−1 λn−1 + · · · + c1 λ + c0 .
+
+ • Es wird auch charakteristisches Polynom der Matrix A
+   genannt.
+
+ • Die Nullstellen dieses Polynoms sind dann die Eigenwerte
+   von A.
+
+ • Daraus folgt, dass es maximal n Eigenwerte geben kann.
+
+
+
+                                                              15 / 30
+Charakteristische Gleichung
+
+
+
+Berechnung
+Um Eigenwerte und Eigenvektoren rechnerisch zu finden geht man
+wie folgt vor:
+
+ 1. Finde Eigenwerte λk als die Nullstellen des charakteristischen
+    Polynoms p(λ) = det(A − λI ).
+ 2. Für jeden Eigenwert λk , berechne den Eigenraum Eλk durch
+    Lösen des LGS (A − λk I )x = 0.
+
+
+
+
+                                                                     16 / 30
+Charakteristische Gleichung
+
+Beispiel:
+  • Für                   
+                       3 −2
+                   A=
+                       1 −1
+
+
+
+
+                                17 / 30
+Charakteristische Gleichung
+
+Beispiel:
+  • Für                       
+                           3 −2
+                       A=
+                           1 −1
+    erhalten wir
+                                   
+                       3−λ  −2
+    det(A − λI ) = det                  = (3 − λ)(−1 − λ) + 2
+                        1  −1 − λ
+                                        = λ2 − 2λ − 1.
+
+
+
+
+                                                                17 / 30
+Charakteristische Gleichung
+
+Beispiel:
+  • Für                            
+                                3 −2
+                            A=
+                                1 −1
+    erhalten wir
+                                      
+                       3−λ  −2
+    det(A − λI ) = det                     = (3 − λ)(−1 − λ) + 2
+                        1  −1 − λ
+                                           = λ2 − 2λ − 1.
+
+
+  • Lösen wir diese Gleichung nach λ, erhalten wir die beiden
+    Eigenwerte
+                                                     √
+                        p
+                    2 ± (−2)2 − 4 · 1 · (−1)
+               λ=                             = 1 ± 2.
+                              2·1
+                                                                   17 / 30
+Charakteristische Gleichung
+
+
+ • Um den Eigenraum E1+√2 zu finden, Lösen wir das LGS
+                        √                   
+                  3−1−       2       −2 √
+                                               x = 0.
+                     2           −1 − 1 − 2.
+
+
+
+
+                                                          18 / 30
+Charakteristische Gleichung
+
+
+ • Um den Eigenraum E1+√2 zu finden, Lösen wir das LGS
+                        √                   
+                  3−1−       2       −2 √
+                                               x = 0.
+                     2           −1 − 1 − 2.
+
+ • Wir reduzieren
+         √                           √        √      
+      2− 2          √−2 0   (II )·(2− 2) 2 − 2 −2 0
+                                                 √
+                                   ∼
+             1 −(2 + 2) 0                     2 − 2 −2 0
+                                                √      
+                                  (II )−(I ) 2 − 2 −2 0
+                                      ∼
+                                                   0 0 0
+
+
+
+
+                                                            18 / 30
+Charakteristische Gleichung
+
+
+
+ • Daraus erhalten wir
+                                    √ 
+                              2/(2 − 2)
+                 E1+√2 = span{          }.
+                                   1
+
+
+
+
+                                             19 / 30
+Charakteristische Gleichung
+
+
+
+ • Daraus erhalten wir
+                                    √ 
+                              2/(2 − 2)
+                 E1+√2 = span{          }.
+                                   1
+
+ • Auf ähnliche Weise kommen wir auf
+                                       √ 
+                                −2/(2 + 2)
+                 E1−√2 = span{             }.
+                                      1
+
+
+
+
+                                                19 / 30
+Charakteristische Gleichung
+
+
+
+
+Theorem
+Ist A ∈ Rn×n eine Dreiecksmatrix, dann sind die Eigenwerte von A
+gleich den Diagonaleinträgen aii , i = 1, . . . , n.
+
+
+
+
+                                                                   20 / 30
+Quiz
+
+Gegeben sei die Matrix
+                                    
+                              2 −1 1
+                         A = 0 −3 2 .
+                              0 0 3
+
+Welche Eigenwerte besitzt Matrix A?
+
+ A. −3
+ B. 2
+ C. 0
+ D. 3
+ E. 1
+
+
+                                          21 / 30
+Quiz
+Gegeben sei die Matrix                        
+                                 2      −1   1
+                            A = 0      −3   2
+                                 0       0   3
+und die Vektoren
+                                             
+                           1          1          2
+                     v1 = 0 , v2 = 1 , v3 = 1 .
+                           0          1          3
+
+Welche der Aussagen zu den Eigenvektoren trifft zu?
+
+ A. Keiner der Vektoren ist ein Eigenvektor von A.
+
+ B. v1 ist ein Eigenvektor von A.
+
+ C. v2 ist ein Eigenvektor von A.
+
+ D. v3 ist ein Eigenvektor von A.
+
+
+                                                        22 / 30
+Agenda
+
+
+
+1 Eigenwerte, Eigenvektoren, Eigenräume
+
+
+2 Charakteristische Gleichung
+
+
+3 Äquivalenzen
+
+
+4 Beispiel und Eigenschaften
+
+
+
+
+                                           23 / 30
+Äquivalenzen
+
+
+Theorem (Äquivalenzen)
+Sei A ∈ Rn×n . Dann sind die folgenden Aussagen äquivalent:
+
+(a) A ist invertierbar.
+(b) A⊤ ist invertierbar.
+(c) Die reduzierte Zeilenstufenform von A ist In .
+         ..
+          .
+(n) λ = 0 ist kein Eigenwert von A.
+
+
+
+
+                                                               24 / 30
+Agenda
+
+
+
+1 Eigenwerte, Eigenvektoren, Eigenräume
+
+
+2 Charakteristische Gleichung
+
+
+3 Äquivalenzen
+
+
+4 Beispiel und Eigenschaften
+
+
+
+
+                                           25 / 30
+Beispiel
+
+
+
+ • Betrachten wir eine (orthogonale) Projektion von x ∈ R2 auf
+   die Gerade in Richtung v = (2, 1).
+
+ • Die Matrixtransformation, die beliebige Vektoren auf diese
+   Gerade span{v } projiziert, ist gegeben durch
+                                        
+                                  0.8 0.4
+                        Pv =                .
+                                  0.4 0.2
+
+
+
+
+                                                                 26 / 30
+Beispiel
+
+
+
+
+Abbildung: Projektion von u auf den Spann von v . Die Eigenvektoren der
+Projektionsmatrix P sind v und w .
+
+
+                                                                          27 / 30
+Quiz
+
+
+
+Wenn x ein Eigenvektor von A mit Eigenwert λ ∈ R ist, welche
+Aussage ist wahr?
+
+ A. x ist auch Eigenvektor von A2 mit Eigenwert λ2 .
+ B. x ist auch Eigenvektor von A2 mit Eigenwert 2λ.
+ C. x ist auch Eigenvektor von A2 mit Eigenwert λ.
+ D. x ist kein Eigenvektor von A2 .
+
+
+
+
+                                                               28 / 30
+Quiz
+
+
+
+Beweise oder widerlege:
+
+    Wenn Matrix A zu der Matrix B durch Zeilenoperationen
+    transformiert werden kann, dann haben die Matrizen A und
+    B die gleichen Eigenwerte.
+
+ A. Wahr
+ B. Falsch
+
+
+
+
+                                                               29 / 30
+Wrap-up
+
+
+
+Heute gelernt
+
+  • Eigenwerte, Eigenvektoren und Eigenräume
+
+  • Charakteristische Gleichung
+
+  • Äquivalenzen
+
+Nächste Vorlesung
+
+  • Diagonalisierung
+
+
+
+
+                                                30 / 30
+
