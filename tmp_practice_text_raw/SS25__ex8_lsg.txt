@@ -1,0 +1,342 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025
+Blatt 8
+Prof. Dr. Thomas Nagler
+Jana Gauß
+Recap - (Komplexe) Eigenwerte & Skalarprodukte
+1. Eigenwerte sind genau die Nullstellen des charakteristischen Polynoms pA(λ) = det(λIn −
+A) (Theorem 4.2.1).
+2. Nicht jedes Polynom hat eine Nullstelle in R. In anderen Worten, nicht jede Matrix besitzt
+einen reellen Eigenwert. In den komplexen Zahlen hat jedes Polynom mindestens eine
+Nullstelle und somit jede Matrix mindestens einen (möglicherweise komplexen) Eigenwert.
+3. Ein Skalarprodukt bildet Paare von Elementen aus einem Vektorraum V ab auf eine reelle
+Zahl: ⟨·,·⟩: V ×V → R. Es muss gewisse Eigenschaften erfüllen (Symmetrie, Distributiv-
+gesetz, Homogenität, Positivität, siehe Def. 5.3.1). In Rn
+ist das euklidische Skalarprodukt
+definiert als ⟨v,w⟩ =
+Pn
+i=1 viwi.
+4. Durch Skalarprodukte kann man die Konzepte von Orthogonalität und Normen verallge-
+meinern: v,w sind orthogonal, wenn ⟨v,w⟩ = 0 (rechter Winkel in Rn
+). Außerdem defi-
+niert jedes Skalarprodukt eine Norm: ∥v∥ =
+q
+⟨v,v⟩ (euklidische Norm ∥v∥ =
+qPn
+i=1 v2
+i
+in Rn
+).
+Übungsaufgaben
+Aufgabe 1 (Charakteristisches Polynom unter Basiswechsel)
+Seien A und B n × n-Matrizen und B invertierbar. Wir schreiben pA(λ) = det(λIn − A) bzw.
+pB−1AB(λ) = det(λIn −B−1
+AB) für das charakteristische Polynom von A bzw. B−1
+AB. Zeige:
+1. λIn − B−1
+AB = B−1
+(λIn − A)B.
+2. pA(λ) = pB−1AB(λ). Hinweis: Nutze Teilaufgabe 1. und det(AB) = det(A)det(B).
+Bonus: Zeige: v Eigenvektor von A zum Eigenwert λ =⇒ [v]B Eigenvektor von B−1
+AB zum
+Eigenwert λ.
+Wiederholung Koordinatentransformation:
+• Sei B = {v1,...,vn} eine Basis eines Vektorraums V und v = x1v1 + ... + xnvn.
+Dann nennt man (x1,...,xn) die Koordinaten von v in der Basis B und schreibt [v]B =
+(x1,...,xn) (Def. 3.3.9).
+• Sei V = Rn
+und sei B eine n×n Matrix, die die Basisvektoren als Spalten enthält. B ist
+dann automatisch invertierbar, da die Basisvektoren linear unabhängig sind. Gleichzeitig
+bilden für jede invertierbare Matrix B die Spalten von B eine Basis von Rn
+(da n linear
+unabhängige Vektoren). Dann folgt aus der obigen Formel v = B[v]B bzw. [v]B = B−1
+v
+(Basiswechsel zwischen B und Standardbasis).
+• Die Abbildung x 7→ Ax in der Basis B ([x]B 7→ [Ax]B) lässt sich dann schreiben als
+[Ax]B = B−1
+AB[x]B (Kapitel 4.4.1, dieses Prinzip haben wir bei der Diagonalisierung
+ausgenutzt).
+• Aus Teilaufgabe 2 folgt, dass die Eigenwerte unabhängig von der Basis sind. In der Bo-
+nusaufgabe zeigen wir, wie sich die Eigenvektoren unter Basiswechsel verhalten.
+Lösungsskizze zu Aufgabe 1
+–1–Methoden der linearen Algebra in der Statistik
+Sommersemester 2025
+Blatt 8
+Prof. Dr. Thomas Nagler
+Jana Gauß
+1. Es gilt
+B−1
+(λIn − A)B = B−1
+λInB − B−1
+AB = λB−1
+B − B−1
+AB = λIn − B−1
+AB.
+2. Es gilt
+pB−1AB(λ) = det(λIn − B−1
+AB)
+1.
+= det(B−1
+(λIn − A)B)
+= det(B−1
+)det(λIn − A)det(B) = det(λIn − A) = pA(λ),
+da det(B)det(B−1
+) = det(In) = 1.
+Bonus: Sei v ein Eigenwert von A zum Eigenwert λ. Es gilt
+B−1
+AB[v]B = B−1
+Av = λB−1
+v = λ[v]B.
+Somit ist [v]B ein Eigenvektor von B−1
+AB zum Eigenwert λ.
+Aufgabe 2 (Rang und Anzahl der Eigenwerte)
+Sei A eine n×n-Matrix mit Spektralzerlegung (= Diagonalisierung) A = S diag(λ1,...,λk,0,...,0)S−1
+mit λi ̸= 0,i = 1,...,k. Zeige: rang(A) = k (d.h. das Bild von A hat Dimension k bzw. dim(ker(A)) =
+n − k).
+Lösungsskizze zu Aufgabe 2
+Lösungsweg 1: Wir zeigen: dim(ker(A)) = n − k, daraus folgt rang(A) = k.
+1. dim(ker(A)) ≥ n − k: Seien vk+1,...,vn die letzten n − k Spalten von S. Diese Vektoren
+sind linear unabhängig (da A diagonalisierbar) und liegen in ker(A), da sie Eigenvektoren
+zum Eigenwert 0 sind. Somit enthält ker(A) eine Menge von n − k linear unabhängige
+Vektoren, also dim(ker(A)) ≥ n − k.
+2. dim(ker(A)) = n − k: Beweis durch Widerspruch: Sei dim(ker(A)) > n − k.
+• Dann gibt es einen Vektor v ∈ ker(A), sodass v,vk+1,...,vn linear unabhängig sind.
+• Auch die Menge v,v1,...,vn muss linear unabhängig sein, Beweis durch Wider-
+spruch:
+– Sei v =
+Pn
+i=1 civi, wobei mindestens ein ci ̸= 0.
+– Da v,vk+1,...,vn linear unabhängig, muss mindestens eins von c1,...,ck un-
+gleich 0 sein.
+– Da v ∈ ker(A) und die Eigenwerte zu vk+1,...,vn gleich 0 sind, gilt 0 = Av =
+Pn
+i=1 ciλivi =
+Pk
+i=1 ciλivi. Mindestens ein ciλi,i = 1,...,k muss nach der obigen
+Überlegung ungleich 0 sein. Das ist aber ein Widerspruch zur linearen Unab-
+hängigkeit von v1,...,vk.
+• Lineare Unabhängigkeit von v,v1,...,vn ist ein Widerspruch, da in Rn
+jede Menge
+mit > n Vektoren linear abhängig ist.
+Ähnlich kann man auch zeigen, dass vk+1,...,vn eine Basis von ker(A) sein muss: vk+1,...,vn ∈
+ker(A) wie in Schritt 1, dann nimmt man an, es gäbe ein v ∈ ker(A), sodass v,vk+1,...,vn linear
+unabhängig und führt das wie in Schritt 2 zu einem Widerspruch. Also folgt span{vk+1,...,vn} =
+ker(A), weshalb vk+1,...,vn (da linear unabhängig) eine Basis von ker(A) sein muss. Somit
+dim(ker(A)) = n − k.
+–2–Methoden der linearen Algebra in der Statistik
+Sommersemester 2025
+Blatt 8
+Prof. Dr. Thomas Nagler
+Jana Gauß
+Lösungsweg 2: Wir nutzen Teilaufgabe 2 von Aufgabe 1, Blatt 6.
+Die Spalten v1,...,vn von S bilden eine Basis von Rn
+. Somit gilt nach A1, Blatt 6
+col(A) = span{Av1,...,Avn} = span{λ1v1,...,λnvn} = span{λ1v1,...,λkvk} = span{v1,...,vk}
+unter Nutzung von Avi = λivi und λi = 0 für i = k + 1,...,n, λi ̸= 0 für i = 1,...,k. Die
+Menge {v1,...,vk} ist linear unabhängig und somit eine Basis von col(A), also rang(A) =
+dim(col(A)) = k.
+Lösungsidee 3: Sei Λ = diag(λ1,...,λk,0,...,0), also A = SΛS−1
+. Man kann auch zeigen:
+rang(SΛS−1
+) = rang(Λ). Hierbei benötigt man gar nicht, dass Λ die Eigenwerte und S die
+Eigenvektoren enthält: Für jede Matrix B und invertierbare Matrix S gilt dim(col(B)) =
+dim(col(SBS−1
+)).
+Intuition: die Dimension des Bildes (hier der Spaltenraum) ist eine Eigenschaft der linearen
+Abbildung, unabhängig von der Basis, in der man arbeitet. Multiplikation mit S und S−1
+entspricht einem Basiswechsel.
+Beweisskizze für dim(col(B)) = dim(col(SBS−1
+)) für beliebige Matrix B und invertierbare
+Matrix S: Es gilt
+• dim(col(B)) = dim(col(SB)) (zeige: wenn u1,...,uk Basis von col(B), dann ist (wegen
+Invertierbarkeit von S) Su1,...,Suk Basis von col(SB))
+• col(B) = col(BS) (folgt aus Invertierbarkeit von S)
+–3–Methoden der linearen Algebra in der Statistik
+Sommersemester 2025
+Blatt 8
+Prof. Dr. Thomas Nagler
+Jana Gauß
+Hausaufgaben
+Aufgabe 3 (Wiederholung komplexe Zahlen)
+Sei A ∈ Cn×m
+und B ∈ Cm×l
+. Die konjugierte Matrix A enthält die Konjugierten der Einträge
+von A = (aij)i=1,...,n;j=1,...,m: A = (aij)i=1,...,n;j=1,...,m. Zeige:
+(a) A = A
+(b) AT = A
+T
+(c) AB = A B.
+Erinnerung: AB = (
+Pm
+k=1 aikbkj)i=1,...,n;j=1,...,l und y + z = y + z, yz = y z für y,z ∈ C.
+Lösungsskizze zu Aufgabe 3
+Sei A ∈ Cn×m
+und B ∈ Cm×l
+. Dann gilt:
+(a) Es gilt
+A = (aij)i=1,...,n;j=1,...,m = (aij)i=1,...,n;j=1,...,m = (aij)i=1,...,n;j=1,...,m = A
+(b)
+AT = [(aij)i=1,...,n;j=1,...,m]T = (aji)j=1,...,m;i=1,...,n = (aji)j=1,...,m;i=1,...,n
+= [(aij)i=1,...,n;j=1,...,m]T
+= A
+T
+(c)
+AB = (
+m X
+k=1
+aikbkj)i=1,...,n;j=1,...,l =
+m X
+k=1
+aikbkj
+!
+i=1,...,n;j=1,...,l
+= (
+m X
+k=1
+aikbkj)i=1,...,n;j=1,...,l = A B
+Aufgabe 4 (Cn
+als Vektorraum und das Standardskalarprodukt dazu)
+(a) Zeige, dass Cn
+ein Vektorraum ist.
+(b) Zeige, dass
+⟨·,·⟩ : Cn
+→ C mit ⟨w,v⟩ :=
+n X
+i=1
+wivi
+wobei w = (w1,...,wn)⊤
+,v = (v1,...,vn)⊤
+∈ Cn
+ein Skalarprodukt auf Cn
+definiert.
+Bemerkung: Da dieses Skalarprodukt nicht in die reellen, sondern in die komplexen Zah-
+len abbildet, muss bei Definition 5.3.1 die Symmetrie durch die hermitesche Eigenschaft
+ersetzt werden, d.h. es gilt:
+⟨w,v⟩ = ⟨v,w⟩
+–4–Methoden der linearen Algebra in der Statistik
+Sommersemester 2025
+Blatt 8
+Prof. Dr. Thomas Nagler
+Jana Gauß
+(c) Berechne für die Vektoren
+u = (1 + i,i,3 − i) und v = (1 + i,2,4i)
+⟨u,v⟩,⟨v,u⟩,||u|| und ||v||.
+Lösungsskizze zu Aufgabe 4
+(a) Wir zeigen (i) bis (x) aus Definition 3.1.1. Diese werden mittels der Eigenschaften von Rn
+bewiesen. Seien dazu u,v,w ∈ Cn
+, d.h. es existieren u1,u2,v1,v2,w1,w2 ∈ Rn
+sodass
+u = u1 + iu2
+v = v1 + iv2
+w = w1 + iw2.
+Seien zudem c,b ∈ R.
+(i) u + v = u1 + iu2 + v1 + iv2 = (u1 + v1) + i(u2 + v2) ∈ Cn
+(ii) u + v = u1 + iu2 + v1 + iv2 = v1 + iv2 + u1 + iu2 = v + u
+(iii) (u+v)+w = (u1 +iu2 +v1 +iv2)+w1 +iw2 = u1 +iu2 +(v1 +iv2 +w1 +iw2) =
+u + (v + w)
+(iv) Der Vektor 0 = 0 + i0 ist der Nullvektor, da
+0 + v = 0 + i0 + v1 + iv2 = (0 + v1) + i(0 + v2) = v1 + iv2 = v.
+(v) Für −v = −(v1 + iv2) = −v1 − iv2 gilt
+v − v = v1 + iv2 − (v1 + iv2) = (v1 − v1) + i(v2 − v2) = 0 + i0 = 0.
+(vi) cv = c(v1 + iv2) = cv1 + i cv2 ∈ Cn
+(vii) c(u + v) = c(u1 + iu2 + v1 + iv2) = cu1 + i cu2 + cv1 + i cv2 = cu + cv
+(viii)
+(c + d)u = (c + d)(u1 + iu2) = cu1 + i cu2 + du1 + i du2
+= c(u1 + i u2) + d(u1 + iu2) = cu + du
+(ix)
+c(du) = c(d(u1 + iu2)) = c(du1 + i du2) = cdu1 + i cdu2
+= (cd)(u1 + iu2) = (cd)u
+(x) 1u = 1(u1 + iu2) = 1u1 + i 1u2 = u1 + iu2 = u
+(b) Wir zeigen (ii)-(iv) aus Definition 5.3.1 und anstatt der Symmetrie (i) zeigen wir, dass
+das Skalarprodukt hermitesch ist (siehe Hinweis). Sei dazu u,v,w ∈ Cn
+. Seien zudem
+c ∈ R.
+–5–Methoden der linearen Algebra in der Statistik
+Sommersemester 2025
+Blatt 8
+Prof. Dr. Thomas Nagler
+Jana Gauß
+(i) Hermitisch:
+⟨u,v⟩ =
+n X
+i=1
+uivi =
+n X
+i=1
+viui =
+n X
+i=1
+viui =
+n X
+i=1
+viui = ⟨v,u⟩
+(ii) Distributivgesetz
+⟨u,v + w⟩ =
+n X
+i=1
+ui(vi + wi)
+n X
+i=1
+ui(vi + wi) =
+n X
+i=1
+uivi +
+n X
+i=1
+uiwi = ⟨u,v⟩ + ⟨u,w⟩
+(iii) Homogenität
+⟨cu,v⟩ =
+n X
+i=1
+cuivi = c
+n X
+i=1
+uivi = c⟨u,v⟩
+(iv) Positivität: Sei u = (u1(1) + iu1(2),u2(1) + iu2(2),...,un(1) + iun(2)) ∈ Cn
+. Dann gilt
+⟨u,u⟩ =
+n X
+i=1
+uiui =
+n X
+i=1
+(ui(1) + iui(2))(u1(1) − iui(2))
+=
+n X
+i=1
+(u2
+i(1) + u2
+i(2)) ≥ 0.
+Außerdem gilt ⟨u,u⟩ = 0 ⇔ u = 0, da
+⟨0,0⟩ =
+n X
+i=1
+00 =
+n X
+i=1
+0 · 0 = 0
+und
+⟨u,u⟩ =
+n X
+i=1
+(u2
+i(1) + u2
+i(2)) = 0 =⇒ ∀i = 1,...,n : ui(1) = ui(2) = 0.
+(c) Unter Nutzung der Teilaufgabe (b) erhalten wir
+⟨u,v⟩ = (1 + i)(1 + i) + i2 + (3 − i)i4 = (1 + i)(1 − i) + 2i + (3 − i)(−4i) = −2 − i10
+⟨v,u⟩ = ⟨u,v⟩ = −2 − i10 = −2 + i10
+||v|| =
+q
+(12 + 12) + (22 + 02) + (02 + 42) =
+√
+2 + 4 + 16 =
+√
+22
+||u|| =
+q
+(12 + 12) + (02 + 12) + (32 + (−1)2) =
+√
+2 + 1 + 10 =
+√
+13
+–6–

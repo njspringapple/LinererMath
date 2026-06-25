@@ -1,0 +1,67 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2023                                                Prof. Dr. Thomas Nagler
+Blatt 2                                                                      Philipp Schiele
+
+    Übungsaufgaben
+
+Aufgabe 1 (Spann)
+    Sei M = {m1 , . . . , mk }, N = {n1 , . . . , ml } ⊆ Rn mit n, k, l ∈ N. Beweise oder widerlege
+    die folgenden Behauptungen.
+
+     (a) M ⊆ N ⇒ span(M ) ⊆ span(N ).
+     (b) span(M ) ⊆ span(N ) ⇒ M ⊆ N .
+     (c) span(M ∪ N ) = span(M ) ∪ span(N ).
+
+
+
+
+Übung: Mo 16–18 Uhr                           –1–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2023                                         Prof. Dr. Thomas Nagler
+Blatt 2                                                               Philipp Schiele
+
+
+
+    Hausaufgaben
+
+Aufgabe 2 (Beispiel für eine (in)homogenes LGS)
+    Gegeben sei die folgende Matrix A und der Vektor b
+
+                           1   1   −1   1   1                     1
+                                                                   
+                          1   0   −1   0   1                  1 
+                       A=                     ∈ R4×5 und b =     .
+                                                                  
+                          2   3   −4   5   6                  1 
+                         
+
+                           0   2   −2   4   4                    −1
+
+     (a) Bestimme die Lösungsmenge des homogenen Gleichungssystems Ax = 0.
+     (b) Zeige, dass
+                                                  3 
+                                                  2 
+                                                  0 
+                                                  1 
+                                            x1 =    
+                                                  2 
+                                                  0 
+                                                    
+                                                   0
+
+         eine Lösung von Ax = b ist.
+     (c) Bestimme die Lösungsmenge des inhomogenen Gleichungssystems Ax = b.
+
+Aufgabe 3 (Darstellung der Lösungsmenge)
+    Sei A ∈ Rn×m mit m, n ∈ N. Sei L ⊆ Rn die Lösungsmenge des homogenen linearen
+    Gleichungssystems Ax = 0.
+
+     (a) Zeige, dass L = cL für jedes c ∈ R \ 0 gilt.
+         Hinweis: Die Menge cL ist gegeben durch cL = {cx | x ∈ L}.
+
+    Des Weiteren sei b ∈ Rm \ {0} und seien x1 , x2 ∈ Rn zwei Lösungen des inhomogenen
+    linearen Gleichungssystem Ax = b.
+
+     (b) Zeige, dass die folgenden Mengen identisch sind: x1 + L = x2 + L.
+         Hinweis: Die Menge x1 + L ist gegeben durch x1 + L = {x1 + y | y ∈ L}.
+

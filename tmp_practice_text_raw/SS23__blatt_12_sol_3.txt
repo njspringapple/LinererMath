@@ -1,0 +1,59 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2023
+Blatt 12
+Prof. Dr. Thomas Nagler
+Philipp Schiele
+Hausaufgaben
+Aufgabe 3 (Kern, Spaltenraum und Rang)
+Sei A ∈ Rn×n
+. Beweise die folgenden Aussagen:
+ker(A) = ker(A>
+A), col(A) = col(AA>
+), rang(A) = rang(A>
+A).
+Lösungsskizze zu Aufgabe 3
+• Wir zeigen zuerst ker(A) = ker(A>
+A).
+Und beginnen mit ker(A) ⊆ ker(A>
+A). Sei dazu x ∈ ker(A), dann gilt
+Ax = 0 ⇒ A>
+Ax = 0.
+Daher ist x ∈ ker(A>
+A).
+Nun beweisen wir ker(A) ⊇ ker(A>
+A). Sei x ∈ ker(A>
+A). Wir erhalten
+A>
+Ax = 0 ⇒ x>
+A>
+Ax = 0 ⇒ (Ax)>
+(Ax) = 0 ⇒ Ax = 0 ⇒ x ∈ ker(A)
+Also ker(A) = ker(A>
+A).
+• Nun zeigen wir rang(A) = rang(A>
+A).
+dim(Rn
+) = n ist rang(A) = dim(col(A)) = n−dim(kern(A)) = n−dim(kern(A>
+A)) =
+dim(col(A>
+A)) = rang(A>
+A).
+• Zuletzt beweisen wir col(A) = col(A>
+A).
+col(A) = ker(A>
+)⊥
+= ker(AA>
+)⊥
+= col((AA>
+)>
+) = col(AA>
+)
+Alternativ:
+– col(AA>
+) ⊆ col(A), da col(AA>
+) = span{Aa1,...,Aan} ⊆ span{a1,...,an} =
+col(A).
+– Gleichheit folgt da rang(AA>
+) = rang(A>
+) = rang(A).
+Übung: Mo 16–18 Uhr –1–

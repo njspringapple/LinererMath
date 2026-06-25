@@ -1,0 +1,397 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025                                                                  Prof. Dr. Thomas Nagler
+Blatt 6                                                                                           Jana Gauß
+
+Recap - Spaltenraum und Kern
+  1. Der Kern einer Matrix A ∈ Rm×n ist die Menge aller Vektoren, die auf 0 abgebildet
+     werden: ker(A) = {x : Ax = 0} ⊆ Rn .
+  2. Der Spaltenraum einer Matrix A ∈ Rm×n ist der Spann der Spalten von A: col(A) =
+     span{a1 , . . . , an } ⊆ Rm . Der Spaltenraum ist das Bild der Abbildung x 7→ Ax (Finger-
+     übung 1). Die Dimension von col(A) bezeichnen wir als rang(A).
+  3. Für A ∈ Rm×n gilt n = dim(ker(A)) + rang(A). (Theorem 3.4.12)
+  4. Damit ist die Invertierbarkeit einer Matrix A ∈ Rn×n äquivalent dazu, dass A vollen Rang
+     (rang(A) = n) bzw. einen trivialen Kern hat (ker(A) = {0}; wir hatten bei Vektorräumen
+     definiert: dim({0}) = 0). (Theorem 3.4.13)
+  5. Da rang(A) = rang(A⊤ ) (Korollarr 3.4.7), gilt rang(A) ≤ min{n, m}.
+
+
+Fingerübungen
+  1. Sei A eine m × n-Matrix mit ker(A) = {0}. Was ist rang(A)? (Theorem 3.4.12)
+  2. Sei A eine m×n-Matrix mit ker(A) = Rn . Was ist der Spaltenraum col(A)? (Nachdenken)
+  3. Kann es eine m × n-Matrix A mit n > m geben mit ker(A) = {0}?
+
+
+Übungsaufgaben
+Aufgabe 1 (Spaltenraum und image einer linearen Abbildung)
+Das Bild (image) einer linearen Abbildung f : U → V mit Vektorräumen U, V ist definiert als
+
+                           im(f ) = {y ∈ V : f (x) = y für ein x ∈ U }.
+
+  1. Sei f : Rn → Rm eine lineare Abbildung mit darstellender Matrix A. Zeige: im(f ) =
+     col(A).
+  2. Sei u1 , . . . , un eine Basis von U und sei f eine lineare Abbildung U → V . Zeige: im(f ) =
+     span{f (u1 ), . . . , f (un )}.
+Wieso kann man aus 2. auch die erste Teilaufgabe folgern?
+
+
+Lösungsskizze zu Aufgabe 1
+
+  1. im(f ) ⊆ col(A): Sei y ∈ im(f ), d.h., es gibt ein x mit f (x) = Ax = y. Dann können
+     wir y auch schreiben als y = x1 a1 + . . . , xn an , wobei a1 , . . . , an die Spalten von A sind
+     (Definition Matrix-Vektor-Produkt). Somit gilt y ∈ span{a1 , . . . , an } = col(A).
+     col(A) ⊆ im(f ): Sei y ∈ span{a1 , . . . , an }, d.h. es exisiteren x1 , . . . , xn , sodass y =
+     x1 a1 + . . . , xn an . Sei x = (x1 , . . . , xn )⊤ ∈ Rn . Dann gilt y = Ax und somit y ∈ im(f ).
+  2. im(f ) ⊆ span{f (u1 ), . . . , f (un )}: Sei y ∈ im(f ), d.h. es gibt ein u ∈ U , sodass f (u) = y.
+     Da u1 , . . . , un eine Basis von U ist, existieren λ1 , . . . , λn ∈ R, sodass u = ni=1 λi ui . Es
+                                                                                          P
+
+     gilt
+                                 n                        n
+                                 X               f linear X
+                   f (u) = f (         λi ui )     =          λi f (ui ) ∈ span{f (u1 ), . . . , f (un )}.
+                                 i=1                   i=1
+
+
+                                                         –1–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025                                                                       Prof. Dr. Thomas Nagler
+Blatt 6                                                                                                Jana Gauß
+
+      span{f (u1 ), . . . , f (un )} ⊆ im(f ): Sei y ∈ span{f (u1 ), . . . , f (un )}, d.h. es existieren
+      λ1 , . . . , λn ∈ R, sodass y = ni=1 λi f (ui ). Es gilt
+                                       P
+
+                                           n                                 n
+                                           X                  f linear       X
+                                     y=          λi f (ui )     =        f(         λi ui ).
+                                           i=1                                i=1
+                Pn
+      Sei u =    i=1 λi ui (∈ U , da U Vektorraum). Somit ist y = f (u), also y ∈ im(f ).
+
+Wenn wir für f (x) = Ax in 2. die Standardbasis e1 , . . . , en wählen, dann gilt f (ui ) = Aei = ai
+und somit folgt aus 2. direkt im(f ) = span{a1 , . . . , an }.
+
+Aufgabe 2 (Produktraum)
+Seien U, V zwei Vektorräume. Wir definieren U × V = {(u, v) : u ∈ U, v ∈ V }. Zeige:
+  1. U × V versehen mit Addition
+
+                                  (u1 , v1 ) + (u2 , v2 ) = (u1 + u2 , v1 + v2 )
+
+      und skalarer Multiplikation
+
+                                        λ(u, v) = (λu, λv) (λ ∈ R)
+
+      ist ein Vektorraum.
+
+  2. Sind {u1 , ..., un } ⊂ U und {v1 , ..., vm } ⊂ V Basen von U bzw V , so ist
+
+                         B = {(u1 , 0), ..., (un , 0), (0, v1 ), ...., (0, vm )} ⊂ U × V
+
+      eine Basis. Folgere dim(U × V ) = dim(U ) + dim(V ).
+
+
+Lösungsskizze zu Aufgabe 2
+Anmerkung zu 1.: Auch wenn das ganze Rechnen mühsam und trivial wirkt, muss man in
+Erinnerung behalten, dass wir nichts genaueres über die Vektorräume U, V wissen und daher
+nur mit ihren Eigenschaften als Vektorräume sowie der gegeben Definition von Addition und
+skalarer Multiplikation arbeiten dürfen.
+  1. Wir müssen alle Eigenschaften aus Definition 3.1.1 zeigen:
+
+       (i) (u1 , v1 ) + (u2 , v2 ) = (u1 + u2 , v1 + v2 ) ∈ U × V , da u1 + u2 ∈ U, v1 + v2 ∈ V
+                                                               U, V Vektorraum
+      (ii) (u1 , v1 ) + (u2 , v2 ) = (u1 + u2 , v1 + v2 )                =             (u2 + u1 , v2 + v1 ) = (u2 , v2 ) +
+           (u1 , v1 )
+      (iii)
+
+                [(u1 , v1 ) + (u2 , v2 )] + (u3 , v3 ) = (u1 + u2 , v1 + v2 ) + (u3 , v3 )
+                                                       = ([u1 + u2 ] + u3 , [v1 + v2 ] + v3 )
+                                                       U, V Vektorraum
+                                                           =          (u1 + [u2 + u3 ], v1 + [v2 + v3 ])
+                                                       = (u1 , v1 ) + (u2 + u3 , v2 + v3 )
+                                                       = (u1 , v1 ) + [(u2 , v2 ) + (u3 , v3 )]
+
+      (iv) Der Nullvektor enthält die beiden Nullvektoren von U und V : 0 = (0U , 0V ), da
+
+                                 (u, v) + (0U , 0V ) = (u + 0U , v + 0V ) = (u, v)
+
+                                                      –2–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025                                                                  Prof. Dr. Thomas Nagler
+Blatt 6                                                                                           Jana Gauß
+
+     (v) (−u, −v) ist das additive Inverse zu (u, v), wobei −u das additive Inverse zu u und
+         −v das additive Inverse zu v ist, denn
+
+                         (u, v) + (−u, −v)) = (u + (−u), v + (−v)) = (0U , 0V ) = 0
+
+     (vi) λ(u, v) = (λu, λv) ∈ U × V , da λu ∈ U, λv ∈ V
+    (vii)
+
+            λ[(u1 , v1 ) + (u2 , v2 )] = λ(u1 + u2 , v1 + v2 ) = (λ[u1 + u2 ], λ[v1 + v2 ])
+                                    U, V Vektorraum
+                                        =          (λu1 + λu2 , λv1 + λv2 ) = (λu1 , λv1 ) + (λu2 , λv2 )
+                                    = λ(u1 , v1 ) + λ(u2 , v2 )
+
+   (viii)
+                                                                   U, V Vektorraum
+               [λ1 + λ2 ](u, v) = ([λ1 + λ2 ]u, [λ1 + λ2 ]v      =        (λ1 u + λ2 u, λ1 v + λ2 v)
+                                = (λ1 u, λ1 v) + (λ2 u, λ2 v) = λ1 (u, v) + λ2 (u, v)
+
+                                             U, V Vektorraum
+     (ix) λ1 [λ2 (u, v)] = λ1 (λ2 u, λ2 v)          =           ([λ1 λ2 ]u, [λ1 λ2 ]v) = [λ1 λ2 ](u, v)
+                                 U, V Vektorraum
+     (x) 1(u, v) = (1u, 1v)             =          (u, v)
+
+  2. Zu zeigen: span(B) = U × V (i) und B linear unabhängig (ii):
+
+      (i) span(B) ⊆ U × V klar, da U × V ein Vektorraum und B ⊂ U × V .
+          U × V ⊆ span(B): Sei (u, v) ∈ U × V . Da {u1 , ..., un } und {v1 , ..., vm } Basen,
+          existieren λi , i = 1, . . . , n und λ̃j , j = 1, . . . , m, sodass u = ni=1 λi ui und v =
+                                                                                 P
+          Pm
+            j=1 λ̃j vj . Somit
+
+                                                        n
+                                                        X                     m
+                                                                              X
+                       (u, v) = (u, 0) + (0, v) =             λi (ui , 0) +         λ̃j (0, vj ) ∈ span(B).
+                                                        i=1                   j=1
+
+
+     (ii) Beweis durch Widerspruch: Annahme: Die Gleichung
+
+                         x1 (u1 , 0) + . . . xn (un , 0) + x̃1 (0, v1 ) + . . . x̃m (0, vm ) = (0, 0)
+
+            hat eine nicht-triviale Lösung, also muss für diese Lösung auch gelten
+
+                x1 u1 + . . . + xn un + x̃1 0 + . . . + x̃m 0 = 0,        also         x1 u1 + . . . + xn un = 0
+
+            und analog
+                                               x̃1 v1 + . . . + x̃m vm = 0.
+            Die letzten beiden Gleichungen haben aber nur die triviale Lösung, da {u1 , ..., un }
+            und {v1 , ..., vm } als Basen jeweils linear unabhängig sind → Widerspruch.
+            Die gegebene Basis hat dim(U ) + dim(V ) Elemente, also muss die Dimension von
+            U × V gleich dim(U ) + dim(V ) sein.
+
+
+
+
+                                                      –3–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025                                                                           Prof. Dr. Thomas Nagler
+Blatt 6                                                                                                    Jana Gauß
+
+Hausaufgaben
+
+Aufgabe 3 (Rang, Kern einer Matrix)
+Betrachte die Funktion f : R3 → R2 die gegeben ist durch die folgende Matrix
+                                                                         !
+                                                         1 2 3
+                                                A=                           .
+                                                         4 5 6
+
+ (a) Bestimme den Rang von f .
+
+ (b) Bestimme das Bild der Funktion f und gebe eine Basis des Bildes sowie die Dimension
+     an.
+
+ (c) Bestimme den Kern von f und gebe eine Basis des Kerns sowie die Dimension an.
+
+
+
+Lösungsskizze zu Aufgabe 3
+
+ (a) Behauptung: rang(A) = 2.
+     Nach Definition 3.4.4. gilt
+
+                                                dim(col(A)) = rang(A).
+
+     Nach Skriptseite 69 können wir aus der Zeilenstufenform die Dimension von col(A) be-
+     stimmen. In der reduzierten Zeilenstufenform bilden die Pivotspalten eine unabhängige
+     Menge
+                                                     !                                         !
+                                        1 2 3            (2)−4(1)            1 2   3
+                                                             ∼
+                                        4 5 6                                0 −3 −6
+                                        !            !
+                                    1            2
+     Dann sind die Vektoren                 ,            sind linear unabhängig und es gilt
+                                    4            5
+                                                             (           !               !)
+                                                                     1               2
+                              ⇒ col(A) = span                                ,                = R2
+                                                                     4               5
+                              ⇒ rang(A) = dim(col(A)) = 2.
+
+
+
+
+ (b) Nach Skriptseite 68 entspricht der Spaltenraum von A der Bildmenge der zugehörigen
+     linearen Abbildung. Nach Teilaufgabe (a) gilt also
+                                                         (           !               !)
+                                                                 1               2
+                                   Im(f ) = span                         ,                = R2
+                                                                 4               5
+
+     und
+                                                             !               !
+                                                         1               2
+                                                                 ,
+                                                         4               5
+
+     bilden eine Basis der Bildmenge.
+
+                                                         –4–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025                                             Prof. Dr. Thomas Nagler
+Blatt 6                                                                      Jana Gauß
+
+ (c) Nach Theorem 3.4.12 gilt mit Teilaufgabe (a)
+
+                                  rang(A) + dim(ker(A)) = 3
+                                     ⇒ 2 + dim(ker(A)) = 3
+                                        ⇒ dim(ker(A)) = 1.
+
+    Damit muss nur ein Vektor 0 ̸= v ∈ R3 gefunden werden sodass Av = 0. Damit ist dieser
+    Vektor v eine Basis des Kernes von f . Es gilt
+                                                           
+                                                     1
+                                                 A  −2  = 0
+                                                       
+
+                                                     1
+                                                   
+                                               
+                                                  1  
+                                                      
+                                ⇒ ker(A) = span  −2  .
+                                                    
+                                                     
+                                                     
+                                                        1
+
+
+
+
+                                           –5–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025                                                  Prof. Dr. Thomas Nagler
+Blatt 6                                                                           Jana Gauß
+
+
+
+Aufgabe 4 (Funktionenraum ist Vektorraum)
+Zeige, dass der Raum aller Funktionen von R nach R mit der in Beispiel 3.1.5 definierten
+Addition und Skalarmultiplikation ein Vektorraum ist. Beweise hierfür die Eigenschaften aus
+Definition 3.1.1.
+
+
+Lösungsskizze zu Aufgabe 4
+Sei im folgenden F der Funktionenraum
+
+                                        F := {f : R → R}.
+
+Dieser Raum ist nicht leer, da z.b. N : R → R, x 7→ 0 ein Element aus F ist. Ein Vektorraum
+benötigt eine Addition und eine Multiplikation, die wie folgt definiert sind:
+
+   1. Sei f, g ∈ F dann setzen wir (f + g) : R → R, x 7→ f (x) + g(x).
+
+   2. Sei f ∈ F und c ∈ R, dann definieren wir cf : R → R, x 7→ cf (x).
+
+Nun müssen wir alle Eigenschaften der der Definition 3.1.1 durchgehen: Seien dazu f, g, h ∈ F
+und d, c ∈ R.
+
+  (i) (f + g) definiert wieder eine Funktion zwischen R und R und somit ist f + g ∈ F.
+
+ (ii) Für alle x ∈ R gilt (R ist kommutativ):
+
+                         (f + g)(x) = f (x) + g(x) = g(x) + f (x) = (g + f )(x).
+
+      Daher gilt f + g = g + f .
+
+ (iii) Für alle x ∈ R gilt (R ist assoziativ):
+
+                      ((f + g) + h)(x) = (f + g)(x) + h(x) = f (x) + g(x) + h(x)
+                       = f (x) + (g + h)(x) = (f + (g + h))(x).
+
+ (iv) Die Funktion N von oben entspricht dem Nullvektor. Da für alle x ∈ R gilt
+
+                             (f + N )(x) = f (x) + N (x) = f (x) + 0 = f (x).
+
+  (v) Sei f ∈ F. Dann ist −f ∈ F (ist wieder eine Funktion zwischen R und R) und es gilt für
+      alle x ∈ R:
+
+                     (f + (−f ))(x) = f (x) + (−f (x)) = f (x) − f (x) = 0 = N (x).
+
+ (vi) cf definiert wieder eine Funktion zwischen R und R und somit ist cf ∈ F.
+
+(vii) Für alle x ∈ R gilt
+
+                             (c(f + g))(x) = cf (x) + cg(x) = (cf + cg)(x)
+
+(viii) Für alle x ∈ R gilt
+
+          ((c + d)f )(x) = (c + d)f (x) = cf (x) + df (x) = (cf )(x) + (df )(x) = (cf + df )(x).
+
+                                                 –6–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025                                                Prof. Dr. Thomas Nagler
+Blatt 6                                                                         Jana Gauß
+
+(ix) Für alle x ∈ R gilt
+
+                           (c(df ))(x) = cdf (x) = (cd)f (x) = ((cd)f )(x).
+
+ (x) Für alle x ∈ R gilt
+
+                                     (1f )(x) = 1f (x) = f (x).
+
+Damit folgt mit Definition 3.1.1, dass F mit der oben definierten Addition und Skalarmulitpli-
+kation ein Vektorraum ist.
+
+
+
+
+                                              –7–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025                                                              Prof. Dr. Thomas Nagler
+Blatt 6                                                                                       Jana Gauß
+
+
+
+
+Aufgabe 5 (Beispiele für Untervektorräume)
+Welcher der angegeben Räume ist ein Untervektorraum zu dem jeweilig angegebenen Vektor-
+raum.
+
+ (a) M1 = {(x1 , x2 ) | x21 + x22 ≤ 1} ⊆ R2 ,
+
+ (b) M2 = {A ∈ Rn×n | A ist in Zeilenstufenform} ⊆ Rn×n .
+
+
+Lösungsskizze zu Aufgabe 5
+                                                        !
+                                                    1
+ (a) M1 ist kein Untervektorraum, da x =                    ∈ M1 aber für c = 2
+                                                    0
+                                                    !              !
+                                                1              2
+                                      cx = 2            =              ̸∈ M1 .
+                                                0              0
+
+     Also ist nach Definition 3.2.1 ist M1 kein Untervektorraum.
+
+ (b) M2 ist kein Untervektorraum, denn die Summe zweier Matrizen in Zeilenstufenform ist
+     nicht notwendigerweise wieder in Zeilenstufenform:
+                                            !                !              !
+                                       1 0   −1 0   0 0
+                                           +      =
+                                       0 1   0 0    0 1
+
+     Also ist nach Definition 3.2.1 ist M2 kein Untervektorraum.
+
+
+
+
+                                                –8–
+

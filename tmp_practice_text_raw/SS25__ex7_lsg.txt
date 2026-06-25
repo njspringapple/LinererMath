@@ -1,0 +1,428 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025
+Blatt 7
+Prof. Dr. Thomas Nagler
+Jana Gauß
+Recap - Eigenwerte, Eigenvektoren, Diagonalisierbarkeit
+1. Gegeben eine Matrix A ∈ Rn×n
+suchen wir Vektoren v ̸= 0, auf denen A möglichst
+einfach wirkt, d.h. Av = λv (v wird um den Faktor λ gestreckt). Solche v nennen wir
+Eigenvektoren mit Eigenwert λ.
+2. Wenn A n linear unabhängige Eigenvektoren hat, d.h. eine Basis aus Eigenvektoren, so
+ist A ähnlich zu einer Diagonalmatrix: A = PDP−1
+, wobei D eine Diagonalmatrix mit
+den Eigenwerten und P eine Matrix mit den zugehörigen Eigenvektoren als Spalten ist.
+Die Abbildung f(x) = Ax kann dann in der Eigenvektorbasis als Multiplikation mit D
+interpretiert werden.
+3. Av = λv und (λIn − A)v = 0 sind äquivalent. Damit so ein v ̸= 0 existiert, muss also
+ker(λIn −A) ̸= {0} gelten. Das ist nach Theorem 2.4.10 äquivalent zu det(λIn −A) = 0.
+4. In anderen Worten, Eigenwerte sind genau die Nullstellen des charakteristischen Polynoms
+pA(λ) = det(λIn − A).
+5. A ist genau dann invertierbar, wenn 0 kein Eigenwert von A ist (denn λ = 0 Eigenwert
+von A ⇐⇒ ker(A) ̸= {0})
+Fingerübungen
+1. Sei x ∈ ker(A). Ist x ein Eigenvektor von A?
+2. Sei x ein Eigenvektor von A mit Eigenwert λ. Ist dann cx (c ∈ R,c ̸= 0) ein Eigenvektor
+von A? Wenn ja, zu welchem Eigenwert?
+3. Seien x,y Eigenvektoren von A. Ist dann x + y ein Eigenvektor von A?
+4. Folgere aus 2. und 3., dass der Eigenraum Eλ = {x : Ax = λx} zu einem Eigenwert λ
+ein Untervektorraum von Rn
+ist.
+Übungsaufgaben
+Aufgabe 1 (Matrixoperationen und Eigenwerte)
+(a) Sei A = PDP−1
+∈ Rn×n
+eine diagonalisierbare Matrix. Zeige per Induktion, dass
+An
+= PDn
+P−1
+.
+(b) Sei A ∈ Rn×n
+eine Matrix mit A3
+= A. Dann sind die einzig möglichen Eigenwerte -1,0
+und 1.
+(c) Sei A ∈ Rn×n
+eine Matrix. Zeige, dass A und AT
+die selben Eigenwerte besitzen. Erinne-
+rung: det(BT
+) = det(B).
+(d) Sei A ∈ Rn×n
+eine invertierbare Matrix. Zeige, dass
+(i) v Eigenvektor von A ⇔ v ist Eigenvektor von A−1
+.
+(ii) λ Eigenwert von A ⇔ λ−1
+ist Eigenwert von A−1
+.
+–1–Methoden der linearen Algebra in der Statistik
+Sommersemester 2025
+Blatt 7
+Prof. Dr. Thomas Nagler
+Jana Gauß
+Lösungsskizze zu Aufgabe 1
+(a) Sei A = PDP−1
+.
+Induktionsanfang (n = 1): nichts zu zeigen, denn A ist per Annahme diagonalisierbar.
+Induktionsannahme: Für ein n ∈ N gilt An
+= PDn
+P−1
+.
+Induktionsschritt: Für An+1
+gilt unter Nutzung der Induktionsannahme
+An+1
+= AAn
+= PDP−1
+PDn
+P−1
+= PDDn
+P−1
+= PDn+1
+P−1
+.
+(b) Sei v ein Eigenvektor von A mit Eigenwert λ und A = A3
+. Es gilt
+λv = Av = A3
+v = A2
+Av = λAAv = λ2
+Av = λ3
+v.
+Da v ̸= 0, muss λ = λ3
+gelten. Das gilt nur für λ ∈ {1,0,−1}.
+Anmerkung 1: Eine Matrix A mit A = A3
+ist immer invertierbar, da A2
+= In =⇒ A =
+A−1
+(A ist selbstinvers), somit kann 0 kein Eigenwert sein.
+Anmerkung 2: Man kann zeigen, dass eine selbstinverse Matrix immer diagonalisierbar
+ist, indem man zeigt, dass die Summe der Dimensionen der Eigenräume zu λ = −1 und
+λ = 1 gleich n ist.
+(c) Sei λ ein Eigenwert von A, d.h. es gilt det(λI − A) = 0. Für AT
+gilt unter Nutzung von
+IT
+= I,(A + B)T
+= AT
++ BT
+und det(AT
+) = det(A)
+det(λI − AT
+) = det(λIT
+− AT
+) = det([λI − A]T
+) = det(λI − A) = 0.
+Somit ist λ auch ein Eigenwert von AT
+. Aus der Gleichheit der charakteristischen Polyno-
+me von A und AT
+folgt auch, dass jeder Eigenwert von AT
+ein Eigenwert von A sein muss.
+Also haben A und AT
+die gleichen Eigenwerte (aber im Allgemeinen nicht die gleichen
+Eigenvektoren!).
+(d) Sei A ∈ Rn×n
+invertierbar.
+“⇒” in (i) und (ii): Sei v ein Eigenvektor von A mit Eigenwert λ. Da A invertierbar, gilt
+λ ̸= 0. Also gilt v = 1/λAv und
+A−1
+v = A−1
+1/λAv = 1/λA−1
+Av = 1/λv.
+Somit ist v ein Eigenwert von A−1
+zum Eigenvektor 1/λ.
+“⇐” in (i) und (ii): Sei v ein Eigenvektor von A−1
+zum Eigenwert 1/λ, also v = λA−1
+v
+(1/λ ̸= 0, da A−1
+invertierbar). Es gilt
+Av = AλA−1
+v = λv,
+also ist v ein Eigenvektor von A mit Eigenwert λ.
+Aufgabe 2
+Seien x,y ∈ Rn
+. Dann definiert xyT
+eine n × n-Matrix. Zeige: x ist ein Eigenvektor von xyT
+mit Eigenwert yT
+x ∈ R.
+Lösungsskizze zu Aufgabe 2
+Es gilt
+(xyT
+)x = x(yT
+x)
+yT x∈R
+= (yT
+x)x.
+Somit ist x ein Eigenvektor mit Eigenwert yT
+x.
+–2–Methoden der linearen Algebra in der Statistik
+Sommersemester 2025
+Blatt 7
+Prof. Dr. Thomas Nagler
+Jana Gauß
+Hausaufgaben
+Aufgabe 3 (Diagonlisierbarkeit und Invertierbarkeit)
+Beweise oder widerlege die folgenden Aussagen:
+(a) Jede diagonalisierbare Matrix A ist auch invertierbar.
+(b) Jede invertierbare Matrix A ist auch diagonalisierbar.
+Lösungsskizze zu Aufgabe 3
+(a) Die Behauptung ist falsch, da z.B. die Nullmatrix diagonalisierbar ist:
+0n×n = P 0n×n P−1
+,
+wobei P eine beliebige Basis von Rn
+enthält (siehe Bsp. 4.1.5). Die Nullmatrix ist aber
+nicht invertierbar.
+(b) Die Behauptung ist falsch. Betrachte
+C =
+0 −1
+1 0
+!
+.
+Dann gilt:
+• B ist invertierbar, da die Spalten linear unabhängig sind/die Determinante ungleich
+0 ist.
+• B ist nicht diagonalisierbar. Wir verwenden Theorem 4.2.1 mit λ ∈ R
+det(B − λI) = det
+−λ −1
+1 −λ
+!
+= (−λ)2
+− 1 · (−1) = λ2
++ 1 > 0
+Daher hat die charakteristische Gleichung keine Lösung in R und somit hat C keine
+Eigenwerte/Eigenvektoren in R. Mit Theorem 4.4.2 folgt also, dass C nicht diago-
+nalisierbar ist.
+–3–Methoden der linearen Algebra in der Statistik
+Sommersemester 2025
+Blatt 7
+Prof. Dr. Thomas Nagler
+Jana Gauß
+Aufgabe 4 (Beispiel Eigenwerte, Eigenvektoren und Diagonalisierung)
+Betrachte die Matrix
+A =
+
+
+
+3 0 0
+1 2 2
+1 0 4
+
+
+ .
+(a) Gebe alle Eigenwerte und eine Eigenvektorbasis an.
+(b) Bestimme eine Matrix P und eine Diagonalmatrix D sodass
+A = PDP−1
+.
+Lösungsskizze zu Aufgabe 4
+(a) Wir verwenden die charakteristische Gleichung um die Eigenwerte von A zu bestimmen.
+Sei λ ∈ R. Um die Determinante von (A − λI) zu berechnen, verwenden wir die Kofak-
+torenentwicklung entlang der ersten Zeile. Da a12 = a13 = 0, erhalten wir
+0
+!
+= det(A − λI) = det
+
+
+
+3 − λ 0 0
+1 2 − λ 2
+1 0 4 − λ
+
+
+ = (3 − λ)(2 − λ)(4 − λ).
+Also sind die Eigenwerte von A: λ1 = 2,λ2 = 3 und λ3 = 4.
+Zur Bestimmung der Eigenvektorbasis bestimmen wir zuerst eine Basis für E2,E3 und
+E4.
+• Nach Skriptseite 78 müssen wir eine Basis für den Lösungsraum der folgenden Lö-
+sungsgleichung finden
+(A − 2I)v = 0 ⇔
+
+
+
+1 0 0
+1 0 2
+1 0 2
+
+
+
+
+
+
+v1
+v2
+v3
+
+
+ =
+
+
+
+0
+0
+0
+
+
+
+Wir lösen das LSG über das Gauß-Jordan Verfahren und erhalten span
+
+ 
+ 
+
+
+
+0
+1
+0
+
+
+
+
+ 
+ 
+⇒ E2 = span
+
+ 
+ 
+
+
+
+0
+1
+0
+
+
+
+
+ 
+ 
+.
+• Analog zu E2 berechnen wir nun den Kern der Abbildung A−3I um eine Basis zur
+E3 zu bestimmen. Also betrachten wir
+(A − 3I)v = 0 ⇔
+
+
+
+0 0 0
+1 −1 2
+1 0 1
+
+
+
+
+
+
+v1
+v2
+v3
+
+
+ =
+
+
+
+0
+0
+0
+
+
+
+Und wir erhalten
+E3 = span
+
+ 
+ 
+
+
+
+−1
+1
+1
+
+
+
+
+ 
+ 
+–4–Methoden der linearen Algebra in der Statistik
+Sommersemester 2025
+Blatt 7
+Prof. Dr. Thomas Nagler
+Jana Gauß
+• Analog zu E3 und E2 berechnen wir nun den Kern der Abbildung A − 4I. Also
+betrachten wir
+(A − 4I)v = 0
+Und wir erhalten
+E4 = span
+
+ 
+ 
+
+
+
+0
+1
+1
+
+
+
+
+ 
+ 
+Damit ist die Eigenvektorenbasis gegeben durch
+
+
+
+0
+1
+0
+
+
+ ,
+
+
+
+−1
+1
+1
+
+
+ and
+
+
+
+0
+1
+1
+
+
+ .
+(b) Aus Teilaufgabe (a) erhalten wir
+D =
+
+
+
+2 0 0
+0 3 0
+0 0 4
+
+
+ ,
+P =
+
+
+
+0 −1 0
+1 1 1
+0 1 1
+
+
+ und
+P−1
+=
+
+
+
+0 1 −1
+−1 0 0
+1 0 1
+
+
+
+und es gilt
+A = PDP−1
+.
+–5–

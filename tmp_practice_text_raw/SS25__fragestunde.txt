@@ -1,0 +1,247 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025
+Fragestunde
+Prof. Dr. Thomas Nagler
+Jana Gauß
+Allgemeine Infos zur Klausur
+• 31.7., 16:15-18:15 Uhr, spätestens 15 Minuten vorher da sein! Nachklausur: 22.09.
+• Raumaufteilung nach Matrikelnummern, siehe Moodle
+• Bitte setzt euch in jede 2. Reihe und lasst immer 2 Plätze zwischeneinander frei. Wenn
+der Platz nicht reicht, dürft ihr euch in den vordereren Reihen enger setzen.
+• Hilfsmittel: Taschenrechner (nicht programmierbar), Spickzettel (siehe Moodle, ein nicht
+konformer Spickzettel zählt als Täuschungsversuch), Wörterbuch
+• Ausweis (mit Bild) oder Studierendenausweis auf den Tisch legen.
+• 120 Punkte, 120 Minuten Bearbeitungszeit → Anzahl Punkte pro (Teil)Aufgabe als grobe
+Orientierung
+• Ihr dürft auch auf englisch antworten.
+Allgemeine Hinweise/Tipps
+• Nehmt euch genug Zeit, den Spickzettel zu schreiben (rechtzeitig anfangen!) und schreibt
+ihn selber!
+• Lest die Angabe genau: z.B. “genau dann wenn” vs “wenn”, “orthonormal” vs “ortho-
+gonal”, worauf bezieht sich “orthogonal” (v⊥w, v⊥W (W UVR), orthogonale Menge,
+Orthogonalmatrix), Dimension von Matrizen (A ∈ Rn×n
+vs A ∈ Rn×m
+)
+• Entscheiden, ob Aussagen wahr oder falsch sind, mit Begründung: nur wahr/falsch ohne
+Begründung gibt keine Punkte.
+– Falsch: finde ein möglichst leichtes Gegenbeispiel, am besten mit konkreten Zahlen
+– Wahr: Es ist ein kurzer, aber vollständiger Beweis gefordert
+• Ihr dürft alle Theoreme, Korollare etc aus Vorlesung und Skript sowie alle Aussagen, die
+wir auf Übungsblättern gezeigt haben, ohne Beweis nutzen
+• Wenn Lösungen “geraten” werden (z.B. Eigenwerte/-vektoren, orthogonale Vektoren, die
+Matrix in A2 b) anstelle einer Herleitung mit einem konkreten Verfahren (z.B. Nullstellen
+von det(A−λIn) bestimmen, orthogonale Vektoren per Gram-Schmidt-Verfahren), dann
+muss nachgerechnet werden, dass die Lösung korrekt ist
+• Allgemein ist immer ein Lösungsweg gefordert, außer es steht explizit “ohne Beweis/ohne
+Begründung” in der Aufgabenstellung
+• Wenn es nicht explizit anders spezifiziert ist, befinden wir uns immer in R (nicht in
+C), suchen nur reelle Eigenwerte, nutzen das Standardskalarprodukt ⟨x,y⟩ = xT
+y und
+Orthogonalität (⟨x,y⟩ = 0) und die Norm (∥x∥ =
+q
+⟨x,x⟩) beziehen sich auf dieses
+Skalarprodukt
+• Verifiziere deine Lösungen: Beispiele:
+– Prüfe bei Eigenwerten/-vektoren, ob Av = λv gilt.
+–1–Methoden der linearen Algebra in der Statistik
+Sommersemester 2025
+Fragestunde
+Prof. Dr. Thomas Nagler
+Jana Gauß
+– Prüfe bei Vektoren, die per Konstruktion/Definition orthogonal sein müssen (z.B. Gram-
+Schmidt-Verfahren oder Eigenvektoren symmetrischer Matrizen), ob das Skalarpro-
+dukt = 0 ist.
+– Prüfe mit der in 2 b) bestimmten Matrix deine Antworten aus a) und ob du für
+alle Vektoren aus der Ausgangsmenge jeweils den Vektor in der Bildmenge erhältst.
+Achtung! In 2 a) soll noch nicht mit der Lösung aus b) argumentiert werden
+• Ausführlichkeit von Beweisen:
+– Der Beweis muss vollständig sein
+– Jede nicht-triviale Umformung/Behauptung sollte belegt/begründet werden
+– Der Beweis sollte verständlich sein, ohne dass der Leser groß nachdenken muss
+– Orientierung an Lösungen der Altklausuren und Übungen bzgl Ausführlichkeit
+– Punktzahl gibt ebenfalls Orientierung: Beweise in A4 oder A5 mit vielen Punkten
+sollten ausführlicher sein als Beweise zu den wahr/falsch-Aussagen
+• Tipps zum Beweisen:
+1. Formalisiere die zu beweisende Aussage, “genau dann wenn” vs “wenn”, ∀, ∃
+2. Vereinfache gegebenenfalls: =⇒ und ⇐= statt ⇐⇒ , Gleichheit von Mengen über
+⊆ und ⊇
+3. Überlege, ob sich eine Implikation (A =⇒ B) eventuell über Kontraposition
+(¬B =⇒ ¬A) einfacher zeigen lässt.
+4. Eine Implikation lässt sich häufig durch Widerspruch zeigen: zeige A =⇒ B
+bzw. ¬B =⇒ ¬A, indem du A ∧ ¬B annimmst, und das zu einem Widerspruch
+führst. Wiederhole beim Lernen ggf nochmal das Negieren von Aussagen und Quan-
+toren.
+5. Schreibe die jeweiligen Definitionen/zu zeigenden Eigenschaften auf, zum Beispiel
+– Was muss ein UVR erfüllen? (Tipp: um zu zeigen, dass W ein UVR ist, prüfe
+immer zuerst 0 ∈ W)
+– Was muss eine Basis erfüllen?
+– Wann ist eine Matrix invertierbar?
+– Wann ist eine Matriz eine Orthogonalmatrix?
+Bei den letzten beiden Punkten gibt es jeweils mehrere äquivalente Definitionen.
+D.h. um zu zeigen, dass A invertierbar/orthogonal ist, reicht es, eine der Definitionen
+zu zeigen. Wenn man annimmt, dass A invertierbar/orthogonal ist, darf man jede
+der Definitionen verwenden. Welche Definition man beweist bzw. nutzt, ist immer
+vom Kontext der Aufgabe abhängig.
+• Tipps zu A2: Sei A ∈ Rn×m
+.
+– Zeiche als erstes die x1- und x2-Achse ein, falls nicht vorhanden.
+– Bestimme col(A): Wenn die Vektoren der Ausgangsmenge eine Basis von Rm
+bilden,
+dann ist col(A) der Spann von den Bildern der Basisvektoren (da col(A) = im(f)
+mit f = Ax und im(f) = span{f(u1,...,f(um)} mit u1,...,um Basis von Rm
+).
+Vereinfache den Spann, sodass die verbleibenden Vektoren linear unabhängig sind.
+– Lies rang(A) = dim(col(A)) aus col(A) oder aus der Bildmenge ab.
+–2–Methoden der linearen Algebra in der Statistik
+Sommersemester 2025
+Fragestunde
+Prof. Dr. Thomas Nagler
+Jana Gauß
+– det(A): 0, wenn Matrix nicht vollen Rang hat, sonst durch Ablesen der Veränderung
+einer Fläche. Spiegelung → det(A) ist negativ.
+– ker(A): Die Dimension von ker(A) lässt sich aus der Dimensionsformel (rang(A) +
+dim(ker(A)) = m) bestimmen. Wenn A invertierbar, dann ist ker(A) = {0}. Wenn
+ein Vektor x der Ausgangsmenge auf 0 abgebildet wird, dann liegt x sowie alle
+Vielfachen in ker(A) (d.h. span{x} ⊆ ker(A)). Wenn kein Vektor auf 0 abgebildet
+wird, dann kann man sich aus anderen Vektoren (unter Nutzung der Linearität
+der Abbildung) einen Vektor, der im Kern liegt, “basteln”: f(x1) + f(x2) = 0 =
+f(x1 + x2) =⇒ x1 + x2 ∈ ker(A), siehe Lösung der Probeklausur.
+– Allgemein gilt (auch bei anderen Aufgaben beachten): col(A) ⊆ Rn
+, ker(A) ⊆ Rm
+.
+– Bestimme die Matrix A: Einheitsvektoren vereinfachen die Sache: Aei = ai (i-te
+Spalte von A), nutze die Linearität der Abbildung (z.B. f((1 0)T
+) = 2f((0.5 0)T
+),
+wenn nur letzteres gegeben ist), allgemein kann man die Werte bzw. die übrigen
+Spalten durch Aufstellen und Lösen eines LGS bestimmen. Wenn beispielsweise die
+Vektoren (1 0)T
+und (1 1)T
+in der Ausgangsmenge gegeben sind, liest man zu-
+nächst a1 ab und berechnet dann die zweite Spalte aus (1 1)T
+und seinem Bild.
+– Verifiziere dann die Antworten aus a), in a) selbst soll aber nicht mit der Antwort
+aus b) argumentiert werden!
+Fragen auf Moodle
+• Th. 5.7.4: Lineare Unabhängigkeit von S ist keine Voraussetzung, Fehler im Skript
+• det(A − λIn) = 0 vs det(λIn − A) = 0: kein Unterschied, da −(A − λIn) = λIn − A
+und det(kB) = kn
+det(B) (B ∈ Rn×n
+,k ∈ R, somit sind die Nullstellen von det(B) und
+det(−B) = (−1)n
+det(B) die gleichen. Die Gleichungen (A−λIn)v = 0 und (λIn−A)v = 0
+sind äquivalent, da wir die eine durch Multiplikation mit −1 aus der anderen erhalten.
+• Es gilt col(A) = im(f) mit f(x) = Ax (Blatt 6), man kann auch im(A) schreiben
+• Diagonalmatrix, Orthogonalmatrix, orthogonal diagonalisierbare Matrix:
+– Diagonalmatrix: Alle Werte abseits der Diagonalen sind 0
+– Orthogonalmatrix: Spalten und Zeilen sind orthonormal, U−1
+= UT
+– Orthogonal diagonalisierbare Matrix: symmetrische Matrix, A = PDPT
+, wobei D
+Diagonalmatrix, P Orthogonalmatrix
+Es besteht kein direkter Zusammenhang zwischen den drei Arten von Matrizen. Folgende
+Eigenschaften gelten:
+– Eine Orthogonalmatrix, die auch eine Diagonalmatrix ist, kann nur die Werte ±1
+auf der Diagonalen haben.
+– Jede Diagonalmatrix ist symmetrisch und damit orthogonal diagonalisierbar.
+– Die Eigenvektoren einer orthogonal diagonalisierbaren Matrix bilden eine Orthogo-
+nalbasis von Rn
+, d.h. nach Normalisierung ergeben sie eine Orthogonalmatrix.
+– Eine Orthogonalmatrix kann man “erzeugen”, indem man eine Basis von Rn
+or-
+thonormalisiert (mit Gram-Schmidt). In den meisten Fällen wird diese Matrix aber
+nicht diagonal oder symmetrisch sein.
+–3–Methoden der linearen Algebra in der Statistik
+Sommersemester 2025
+Fragestunde
+Prof. Dr. Thomas Nagler
+Jana Gauß
+• Projektionsmatrix P = U(UT
+U)−1
+UT
+: Wir haben angenommen, dass die Spalten von U
+eine Orthogonalbasis des UVRs W sind. Dann ist Pv = projW (v). (Das waren die Inhalte
+der Vorlesung, alles Weitere ist nicht klausurrelevant.)
+Tatsächlich reicht es, wenn die Spalten von U eine Basis von W bilden, d.h. linear unab-
+hängig sind.1
+. Die Zerlegung aus Th. 5.7.1 erhält man dann allerdings nicht. Außerdem
+ist UT
+U dann nicht notwendigerweise eine Diagonalmatrix, was das Invertieren erschwert.
+Allgemein würde ich empfehlen, die Projektion über die Formel in Th. 5.7.1 zu berechnen.
+Exkurs: In der Statistik nennt man diese Matrix auch Prädiktionsmatrix: Im linearen
+Modell Y = Xβ+ε bildet die Matrix P = X(XT
+X)−1
+XT
+den Vektor Y ab auf Ŷ , denn
+β̂ = (XT
+X)−1
+XT
+Y , also Ŷ = Xβ̂ = X(XT
+X)−1
+XT
+Y . Ŷ ist der Wert im Spaltenraum
+von X, der den Abstand zu Y minimiert, also die Projektion von Y auf col(X). Wir
+fordern hier nur, dass die Spalten von X linear unabhängig, aber nicht notwendigerweise
+orthogonal sind.
+In unserer Schreibweise (argminx∥Ax = b∥): Ŷ ist b̂, was man bei der Lösung über die
+Projektion auf col(A) explizit konstruiert. Bei der Lösung über die Normalengleichung ist
+b̂ = Ax̂ und da x̂ = (AT
+A)−1
+AT
+b, erhält man genau b̂ = A(AT
+A)−1
+AT
+b, wobei man nur
+lineare Unabhängigkeit der Spalten von A, aber keine Orthogonalität benötigt.
+Lösung Fingerübungen
+1. Wenn A positiv definit ist, ist 0 kein Eigenwert von A. Also ist A invertierbar.
+2. Wenn A positiv semidefinit, aber nicht positiv definit ist, muss 0 ein Eigenwert von A
+sein. Also ist A nicht invertierbar.
+3. Wenn A indefinit ist, lässt sich ohne weitere Informationen nichts über die Invertierbarkeit
+von A aussagen. Sei A1 =
+
+
+
+1 0 0
+0 0 0
+0 0 −1
+
+
+ und A2 =
+1 0
+0 −1
+!
+. Beide Matrizen sind indefinit,
+da sie sowohl negative als auch positive Eigenwerte haben. Aber A1 ist nicht invertierbar,
+A2 ist invertierbar.
+1
+Sei W ⊆ Rn
+UVR, U ∈ Rn×k
+eine Matrix, deren Spalten u1,...,uk eine Basis von W bilden und v ∈ Rn
+.
+Gesucht ist v̂ ∈ W, sodass v − v̂⊥W.
+Da die Spalten von U eine Basis von W sind, muss v̂ = Ux mit einem x ∈ Rk
+gelten. Die Bedingung v−v̂⊥W
+ist äquivalent zu UT
+(v − v̂) = 0 (denn der Vektor UT
+(v − v̂) enthält die Skalarprodukte von v − v̂ mit den
+Spalten von U). Also
+UT
+(v − v̂) = UT
+v − UT
+Ux
+!
+= 0 ⇐⇒ UT
+v
+!
+= UT
+Ux ⇐⇒ x = (UT
+U)−1
+UT
+v, also v̂ = U(UT
+U)−1
+UT
+v,
+wobei UT
+U invertierbar ist, weil die Spalten von U linear unabhängig sind.
+–4–

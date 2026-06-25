@@ -1,0 +1,116 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2023
+Blatt 3
+Prof. Dr. Thomas Nagler
+Philipp Schiele
+Übungsaufgaben
+Aufgabe 1 (Drehungen)
+Betrachte die Drehungen im R2
+um die Winkel α und β die gegeben sind durch die
+Matrizen
+A =
+cos(α) −sin(α)
+sin(α) cos(α)
+!
+und B =
+cos(β) −sin(β)
+sin(β) cos(β)
+!
+.
+(a) Zeige, dass A · B = B · A. Tipp: Verwende die Additionstheoreme.
+(b) Erkläre was das Produkt beschreibt.
+(c) Gilt im allgemeinen für zwei Matrizen A,B ∈ Rn×n
+A · B = B · A?
+Aufgabe 2 (Eigenschaften der linearen Abbildung)
+Seien f : Rn
+→ Rm
+und g: f(Rn
+) → Rk
+lineare Abbildungen mit n,m,k ∈ N. Dann gilt:
+(a) f(0) = 0.
+(b) g ◦ f ist wieder eine lineare Abbildung.
+Hinweis: f(Rn
+) = {y ∈ Rm
+| ∃x ∈ Rn
+mit f(x) = y} ist das Bild der Funktion f.
+Aufgabe 3 (Lineare Unabhängigkeit und lineare Abbildung)
+Sei f : Rn
+→ Rm
+eine lineare Abbildung mit m,n ∈ N.
+(a) Zeige, dass f eindeutig durch die Einheitsvektoren bestimmt ist. Das heißt, nehme
+an es existieren zwei linear Abbildungen f1 : Rn
+→ Rm
+und f2 : Rn
+→ Rm
+wobei für
+alle i ∈ {1,...,n}, f1(ei) = f2(ei) gilt. Zeige dann, dass die beiden Abbildungen
+identisch sein müssen.
+(b) Seien w1,...,wn ∈ Rm
+linear unabhängig und seien v1,...,vn ∈ Rn
+mit
+f(vi) = wi.
+Zeige, dass dann auch v1,...vn linear unabhängig sind.
+Gilt auch die Umkehrung? Also falls v1,...,vn linear unabhängig sind, so sind auch
+f(v1) = w1,...,f(vn) = wn linear unabhängig.
+Übung: Mo 16–18 Uhr –1–Methoden der linearen Algebra in der Statistik
+Sommersemester 2023
+Blatt 3
+Prof. Dr. Thomas Nagler
+Philipp Schiele
+Hausaufgaben
+Aufgabe 4 (Lineare Abbildung)
+Untersuche welche der folgenden Abbildungen eine lineare Abbildung ist.
+(a) f : R2
+→ R2
+,
+x
+y
+!
+7→
+3x + 2y
+4x + y
+!
+.
+(b) h: R → R,x 7→ x3
+.
+Aufgabe 5 (Matrixoperationen)
+Sei f : R3
+→ R3
+eine lineare Funktion, die durch Matrix A gegeben ist, sei g : R4
+→ R3
+eine lineare Funktion, die gegeben ist durch Matrix B und h : R3
+→ R3
+eine weiter lineare
+Funktion, die gegeben ist durch Matrix C.
+A =
+
+
+
+1 2 1
+1 0 1
+0 1 −1
+
+
+ B =
+
+
+
+1 0 1 0
+1 1 0 1
+0 0 −1 1
+
+
+ und C =
+
+
+
+2 3 4
+3 4 5
+4 5 6
+
+
+.
+(a) Geben Sie die Funktion f + h an, indem die Funktion als Matrix dargestellt wird.
+(b) Geben Sie die Funktionen f+f und 2f an, indem die Funktion als Matrix dargestellt
+wird.
+(c) Existiert die Funktion f ◦g oder/und g ◦f? Falls ja, gebe die zugehörige Matrix an.

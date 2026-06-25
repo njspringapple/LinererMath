@@ -1,0 +1,465 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025
+Blatt 1
+Prof. Dr. Thomas Nagler
+Jana Gauß
+Recap - Vektoren, Matrizen und der Spann
+1. Wir können jedes Lineare Gleichungssystem (LGS) schreiben als Ax = b wobei A eine
+Matrix und b ein Vektor ist.
+2. Das Matrix-Vektor Produkt Ax ist linear in x (Theorem 1.7.5).
+3. Die Anzahl von Lösungen eines LGS ist entweder 0,1 oder unendlich (Theorem 1.3.1)
+4. Über den Spann können wir den Lösungsraum eines LGS beschreiben (Theorem 1.7.6)
+Fingerübungen
+1. Wenn x eine Lösung für Ax = 0 ist und λ ∈ R, ist dann y = λx auch eine Lösung (d.h.
+Ay = 0)? Gilt dasselbe auch für Ax = b (d.h. Ay = b)? (Theorem 1.7.5)
+2. Wenn es nur endlich viele x1,...,xn gibt, die das LGS Ax = 0 lösen, was ist dann n?
+(Theorem 1.3.1 oder Fingerübung 1.)
+Lösungsskizze zu Aufgabe 0
+1. Für Ax = 0 gilt mit λ ∈ R laut Theorem 1.7.5.: A(λx) = λ(Ax) = λ0, somit ist auchλx
+eine Lösung des LGS.
+Für Ax = b gilt A(λx) = λb ̸= b im Allgemeinen, also ist λx i.A. keine Lösung.
+2. Wenn es ein x ̸= 0 mit Ax = 0 gibt (wir nennen das eine nicht-triviale Lösung, die triviale
+Lösung ist x = 0), dann ist λx laut 1. ebenfalls eine Lösung, somit gibt es unendlich viele
+Lösungen, was ein Widerspruch zur Aufgabenstellung ist. Also muss x = 0 gelten, somit n = 1.
+Alternative: Aus Theorem 1.3.1 wissen wir, dass jedes LGS 0,1 oder ∞ viele Lösungen hat,
+somit kann es hier nur genau eine Lösung geben (denn x = 0 ist immer eine Lösung von
+Ax = 0).
+Übungsaufgaben
+Aufgabe 1 (Einheitsvektoren)
+Zeige, dass jeder Vektor x ∈ Rn
+mit n ∈ N darstellbar ist als Summe der Einheitsvektoren
+e1,...,en ∈ Rn
+mit Koeffizienten λ1,...,λn ∈ R. Die Einheitsvektoren ei, i ∈ {1,...,n} sind
+definiert als
+e1 =
+
+
+
+
+
+
+
+
+
+1
+0
+0
+. . .
+0
+
+
+
+
+
+
+
+
+
+,e2 =
+
+
+
+
+
+
+
+
+
+0
+1
+0
+. . .
+0
+
+
+
+
+
+
+
+
+
+, ... en =
+
+
+
+
+
+
+
+
+
+0
+0
+0
+. . .
+1
+
+
+
+
+
+
+
+
+
+.
+Somit ist zu zeigen, dass für jedes x ∈ Rn
+, λ1,...,λn ∈ R existieren, sodass
+x =
+n X
+i=1
+λiei.
+Lösungsskizze zu Aufgabe 1
+–1–Methoden der linearen Algebra in der Statistik
+Sommersemester 2025
+Blatt 1
+Prof. Dr. Thomas Nagler
+Jana Gauß
+Beweisidee: es gilt
+n X
+i=1
+λiei = λ1
+
+
+
+
+
+
+
+
+
+1
+0
+0
+. . .
+0
+
+
+
+
+
+
+
+
+
++ λ2
+
+
+
+
+
+
+
+
+
+0
+1
+0
+. . .
+0
+
+
+
+
+
+
+
+
+
++ ... + λn
+
+
+
+
+
+
+
+
+
+0
+0
+0
+. . .
+1
+
+
+
+
+
+
+
+
+
+=
+
+
+
+
+
+
+
+
+
+λ1
+λ2
+λ3
+. . .
+λn
+
+
+
+
+
+
+
+
+
+,
+also kann man immer λj = xj,j = 1,...,n wählen.
+Formaler Beweis: Für a,b ∈ Rn
+gilt a = b genau dann wenn aj = bj für alle j = 1,...,n, man
+muss λ1,...,λn also so wählen, dass (
+Pn
+i=1 λiei)j = xj für alle j = 1,...,n gilt. Per Definition
+gilt
+n X
+i=1
+λiei
+!
+j
+=
+n X
+i=1
+λi(ei)j = λj.
+Das heißt für λj = xj gilt (
+Pn
+i=1 λiei)j = xj. Somit gilt x =
+Pn
+i=1 xiei.
+Wir haben hier übrigens gezeigt, dass span{e1,...,en} = Rn
+für alle n ∈ N gilt.
+Aufgabe 2 (Spann)
+Sei M = {m1,...,mk}, N = {n1,...,nl} ⊆ Rn
+mit n,k,l ∈ N. Beweise oder widerlege die
+folgenden Behauptungen.
+(a) M ⊆ N ⇒ span(M) ⊆ span(N).
+(b) span(M) ⊆ span(N) ⇒ M ⊆ N.
+(c) span(M ∪ N) = span(M) ∪ span(N).
+Lösungsskizze zu Aufgabe 2
+Zu (a):
+Die Aussage ist korrekt: Sei x ∈ span(M). Per Definition gilt dann, dass a1,...,ak ∈ R existieren
+mit
+x = a1m1 + ..akmk,
+d.h. x ist eine Linearkombination von Vektoren aus M. Ein Vektor y ist genau dann in span(N),
+wenn sich y als Linearkombination von Vektoren aus N schreiben lässt. Da M ⊆ N gilt
+1,...,k ∈ N und somit x ∈ span(N).
+Zu (b):
+Die Aussage ist falsch: Es reicht ein Gegenbeispiel: Idee: 0 ist in jedem Spann enthalten - auch
+wenn die zugrundeliegende Menge an Vektoren, die den Spann erzeugt, nicht die 0 enthält.
+In anderen Worten, M = {0},N = {1} ⊂ R1
+ist ein Gegenbeispiel, denn M ist nicht in N
+enthalten aber span(M) = {0} ⊂ span(N) = R.
+Alternative: für alle a ̸= b mit a,b,∈ R,a ̸= 0,b ̸= 0 gilt span{a} = span{b} = R, aber weder
+{a} ⊆ {b} noch {b} ⊆ {a}.
+Zu (c):
+Die Aussage ist falsch: Es reicht wieder ein Gegenbeispiel: Sei
+M = {e1},N = {e2} ⊂ R2
+.
+Dann ist span(M ∪N) = R2
+, aber span(M) = {(x,0) : x ∈ R} und span(N) = {(0,x) : x ∈ R}
+und somit span(M) ∪ span(N) = {(x1,x2) : x1 = 0 ∨ x2 = 0} ̸= R2
+.
+–2–Methoden der linearen Algebra in der Statistik
+Sommersemester 2025
+Blatt 1
+Prof. Dr. Thomas Nagler
+Jana Gauß
+Hausaufgaben
+Aufgabe 3 (Quantoren)
+Entscheide, ob die folgenden Aussagen wahr oder falsch sind
+(a) ∀x ∈ N ∃y ∈ N sodass x = y.
+(b) ∃y ∈ N ∀x ∈ N sodass x = y.
+(c) ∄y ∈ N ∀x ∈ N sodass x = y.
+Lösungsskizze zu Aufgabe 3
+(a) Ausformuliert besagt die Aussage: “Für alle x in den natürlichen Zahlen existiert ein y in
+den natürlichen Zahlen sodass x = y wahr ist.”
+Diese Aussage ist wahr (setze y gleich y).
+(b) Ausformuliert besagt die Aussage: “Es existiert ein y in den natürlichen Zahlen, sodass
+für alle x in den natürlichen Zahlen x = y gilt.
+Diese Aussage ist falsch.
+(c) Ausformuliert besagt die Aussage: “Es existiert kein y in den natürlichen Zahlen, sodass
+für alle x in den natürlichen Zahlen x = y gilt.
+Diese Aussage ist wahr.
+Aufgabe 4 (Beweistechniken)
+Zeige, dass die folgenden Aussagen wahr sind. Verwende hierfür das jeweils angegebene “Be-
+weisverfahren".
+1. Seien a,b,c ∈ N mit a Teiler von b und b Teiler von c. Dann ist auch a Teiler von c.
+(direkter Beweise)
+2. Sei a,b ∈ N. Ist a + b ungerade, so muss entweder a oder b gerade sein. (Beweis durch
+Kontraposition)
+3. Sei n ∈ N mit n3
+gerade. Dann ist auch n gerade. (Widerspruchsbeweis)
+4. Sei n ∈ N ungerade. Dann gibt es zwei Zahlen a,b ∈ N sodass
+a + b = n und a2
+− b2
+= n
+gilt. (konstruktiver Existenzbeweis)
+Hinweis: Wenn wir schreiben dass a ein Teiler von b ist, so meinen wir hier Teilen ohne Rest.
+Lösungsskizze zu Aufgabe 4
+1. Schritt 1: zu zeigen: a,b,c ∈ N mit a teilt b und b teilt c ⇒ a teilt c.
+Schritt 2: Eine Zahl d teilt eine Zahl e (ohne Rest) genau dann, wenn ein n ∈ N existiert
+sodass e = nd gilt.
+–3–Methoden der linearen Algebra in der Statistik
+Sommersemester 2025
+Blatt 1
+Prof. Dr. Thomas Nagler
+Jana Gauß
+Schritt 3: (direkter Beweis)
+Da a teilt b und b teilt c, existieren m,n ∈ N sodass
+b = ma und c = nb
+gilt. Nun setzen wir b = ma in c = nb ein und erhalten a = n(ma). Da n,m ∈ N ⇒
+n · m ∈ N. Daraus folgt:
+∃k ∈ N (genauer: k = mn) sodass c = ka.
+⇒ a teilt c
+2. Schritt 1: zu zeigen: a,b ∈ N mit a + b ungerade ⇒ entweder a oder b ungerade.
+Schritt 2: Eine Zahl k ∈ N ist genau dann ungerade, wenn eine Zahl m ∈ N existiert
+sodass k = 2m + 1. Eine Zahl k ∈ N ist genau dann gerade, wenn eine Zahl m ∈ N
+existiert sodass k = 2m.
+Schritt 3: (Beweis durch Kontraposition)
+Wir zeigen: ¬ (entweder a oder b ungerade) ⇒ ¬ (a + b ungerade).
+Verneinung von “entweder a oder b ungerade”: “Entweder (a und b gerade) oder (a und
+b ungerade)”.
+Fall 1: (a und b ungerade)
+⇒ ∃m,n ∈ N sodass a = 2m und b = 2n.
+⇒ a + b = 2m + 2n = 2(m + n) und da m,n ∈ N ist auch m + n ∈ N. Daher ist a + b
+wieder gerade.
+Fall 2: (a und b ungerade)
+⇒ ∃m,n ∈ N sodass a = 2m + 1 und b = 2n + 1.
+⇒ a + b = (2m + 1) + (2n + 1) = 2(m + n + 1) und da m,n ∈ N ist auch m + n + 1 ∈ N.
+Daher ist a + b wieder gerade.
+Damit haben wir nun gezeigt, dass “Entweder (a und b gerade) oder (a und b ungerade)”
+⇒ “a + b gerade” wahr ist. Und somit folgt die Behauptung über Kontraposition.
+3. Schritt 1: zu zeigen: n ∈ N mit n3
+gerade ⇒ n gerade.
+Schritt 2: Eine Zahl k ∈ N ist genau dann ungerade, wenn eine Zahl m ∈ N existiert
+sodass k = 2m + 1. Eine Zahl k ∈ N ist genau dann gerade, wenn eine Zahl m ∈ N
+existiert sodass k = 2m.
+Schritt 3: (Beweis durch Widerspruch)
+Wir nehmen an, dass n3
+gerade ist und n ungerade. Da n ungerade ist existiert ein m ∈ N
+sodass n = 2m + 1. Betrachte
+n3
+= (2m + 1)3
+= 8m3
++ 4m2
++ 8m2
++ 4m + 1 = 2(4m3
++ 2m2
++ 4m2
++ 2m) + 1
+Da m ∈ N gilt auch 4m3
++ 2m2
++ 4m2
++ 2m ∈ N und somit ist n3
+ungerade was ein
+Widerspruch zur Annahme ist. Damit folgt die Behauptung.
+4. Schritt 1: zu zeigen: n ∈ N mit n ungerade ⇒ existieren a,b ∈ N sodass a + b =
+n und a2
+− b2
+= n.
+Schritt 2: Eine Zahl k ∈ N ist genau dann ungerade, wenn eine Zahl m ∈ N existiert
+sodass k = 2m + 1. Eine Zahl k ∈ N ist genau dann gerade, wenn eine Zahl m ∈ N
+existiert sodass k = 2m.
+–4–Methoden der linearen Algebra in der Statistik
+Sommersemester 2025
+Blatt 1
+Prof. Dr. Thomas Nagler
+Jana Gauß
+Schritt 3: (konstruktiver Existenzbeweis)
+Da n ungerade ⇒ ∃m ∈ N sodass n = 2m + 1. Betrachte nun
+n = 2m + 1 und n2
+= 4m2
++ 4m + 1
+Wir wählen
+b = m, a = m + 1.
+Dann gilt n = a + b und a2
+− b2
+= m2
++ 2m + 1 − m2
+= 2m + 1.
+Wie kommt man auf die Wahl von a,b? Anhand von Beispielen n = 5 = 3+2,32
+−22
+= 5,
+n = 7 = 4 + 3,42
+− 32
+= 7 etc. kann man auf die obige Wahl kommen. Oder man sieht
+n = a2
+− b2
+= (a + b)(a − b) = n(a − b). Dann muss a − b = 1, also a = b + 1 gelten. Das
+gilt unabhängig davon, ob n gerade oder ungerade ist, aber nur wenn n ungerade ist, sind
+a,b ∈ N, wie man durch die obige Wahl sieht.
+Aufgabe 5 (Gleichungssystem)
+Bestimme die Lösungsmenge des folgenden Gleichungssystems. Verwende dazu das Gauß-Jordan
+Verfahren.
+2x − 2z − 4y = 8
+−3y + 2x + z = 10
+11z − x + 5y = 3
+Überprüfe das Ergebnis in R: Eine Matrix erzeugt man mit dem Befehl matrix(), dabei muss
+man die Einträge sowie die Anzahl an Zeilen oder Spalten spezifizieren. Das LGS Ax = b kann
+man dann mit solve(A, b) lösen.
+Lösungsskizze zu Aufgabe 5
+Aufstellen der erweiterten Koeffizientenmatrix (Achtung: x,y,z sind oben durcheinander. Hier
+verwenden wir die Reihenfolge x,y,z.)
+
+
+
+2 −4 −2 8
+2 −3 1 10
+−1 5 11 3
+
+
+
+−1(2) und 2(3)
+∼
+
+
+
+2 −4 −2 8
+−2 3 −1 −10
+−2 10 22 6
+
+
+
+(2)+(1) und (3)+(1)
+∼
+
+
+
+2 −4 −2 8
+0 −1 −3 −2
+0 6 20 14
+
+
+
+(3)+6(2)
+∼
+
+
+
+2 −4 −2 8
+0 −1 −3 −2
+0 0 2 2
+
+
+
+Schritt 1: Finde z sodass 2z = 2 ⇔ z = 1
+Schritt 2: Finde y sodass −y + (−3) · 1 = −2 ⇔ y = −1
+Schritt 3: Finde x sodass 2x + (−4) · (−1) − 2 = 8 ⇔ x = 3.
+Das lineare Gleichungssystem hat genau eine Lösung:
+(3,−1,1) = (x,y,z).
+In R:
+A <- matrix(data = c(2, -4, -2, 2, -3, 1, -1, 5, 11), nrow = 3, byrow = TRUE)
+b <- c(8, 10, 3)
+solve(A, b)
+–5–

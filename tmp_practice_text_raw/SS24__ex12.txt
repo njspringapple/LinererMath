@@ -1,0 +1,62 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2024
+Blatt 12
+Prof. Dr. Thomas Nagler
+Nicolai Palm
+Recap - Orthogonale Diagonalisierung und Quadratische
+Formen
+1. Eines der wohl wichtigsten Resultate (Hint: das müsst ihr können!) der Linearen Algebra
+ist der Spektralsatz: Eine quadratische Matrix ist genau dann orthogonal diagonalisierbar
+wenn sie symmetrisch ist.
+2. Insbesondere: jede symmetrische Matrix ist orthogonal diagonalisierbar. Was heißt das?
+i. das charakteristische Polynom besitzt alle Nullstellen (d.h. Eigenwerte existieren)
+ii. es gibt eine Basis aus orthogonalen Eigenvektoren
+3. Damit reduziert sich die allgemeine Spektralzerlegung A = S−1
+DS zu A = ST
+DS (Be-
+merke: orthogonale Matrizen S erfüllen S−1
+= ST
+)
+4. Hier geht essenziell die Theorie über komplexe Eigenwerte (für die Existenz von Eigen-
+werten) und Skalarprodukte ein. Ein weiteres Beispiel warum diese beiden Konzepte so
+mächtig sind. Hinweis: symmetrische Matrizen über allgemeinen Körpern sind im Allge-
+meinen nicht diagonalisierbar!
+Fingerübungen
+1. Ist jede symmetrische aber nicht invertierbare Matrix diagonalisierbar?
+2. Sei A eine p × n-Matrix. Ist AT
+A diagonalisierbar?
+3. Sei A eine symmetrische Matrix mit nur einem Eigenwert λ. Was ist A?
+Übungsaufgaben
+Aufgabe 1 (Linearkombinationen orthogonal diagonalisierbarer Matrizen)
+Seien A,B orthogonal diagonalisierbare n×n-Matrizen und λ ∈ R. Zeige: λA+B ist orthogonal
+diagonalisierbar. In anderen Worten, die Menge der orthogonal diagonalisierbaren Matrizen ist
+ein Untervektorraum von Rn×n
+.
+Aufgabe 2 (Definitheit und orthogonale Diagonalisierbarkeit)
+Beweise oder widerlege die folgenden Aussagen.
+(a) Seien A,B ∈ Rn×n
+positiv definite (insbesondere symmetrische) Matrizen. Dann ist auch
+A + B positiv definit.
+(b) Sei A ∈ Rn×n
+eine positiv definite Matrix. Dann ist A invertierbar und A−1
+positiv definit.
+(c) Sei A ∈ Rn×n
+orthogonal diagonalisierbar. Dann ist A invertierbar und A−1
+orthogonal
+diagonalisierbar. Ist die Aussage wahr wenn wir annehmen, dass A invertierbar ist?
+(d) Sei f : Rn
+→ R zwei mal differenzierbar. Die Hesse Matrix ∇2
+f(x) ∈ Rn×n
+an einem
+Punkt x ∈ Rn
+ist orthogonal diagonalisierbar. Ist sie es wenn die zweite Ableitung stetig
+ist? Hinweis: Satz von Schwarz.
+–1–Methoden der linearen Algebra in der Statistik
+Sommersemester 2024
+Blatt 12
+Prof. Dr. Thomas Nagler
+Nicolai Palm
+Hausaufgaben
+Für die letzten beiden Blätter rechnet bitte die Probeklausur (zu finden im Moodle Kurs). In
+der letzten Übungsstunde (11.7. bzw. 15.7.24) wird die Probeklausur ausführlich besprochen.
+–2–

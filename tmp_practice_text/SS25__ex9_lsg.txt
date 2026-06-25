@@ -1,0 +1,484 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025                                                      Prof. Dr. Thomas Nagler
+Blatt 9                                                                               Jana Gauß
+
+Recap - Orthogonalität
+  1. Skalarprodukte (d.h. positiv definite Bilinearformen) definieren eine weitere Struktur auf
+     Vektorräumen. Diese Struktur erlaubt es, viele konstruktive (d.h. durch Algorithmen be-
+     rechenbare) Beweise zu führen.
+
+  2. Zum Beispiel induziert jedes Skalarprodukt eine Norm und damit eine Metrik, in der der
+     Satz des Pythagoras und die Cauchy-Schwarz Ungleichung gelten (Theoreme 5.3.6 und
+     5.3.7). Beides sind sehr wichtige Tools.
+
+  3. Bezüglich des Standardskalarprodukts stellen Orthogonalmatrizen dann genau die linea-
+     ren Abbildungen dar, die Norm erhaltend sind, d.h. ∥U x∥ = ∥x∥ g.d.w. U orthogonal ist
+     (Theorem 5.6.6). Das macht orthogonale Matrizen so besonders.
+
+  4. Eine wichtige Anwendung von orthogonalen Matrizen ist, dass über sie die (lineare) Pro-
+     jektion auf einen Untervektorraum explizit (als Matrix) konstruiert werden kann (Theo-
+     reme 5.7.1 und 5.7.3).
+
+  5. Diese Konstruktion basiert auf dem Gram-Schmidt Verfahren, einem Algorithmus um
+     orthogonale Basen von Untervektorräumen zu konstruieren (Theorem 5.7.4).
+
+
+Übungsaufgaben
+Aufgabe 1 (Orthogonale Matrizen und Skalarprodukte)
+Seien U eine n × n-Orthogonalmatrix. Zeige:
+
+  1. ⟨U x, U y⟩ = ⟨x, y⟩ für alle x, y ∈ Rn .
+
+  2. ∥U x∥ = ∥x∥ für alle x ∈ Rn .
+
+Bonus: Was folgt aus 2. bezüglich der (reellen) Eigenwerte einer Orthogonalmatrix?
+Bemerkung: Die Rückrichtungen gelten jeweils auch, d.h. eine Matrix, die eine der beiden
+Eigenschaften erfüllt, ist eine Orthogonalmatrix.
+
+
+Lösungsskizze zu Aufgabe 1
+
+  1. Es gilt
+                                                      U orthogonal
+               ⟨U x, U y⟩ = (U x)T U y = xT U T U y         =        xT In y = xT y = ⟨x, y⟩.
+
+  2. Es gilt
+                                                       1.
+                                ∥U x∥2 = ⟨U x, U x⟩ = ⟨x, x⟩ = ∥x∥2 ,
+     also auch ∥U x∥ = ∥x∥.
+
+Wir haben somit gezeigt: Orthogonalmatrizen erhalten Winkel (1.) und Längen (2.). Die Abbil-
+dung x 7→ U x mit U orthogonal stellt somit eine Drehung oder Spiegelung (oder Kombination
+von beidem) dar.
+Bonus: Eine Orthogonalmatrix kann nur die Eigenwerte −1, 1 haben: Sei v ein Eigenvektor
+von U zum Eigenwert λ. Dann gilt
+
+                         ∥v∥ = ∥U v∥ = ∥λv∥ = |λ|∥v∥ =⇒ λ = ±1.
+
+                                                –1–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025                                                              Prof. Dr. Thomas Nagler
+Blatt 9                                                                                       Jana Gauß
+
+Intuition: Die Abbildung x 7→ U x dreht oder spiegel Vektoren. Eigenvektoren von U ändern
+ihre Richtung nicht, sie werden somit entweder gar nicht verändert (λ = 1) oder gespiegelt
+(λ = −1).
+
+Aufgabe 2 (Eigenschaften orthogonaler Matrizen)
+
+   1. Sei U eine Orthogonalmatrix. Ist U dann invertierbar?
+   2. Sei U eine Orthogonalmatrix. Sind dann U T und U −1 Orthogonalmatrizen?
+   3. Sei U eine Orthogonalmatrix. Kann die Determinante det(U ) von U andere Werte als
+      1, −1 annehmen? Erinnerung: det(U ) = det(U T ).
+   4. Seien U, V Orthogonalmatrizen. Ist dann U V eine Orthogonalmatrix?
+
+
+
+Lösungsskizze zu Aufgabe 2
+
+   1. Ja, denn für eine Orthogonalmatrix gilt U T U = In , also ist U invertierbar mit U −1 = U T .
+   2. Ja, denn die Zeilen von U T sind die Spalten von U und die Spalten von U T sind die
+      Zeilen von U . Somit hat U T orthonormale Zeilen und Spalten, wenn U orthogonal ist. Da
+      U −1 = U T ist auch U −1 orthogonal.
+       Alternativ: für U T gilt U T (U T )T = U T U = In , also ist U T eine Orthogonalmatrix.
+   3. Die Determinante einer Orthogonalmatrix muss −1 oder 1 sein.
+       Intuition: Die Abbildung x 7→ U x erhält Längen und Winkel (Aufgabe 1). Eine Ortho-
+       gonalmatrix dreht oder spiegelt Vektoren somit nur, aber streckt oder staucht sie nicht
+       und verändert keine Winkel. Somit muss der Flächeninhalt/das Volumen von Objekten
+       bei Multiplikation mit U immer gleich bleiben, die Determinante muss somit 1 oder −1
+       (Spiegelung) sein.
+       Formaler Beweis: Es gilt
+
+                det(U )2 = det(U ) det(U T ) = det(U U T ) = det(In ) = 1 =⇒ det(U ) = ±1.
+
+   4. U V ist wieder orthogonal.
+       Intuition: Die Abbildungen x 7→ U x, x 7→ V x stellen nur Drehungen (und Spiegelungen)
+       dar. Die Abbildung x 7→ U V x ist somit die Verkettung zweier Drehungen, also wieder
+       eine Drehung, d.h. die Abbildung erhält Längen und Winkel. Orthogonalmatrizen sind
+       die einzigen Matrizen, die Längen und Winkel erhalten,1 somit muss U V eine Orthogo-
+       nalmatrix sein.
+       Formaler Beweis:
+       Lösungsweg 1: Für U V gilt ∥U V x∥ = ∥x∥ für alle x, denn
+                                                     U orthogonal           V orthogonal
+                             ∥U V x∥ = ∥U (V x)∥          =         ∥V x∥       =          ∥x∥,
+   1
+   Es gilt nicht nur U orthogonal =⇒ ∥U x∥ = ∥x∥ für alle x, sondern auch die Rückrichtung: Sei U eine
+Matrix, die ∥U x∥ = ∥x∥ für alle x erfüllt. Dann gilt für alle x ̸= 0
+                                                                                           x̸=0
+  xT U T U x = ∥U x∥2 = ∥x2 ∥ = xT x, also 0 = xT U T U x − xT x = xT (U T U − In )x =⇒ U T U − In = 0n×n ,
+
+also ist U eine Orthogonalmatrix. Da eine Matrix, die ⟨U x, U y⟩ = ⟨x, y⟩ für alle x, y erfüllt (d.h. eine Matrix,
+die Winkel erhält) automatisch auch Längen erhält, gilt auch die Rückrichtung in Aufgabe 1, Teilaufgabe 1.
+
+
+                                                      –2–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025                                                                Prof. Dr. Thomas Nagler
+Blatt 9                                                                                         Jana Gauß
+
+     also ist U V eine Orthogonalmatrix.
+     Lösungsweg 2: Es gilt
+                                                  U orthogonal                            V orthogonal
+                 (U V )T (U V ) = V T U T U V          =         V T In V = V T V              =         In ,
+
+     also ist U V eine Orthogonalmatrix.
+     Lösungsweg 3: Die i-te Spalte von U V lässt sich schreiben als U vi , wobei vi die i-te
+     Spalte von V ist. Für zwei Spalten i ̸= j von U V gilt also
+                                               U orthogonal                V orthogonal
+                              ⟨U vi , U vj ⟩       =          ⟨vi , vj ⟩       =          0.
+
+     Somit hat U V orthogonale Spalten. Die Spalten müssen auch orthonormal sein, denn
+                                            U orthogonal           V orthogonal
+                                  ∥U vi ∥         =        ∥vi ∥           =       1.
+
+     Aus Korollar 5.6.5 folgt, dass U V dann auch orthonormale Zeilen hat, somit ist U V eine
+     Orthogonalmatrix.
+
+Zusammen mit Aufgabe 1 haben wir jetzt alle Eigenschaften aus Th. 5.6.6 bewiesen.
+
+Aufgabe 3 (Orthogonaler Vektorraum)
+Sei W ⊂ V ein Untervektorraum. Zeige:
+
+  1. Das Orthogonale Komplement W ⊥ = {v ∈ V : v⊥W } = {v ∈ V : ⟨v, w⟩ = 0 ∀w ∈ W }
+     ist ein Untervektorraum von V .
+
+  2. Es gilt (W ⊥ )⊥ = W .
+     Hinweis: Zeige ⊆ und ⊇ und nutze für ersteres W + W ⊥ = V , d.h. man kann jedes v ∈ V
+     schreiben als v = w1 +w2 mit w1 ∈ W, w2 ∈ W ⊥ . Zeige unter Nutzung der Eigenschaften
+     des Skalarprodukts, dass für v ∈ (W ⊥ )⊥ immer w2 = 0 gelten muss.
+
+  3. Es gilt W ∩ W ⊥ = {0}.
+
+
+Lösungsskizze zu Aufgabe 3
+
+  1. Wir müssen zeigen: W ⊥ ⊂ V , W ⊥ ̸= ∅ und Abgeschlossenheit unter Addition und skalarer
+     Multiplikation. W ⊥ ⊂ V gilt per Definition von W ⊥ und W ⊥ ̸= ∅, da 0 ∈ W ⊥ (da
+     ⟨0, v⟩ = 0 für alle v).
+     Für beliebige w1 , w2 ∈ W ⊥ , w ∈ W und λ ∈ R gilt
+
+               ⟨w, w1 + w2 ⟩ = ⟨w, w1 ⟩ + ⟨w, w2 ⟩ = 0 + 0 = 0 =⇒ w1 + w2 ∈ W ⊥
+
+     und
+                         ⟨w, λw1 ⟩ = λ⟨w, w1 ⟩ = λ · 0 = 0 =⇒ λw1 ∈ W ⊥ .
+     Also ist W ⊥ ein UVR von V .
+
+  2. Es gilt W ⊆ (W ⊥ )⊥ , da
+
+                                w ∈ W =⇒ w⊥W ⊥ =⇒ w ∈ (W ⊥ )⊥
+
+
+                                                    –3–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025                                                           Prof. Dr. Thomas Nagler
+Blatt 9                                                                                    Jana Gauß
+
+       und (W ⊥ )⊥ ⊆ W : Wir können jedes v ∈ V schreiben als v = w1 + w2 mit w1 ∈ W, w2 ∈
+       W ⊥ . Sei nun v ∈ (W ⊥ )⊥ . Wir zeigen, dass w2 = 0 gelten muss und somit v = w1 ∈ W :
+       Da v ∈ (W ⊥ )⊥ gilt v⊥w2 und mit den Eigenschaften des Skalarprodukts
+                                                                          w1 ⊥w2
+           0 = ⟨v, w2 ⟩ = ⟨w1 + w2 , w2 ⟩ = ⟨w1 , w2 ⟩ + ⟨w2 , w2 ⟩          =     0 + ⟨w2 , w2 ⟩ = ∥w2 ∥2 .
+
+       Aus ⟨w2 , w2 ⟩ = 0 bzw. ∥w2 ∥ = 0 folgt w2 = 0.
+       Anmerkung: Die Tatsache, dass V = W + W ⊥ und V = W ⊥ + (W ⊥ )⊥ gilt, impliziert
+       noch keine Gleichheit von W und (W ⊥ )⊥ ! 2
+
+   3. Wir müssen zeigen: 0 ∈ W und 0 ∈ W ⊥ sowie w ∈ W ∩ W ⊥ =⇒ w = 0, d.h. 0 ist das
+      einzige Element in W ∩ W ⊥ .
+       Es gilt 0 ∈ W und 0 ∈ W ⊥ , da W, W ⊥ Untervektorräume. Sei nun w ∈ W ∩ W ⊥ . Da
+       w ∈ W ⊥ , gilt ⟨v, w⟩ = 0 für alle v ∈ W , also auch (da w ∈ W ) ⟨w, w⟩ = 0. Aus der
+       Positiv-Definitheit des Skalarprodukts folgt w = 0. Also gilt W ∩ W ⊥ = {0}.
+       Mit anderen Worten: Das einzige Element, dass orthogonal zu sich selber ist, ist 0.
+
+
+
+
+   2
+     Sei V ein Vektorraum und W, U1 , U2 Vektorräume. Wenn V = W + U1 und V = W + U2 , heißt das nicht,
+dass U1 = U2 gilt: sei z.B. V = Rn = W , dann können U1 , U2 beliebige UVR von V sein.
+   Selbst wenn U1 , U2 keine Teilmengen von W sind und die Darstellungen v = w1 +u1 und v = w2 +u2 eindeu-
+tig sind (v ∈ V, w1 , w2 ∈ W, u1 ∈ U1 , u2 ∈ U2 ), folgt keine Gleichheit, Gegenbeispiel: W = span{(1, 1)T }, U1 =
+span{(1, 0)T }, U2 = span{(0, 1)T }. Wir müssen in dieser Aufgabe also explizit die Eigenschaften von orthogo-
+nalen Komplementen benutzen.
+
+
+                                                      –4–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025                                                       Prof. Dr. Thomas Nagler
+Blatt 9                                                                                Jana Gauß
+
+Hausaufgaben
+
+Aufgabe 4 (Beispiel: Gram-Schmidt Verfahren)
+Bestimmen Sie mit Hilfe des Gram-Schmidt Verfahrens eine Orthonormalbasis des folgenden
+Untervektorraums des R5 :
+                                    1     1     1     2
+                                                          
+
+                                  0   0   1   1 
+                                                
+
+                                  0   1   1   0  .
+                            span 
+                                                
+                                                 
+                                  0   0   0   2 
+                                                
+                                    0     0     2     3
+
+
+Lösungsskizze zu Aufgabe 4
+Wir werden hier zuerst orthogonale Vektoren mit dem Gram-Schmidt Verfahren berechnen und
+im Anschluss diese dann normalisieren.
+Im folgenden sei:
+  • Die Basis aus der Aufgabenstellung:
+                                1          1          1          2
+                                                                        
+
+                               0        0        1        1 
+                                                            
+
+                               0  v2 =  1  v3 =  1  v4 =  0 
+                         v1 = 
+                                                            
+                                                             
+                               0        0        0        2 
+                                                            
+                                0          0          2          3
+
+  • w̃1 , w̃2 , w̃3 , w̃4 die durch das Gram Schmidt Verfahren orthogonalisierten Vektoren und
+  • w1 , w2 , w3 , w4 sind die normalisierten Vektoren.
+Wir definieren zuerst
+                                                1
+                                                    
+
+                                               0 
+                                                 
+
+                                               0 
+                                         w1 = 
+                                                 
+                                                  
+                                               0 
+                                                 
+                                                0
+als erste Vektor den Gram-Schmidt Verfahrens (Anmerkung: dieser ist bereits normalisiert).
+Die Projektion des zweiten Vektors auf den ersten ist gegeben durch
+                                                              1
+                                                                     
+
+                                                             0 
+                                                               
+
+                                                             0 
+                              projw1 (v2 ) = ⟨v2 , w1 ⟩w1 = 
+                                                               
+                                                                
+                                                             0 
+                                                               
+                                                              0
+Damit ist der zweite Vektor über das Gram-Schmidt Verfahren gegeben durch
+                                                          0
+                                                                 
+
+                                                         0 
+                                                           
+
+                                                         1 .
+                               w2 = v2 − projv1 (v2 ) = 
+                                                           
+                                                            
+                                                         0 
+                                                           
+                                                          0
+
+                                               –5–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025                                                       Prof. Dr. Thomas Nagler
+Blatt 9                                                                                Jana Gauß
+
+Dieser ist ebenfalls bereits normalisiert.
+Der dritte Vektor ist nun gegeben durch
+
+                               w̃3 = v3 − projv1 ,v2 (v3 )
+                                   = v3 − ⟨v3 , w2 ⟩w2 − ⟨v3 , w1 ⟩w1
+                                      0
+                                             
+
+                                     1 
+                                       
+
+                                     0 .
+                                   =
+                                       
+                                        
+                                     0 
+                                       
+                                      2
+
+Dieser ist noch nicht normiert und somit ist
+                                                              0
+                                                                 
+
+                                                             1 
+                                                               
+                                               1          1 
+                                 w3 = w̃3 ·                  0 .
+                                                     = 5− 2 
+                                                                
+                                                                
+                                            ||w̃3 ||
+                                                             0 
+                                                               
+                                                              2
+
+Schlussendlich berechnen wir noch den vierten Vektor: Es gilt
+
+                   projw1 ,w2 ,w3 (v4 ) = ⟨v4 , w3 ⟩w3 + ⟨v4 , w2 ⟩w2 + ⟨v4 , w1 ⟩w1
+                                              2
+                                                  
+                                       7 
+                                       5 
+                                       0 .
+                                     =
+                                         
+                                          
+                                       0 
+                                         
+                                              14
+                                              5
+
+und somit
+
+                                    w̃4 = v4 − projw1 ,w2 ,w3 (v4 )
+                                              0
+                                                      
+
+                                            − 52 
+                                                 
+
+                                            0 .
+                                          =
+                                                 
+                                                  
+                                            2 
+                                                 
+                                                   1
+                                                   5
+
+und normiert erhalten wir
+                                                              0
+                                                                     
+
+                                                             −2 
+                                                                
+                                             1            1 
+                               w4 = w̃4 ·                    0 .
+                                                   = 105− 2 
+                                                                 
+                                                                 
+                                          ||w̃4 ||
+                                                             10 
+                                                                
+                                                              1
+
+Die Vektoren w1 , w2 , w3 , w4 bildet nun eine Orthonormalbasis zu dem in der Aufgabe betrach-
+teten Untervektorraum.
+Hinweis: Meistens ist es sinnvoll die Vektoren erst nach der Anwendung des Gram-Schmidt
+Verfahrens zu normalisieren, da durch die Normierung oft Zahlen auftreten, mit denen man
+schwerer rechnen kann.
+
+
+
+                                                       –6–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025                                                Prof. Dr. Thomas Nagler
+Blatt 9                                                                         Jana Gauß
+
+Aufgabe 5 (Beispiel - Orthogonaler Vektor)
+Betrachte die folgenden Vektoren
+
+                               1           0
+                                                   
+                                                      x  
+                            B=  0  ,  cos(α)  ,  y 
+                                                     
+
+                                        0         sin(α)
+                                                          
+                                                          
+                                                               z
+                                       
+                                x
+Finde alle möglichen Vektoren  y  sodass B eine orthogonale Menge ist bzgl dem Stan-
+                                 
+
+                                z
+dardskalarprodukt auf R .
+                       3
+
+
+
+
+Lösungsskizze
+            zu Aufgabe 5
+      x
+Für  y  muss gelten, dass
+       
+
+      z
+
+                                       1
+                                                 
+                                               x
+                                    ⟨ 0  ,  y ⟩ = 0
+                                              
+
+                                       0       z
+                                          0
+                                                        
+                                                    x
+                                      cos(α)  ,  y ⟩ = 0
+                                    ⟨              
+
+                                       sin(α)       z
+
+Daher muss nun x, y, z die folgenden Gleichungen erfüllen:
+
+                                     x=0
+                                     cos(α)y + sin(α)z = 0
+
+                                                           1            0
+                                                                              
+
+Damit ist die Menge der folgenden Vektoren orthogonal zu  0  und  cos(α) :
+                                                                         
+
+                                                           0         sin(α)
+
+                                            0
+                                                     
+                                    
+                                                       
+                                                        
+                                                      
+                                       − sin(α)   
+                                                   |b∈R .
+                                                b
+                                          cos(α) 
+                                                       
+                                             b
+                                    
+                                                       
+                                                        
+
+
+Anmerkung: Genau genommen ist eine Fallunterscheidung nötig: für α = π/2 + kπ, k ∈ Z ist
+cos(α) = 0. In diesem Fall sind alle Vektoren in span{(0, 1, 0)T } orthogonal zu den gegebenen
+Vektoren.
+
+
+
+
+                                                  –7–
+

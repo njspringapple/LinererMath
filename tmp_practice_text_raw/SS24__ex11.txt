@@ -1,0 +1,182 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2024
+Blatt 11
+Prof. Dr. Thomas Nagler
+Nicolai Palm
+Recap - Skalarprodukte
+1. Das Standardskalarprodukt hx,yi = xT
+y =
+Pn
+i=1 xiyi auf Rn
+erlaubt sehr viele konstruk-
+tive Resultate abzuleiten.
+2. Zum Beispiel können wir über orthogonale Projektionen (induziert über das Standards-
+kalarprodukt) die Lösung des kleinsten Quadrate Problems untersuchen und berechnen
+(Theoreme 5.8.3, 5.8.4, 5.8.5). Das ist aus Anwendersicht sehr interessant und wird euch
+im Studium noch oft begegnen.
+3. Auch auf anderen Räumen als den Rn
+können wir Skalarprodukte definieren. Dafür
+axiomatisieren wir die Kerneigenschaften des Standardskalarprodukts: Eine Abbildung
+g : V × V → R heißt Skalarprodukt wenn g
+(a) positiv definit ist, d.h. g(x,x) ≥ 0 und g(x,x) = 0 g.d.w. x = 0.
+(b) bilinear ist, d.h. g(−,x) : V → R,y 7→ g(x,y) ist linear.
+(c) symmetrisch ist, d.h. g(x,y) = g(y,x)
+Diese Axiome sind, was Skalarpodukte so mächtig macht.
+Fingerübungen
+1. Wenn A invertierbar ist, was ist dann die Lösung des kleinsten Quadrate Problems
+argmin||Ax − b||?
+2. Ist die Lösung aus 1. eindeutig?
+3. Definiert g : R × R → R,(x,y) 7→ |x − y| ein Skalarprodukt auf R?
+Übungsaufgaben
+Aufgabe 1 (Projektionen sind lineare Operationen)
+Beweise Theorem 5.6.2 aus dem Skript:
+Ist U ∈ Rn×k
+eine Matrix, dessen Spalten eine Orthogonalbasis für einen Unterraum W ⊂ Rn
+bilden, dann gilt
+projW v = U(U>
+U)−1
+U>
+v.
+Hinweis: Theorem 5.7.1 (ii).
+Bonus: Zeige, dass in Theorem 5.6.2 Orthogonalbasis mit Basis ersetzt werden kann.
+Aufgabe 2 (Positiv definite Matrizen und Skalarprodukte)
+Sei A eine symmetrische n × n-Matrix. Wir nehmen an, dass A positiv definit ist, das heißt
+vT
+Av ≥ 0 für alle v ∈ Rn
+und vT
+Av = 0 genau dann wenn v = 0. Wir definieren eine Abbildung
+g : Rn
+× Rn
+→ R,(v,w) 7→ vT
+Aw
+.
+–1–Methoden der linearen Algebra in der Statistik
+Sommersemester 2024
+Blatt 11
+Prof. Dr. Thomas Nagler
+Nicolai Palm
+Zeige, dass g ein Skalarprodukt auf Rn
+definiert.
+Bonus 1. Folgere, dass das standard Skalarprodukt hx,yi = xT
+y =
+Pn
+i=1 xiyi und das gewichtete
+Skalarprodukt (Definition 5.9.1) beides Skalarprodukte definieren.
+Bonus 2. Zeige, dass die Rückrichtung gilt: Für jedes Skalarprodukt g auf Rn
+existiert genau eine
+positiv definite und symmetrische Matrix A, sodass g(v,w) = vT
+Aw gilt. In anderen Worten:
+jedes Skalarprodukt wird über eine positiv definite symmetrische Matrix dargestellt.
+–2–Methoden der linearen Algebra in der Statistik
+Sommersemester 2024
+Blatt 11
+Prof. Dr. Thomas Nagler
+Nicolai Palm
+Hausaufgaben
+Aufgabe 3 (Methode der kleinsten Quadrate)
+Betrachte das folgende Gleichungssystem
+x1 − x2 = 4
+3x1 + 2x2 = 1
+−2x1 + 4x2 = 3
+und schreibe es als lineares Gleichungsystem Ax = b um. Nach der Vorlesung gibt es nun zwei
+Möglichkeiten eine Lösung für
+argmin
+x
+||Ax − b||
+zu finden:
+• Lösung über die Normalengleichung und
+• Durch Projektion von b auf col(A).
+Verifiziere für dieses Beispiel, dass tatsächlich mit beiden Methoden das selbe Ergebnis berech-
+net wird.
+Aufgabe 4 (Kleinste-Quadrate-Problem)
+Beweise die folgenden Aussagen:
+(a) Seien die Spalten von A ∈ Rn×m
+linear unabhängig und sei x̂ eine Lösung des linearen
+Gleichungssystems Ax = b. Dann ist x̂ die Lösung des kleinsten Quadrate Problems.
+(b) Seien die Spalten von A ∈ Rn×m
+linear unabhängig und sei b orthogonal zu den Spalten
+von A. Dann ist der kleinste Quadrate Schätzer zu Ax = b direkt x = 0.
+Aufgabe 5 (Gewichtetes Skalarprodukt)
+(a) Sei wi > 0 für alle i ∈ {1,...,n}. Zeige, dass das gewichtete euklidische Skalarprodukt
+(Definition 5.9.1)
+hx,yiw =
+n X
+i=1
+wixiyi
+mit x,y ∈ Rn
+wirklich ein Skalarprodukt definiert.
+(b) Im folgenden betrachten wir das gewichtete euklidische Skalarprodukt
+hx,yi =
+n X
+i=1
+wixiyi
+für x,y ∈ Rn
+und wi > 0 für alle i ∈ {1,...,n}. Es gilt:
+*
+
+
+
+1
+1
+1
+
+
+ ,
+
+
+
+2
+3
+4
+
+
+
++
+w
+= 39
+*
+
+
+
+2
+3
+4
+
+
+ ,
+
+
+
+1
+0
+0
+
+
+
++
+w
+= 20
+*
+
+
+
+−1
+5
+1
+
+
+ ,
+
+
+
+1
+1
+1
+
+
+
++
+w
+= 16
+Geben Sie nun die Gewichte dieses Skalarproduktes an.
+–3–

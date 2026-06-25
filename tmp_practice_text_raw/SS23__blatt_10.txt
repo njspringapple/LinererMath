@@ -1,0 +1,163 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2023
+Blatt 10
+Prof. Dr. Thomas Nagler
+Philipp Schiele
+Übungsaufgaben
+Aufgabe 1 (Orthogonaler Unterraum)
+Sei V ein Vektorraum und sei W ⊆ V ein Untervektorraum. Zeige, dass dann:
+1. W⊥
+ein Unterraum von V und
+2. W ∩ W⊥
+= {0} ist.
+Aufgabe 2 (Gram-Schmidt Verfahren)
+Sei V ein Vektorraum und seien v1,v2,v3 ∈ V Vektoren. Auf die Vektoren {v1,v2,v3}
+wird das Gram-Schmidt Verfahren angewendet um die Vektoren {u1,u2,u3} zu erhalten.
+Beantworte die folgenden Aussagen.
+1. Nehme an, dass v1 und v2 linear unabhängig sind und v3 ∈ span{v1,v2}. Wie sieht
+der Vektor u3 aus?
+2. Wie sehen die Vektoren nach der Anwendung des Gram-Schmidt Verfahrens aus,
+wenn die Menge {v1,v2,v3} bereits orthogonal ist?
+Aufgabe 3 (Orthogonale Vektoren)
+Beweise oder widerlege die folgenden Aussagen.
+(a) Sei V ein Vektorraum und sei u1,...,un eine Orthonormalbasis von V und sei
+w ∈ V . Dann gilt
+w = hw,u1iu1 + ... + hw,uniun
+(b) Sei V ein Vektorraum V und sei u1,...,un eine Orthonormalbasis von V . Zeige,
+dass dann für jedes w ∈ V für welches alle i ∈ {1,...n}: hw,uii = 0 ist, dass dann
+w = 0 gilt.
+(c) Sei A ∈ Rm×m
+eine Orthogonalmatrix und u,w ∈ Rm
+. Dann gilt für das euklidische
+Skalarprodukt aus Definition 5.2.1
+hAu,Awi = hu,wi
+Übung: Mo 16–18 Uhr –1–Methoden der linearen Algebra in der Statistik
+Sommersemester 2023
+Blatt 10
+Prof. Dr. Thomas Nagler
+Philipp Schiele
+Hausaufgaben
+Aufgabe 4 (Orthogonale Matrizen)
+Beweise oder widerlege die folgenden Aussagen.
+(a) Sei A ∈ Rm×m
+. Dann ist A Orthogonalmatrix, falls A>
+A = I gilt.
+(b) Seien A,B ∈ Rm×m
+. Falls A,B Orthogonalmatrizen sind, so ist auch AB eine Or-
+thogonalmatrix.
+Aufgabe 5 (Projektionen sind lineare Operationen)
+Beweise Theorem 5.6.2 aus dem Skript:
+Ist U ∈ Rn×k
+eine Matrix, dessen Spalten eine Orthogonalbasis für einen Unterraum
+W ⊂ Rn
+ist, dann gilt
+projW v = U(U>
+U)−1
+U>
+v.
+Aufgabe 6 (Beispiel: Gram-Schmidt Verfahren)
+Bestimmen Sie mit Hilfe des Gram-Schmidt Verfahrens eine Orthonormalbasis des fol-
+genden Untervektorraums des R5
+:
+span
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1
+0
+0
+0
+0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1
+0
+1
+0
+0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1
+1
+1
+0
+2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2
+1
+0
+2
+3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.

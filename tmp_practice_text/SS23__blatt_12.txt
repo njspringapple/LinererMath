@@ -1,0 +1,35 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2023                                          Prof. Dr. Thomas Nagler
+Blatt 12                                                               Philipp Schiele
+
+    Hausaufgaben
+
+Aufgabe 1 (Definitheit)
+    Beweise oder widerlege die folgenden Aussagen.
+
+     (a) Sei A ∈ Rn×n eine invertierbare und positiv definite Matrix. Dann ist auch A−1
+         positiv definit.
+     (b) Seien A, B ∈ Rn×n symmetrisch und positiv definite Matrizen. Dann ist auch A + B
+         symmetrisch und positiv definit.
+     (c) Sei A ∈ Rn×n orthogonal diagonalisierbar. Dann ist auch A2 orthogonal diagonali-
+         sierbar.
+
+Aufgabe 2 (Orthogonale Diagonalisierung)
+    Berechne für die folgende Matrix die orthogonale Diagonalisierung:
+                                                    
+                                          4 2 2
+                                      A= 2 4 2 
+                                        
+                                                .
+                                          2 2 4
+
+Aufgabe 3 (Kern, Spaltenraum und Rang)
+    Sei A ∈ Rn×n . Beweise die folgenden Aussagen:
+
+              ker(A) = ker(A> A),   col(A) = col(A> A),   rang(A) = rang(A> A).
+
+
+
+
+Übung: Mo 16–18 Uhr                        –1–
+

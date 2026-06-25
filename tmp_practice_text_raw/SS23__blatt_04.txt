@@ -1,0 +1,100 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2023
+Blatt 4
+Prof. Dr. Thomas Nagler
+Philipp Schiele
+Übungsaufgaben
+Aufgabe 1 (Inverse Matrix)
+Bestimme, ob die inverse Matrix zu A existiert und falls ja, berechne diese.
+A =
+
+
+
+1 1 1
+4 2 1
+9 3 1
+
+
+
+Aufgabe 2 (Invertierbarkeit)
+Im folgenden sei A,B ∈ Rn×n
+.
+(a) Seien A,B und A + B invertierbare Matrizen, beweise, dass
+A(A−1
++ B−1
+)B(A + B)−1
+= I
+gilt.
+(b) Finde zwei invertierbare Matrizen A,B ∈ R2×2
+sodass A + B invertierbar ist und
+(A + B)−1
+6= A−1
++ B−1
+.
+(c) Sei AB invertierbar. Zeige, dass dann auch A invertierbar sein muss. Verwende hier-
+für nicht Theorem 2.2.3. Insbesondere kann auch nicht angenommen werden, dass A
+oder B invertierbar sind. Dies ist zu zeigen. Tipp: Nach Voraussetzung existiert ein
+Matrix W sodass ABW = I.
+Übung: Mo 16–18 Uhr –1–Methoden der linearen Algebra in der Statistik
+Sommersemester 2023
+Blatt 4
+Prof. Dr. Thomas Nagler
+Philipp Schiele
+Hausaufgaben
+Aufgabe 3 (Inverse einer 2x2 Matrix)
+Gegeben sei
+A =
+a b
+c d
+!
+.
+(a) Gebe an, wann die Matrix
+B =
+1
+ad − bc
+d −b
+−c a
+!
+existiert.
+(b) Zeige, dass B die inverse Matrix zu A ist.
+Aufgabe 4 (Produkt stochastischer Matrix)
+Eine Matrix A ∈ Rn×n
+ist eine stochastische Matrix, wenn
+(i) für alle i,j ∈ {1,...,n} gilt aij ≥ 0 und
+(ii) für alle j ∈ {1,... n},
+Pn
+i=1 aij = 1
+erfüllt sind.
+(a) Gebe an (mit Begründung) welche der folgenden Matrizen stochastisch ist.
+A =
+1.5 0.3
+0.8 0.2
+!
+, B =
+0.55 −0.45
+0.3 0.7
+!
+, C =
+0.4 0.3
+0.6 0.7
+!
+und D =
+0.4 0.6
+0.3 0.7
+!
+.
+(b) Sei A,B ∈ Rn×n
+zwei stochastische Matrizen und λ,µ ≥ 0 mit λ+µ = 1. Zeige, dass
+C = λA + µB wieder eine stochastische Matrix ist.
+(c) Sei A,B ∈ Rn×n
+zwei stochastische Matrizen. Zeige, dass C = A · B wieder eine
+stochastische Matrix ist.
+Tipp: Der Eintrag in der iten Zeile und jten Spalte der Matrix C = A · B sieht wie
+folgt aus
+cij =
+n X
+k=1
+aikbkj.
+Aufgabe 5 (Interpolation)
+Finde ein Polynom f vom Grad 3 für das
+f(2) = 27, f(1) = 5, f(0) = 1 und f(−1) = −3.

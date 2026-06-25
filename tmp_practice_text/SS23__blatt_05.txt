@@ -1,0 +1,86 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2023                                                 Prof. Dr. Thomas Nagler
+Blatt 5                                                                       Philipp Schiele
+
+    Übungsaufgaben
+
+Aufgabe 1 (Determinante Drehmatrix)
+    Betrachte die Drehungen im R2 um den Winkel α die gegeben ist durch die Matrix
+                                                            !
+                                          cos(α) − sin(α)
+                                   A=                           .
+                                          sin(α) cos(α)
+
+     (a) Zeige, dass det(A) = 1.
+     (b) Erkläre was es bedeutet, dass die Determinante unabhängig von dem Wert α ist.
+
+Aufgabe 2 (Matrixeigenschaften)
+    Widerlege oder beweise die folgenden Behauptung:
+    Sei A ∈ Rn×n eine Matrix. Dann gilt
+
+                             A> A invertierbar ⇔ A invertierbar.
+
+Aufgabe 3 (Vereinigung von zwei Untervektorräume)
+    Sei V ein Vektorraum und seien W1 , W2 ⊆ V zwei Untervektorräume. Wir betrachten
+    nun die Menge aller Summen
+
+                        W := W1 + W2 = {v1 + v2 | v1 ∈ W1 , v2 ∈ W2 }.
+
+     (a) Dann ist W ⊆ V ein Untervektorraum.
+     (b) W ist der kleinste Unterraum der W1 ∪ W2 enthält.
+         Tipp: Nehme an, dass es einen weiteren Untervektorraum Ŵ gibt mit W1 ∪ W2 ⊆ Ŵ
+         und zeige, dass dann W ⊆ Ŵ gelten muss.
+
+
+
+
+Übung: Mo 16–18 Uhr                        –1–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2023                                               Prof. Dr. Thomas Nagler
+Blatt 5                                                                     Philipp Schiele
+
+
+
+    Hausaufgaben
+
+Aufgabe 4 (Determinante der Inversen und der Einheitsmatrix)
+
+     (a) Sei I ∈ Rn×n die Einheitsmatrix. Dann gilt
+
+                                             det(I) = 1.
+
+     (b) Sei A ∈ Rn×n eine invertierbare Matrix. Dann gilt
+                                                          1
+                                         det(A−1 ) =          .
+                                                       det(A)
+
+Aufgabe 5 (Matrixeigenschaften)
+    Widerlege oder beweise die folgenden Behauptungen.
+
+     (a) Sei A ∈ Rn×n eine Matrix, die eine Nullzeile enthält. Dann folgt, dass det(A) = 0.
+     (b) Für alle Matrizen A, B ∈ Rn×n gilt det(A) + det(B) = det(A + B).
+
+Aufgabe 6 (Ganzzahlige Matrix und Determinante)
+    Sei A eine Matrix, die nur aus ganzzahligen Einträgen besteht.
+
+     (a) Nehme an, dass A in dieser Teilaufgabe eine 2 × 2 Matrix ist. Zeige für diesen Fall,
+         dass det(A) wieder eine ganze Zahl Z ist.
+     (b) Nutze Teilaufgabe (a) um zu zeigen, dass falls A eine ganzzahlige 3 × 3 Matrix ist,
+         die Determinante det(A) auch eine ganze Zahl ist.
+     (c) Nutze nun Induktion (siehe Vorlesung und/oder Analysis 1) um für allgemeine ganz-
+         zahlige n × n Matrizen A zu zeigen, dass die dazugehörige Determinante von A eine
+         ganze Zahl ist.
+
+Aufgabe 7 (Unterschied Vereinigung und Addition zweier Untervektorräume)
+    Sei V ein Vektorraum und seien W1 , W2 ⊆ V zwei Untervektorräume. Betrachte die
+    Vereinigung der beiden Untervektorräume W1 ∪ W2 und die Addition
+
+                        W := W1 + W2 = {v1 + v2 | v1 ∈ W1 , v2 ∈ W2 }.
+
+    Finde nun jeweils zwei Untervektorräume W1 , W2 ⊆ R2 sodass
+
+     (a) W1 ∪ W2 kein Vektorraum ist und sodass W1 + W2 6= W1 ∪ W2 ,
+     (b) W1 + W2 = W1 ∪ W2 .
+
+    gilt.
+

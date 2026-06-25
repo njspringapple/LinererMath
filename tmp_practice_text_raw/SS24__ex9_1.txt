@@ -1,0 +1,224 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2024
+Blatt 9
+Prof. Dr. Thomas Nagler
+Nicolai Palm
+Recap - Komplexe Eigenwerte
+1. Eigenwerte sind genau die Nullstellen des charakteristischen Polynoms pA(X) = det(λIn−
+A) (Theorem 4.2.1).
+2. Nicht jedes Polynom hat eine Nullstelle (in R). In anderen Worten, nicht jede Matrix
+besitzt einen Eigenwert.
+3. Exkurs: Der Körper der Komplexen Zahlen R ⊂ C entsteht aus R indem man alle Nullstel-
+len von Polynomen mit Koeffizienten in R formell dazu nimmt. Es ist ein tiefes Resultat
+aus der Algebra, als erstes von Gauss bewiesen, dass Komplexe Zahlen a) existieren und
+b) algebraisch abgeschlossen sind (d.h. jedes Polynom besitzt eine Nullstelle in C)
+4. Die algebraische Abgeschlossenheit von C ist was Komplexe Zahlen interessant macht: Im
+Kontext von Eigenwerten bedeutet das, dass jede Matrix mindestens einen (möglicher-
+weise komplexen) Eigenwert besitzt.
+Übungsaufgaben
+Aufgabe 1 (Charakteristisches Polynom unter Basiswechsel)
+Seien A und B n × n-Matrizen und B invertierbar. Wir schreiben pA(λ) = det(λIn − A) bzw.
+pB−1AB = det(λIn − B−1
+AB) für das charakteristische Polynom von A bzw. B−1
+AB. Zeige:
+1. λIn − B−1
+AB = B−1
+(λIn − A)B.
+2. pA(λ) = pB−1AB(λ). Hinweis: Nutze Teilaufgabe 1. und Theorem 2.4.11. auf Seite 55 im
+Skript.
+Aufgabe 2 (Rang und Anzahl der Eigenwerte)
+Sei A eine n×n-Matrix mit Spektralzerlegung A = S diag(λ1,...,λk,0,...,0)S−1
+. Zeige: rang(A) =
+k. In anderen Worten, das Bild von A hat Dimension k.
+–1–Methoden der linearen Algebra in der Statistik
+Sommersemester 2024
+Blatt 9
+Prof. Dr. Thomas Nagler
+Nicolai Palm
+Hausaufgaben
+Aufgabe 3 (Wiederholung komplexe Zahlen)
+Sei A ∈ Cn×m
+und B ∈ Cm×l
+. Dann gilt:
+(a) A = A
+(b) (At) = A
+t
+(c) AB = A B
+Lösungsskizze zu Aufgabe 3
+Sei A ∈ Cn×m
+und B ∈ Cm×l
+. Dann gilt:
+(a) Es gilt
+A = (aij)i=1,...,n;j=1,...,m = (aij)i=1,...,n;j=1,...,m = (aij)i=1,...,n;j=1,...,m = A
+(b)
+At = (aij)i=1,...,n;j=1,...,m
+t
+= (aji)j=1,...,m;i=1,...,n = (aji)j=1,...,m;i=1,...,n
+= (aij)t
+i=1,...,n;j=1,...,m = A
+t
+(c)
+AB = (
+m X
+k=1
+aikbkj)i=1,...,n;j=1,...,l = (
+m X
+k=1
+aikbkj)i=1,...,n;j=1,...,l
+= (
+m X
+k=1
+aikbkj)i=1,...,n;j=1,...,l = A B
+Aufgabe 4 (Cn
+als Vektorraum und das Standardskalarprodukt dazu)
+(a) Zeige, dass Cn
+ein Vektorraum ist.
+(b) Zeige, dass
+h·,·i : Cn
+→ C mit hw,vi :=
+n X
+i=1
+wivi
+wobei w = (w1,...,wn)>
+,v = (v1,...,vn)>
+∈ Cn
+ein Skalarprodukt auf Cn
+definiert.
+Bemerkung Da dieses Skalarprodukt nicht in die reellen sondern in die komplexen Zah-
+len abbildet, muss bei Definition 5.3.1 die Symmetrie durch die hermitesche Eigenschaft
+ersetzt werden, d.h. es gilt:
+hw,vi = hv,wi
+(c) Berechne für die Vektoren
+u = (1 + i,i,3 − i) und v = (1 + i,2,4i)
+hu,vi,hv,ui,||u|| und ||v||.
+–2–Methoden der linearen Algebra in der Statistik
+Sommersemester 2024
+Blatt 9
+Prof. Dr. Thomas Nagler
+Nicolai Palm
+Lösungsskizze zu Aufgabe 4
+(a) Wir zeigen (i) bis (x) aus Definition 3.1.1. Diese werden mittels der Eigenschaften von Rn
+bewiesen. Seien dazu u,v,w ∈ Cn
+, d.h. es existieren u1,u2,v1,v2,w1,w2 ∈ Rn
+sodass
+u = u1 + iu2
+v = v1 + iv2
+w = w1 + iw2.
+Seien zudem c,b ∈ R.
+(i) u + v = u1 + iu2 + v1 + iv2 = (u1 + v1) + i(u2 + v2) ∈ Cn
+(ii) u + v = u1 + iu2 + v1 + iv2 = v1 + iv2 + u1 + iu2 = v + u
+(iii) (u+v)+w = (u1 +iu2 +v1 +iv2)+w1 +iw2 = u1 +iu2 +(v1 +iv2 +w1 +iw2) =
+u + (v + w)
+(iv) Der Vektor 0 = 0 + i0 ist der Nullvektor, da
+0 + v = 0 + i0 + v1 + iv2 = (0 + v1) + i(0 + v2) = v1 + iv2 = v.
+(v) Für −v = −(v1 + iv2) = −v1 − iv2 gilt
+v − v = v1 + iv2 − (v1 + iv2) = (v1 − v1) + i(v2 − v2) = 0 + i0 = 0.
+(vi) cv = c(v1 + iv2) = cv1 + i cv2 ∈ Cn
+(vii) c(u + v) = c(u1 + iu2 + v1 + iv2) = cu1 + i cu2 + cv1 + i cv2 = cu + cv
+(viii)
+(c + d)u = (c + d)(u1 + iu2) = cu1 + i cu2 + du1 + i du2
+= c(u1 + i u2) + d(u1 + iu2) = cu + du
+(ix)
+c(du) = c(d(bmu1 + iu2)) = c(du1 + i du2) = cdu1 + i cdu2
+= (cd)(u1 + iu2) = (cd)u
+(x) 1u = 1(u1 + iu2) = 1u1 + i 1u2 = u1 + iu2 = u
+(b) Wir zeigen (ii)-(iv) aus Definition 5.3.1 und anstatt der Symmetrie (i) zeigen wir, dass
+das Skalarprodukt hermitesch ist (siehe Hinweis). Sei dazu u,v,w ∈ Cn
+. Seien zudem
+c ∈ R.
+(i) Hermitisch:
+hu,vi =
+n X
+i=1
+uivi =
+n X
+i=1
+viui =
+n X
+i=1
+viui =
+n X
+i=1
+viui = hv,ui
+(ii) Distributivgesetz
+hu,v + wi =
+n X
+i=1
+ui(vi + wi)
+n X
+i=1
+ui(vi + wi) =
+n X
+i=1
+uivi +
+n X
+i=1
+uiwi = hu,vi + hu,wi
+–3–Methoden der linearen Algebra in der Statistik
+Sommersemester 2024
+Blatt 9
+Prof. Dr. Thomas Nagler
+Nicolai Palm
+(iii) Homogenität
+hcu,vi =
+n X
+i=1
+cuivi = c
+n X
+i=1
+uivi = chu,vi
+(iv) Positivität: Sei u = (u1(1) + iu1(2),u2(1) + iu2(2),...,un(1) + iun(2) ∈ Cn
+. Dann gilt
+hu,ui =
+n X
+i=1
+uiui =
+n X
+i=1
+(ui(1) + iui(2))(u1(1) − iui(2))
+=
+n X
+i=1
+(u2
+i(1) + u2
+i(2)) ≥ 0
+Nun ist noch zu zeigen, dass
+hu,ui ⇔ u = 0
+Wir zeigen zuerst ⇐:
+h0,0i =
+n X
+i=1
+00 =
+n X
+i=1
+0 · 0 = 0 (1)
+Und nun beweisen wir ⇒: Nehme an es existiert 0 6= u ∈ Cn
+mit hu,ui = 0. Dann
+ist für ein i ∈ {1,...,n} : bj 6= 0 und es folgt
+hu,ui =
+n X
+i=1
+(u2
+i(1) + u2
+i(2)) ≥ u2
+j(1) + u2
+j(2) > 0.
+Dies ist ein Widerspruch zu ?? und daher gilt: 0 = u
+(c) Unter Nutzung der Teilaufgabe (b) erhalten wir
+hu,vi = (1 + i)(1 + i) + i2 + (3 − i)i4 = (1 + i)(1 − i) + 2i + (3 − i)(−4i) = −2 − i10
+hv,ui = hu,vi−2 − i10 = −2 + i10
+||v|| =
+q
+(12 + 12) + (22 + 02) + (02 + 42) =
+√
+2 + 4 + 16 =
+√
+22
+||u|| =
+q
+(12 + 12) + (02 + 12) + (32 + (−1)2) =
+√
+2 + 1 + 10 =
+√
+13
+–4–

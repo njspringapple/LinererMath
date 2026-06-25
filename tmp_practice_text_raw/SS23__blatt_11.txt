@@ -1,0 +1,180 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2023
+Blatt 11
+Prof. Dr. Thomas Nagler
+Philipp Schiele
+Übungsaufgaben
+Aufgabe 1 (Methode der kleinsten Quadrate)
+Betrachte das folgende Gleichungssystem
+x1 − x2 = 4
+3x1 + 2x2 = 1
+−2x1 + 4x2 = 3
+und schreibe es als lineares Gleichungsystem Ax = b um. Nach der Vorlesung gibt es nun
+zwei Möglichkeiten eine Lösung für
+argmin
+x
+||Ax − b||
+zu finden:
+• Lösung über die Normalengleichung und
+• Durch Projektion von b auf col(A).
+Verifiziere für dieses Beispiel, dass tatsächlich mit beiden Methoden das selbe Ergebnis
+berechnet wird.
+Aufgabe 2 (Kleinste-Quadrate-Problem)
+Beweise die folgenden Aussagen:
+(a) Seien die Spalten von A ∈ Rn×m
+linear unabhängig und sei x̂ eine Lösung des
+linearen Gleichungssystems Ax = b. Dann ist x̂ die Lösung des kleinsten Quadrate
+Problems.
+(b) Seien die Spalten von A ∈ Rn×m
+linear unabhängig und sei b orthogonal zu den
+Spalten von A. Dann ist der kleinste Quadrate Schätzer zu Ax = b direkt x = 0.
+Übung: Mo 16–18 Uhr –1–Methoden der linearen Algebra in der Statistik
+Sommersemester 2023
+Blatt 11
+Prof. Dr. Thomas Nagler
+Philipp Schiele
+Aufgabe 3 (Gewichtetes Skalarprodukt)
+(a) Sei wi > 0 für alle i ∈ {1,...,n}. Zeige, dass das gewichtete euklidische Skalarpro-
+dukt (Definition 5.9.1)
+hx,yiw =
+n X
+i=1
+wixiyi
+mit x,y ∈ Rn
+wirklich ein Skalarprodukt definiert.
+(b) Im folgenden betrachten wir das gewichtete euklidische Skalarprodukt
+hx,yi =
+n X
+i=1
+wixiyi
+für x,y ∈ Rn
+und wi > 0 für alle i ∈ {1,...,n}. Es gilt:
+*
+
+
+
+1
+1
+1
+
+
+ ,
+
+
+
+2
+3
+4
+
+
+
++
+w
+= 39
+*
+
+
+
+2
+3
+4
+
+
+ ,
+
+
+
+1
+0
+0
+
+
+
++
+w
+= 20
+*
+
+
+
+−1
+5
+1
+
+
+,
+
+
+
+1
+1
+1
+
+
+
++
+w
+= 16
+Geben Sie nun die Gewichte dieses Skalarproduktes an.Methoden der linearen Algebra in der Statistik
+Sommersemester 2023
+Blatt 11
+Prof. Dr. Thomas Nagler
+Philipp Schiele
+Hausaufgaben
+Aufgabe 4 (Projektion von Funktionenräume)
+Nach Blatt 5 Aufgabe 6 ist der Raum aller stetigen Funktionen C[0,2π] ein Vektorraum
+und
+hf,gi =
+Z 2π
+0
+f(x)g(x)dx
+für f,g ∈ C[0,2π] definiert ein Skalarprodukt.
+Betrachte nun die Fourierbasis
+Wn = {1,cos(x),cos(2x),...,cos(nx),sin(x),sin(2x),...,sin(nx)}
+mit n ∈ N aus Beispiel 5.9.8. Man kann zeigen, dass diese Funktionen orthogonal zuein-
+ander sind.
+(a) Zeige, dass
+cos(kx) = argminf∈span(Wn)||f − cos(kx)||
+für 1 ≤ k ≤ n.
+(b) Finde nun die beste Annäherung (siehe Theorem 5.7.8) ˆ f ∈ span(W1) für die Funk-
+tion
+f : [0,2π] → R,x 7→ x2
+Tipp: Verwendet WolframAlpha oder ähnliches um die Integrale zu berechnen
+Aufgabe 5 (Eigenschaften zur Spur)
+Die Spur (englisch: trace) einer quadratischen Matrix A ∈ Rn×n
+ist definiert als die
+Summe der Diagonaleinträge:
+tr(A) =
+n X
+i=1
+aii.
+Für nicht-quadratische Matrizen ist die Spur nicht definiert. Beweise die folgenden Aus-
+sagen:
+(a) tr(A) = tr(A>
+).
+(b) Die Spur ist linear: für alle c1,c2 ∈ R und A,B ∈ Rn×n
+gilt
+tr(c1A + c2B) = c1tr(A) + c2tr(B).
+(c) Für alle A ∈ Rm×n
+,B ∈ Rn×m
+gilt
+tr(AB) = tr(BA).
+(d) Die Spur ist invariant unter zyklischer Vertauschung: Für A,B,C mit kompatiblen
+Dimensionen gilt zum Beispiel
+tr(ABC) = tr(CAB) = tr(BCA).
+Dies gilt nicht für beliebige Permutationen wie CABD.Methoden der linearen Algebra in der Statistik
+Sommersemester 2023
+Blatt 11
+Prof. Dr. Thomas Nagler
+Philipp Schiele
+(e) Die Spur ist invariante unter Basistransformationen: Für P ∈ Rn×n
+invertierbar und
+A ∈ Rn×n
+gilt
+tr(PAP−1
+) = tr(A).
+(f) Für reelle Eigenwerte λ1,...,λn von A gilt
+tr(A) =
+n X
+i=1
+λi.

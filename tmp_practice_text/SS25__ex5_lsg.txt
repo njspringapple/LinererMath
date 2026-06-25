@@ -1,0 +1,395 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025                                                      Prof. Dr. Thomas Nagler
+Blatt 5                                                                               Jana Gauß
+
+Recap - Basis und Dimension
+  1. Jeder Vektorraum hat eine Basis (d.h. ein linear unabhängiges Erzeugendensystem). Kon-
+     kreter: maximal linear unabhängige Teilmengen bzw. minimale Erzeugendensysteme sind
+     Basen ((i) bzw (ii) aus Theorem 3.3.20)
+
+  2. Jede Basis hat gleich viele Elemente. D.h. die Dimension eines Vektorraums ist wohldefi-
+     niert (Theorem 3.3.18)
+
+  3. Jeder Vektor lässt sich eindeutig als Linearkombination von Basisvektoren schreiben
+     (Theorem 3.3.11)
+
+
+Fingerübungen
+  1. Sei V ein Vektorraum. Ist V ⊂ V eine Basis?
+
+  2. Seien v1 , ..., vk ∈ V linear unabhängige Vektoren. Ist dann {v1 , ..., vk } ⊂ V eine Basis für
+     V?
+
+  3. Seien v1 , ..., vk ∈ V linear unabhängige Vektoren. Ist {v1 , ..., vk } eine Basis des UVRs
+     U = span({v1 , ..., vk })?
+
+
+
+Lösungsskizze zu Aufgabe 0
+
+  1. Nein, denn 0 ∈ V per Definition eines Vektorraums, und eine Menge, die die 0 enthält,
+     ist nie linear unabhängig. Also kann V keine Basis sein.
+
+  2. Wenn dim(V ) = k, ist die Menge eine Basis (Th. 3.3.20). Wenn dim(V ) > k, kann
+     {v1 , ..., vk } V nicht aufspannen (Th. 3.3.18). dim(V ) < k ist nicht möglich, dann kann
+     {v1 , ..., vk } nicht linear unabhängig sein (Th. 3.3.18)
+
+  3. Ja, denn {v1 , ..., vk } is linear unabhängig und span({v1 , ..., vk }) = U .
+
+
+Übungsaufgaben
+Aufgabe 1 (Universelle Eigenschaft von Vektorräumen)
+Sei V ein Vektorraum mit Basis {v1 , ..., vn } und W ein zweiter Vektorraum mit w1 , ..., wn ∈ W .
+Zeige:
+
+  1. Sind f, g : V → W lineare Abbildungen mit f (vi ) = g(vi ) für i = 1, ..., n, so folgt
+     f (v) = g(v) für alle v ∈ V . Hinweis: Mit Theorem 3.3.11 können wir v = ni=1 λi vi
+                                                                                 P
+
+     schreiben.
+
+  2. Die Abbildung f : V → W, v =                         i=1 λi wi ist linear.
+                                        Pn               Pn
+                                          i=1 λi vi 7→
+
+Folgere: Für alle w1 , ..., wn ∈ W existiert genau eine lineare Abbildung f : V → W mit
+f (vi ) = wi für alle i = 1, ..., n.
+
+
+Lösungsskizze zu Aufgabe 1
+
+
+
+                                                 –1–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025                                                                                 Prof. Dr. Thomas Nagler
+Blatt 5                                                                                                          Jana Gauß
+
+Anschauung/Beispiel: Sei V = R2 mit der Standardbasis {e1 , e2 }. W kann ein anderer
+Vektorraum sein und die w1 , . . . , wn sind einfach beliebige Elemente daraus, müssen also ins-
+besondere keine Basis oder linear unabhängig sein. Zwei Beispiele, was die Abbildung f in
+2. macht:
+   1. Sei W = R2 und w1 = (1, 0), w2 = (2, 0). Für beliebige v = (a, b) ∈ R2 gilt v = ae1 + be2 ,
+      somit ist die Abbildung f für die gegebenen w1 , w2 definiert als f (v) = a∗(1, 0)+b∗(2, 0) =
+      (a + 2b, 0) und somit f (e1 ) = (1, 0) = w1 , f (e2 ) = (2, 0) = w2 .
+
+   2. Sei W die Menge aller Polynome vom Grad 2 und w1 = x2 , w2 = x (die “Vektoren” in W
+      sind Funktionen). (Nebenbemerkung: w1 , w2 sind linear unabhängig, aber keine Basis.)
+      Nun ist f (v) = ax2 + bx und f (e1 ) = x2 = w1 , f (e2 ) = x = w2 .
+In beiden Fällen ist f eine lineare Abbildung. In der zweiten Teilaufgabe zeigen wir, dass immer
+der Fall ist. f ist zudem die einzige lineare Abbildung, die vi auf wi abbildet.
+In der ersten Teilaufgabe zeigen wir, dass es, um eine lineare Abbildung komplett zu definie-
+ren, schon ausreicht, sie nur auf einer Basis zu definieren. Dementsprechend sind zwei lineare
+Abbildungen, die auf einer Basis übereinstimmen, gleich.
+Beispiel: in R2 kann man f (v) für beliebige v ∈ R2 berechnen, wenn man nur f (e1 ) und f (e2 )
+kennt, denn f (v) = f ((a, b)) = f (ae1 + be2 ) = af (e1 ) + bf (e2 ), da f linear. Und wenn für eine
+weitere lineare Abbildung g gilt, dass g(e1 ) = f (e1 ), g(e2 ) = f (e2 ), dann muss f = g gelten.
+Lösung:
+   1. Sei v ∈ V beliebig. Nach Th. 3.3.11 können wir v =                                  i=1 λi vi schreiben. Es gilt
+                                                                                        Pn
+
+                         n                        n                                 n                               n
+                                         f linear X                  f (vi )=g(vi ) X               g linear
+           f (v) = f (         λi vi )     =            λi f (vi )         =            λi g(vi )     =                   λi vi ) = g(v).
+                         X                                                                                          X
+                                                                                                               g(
+                         i=1                      i=1                             i=1                               i=1
+
+      Also sind f und g schon gleich, wenn sie auf einer Basis von V übereinstimmen.
+
+   2. Es gilt für beliebige v, v ′ ∈ V mit eindeutigen Darstellungen v =                                                          =
+                                                                                                          Pn                  ′       Pn    ′
+                                                                                                               i=1 λi vi v             i=1 λi vi
+      und c ∈ R
+                                               n               n                         n
+                  f (cv + v ′ ) = f (c               λi vi +         λ′i + vi ) = f (        (cλi + λ′i )vi )
+                                               X               X                         X
+
+                                               i=1             i=1                       i=1
+                                         n                              n                 n
+                                    =          (cλi + λ′i )wi = c              λi wi +         λ′i wi = cf (v) + f (v ′ ).
+                                         X                              X                X
+
+                                         i=1                            i=1              i=1
+
+      Somit ist f eine lineare Abbildung.
+Folgerung: Die oben geforderte lineare Abbildung ist in 2. gegeben, denn f (vi ) = wi für alle
+i = 1, . . . , n per Definition von f (da die eindeutige Darstellung von vi gegeben ist durch
+  i=1 λi vi mit λi = 1, λj = 0 für alle j ̸= i). Die Eindeutigkeit der Abbildung folgt aus 1.:
+Pn
+
+Angenommen, es gäbe eine weitere Abbildung g mit g(vi ) = wi . Dann folgt aus 1., dass g und
+f gleich sind, da sie auf einer Basis übereinstimmen.
+
+Aufgabe 2 (Anwendungen der universellen Eigenschaft von Vektorräumen)
+Sei {u1 , ..., um } eine zweite Basis von V mit n ≤ m. Nach Aufgabe 1 existieren eindeutige
+lineare Abbildungen f, f˜ : V → V mit f (vi ) = ui , f˜(ui ) = vi für i = 1, ..., n und f˜(ui ) = 0 für
+i = n + 1, ..., m.
+   1. Zeige f˜(f (vi )) = vi für alle i = 1, ..., n.
+
+   2. Nutze Aufgabe 1 um f˜(f (v)) = v für alle v ∈ V zu zeigen. Hinweis: g = id in Aufgabe 1.
+
+                                                                     –2–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025                                                         Prof. Dr. Thomas Nagler
+Blatt 5                                                                                  Jana Gauß
+
+   3. Zeige n = m.
+
+Bonusaufgabe: Wende Aufgabe 1 auf W = Rn , wi = ei an, um Theorem 3.3.12 (Linearität
+der Koordinatentransformation) zu folgern.
+
+
+Lösungsskizze zu Aufgabe 2
+Anschauung/Beispiel: Sei wieder V = R2 mit der Standardbasis. Wir nehmen an, dass
+{(0, 1), (1, 0), (1, 1)} eine weitere Basis sei (was natürlich nicht der Fall ist, da die Menge linear
+abhängig ist. Deshalb werden wir Widersprüche erzeugen).
+Nach Aufgabe 1 gibt es lineare Abbildungen f , f˜ mit
+
+                                 f ((1, 0)) = (0, 1), f ((0, 1)) = (1, 0)
+
+(d.h. die Einheitsvektoren werden durch f vertauscht) und
+
+                      f˜((0, 1)) = (1, 0), f˜((1, 0)) = (0, 1) sowie f˜((1, 1)) = 0
+
+(hier ist schon ein Widerspruch zur Linearität von f˜, da f˜((1, 1)) = f˜((1, 0)) + f˜((0, 1)) gelten
+muss).
+Aus f ((1, 0)) = (0, 1), f ((0, 1)) = (1, 0) folgt durch die Linearität, dass f definiert ist als
+f ((a, b)) = (b, a) (d.h. f vertauscht die beiden Einträge). f˜ macht (hier in diesem Beispiel)
+genau das gleiche, f˜((a, b)) = (b, a) (auch hier wieder ein Widerspruch zu f˜((1, 1)) = 0).
+Allgemein gilt, dass f˜ die Wirkung von f rückgängig macht, also f˜(f (v)) = v (Teilaufgabe
+1). Bei uns: f˜(f ((a, b))) = f˜((b, a)) = (a, b). Da dann auch f (f˜(v)) = v gilt, erhalten wir
+f (f˜((1, 1))) = f (0) = 0 ̸= (1, 1), was ein Widerspruch ist. Also kann {(0, 1), (1, 0), (1, 1)} keine
+Basis von R2 sein. Das gilt allgemein für jede Menge mit mehr als 2 Elementen.
+Lösung:
+
+   1. Es gilt f˜(f (vi )) = f˜(ui ) = vi per Definition.
+
+   2. Bemerke, dass f˜ ◦ f linear ist als Komposition linearer Abbildungen. Es gilt f˜(f (vi )) =
+      f˜(ui ) = vi = id(vi ) für alle i. Nach Aufgabe 1. muss dann schon f˜ ◦ f = id gelten. In
+      anderen Worten, f˜(f (v)) = id(v) = v für alle v ∈ V .
+
+   3. Nach 2. ist f invertierbar, d.h. f (f˜(v)) = v. Angenommen m > n. Dann gilt für alle
+      i = n + 1, ..., m ui = f (f˜(ui )) = f (0) = 0. Da {u1 , ..., um } eine Basis ist, ist das ein
+      Widerspruch. Wir folgern n = m.
+
+Bonusaufgabe: Die Koordinatentransformation (d.h. die Abbildung von einem Vektorraum
+V nach Rn , wobei v auf die Koordinaten seiner Basisdarstellung (mit gegebener Basis B)
+abgebildet wird) kann man schreiben als v = ni=1 λi vi → ni=1 λi ei = (λ1 , . . . , λn ). Nach
+                                            P             P
+
+Aufgabe 1 ist diese Abbildung linear.
+
+
+
+
+                                                  –3–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025                                                                    Prof. Dr. Thomas Nagler
+Blatt 5                                                                                             Jana Gauß
+
+Hausaufgaben
+
+Aufgabe 3 (Unterschied Vereinigung und Addition zweier Untervektorräume)
+Sei V ein Vektorraum und seien W1 , W2 ⊆ V zwei Untervektorräume. Betrachte die Vereinigung
+der beiden Untervektorräume W1 ∪ W2 und die Addition
+
+                         W := W1 + W2 = {v1 + v2 | v1 ∈ W1 , v2 ∈ W2 }.
+
+Finde nun jeweils zwei Untervektorräume W1 , W2 ⊆ R2 sodass
+
+  (a) W1 ∪ W2 kein Vektorraum ist und sodass W1 + W2 ̸= W1 ∪ W2 ,
+
+ (b) W1 + W2 = W1 ∪ W2 .
+
+gilt.
+
+
+Lösungsskizze zu Aufgabe 3
+
+  (a) Wir betrachten die Mengen
+                                                 (            !               )
+                                                      a
+                                       W1 :=                      |a∈R
+                                                      0
+                                                      0
+                                                 (            !               )
+                                       W1 :=                      |a∈R .
+                                                      a
+
+        Beides sind nicht leere Mengen mit 0 ∈ W1 und 0 ∈ W2 und es gilt
+
+         (i) W1 und W2 sind Untervektorräume:
+              • Seien v, u ∈ W1 beliebig, dann existieren a1 , a2 ∈ R sodass
+                                                      !                                      !
+                                                 a1                                     a2
+                                       v=                                 u=                     .
+                                                 0                                      0
+
+                Somit gilt
+
+                                                                                  a1 + a 2
+                                                 !                 !                           !
+                                            a1                a2
+                                u+v =                 +                   =                          ∈ W1 .
+                                            0                 0                      0
+
+              • Sei u ∈ W1 und sei c ∈ R beliebig. Dann existiert a ∈ R sodass
+                                                                          !
+                                                                      a
+                                                      u=                      .
+                                                                      0
+
+                Somit gilt
+                                                              !                   !
+                                                          a               ca
+                                         cu = c                   =                   ∈ W1 .
+                                                          0                0
+
+            Also ist W1 nach Definition 3.2.1 ein Untervektorraum. Analog kann man zeigen,
+            dass W2 ein Untervektorraum ist.
+
+
+
+
+                                                 –4–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025                                                                      Prof. Dr. Thomas Nagler
+Blatt 5                                                                                               Jana Gauß
+
+      (ii) W1 ∪ W2 ist kein Untervektorraum:
+
+                        1                            0                       1           0
+                            !                            !                       !            !
+                                ∈ W1 und                     ∈ W2 ⇒                  ,            ∈ W1 ∪ W2 ,
+                        0                            1                       0           1
+
+          aber
+                                 1               0                       1                0
+                                     !               !                           !            !
+                                         +               ̸∈ W1 und                   +            ̸∈ W2
+                                 0               1                       0                1
+                                     1               0
+                                         !               !
+                                ⇒            +               ̸∈ W1 ∪ W2
+                                     0               1
+
+     (iii) W1 + W2 = R2 :
+         „⊆“ folgt aus der Definition von W1 + W2 und das R2 ein Vektorraum ist.
+                                                                      0
+                      !                                 !               !
+                    a                                 a
+         „⊇“ Sei        ∈ R beliebig. Dann gilt mit
+                            2
+                                                          ∈ W1 und        ∈ W2 :
+                    b                                 0               b
+
+                                                                         0
+                                                 !               !           !
+                                             a               a
+                                                     =               +           ∈ W1 + W2 .
+                                             b               0           b
+
+                                                     1                                                    1
+                                                         !                                                    !
+     (iv) Es gilt W1 + W2 ̸= W1 ∪ W2 4:                      ∈ W1 + W2 , aber nach (ii) ist                       ̸∈ W1 ∪ W2 .
+                                                     1                                                    1
+
+ (b) Setze
+                                                         (         !             )
+                                                               a
+                                             W1 :=                     |a∈R
+                                                               0
+                                             W2 := R2 .
+
+     Dann gilt nach Teilaufgabe (a):
+
+      (a) W1 , W2 sind Untervektorräume (R2 wurde in der Vorlesung besprochen)
+      (b) W1 ∪ W2 = W2 = R2 ist ein Vektorraum
+      (c) W1 + W2 = R2
+
+
+
+Anmerkung: Allgemein kann man die folgende Aussage zeigen:
+Sei V ein Vektorraum und seien W1 , W2 ⊆ V derart, dass W1 ∪ W2 wieder ein Untervektorraum
+ist. Dann muss W1 ⊆ W2 oder W2 ⊆ W1 gelten. (siehe z.B. G. Fischer (2011): Lernbuch Lineare
+Algebra und Analytische Geometrie(4 Auflage), Seite 183, Springer)
+
+
+
+
+                                                         –5–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025                                             Prof. Dr. Thomas Nagler
+Blatt 5                                                                      Jana Gauß
+
+Aufgabe 4 (Schnitt zweier Untervektorräume)
+Seien U, W zwei Untervektorräume des Vektorraums V mit endlicher Dimension. Zeige, dass
+die folgenden Aussagen äquivalent sind
+  (i) U ∩ W = {0}
+ (ii) Jedes Element v ∈ U + W hat eine eindeutige Darstellung. D.h. falls für u1 , u2 ∈ U und
+      w1 , w2 ∈ W, u1 + w1 = u2 + w2 gilt so folgt direkt u1 = u2 und w1 = w2 .
+(iii) Gilt für zwei Vektoren u ∈ U und w ∈ W , dass u + w = 0, so folgt u = 0 und w = 0.
+Tipp: Führe einen Ringschluss durch und zeige dazu
+  • (i) ⇒ (ii): Nehme hier an es gäbe zwei Darstellungen und führe das dann zum Widerspruch
+    zu Annahme (i).
+  • (ii) ⇒ (iii): Nach Annahme (ii) wird auch die Null eindeutig dargestellt.
+  • (iii) ⇒ (i): Nehme ein beliebiges Element aus U ∩ W und zeige, dass diese die Null sein
+    muss.
+
+
+Lösungsskizze zu Aufgabe 4
+Wir beweisen dies über einen Ringschluss:
+  • (i) ⇒ (ii): Sei also U ∩ W = {0} und sei x ∈ U + W beliebig. Wir nehmen an, dass es
+    zwei Darstellungen von x gibt, d.h es existieren u1 , u2 ∈ U und w1 , w2 ∈ W sodass
+
+                                     u1 + w1 = x = u2 + w2
+
+     gilt. Dann folgt
+
+                           u1 + w1 = u2 + w2 ⇔ u1 − u2 = w1 − w2
+
+     Da U und W Untervektorräume sind, muss mit Definition 3.2.1(i) u1 − u2 ∈ U und
+     w1 − w2 ∈ W gelten. Also
+
+                                  u1 − u2 = w1 − w2 ∈ U ∩ W.
+
+     Da aber nach Annahme U ∩ W = {0}, muss u1 = u2 und w1 = w2 sein und somit ist
+     Darstellung von x eindeutig.
+  • (ii) ⇒ (iii): Wir nehmen nun an, dass jeder Vektor in U + W eine eindeutige Darstellung
+    besitzt. Seien nun u ∈ U und w ∈ W sodass u + w = 0. Nach (ii) hat 0 ∈ U + W eine
+    eindeutige Darstellung und da 0 ∈ W und 0 ∈ W gilt 0 + 0 = 0 und somit muss aus der
+    Eindeutigkeit u = 0 und w = 0 gelten.
+  • (iii) ⇒ (i): Wir nehmen nun an, dass für zwei Vektoren u ∈ U und w ∈ W mit u + w = 0
+    direkt folgt, dass u = 0 und w = 0. Nehme nun ein beliebiges Element aus x ∈ U ∩ W .
+    Da nach Theorem 3.2.13 U ∩ W wieder ein Untervektorraum ist, muss −x ∈ U ∩ W liegen
+    (also insbesondere liegt x, −x ∈ U und x, −x ∈ W ). Daraus folgt
+
+                                     0 = x + (−x) ∈ U + W
+
+     mit x ∈ U und −x ∈ W . Nach (iii) muss dann aber x = 0 = −x gelten und somit kann
+     nur die Null in W ∩ U enthalten sein.
+
+
+                                            –6–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025                                                     Prof. Dr. Thomas Nagler
+Blatt 5                                                                              Jana Gauß
+
+Aufgabe 5 (Basen und Maximal linear unabhängige Systeme)
+Sei V ein Vektorraum und v1 , ..., vn ∈ V linear unabhängige Vektoren. Zeige: ist {v1 , ..., vn+1 }
+linear abhängig für alle vn+1 ∈ V , so ist {v1 , ..., vn } eine Basis von V .
+
+
+Lösungsskizze zu Aufgabe 5
+Dass {v1 , ..., vn+1 } linear abhängig ist, bedeutet vn+1 = ni=1 λi vi für bestimmte λi ∈ R. In
+                                                               P
+
+anderen Worten, vn+1 ∈ span({v1 , ..., vn }). Gilt das für alle vn+1 ∈ V , folgt span({v1 , ..., vn }) =
+V . Per Definition ist damit {v1 , ..., vn } eine Basis.
+
+
+
+
+                                                  –7–
+

@@ -1,0 +1,111 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2023
+Blatt 11
+Prof. Dr. Thomas Nagler
+Philipp Schiele
+Hausaufgaben
+Aufgabe 5 (Eigenschaften zur Spur)
+Die Spur (englisch: trace) einer quadratischen Matrix A ∈ Rn×n
+ist definiert als die
+Summe der Diagonaleinträge:
+tr(A) =
+n X
+i=1
+aii.
+Für nicht-quadratische Matrizen ist die Spur nicht definiert. Beweise die folgenden Aus-
+sagen:
+(a) tr(A) = tr(A>
+).
+(b) Die Spur ist linear: für alle c1,c2 ∈ R und A,B ∈ Rn×n
+gilt
+tr(c1A + c2B) = c1tr(A) + c2tr(B).
+(c) Für alle A ∈ Rm×n
+,B ∈ Rn×m
+gilt
+tr(AB) = tr(BA).
+(d) Die Spur ist invariant unter zyklischer Vertauschung: Für A,B,C mit kompatiblen
+Dimensionen gilt zum Beispiel
+tr(ABC) = tr(CAB) = tr(BCA).
+Dies gilt nicht für beliebige Permutationen wie CABD.
+(e) Die Spur ist invariante unter Basistransformationen: Für P ∈ Rn×n
+invertierbar und
+A ∈ Rn×n
+gilt
+tr(PAP−1
+) = tr(A).
+(f) Für reelle Eigenwerte λ1,...,λn von A gilt
+tr(A) =
+n X
+i=1
+λi.
+Lösungsskizze zu Aufgabe 5
+(a) Folgt aus der Definition: A und A>
+haben die gleiche Diagonale.
+(b)
+tr(c1A + c2B) =
+n X
+i=1
+(c1A + c2B)ii =
+n X
+i=1
+(c1aii + c2bii)
+= c1
+n X
+i=1
+aii + c2
+n X
+i=1
+bii = c1tr(A) + c2tr(B).
+(c)
+tr(AB) =
+m X
+i=1
+(AB)ii =
+m X
+i=1
+n X
+j=1
+aijbji =
+n X
+j=1
+m X
+i=1
+bjiaij =
+n X
+j=1
+(BA)jj = tr(BA).
+Übung: Mo 16–18 Uhr –1–Methoden der linearen Algebra in der Statistik
+Sommersemester 2023
+Blatt 11
+Prof. Dr. Thomas Nagler
+Philipp Schiele
+(d) Folgt aus wiederholter Anwednung von (c):
+tr
+
+(AB)C
+
+= tr
+
+C(AB)
+
+= tr
+
+(CA)B
+
+= tr
+
+B(CA)
+
+.
+(e) Folgt aus (d), denn
+tr(PAP−1
+) = tr(P−1
+PA) = tr(A).
+(f) Weil alle Eigenwerte reell sind, gilt die Schur-Zerlegung A = PDP−1
+, wobei D eine
+obere Dreiecksmatrix mit den Eigenwerten auf der Diagonalen ist. Das Resultat folgt
+dann aus (e).
+Hinweis: Die Spur selbst hat eigentlich keine geometrische oder anderweitig sinnvolle In-
+terpretation. Sie erlaubt es aber oft Formeln kompakter zu schreiben. Haben wir die Spur
+mal in einer Formel stehen, lassen sich durch ihre vielen praktischen Eigenschaften oft
+Rechnungen vereinfachen. Einige der wichtigsten Eigenschaften wollen wir hier auflisten.

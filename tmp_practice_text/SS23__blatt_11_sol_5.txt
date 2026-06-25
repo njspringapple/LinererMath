@@ -1,0 +1,94 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2023                                                                      Prof. Dr. Thomas Nagler
+Blatt 11                                                                                           Philipp Schiele
+
+    Hausaufgaben
+
+Aufgabe 5 (Eigenschaften zur Spur)
+    Die Spur (englisch: trace) einer quadratischen Matrix A ∈ Rn×n ist definiert als die
+    Summe der Diagonaleinträge:
+                                                             n
+                                                             X
+                                                tr(A) =             aii .
+                                                              i=1
+
+    Für nicht-quadratische Matrizen ist die Spur nicht definiert. Beweise die folgenden Aus-
+    sagen:
+
+     (a) tr(A) = tr(A> ).
+     (b) Die Spur ist linear: für alle c1 , c2 ∈ R und A, B ∈ Rn×n gilt
+
+                                      tr(c1 A + c2 B) = c1 tr(A) + c2 tr(B).
+
+     (c) Für alle A ∈ Rm×n , B ∈ Rn×m gilt
+
+                                                   tr(AB) = tr(BA).
+
+     (d) Die Spur ist invariant unter zyklischer Vertauschung: Für A, B, C mit kompatiblen
+         Dimensionen gilt zum Beispiel
+
+                                      tr(ABC) = tr(CAB) = tr(BCA).
+
+           Dies gilt nicht für beliebige Permutationen wie CABD.
+     (e) Die Spur ist invariante unter Basistransformationen: Für P ∈ Rn×n invertierbar und
+         A ∈ Rn×n gilt
+                                         tr(P AP −1 ) = tr(A).
+     (f) Für reelle Eigenwerte λ1 , . . . , λn von A gilt
+                                                                    n
+                                                                    X
+                                                      tr(A) =             λi .
+                                                                    i=1
+
+
+
+
+Lösungsskizze zu Aufgabe 5
+
+     (a) Folgt aus der Definition: A und A> haben die gleiche Diagonale.
+     (b)
+                                              n
+                                              X                                  n
+                                                                                 X
+                        tr(c1 A + c2 B) =           (c1 A + c2 B)ii =                  (c1 aii + c2 bii )
+                                              i=1                                i=1
+                                                   n
+                                                   X                n
+                                                                    X
+                                            = c1         aii + c2           bii = c1 tr(A) + c2 tr(B).
+                                                   i=1              i=1
+
+
+     (c)
+                           m
+                           X                X n
+                                            m X                   X m
+                                                                  n X                        n
+                                                                                             X
+                tr(AB) =         (AB)ii =             aij bji =                  bji aij =       (BA)j j = tr(BA).
+                           i=1              i=1 j=1               j=1 i=1                    j=1
+
+
+Übung: Mo 16–18 Uhr                                   –1–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2023                                            Prof. Dr. Thomas Nagler
+Blatt 11                                                                 Philipp Schiele
+
+
+
+     (d) Folgt aus wiederholter Anwednung von (c):
+                                                                     
+                       tr (AB)C = tr C(AB) = tr (CA)B = tr B(CA) .
+
+     (e) Folgt aus (d), denn
+                                 tr(P AP −1 ) = tr(P −1 P A) = tr(A).
+     (f) Weil alle Eigenwerte reell sind, gilt die Schur-Zerlegung A = P DP −1 , wobei D eine
+         obere Dreiecksmatrix mit den Eigenwerten auf der Diagonalen ist. Das Resultat folgt
+         dann aus (e).
+
+
+
+    Hinweis: Die Spur selbst hat eigentlich keine geometrische oder anderweitig sinnvolle In-
+    terpretation. Sie erlaubt es aber oft Formeln kompakter zu schreiben. Haben wir die Spur
+    mal in einer Formel stehen, lassen sich durch ihre vielen praktischen Eigenschaften oft
+    Rechnungen vereinfachen. Einige der wichtigsten Eigenschaften wollen wir hier auflisten.
+

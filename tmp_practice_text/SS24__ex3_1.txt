@@ -1,0 +1,154 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2024                                            Prof. Dr. Thomas Nagler
+Blatt 3                                                                    Nicolai Palm
+
+Recap - Matrizen und ihre Strukturen
+  1. Wie für die reelen Zahlen, können wir auch Matrizen addieren und multiplizieren
+
+  2. Matrizen zu addieren hat alle analogen Eigenschaften wie Zahlen zu addieren (Theorem
+     2.1.3)
+
+  3. Das Matrix Produkt verhält sich ähnlich (Theorem 2.1.8) unterscheidet sich aber grund-
+     legend in zwei Eigenschaften: es ist nicht kommutativ (d.h. AB 6= BA i.A.) und besitzt
+     kein Inverses (d.h. @B s.d. AB = 1 i.A.)
+
+
+Fingerübungen
+  1. Für Matrizen A, B, s.d. AT + B definiert ist, was ist (AT + B)T ? (Theorem 2.1.15)
+
+  2. Was ist (AT )1234 ? (Theorem 2.1.15)
+
+
+Übungsaufgaben
+Aufgabe 1 (i.A. besitzen Matrizen kein Inverses)
+Seien 0n×n 6= A, B zwei von Null verschiedene n × n-Matrizen mit AB = 0.
+Zeige: A besitzt kein (links-)Inverses bezüglich des Matrix Produkts, d.h. es existiert keine
+Matrix C mit CA = 1n×n .
+
+Aufgabe 2 (Addition von Matrizen und Abbildungen)
+Seien f, g : Rn → Rm lineare Abbildungen und a, b ∈ R. Von Aufgabe 1 auf Blatt 2 wissen wir,
+dass af + bg eine lineare Abbildung ist.
+Zeige: Sind A, B die darstellenden Matrizen von f, g, so ist aA + bB die darstellende Matrix
+von af + bg.
+
+Addendum: Wir wissen lineare Abbildungen und Matrizen sind äquivalente Konzepte (Theo-
+rem 1.10.2). Wie übersetzen sich +, · (und später A−1 ) von Matrizen zu linearen Abbildungen?
+
+  • Matrix Addition entspricht der Addition von Abbildungen (Aufgabe 2)
+
+  • Matrix Multiplikation entspricht der Komposition von linearen Abbildungen: A, B dar-
+    stellende Matrizen von f, g dann ist AB die darstellende Matrix von f ◦ g. Erinnerung:
+    f ◦ g(x) = f (g(x))
+
+  • Nächste VL: Matrix Invertierung enstpricht der Invertierung von Linearen Funktionen
+
+
+
+
+                                            –1–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2024                                                    Prof. Dr. Thomas Nagler
+Blatt 3                                                                            Nicolai Palm
+
+Hausaufgaben
+
+Aufgabe 3 (Matrixoperationen)
+Sei f : R3 → R3 eine lineare Funktion, die durch Matrix A gegeben ist, sei g : R4 → R3 eine
+lineare Funktion, die gegeben ist durch Matrix B und h : R3 → R3 eine weiter lineare Funktion,
+die gegeben ist durch Matrix C.
+
+               1 2 1                     1 0 1 0             2 3 4
+                                                                                     
+
+           A= 1 0 1              B =  1 1 0 1  und C =  3 4 5  .
+                                                              
+
+               0 1 −1                    0 0 −1 1            4 5 6
+
+ (a) Geben Sie die Funktion f + h an, indem die Funktion als Matrix dargestellt wird.
+
+ (b) Geben Sie die Funktionen f + f und 2f an, indem die Funktion als Matrix dargestellt
+     wird.
+
+ (c) Existiert die Funktion f ◦ g oder/und g ◦ f ? Falls ja, gebe die zugehörige Matrix an.
+
+
+Lösungsskizze zu Aufgabe 3
+
+ (a) Da g und f den selben Definitionsbereich und Wertebereich besitzen, ist f + g wohldefi-
+     niert. Für alle x ∈ R3 gilt
+                                                                  T h.2.1.3
+                      (f + g)(x) = f (x) + g(x) = Ax + Cx            =        (A + C)x
+
+     Damit wird die Funktion f + g beschrieben durch
+
+                             1 2 1       2 3 4        3 5 5
+                                                                               
+
+                        =  1 0 1  +  3 4 5  =  4 4 6  .
+                                                     
+
+                             0 1 −1      4 5 6        4 6 5
+
+     beschrieben.
+
+ (b) Für alle x ∈ R3 gilt
+
+               (f + f )(x) = f (x) + f (x) = Ax + Ax = (A + A)x = 2Ax = 2f (x).
+
+     Damit wird die Funktion f +f und die Funktion 2f durch die folgende Matrix beschrieben
+
+                                      1 2 1       2 4 2
+                                                                           
+
+                             2A = 2  1 0 1  =  2 0 2 
+                                              
+                                                         .
+                                      0 1 −1      0 2 −2
+
+ (c) Es gilt
+
+                                             f : R3 → R3 ,
+                                             g : R4 → R3 .
+
+     Damit die Funktion g ◦ f wohldefiniert ist, muss das Bild der Funktion f eine Teilmenge
+     des Definitionsbereichs von g sein. Aber da das Bild von f
+
+                      f (R3 ) = {y ∈ R3 | ∃x ∈ R3 such that f (x) = y} ⊆ R3
+
+                                              –2–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2024                                                 Prof. Dr. Thomas Nagler
+Blatt 3                                                                         Nicolai Palm
+
+       eine Teilmenge von R3 ist und der Definitionsbereich der Funktion g aber R4 ist, existiert
+       die Verknüpfung g ◦ f nicht.
+
+       Dagegen gilt für f ◦ g, dass das Bild von g
+
+                        g(R4 ) = {y ∈ R3 | ∃x ∈ R4 such that f (x) = y} ⊆ R3
+
+       eine Teilmenge von R3 ist und damit auch eine Teilmenge des Definitionsbereichs von f .
+       Im nächsten Schritt wollen wir nun die Matrix bestimmen, die f ◦ g definiert. Es gilt für
+       alle x ∈ R4 , dass
+                                                                T h.2.1.3
+                          f ◦ g(x) = f (g(x)) = f (Bx) = ABx       =        (AB)x
+
+       Damit ist die zugehörige Matrix gegeben durch
+
+                             1 2 1     1 0 1 0       3 2 0 3
+                                                                               
+
+                      AB =  1 0 1   1 1 0 1  =  1 0 0 1 
+                                                        
+
+                             0 1 −1    0 0 −1 1      1 1 1 0
+
+ (d)     • Die Funktion g : R4 → R3 besitzt keine inverse Matrix und ist auch nicht invertier-
+           bar, da A ∈ R4×3 und 4 6= 3 (siehe Th. 2.2.14/15)
+
+
+
+
+                                               –3–
+

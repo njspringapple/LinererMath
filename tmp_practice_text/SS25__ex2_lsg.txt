@@ -1,0 +1,460 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025                                                             Prof. Dr. Thomas Nagler
+Blatt 2                                                                                      Jana Gauß
+
+Recap - Lineare Unabhängigkeit und Abbildungen
+  1. Haben wir eine Lösung x0 mit Ax0 = b gefunden, dann lässt sich jede weitere Lösung
+     schreiben als x0 + x wobei Ax = 0 gilt. Das heißt, um Ax = b zu studieren reicht es
+     b = 0 anzunehmen. (Theorem 1.8.6)
+
+  2. Die Menge aller Ax = 0 trägt eine lineare Struktur. Das heißt wenn Ax1 = Ax2 = 0 gilt
+     so ist auch A(ax1 + bx2 ) = 0. Es gilt sogar allgemeiner...
+
+  3. ...jede Lösung lässt sich als Linearkombination von endlich vielen und fixen xi schreiben.
+     Mathematisch ausgedrückt, {x : Ax = 0} = span{x1 , ..., xn }. (Theorem 1.8.3)
+
+  4. Lineare Unabhängigkeit wird das Kernkonzept um die Anzahl n der Vektoren im Spann
+     span{x1 , ..., xn } möglichst gering zu halten. (Theorem 1.9.2 und Aufgabe 2.)
+
+  5. Die charakterisierende Eigenschaft von LGS, d.h. von Matrizen, ist, dass sie lineare Ab-
+     bildungen definieren. Mathematisch ausgedrückt: jede Matrix definiert eine (eindeutige)
+     lineare Abbildung und umgekehrt. (Theorem 1.10.2)
+
+  6. In anderen Worten: das Studium von LGS ist das Studium von linearen Abbildungen.
+
+
+Fingerübungen
+  1. Kann es 2024 linear unabhängige Vektoren im R2023 geben? (Theorem 1.9.5)
+
+  2. Wenn zwei lineare Abbildungen dieselbe darstellende Matrix haben, sind sie dann gleich?
+     (Theorem 1.10.2)
+
+  3. Wenn die Matrix A eine lineare Abbildung f darstellt und Ax = 0 gilt, was ist dann
+     f (x)?
+
+
+Übungsaufgaben
+Aufgabe 1 (Die Menge der Linearen Abbildungen ist linear)
+Seien f, g : Rn → Rm lineare Abbildungen und a, b ∈ R. Zeige, dass dann auch
+
+                                         h = af + bg : Rn → Rm
+
+definiert durch h(x) = af (x) + bg(x) linear ist.
+
+
+Lösungsskizze zu Aufgabe 1
+Zu zeigen: h(x + y) = h(x) + h(y) und h(c x) = c h(x) für alle x, y ∈ Rn , c ∈ R. Es gilt
+              Def. von h                                f, g linear
+   h(x + y)     =     af (x + y) + bg(x + y) = a(f (x) + f (y) + b(g(x) + g(y))
+              = af (x) + bg(x) + af (y) + bg(y) = h(x) + h(y),
+              Def. von h                      f, g linear
+      h(cx)      =         af (cx) + bg(cx)       =         acf (x) + bcg(x) = c(af (x) + bg(x)) = c h(x).
+
+Somit ist h eine lineare Abbildung.
+Aufgabe 2 (Eine maximal linear unabhängige Teilmenge existiert)
+
+
+
+                                                            –1–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025                                                         Prof. Dr. Thomas Nagler
+Blatt 2                                                                                  Jana Gauß
+
+Seien x1 , ..., xk ∈ Rn Vektoren. Zeige: es existieren 1 ≤ i1 , ..., il ≤ k, sodass {xi1 , ..., xil } linear
+unabhängig ist und
+                               span{xi1 , ..., xil } = span{x1 , ..., xk }.
+In anderen Worten: jede Menge an Vektoren besitzt eine maximal linear unabhängige Teilmenge.
+Hinweis: Theorem 1.9.2.
+
+
+Lösungsskizze zu Aufgabe 2
+Idee: wenn die Menge {x1 , ..., xk } linear abhängig ist, dann können wir einen Vektor daraus ent-
+fernen, ohne den Spann zu verändern (folgt aus Th. 1.9.2). Das kann man so lange wiederholen,
+bis die resultierende Menge linear unabhängig ist. Konkreter: Wir starten bei x1 und entfernen
+es aus der Menge, wenn sich dadurch der Spann nicht verändert. Aus der resultierenden Menge
+entfernen wir x2 , wenn sich dadurch der Spann nicht verändert etc.
+Beweis: Definiere U0 , U1 , . . . , Uk wie folgt:
+                                            
+                                            U
+                                                 i−1 \ {xi }   wenn xi ∈ span(Ui−1 \ {xi })
+             U0 = {x1 , ..., xk },   Ui =
+                                            Ui−1     sonst
+
+Behauptung: Uk ist linear unabhängig und span(Uk ) = span(U0 ), somit ist Uk die oben gesuchte
+Menge {xi1 , ..., xil }.
+
+   • span(Uk ) = span(U0 ): Aus der Definition von Ui folgt, dass span(Ui ) = span(Ui−1 ), da
+     entweder Ui = Ui−1 oder xi ∈ span(Ui−1 \{xi }) und somit span(Ui−1 \{xi }) = span(Ui−1 ).
+     Also folgt induktiv span(Uk ) = span(U0 ).
+
+   • Uk ist linear unabhängig: Beweis durch Widerspruch: Sei Uk linear abhängig, d.h. es
+     gibt ein xi ∈ Uk , sodass xi ∈ span(Uk \ {xi }). Dann gilt xi ∈ Ui (da Uk ⊆ Ui ) und xi ∈
+     span(Ui−1 \{xi }) (da Uk \{xi } ⊆ Ui−1 \{xi } und somit span(Uk \{xi }) ⊆ span(Ui−1 \{xi }),
+     siehe Übungsblatt 1). Dann hätten wir aber Ui als Ui−1 \ {xi } gewählt und somit xi ∈ / Ui
+     → Widerspruch.
+
+
+
+
+                                                       –2–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025                                                          Prof. Dr. Thomas Nagler
+Blatt 2                                                                                   Jana Gauß
+
+Hausaufgaben
+
+Aufgabe 3 (Beispiel für eine (in)homogenes LGS)
+Gegeben sei die folgende Matrix A und der Vektor b
+
+                         1             1    1   1   1                    1
+                                                                             
+
+                                                                        1 
+                        1             0    1   0   1 
+                                                                          
+                     A=                               ∈ R4×5 und b =     .
+                       
+                        2             3    4   5   6                  1 
+                         0             2    2   4   4                    −1
+
+ (a) Bestimme die Lösungsmenge des homogenen Gleichungssystems Ax = 0.
+
+ (b) Zeige, dass
+                                                               3
+                                                                  
+                                                               2
+                                                           0 
+                                                              
+
+                                                     x1 =   1 
+                                                              
+                                                           −2 
+                                                           0 
+                                                              
+                                                               0
+
+     eine Lösung von Ax = b ist.
+
+ (c) Bestimme die Lösungsmenge des inhomogenen Gleichungssystems Ax = b.
+
+
+
+Lösungsskizze zu Aufgabe 3
+
+ (a) Aufstellen der erweiterten Koeffizientenmatrix
+
+               1      1    1   1   1       0                          1 1 1 1 1 0
+                                                                                     
+              1      0    1   0   1       0  (2)−(1) und (3)−2(1)
+                                                                     0 −1 0 −1 0 0 
+           A=                                          ∼
+                                                                                 
+              2      3    4   5   6       0                        0 1 2 3 4 0 
+                                                                                  
+
+               0      2    2   4   4       0                          0 2 2 4 4 0
+                                    1 1 1 1 1 0               1 1 1 1 1 0
+                                                                                          
+
+             (3)+(1) und (4)+2(2)  0 −1 0 −1 0 0  (4)−(3)  0 −1 0 −1 0 0 
+                                                                         
+                      ∼                            ∼ 
+                                   0 0 2 2 4 0             0 0 2 2 4 0 
+                                                                           
+
+                                    0 0 2 2 4 0               0 0 0 0 0 0
+
+     Es gibt zwei freie Variablen und nach Theorem 1.8(i) ist damit die Lösungsmenge unend-
+     lich. Wir erhalten:
+
+      (i) x1 + x2 + x3 + x4 + x5 = 0,
+      (ii) −x2 − x4 = 0,
+     (iii) 2x3 + 2x4 + 4x5 = 0.
+
+     Wir können nun x1 , x2 ∈ R beliebig wählen.
+     Aus (iii) erhalten wir
+                                                    x3 = −(x4 + 2x5 ).
+     Damit folgt mit (ii)
+                                                        x2 = −x4
+
+                                                        –3–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025                                                Prof. Dr. Thomas Nagler
+Blatt 2                                                                         Jana Gauß
+
+    und mit (i) gilt
+
+              x1 = −(x2 + x3 + x4 + x5 ) = −(−x4 − x4 − 2x5 + x4 + x5 ) = x4 + x5 .
+
+    Somit ist die Lösungsmenge gegeben durch
+
+                        +                       1          1
+                                                                 
+                  
+                     a   c              
+                                          
+                                                                         
+                                                                          
+                                                           0
+                                                                       
+                       −a                       −1
+                  
+                                      
+                                          
+                                                                     
+                                                                          
+                  
+                                      
+                                          
+                                                                     
+                                                                          
+              Lh =  −a − 2c  | a, c ∈ R = a  −1  + c  −2  | a, c ∈ R
+                                                          
+                                                         
+                                               1        0 
+                                                                       
+                  
+                  
+                  
+                   
+                       a    
+                             
+                                         
+                                         
+                                         
+                                           
+                                           
+                                           
+                                                                      
+                                                                          
+                                                                          
+                                                            0          1
+                                                                       
+                              c
+                  
+                                        
+                                          
+                                                                         
+                                                                          
+
+
+  1. Wir berechnen Ax1 :
+                                     3
+                                        
+          1   1   1    1   1        2     3
+                                              · 1 + 0 · 1 − 21 · 1 + 0 · 1 + 0 · 1      1
+                                                                                     
+                                  0        2
+                                      
+         1   0   1    0   1 
+                                       3 ·1+0·0− 1 ·1+0·1+0·1                      1 
+                                      =
+                                 − 21                                              =
+                                       2
+                                                         2                            
+         2   3   4    5   6           32 · 2 + 0 · 3 − 21 · 4 + 0 · 5 + 0 · 6     1 
+                                                                                         
+                                0 
+                                     
+          0   2   2    4   4              − 32 · 1 + 0 · 2 − 12 · 2 + 0 · 4 + 0 · 4     −1
+                                  0
+
+    Damit folgt, dass x1 eine Lösung des linearen Gleichungssystems Ax = b ist.
+
+  2. Nach Theorem 1.8.6 ist die Lösungsmenge zum linearen Gleichungssystem Ax = b gege-
+     ben durch
+
+                                             {x1 + y | y ∈ Lh }
+
+    (siehe Teilaufgabe a und b)
+
+
+
+
+                                                 –4–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025                                                               Prof. Dr. Thomas Nagler
+Blatt 2                                                                                        Jana Gauß
+
+Aufgabe 4 (Darstellung der Lösungsmenge)
+Sei A ∈ Rm×n mit m, n ∈ N. Sei L ⊆ Rn die Lösungsmenge des homogenen linearen Glei-
+chungssystems Ax = 0.
+
+ (a) Zeige, dass L = cL für jedes c ∈ R \ 0 gilt.
+     Hinweis: Die Menge cL ist gegeben durch cL = {cx | x ∈ L}.
+
+Des Weiteren sei b ∈ Rm \ {0} und seien x1 , x2 ∈ Rn zwei Lösungen des inhomogenen linearen
+Gleichungssystem Ax = b.
+
+ (b) Zeige ohne Verwendung von Theorem 1.8.6, dass die folgenden Mengen identisch sind:
+     x1 + L = x2 + L.
+     Hinweis: Die Menge x1 + L ist gegeben durch x1 + L = {x1 + y | y ∈ L}.
+
+
+
+Lösungsskizze zu Aufgabe 4
+
+  1. Sei c ∈ R \ 0 beliebig. Zu zeigen: L = cL.
+
+     Fall 1: L = {0}
+     Dann gilt cL = {cx | x = 0} = {0} = L.
+
+     Fall 2: L ⊋ {0}.
+     Nach Theorem 1.8.3 existieren v1 , . . . , vk ∈ L sodass
+
+                                         L = span{v1 , . . . , vk }.
+
+
+
+
+     Wir zeigen zuerst L ⊆ cL. Sei dafür x ∈ L, dann existieren λ1 , . . . , λk ∈ R sodass
+                                             k                   k
+                                                                     λi
+                                        x=         λi vi = c
+                                             X                   X
+                                                                        vi .
+                                             i=1                 i=1 c
+
+
+     Wir definieren für alle i = 1, . . . , k; γi = λci ∈ R und somit gilt
+                                           k
+                                      y=         γi vi ∈ L und cy = x.
+                                           X
+
+                                           i=1
+
+     Also: x ∈ cL.
+     Nun beweisen wir, dass L ⊇ cL gilt. Sei dafür x ∈ cL, dann existieren γ1 , . . . , γk ∈ R
+     sodass
+                                                 k               k
+                                        x=c            γi vi =
+                                                 X               X
+                                                                       cγi vi .
+                                                 i=1             i=1
+
+     Wir definieren für alle i = 1, . . . , k; λi = c · γi ∈ R und somit gilt
+                                                   k
+                                            x=
+                                                   X
+                                                         λi vi ∈ L.
+                                                   i=1
+
+     Also: x ∈ L.
+
+
+                                                   –5–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025                                              Prof. Dr. Thomas Nagler
+Blatt 2                                                                       Jana Gauß
+
+    Aus Fall 1 und Fall 2 folgt nun die Behauptung.
+    Alternativ funktioniert das ganze auch ohne Verwendung des Spanns: Sei x ∈ L. Dann
+    ist cx (c ̸= 0) ebenfalls eine Lösung des LGS. Also ist cx ∈ L und somit cL ⊆ L. Noch
+    zu zeigen: L ⊆ cL. Sei x ∈ L. Dann ist auch 1/cx (c ̸= 0) eine Lösung des LGS. Da also
+    1/cx ∈ L, folgt x ∈ cL.
+
+  2. Zu zeigen: x1 + L = x2 + L
+
+    Fall 1: L = {0}
+    Beweis durch Widerspruch. Nehme an, dass x1 ̸= x2 . Dann gilt
+
+                                  Ax1 = b = Ax2 und x1 − x2 ̸= 0
+                            ⇒ A(x1 − x2 ) = Ax1 − Ax2 = b − b = 0
+                                                ⇒ 0 ̸= x1 − x2 ∈ L
+
+    Das ist aber ein Widerspruch zu L = {0} ⇒ x1 = x2 und Ax = b hat hier nur genau
+    eine Lösung.
+
+    Fall 2: L ⊋ {0}.
+
+    Wir zeigen zuerst, dass x1 + L ⊆ x2 + L. Sei x ∈ x1 + L, d.h. es existiert ein y ∈ L,
+    sodass x = x1 + y. Zu zeigen: x ∈ x2 + L, d.h. es existiert ein ỹ ∈ L, sodass x = x2 + ỹ.
+    Es gilt
+                     x = x1 + x2 − x2 + y = x2 + (x1 − x2 + y) = x2 + ỹ
+    mit ỹ = x1 − x2 + y. Es gilt ỹ ∈ L, da
+
+                       A(x1 − x2 + y) = Ax1 − Ax2 + Ay = b − b − 0 = 0.
+
+    Alternativ kann man ähnlich zeigen, dass x1 ∈ x2 + L (da x1 = x2 + (x1 − x2 )), woraus
+    x1 + L ⊆ x2 + L folgt.
+
+    Die andere Inklusion: x1 + L ⊇ x2 + L folgt analog.
+
+    Aus Fall 1 und Fall 2 folgt nun die Behauptung.
+
+
+
+
+                                               –6–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025                                                                                  Prof. Dr. Thomas Nagler
+Blatt 2                                                                                                           Jana Gauß
+
+Aufgabe 5 (Lineare Abbildung)
+Untersuche welche der folgenden Abbildungen eine lineare Abbildung ist.
+                                               3x + 2y
+                              !                              !
+                          x
+ (a) f : R → R ,
+           2        2
+                                      7→                         .
+                          y                    4x + y
+
+ (b) h : R → R, x 7→ x3 .
+
+
+Lösungsskizze zu Aufgabe 5
+                              !                !
+                         x1            x2
+ (a)     1. Seien                 ,                 ∈ R2 beliebig. Dann gilt
+                         y1            y2
+
+                                                                 x1 + x 2                 3(x1 + x2 ) + 2(y1 + y2)
+                         !                     !!                           !!                                               !
+                    x1                x2
+            f                 +                     =f                            =
+                    y1                y2                         y1 + y 2                  4(x1 + x2 ) + (y1 + y2 )
+                                                            3x1 + 2y1 + 3x2 + 2y2                      3x1 + 2y1                 3x2 + 2y2
+                                                                                            !                        !                       !
+                                                    =                                            =                       +
+                                                             4x1 + y1 + 4x2 + y2                        4x1 + y1                 4x2 + y2
+                                                                      !!                   !!
+                                                                 x1                   x2
+                                                    =f                     +f                    .
+                                                                 y1                   y2
+                                               !
+                                           x
+         2. Sei λ ∈ R und                          ∈ R2 beliebig. Dann gilt
+                                           y
+
+                                                                                             3λx + 2λy
+                                                            !!                   !!                        !
+                                                        x                   λx
+                                       f λ                       =f                   =
+                                                        y                   λy                4λx + λy
+                                                                        λ(3x + 2y)                    3x + 2y
+                                                                                       !                        !
+                                                                 =                         =λ
+                                                                        λ(4x + y)                      4x + y
+                                                                                 !!
+                                                                             x
+                                                                 = λf
+                                                                             y
+
+       Damit folgt aus 1. und 2., dass f eine lineare Abbildung ist.
+                                              3 2
+                                                                            !                    !!             !
+                                                                                             x           x
+       Alternativ kann man zeigen: mit A =                                       gilt f               =A            für alle x, y, ∈ R,
+                                              4 1                                            y           y
+       somit muss f eine lineare Abbildung sein.
+
+ (b) Nein, h ist keine lineare Abbildung, da beispielsweise für λ = 2 und x = 5 gilt:
+
+                                  h(λx) = λ3 x3 = 23 53 = 1000 ̸= 253 = 2h(5) = λh(x).
+
+
+
+
+                                                                      –7–
+

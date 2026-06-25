@@ -1,0 +1,817 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2024
+Blatt 10
+Prof. Dr. Thomas Nagler
+Nicolai Palm
+Recap - Orthogonalität
+1. Skalarprodukte (d.h. positiv definite bilinear Formen) definieren eine weitere Struktur
+auf Vektorräumen. Diese Struktur erlaubt es viele konstruktive (d.h. durch Algorithmen
+berechenbare) Beweise zu führen.
+2. Zum Beispiel induziert jedes Skalarprodukt eine Norm und damit eine Metrik in der der
+Satz des Pythagoras und die Cauchy-Schwarz Ungleichung gelten (Theoreme 5.3.5 und
+5.3.6). Beides sind sehr wichtige Tools.
+3. Bezüglich des Standard Skalarprodukts stellen orthogonale Matrizen dann genau die li-
+nearen Abbildungen dar, die Norm erhaltend sind, d.h. ||Ux|| = ||x|| g.d.w. U orthogonal
+ist (Theorem 5.6.6). Das macht orthogonale Matrizen so besonders.
+4. Eine Wichtige Anwendung von orthogonalen Matrizen ist, dass über sie die (lineare) Pro-
+jektion auf einen Untervektorraum explizit (als Matrix) konstruiert werden kann (Theo-
+reme 5.7.1 und 5.7.3).
+5. Diese Konstruktion basiert auf dem Gram-Schmidt Verfahren - einem Algorithmus um
+orthogonale Basen von Untervektorräumen zu konstruieren (Theorem 5.7.4).
+Fingerübungen
+1. Für einen beliebigen Untervektorraum W ⊂ V , was ist (W⊥
+)⊥
+?
+2. Sei U eine orthogonale Matrix. Ist U dann invertierbar?
+3. Sei U eine orthogonale Matrix. Sind dann UT
+und U−1
+orthogonal?
+4. Seien U,V orthogonale Matrizen. Ist dann UV orthogonal?
+5. Sei U eine orthogonale Matrix. Kann die Determinante det(U) von U andere Werte als
+1,−1 annehmen?
+Übungsaufgaben
+Aufgabe 1 (Orthogonal Matrizen und Skalarprodukte)
+Seien U eine orthogonale n × n-Matrix. Zeige:
+1. ||Ux|| = ||x|| für alle x ∈ Rn
+.
+2. hUx,Uyi = hx,yi für alle x,y ∈ R.
+Aufgabe 2 (Orthogonaler Vektorraum)
+Sei W ⊂ V ein Untervektorraum. Zeige:
+1. Das Orthogonale Komplement W⊥
+⊂ V ist ein Untervektorraum.
+2. Es gilt W ∩ W⊥
+= {0}.
+Lösungsskizze zu Aufgabe 2
+Lasst uns zunächst wiederholen wie wir allgemein Aufgaben lösen: Wir machen uns klar
+–1–Methoden der linearen Algebra in der Statistik
+Sommersemester 2024
+Blatt 10
+Prof. Dr. Thomas Nagler
+Nicolai Palm
+1. ...was gegeben ist.
+2. ...was das heißt. (d.h. Definitionen aufschreiben)
+3. ...was wir zeigen müssen.
+4. ...was das heißt. (d.h. Definitionen aufschreiben)
+Warum? Wir können erst anfangen zu beweisen, wenn wir verstanden haben (a) was wir ver-
+wenden müssen (1. und 2.) und (b) was wir zeigen müssen (3. und 4.).
+Zu 2.:
+Was ist gegeben? W ⊂ V is ein Untervektorraum und W⊥
+ist das orthogonale Komplement
+von W.
+Was heißt das? W ist Teilmenge von V und trägt eine Vektorraum Struktur die über V
+induziert ist. Das orthogonale Komplement ist gegeben über W⊥
+= {v ∈ V : v⊥w für alle w ∈
+W} (Definition). Ferner bedeutet v⊥w, dass hv,wi = 0. (Wenn die Definition von Skalaprodukt
+nicht klar ist sollte sie hier nochmal stehen.)
+Was müssen wir zeigen? W ∩ W⊥
+= {0}.
+Was heißt das? Per Definition ist W ∩ W⊥
+= {v: v ∈ W,v ∈ W⊥
+}. Das heißt es gilt
+v ∈ W ∩ W⊥
+genau dann wenn v ∈ W und v ∈ W⊥
+. W ∩ W⊥
+= {0} bedeutet also (a) 0 ∈ W
+und 0 ∈ W⊥
+und (b) 0 ist der einzige Vektor in W und W⊥
+. (b) zeigen wir durch: Sei v ∈ W
+und v ∈ W⊥
+dann folgt v = 0. Jetzt haben wir alles zusammen und können mit dem Beweis
+anfangen.
+Beweis: Da W ein Vektorraum ist, gilt 0 ∈ W per Definition. Ferner gilt h0,vi = 0 für all v ∈ V
+nach der Definition des Skalarprodukts. Insbesondere also 0 ∈ W⊥
+. Das beweist (a). Für (b) sei
+v ∈ W und v ∈ W⊥
+. Das heißt (siehe Oben) v ∈ W und hv,wi = 0 für alle w ∈ W. Kombiniert
+erhalten wir hv,vi = 0. Wegen der positiv-Definitheit des Skalarprodukts folgt daraus v = 0.
+Das beweist die Behauptung.
+Zu 1.:
+Was ist gegeben? W ⊂ V is ein Untervektorraum und W⊥
+ist das orthogonale Komplement
+von W.
+Was heißt das? W ist Teilmenge von V und trägt eine Vektorraum Struktur die über V
+induziert ist. Das orthogonale Komplement ist gegeben über W⊥
+= {v ∈ V : v⊥w für alle w ∈
+W} (Definition). Ferner bedeutet v⊥w, dass hv,wi = 0.
+Was müssen wir zeigen? W⊥
+⊂ V ist ein Untervektorraum.
+Was heißt das? (a) W⊥
+6= ∅ ist nicht leer, (b) W⊥
+⊂ V ist eine Teilmenge (c) W⊥
+ist
+abgeschlossen unter Summen und Skalarmultiplikationen, d.h. λx+y ∈ W⊥
+für alle λ ∈ R und
+x,y ∈ W⊥
+. Das wiederrum bedeutet hλx + y,wi = 0 für alle w ∈ W.
+Beweis: Wir bemerken, dass (b) per Definition gilt. Wie in 2. folgern wir 0 ∈ W⊥
+, damit folgt
+insbesondere (a). Sei nun λ ∈ R und x,y ∈ W⊥
+. Dann gilt für alle w ∈ W:
+hλx + y,wi = λhx,wi + hy,wi Homogenität und Distributivgesetz des Skalarprodukts
+= 0 da x,y ∈ W⊥
+.
+Das zeigt (c) und wir folgern die Behauptung.
+–2–Methoden der linearen Algebra in der Statistik
+Sommersemester 2024
+Blatt 10
+Prof. Dr. Thomas Nagler
+Nicolai Palm
+Alternative:
+Sei w1,...,wk ∈ W eine Basis. Für v ∈ V gilt v ∈ W⊥
+genau dann wenn v⊥wi für alle i
+(Vorlesung Theorem 5.4.7). Das heißt für v ∈ V gilt v ∈ W⊥
+genau dann wenn f(v) = 0 für
+f : V → Rk
+,v 7→ (hv,w1i,...,hv,wki).
+Bemerke, dass f linear ist (Homogenität und Distributivgesetz bzw. Bilinearität des Skalar-
+produkts). Also ist W⊥
+= ker(f) ⊂ V Kern einer linearen Abbildung und damit ein Unter-
+vektorraum von V . Bemerkung: Es ist kein Zufall, dass W⊥
+als Kern einer linearen Abbildung
+dargestellt werden kann. Jeder Untervektorraum ist Kern einer linearen Abbildung (und um-
+gekehrt).
+–3–Methoden der linearen Algebra in der Statistik
+Sommersemester 2024
+Blatt 10
+Prof. Dr. Thomas Nagler
+Nicolai Palm
+Hausaufgaben
+Aufgabe 3 (Projektionen sind lineare Operationen)
+Beweise Theorem 5.6.2 aus dem Skript:
+Ist U ∈ Rn×k
+eine Matrix, dessen Spalten eine Orthogonalbasis für einen Unterraum W ⊂ Rn
+bilden, dann gilt
+projW v = U(U>
+U)−1
+U>
+v.
+Hinweis: Theorem 5.7.1 (ii).
+Bonus: Zeige, dass in Theorem 5.6.2 Orthogonalbasis mit Basis ersetzt werden kann.
+Lösungsskizze zu Aufgabe 3
+Das kann man direkt nachrechnen:
+U>
+U =
+
+
+
+
+u>
+1 u1 ··· u>
+1 uk
+. . .
+. . .
+u>
+k u1 ··· u>
+k uk
+
+
+
+ =
+
+
+
+
+
+
+
+u>
+1 u1 0 ··· 0
+0 u>
+2 u2 0
+. . .
+. . .
+...
+...
+...
+0 ··· 0 u>
+k uk
+
+
+
+
+
+
+
+,
+also
+(U>
+U)−1
+=
+
+
+
+
+
+
+
+
+1
+hu1,u1i
+0 ··· 0
+0 1
+hu2,u2i
+0
+. . .
+. . .
+... ... ...
+0 ··· 0 1
+huk,uki
+
+
+
+
+
+
+
+
+.
+Außerdem
+U>
+v =
+
+
+
+
+hu1,vi
+. . .
+huk,vi
+
+
+
+
+und damit
+(U>
+U)−1
+U>
+v =
+
+
+
+
+
+hu1,vi
+hu1,u1i
+. . .
+huk,vi
+huk,uki
+
+
+
+
+
+.
+Eine Letzte Multiplikation mit U ergibt die Formel:
+U(U>
+U)−1
+U>
+v =
+hu1,vi
+hu1,u1i
+u1 + ··· +
+huk,vi
+huk,uki
+uk = projW v.
+–4–Methoden der linearen Algebra in der Statistik
+Sommersemester 2024
+Blatt 10
+Prof. Dr. Thomas Nagler
+Nicolai Palm
+Aufgabe 4 (Beispiel: Gram-Schmidt Verfahren)
+Bestimmen Sie mit Hilfe des Gram-Schmidt Verfahrens eine Orthonormalbasis des folgenden
+Untervektorraums des R5
+:
+span
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1
+0
+0
+0
+0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1
+0
+1
+0
+0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1
+1
+1
+0
+2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2
+1
+0
+2
+3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.
+Lösungsskizze zu Aufgabe 4
+Wir werden hier zuerst orthogonale Vektoren mit dem Gram-Schmidt Verfahren berechnen und
+im Anschluss diese dann normalisieren.
+Im folgenden sei:
+• Die Basis aus der Aufgabenstellung:
+v1 =
+
+
+
+
+
+
+
+
+1
+0
+0
+0
+0
+
+
+
+
+
+
+
+
+v2 =
+
+
+
+
+
+
+
+
+1
+0
+1
+0
+0
+
+
+
+
+
+
+
+
+v3 =
+
+
+
+
+
+
+
+
+1
+1
+1
+0
+2
+
+
+
+
+
+
+
+
+v4 =
+
+
+
+
+
+
+
+
+2
+1
+0
+2
+3
+
+
+
+
+
+
+
+
+• w̃1,w̃2,w̃3,w̃4 die durch das Gram Schmidt Verfahren orthogonalisierten Vektoren und
+• w1,w2,w3,w4 sind die normalisierten Vektoren.
+Wir definieren zuerst
+w1 =
+
+
+
+
+
+
+
+
+1
+0
+0
+0
+0
+
+
+
+
+
+
+
+
+als erster Vektor des Gram-Schmidt Verfahrens(Anmerkung: dieser ist bereits normalisiert).
+Die Projektion des zweiten Vektors auf den ersten ist gegeben durch
+projw1(v2) = hv2,w1iw1 =
+
+
+
+
+
+
+
+
+1
+0
+0
+0
+0
+
+
+
+
+
+
+
+
+Damit ist der zweite Vektor über das Gram-Schmidt Verfahren gegeben durch
+w2 = v2 − projv1(v2) =
+
+
+
+
+
+
+
+
+0
+0
+1
+0
+0
+
+
+
+
+
+
+
+
+.
+Dieser ist ebenfalls bereits normalisiert.
+–5–Methoden der linearen Algebra in der Statistik
+Sommersemester 2024
+Blatt 10
+Prof. Dr. Thomas Nagler
+Nicolai Palm
+Der dritte Vektor ist nun gegeben durch
+w̃3 = v3 − projv1,v2
+(v3)
+= v3 − hv3,w2iw2 − hv3,w1iw1
+=
+
+
+
+
+
+
+
+
+0
+1
+0
+0
+2
+
+
+
+
+
+
+
+
+.
+Dieser ist noch nicht normiert und somit ist
+w3 = w̃3 ·
+1
+||w̃3||
+= 5−1
+2
+
+
+
+
+
+
+
+
+0
+1
+0
+0
+2
+
+
+
+
+
+
+
+
+.
+Schlussendlich berechnen wir noch den vierten Vektor:
+w̃4 = v4 − projw1,w2,w3
+(v4)
+= v4 − hv4,w3iw3 − hv4,w2iw2 − hv4,w1iw1
+=
+
+
+
+
+
+
+
+
+2
+7
+5
+0
+0
+14
+5
+
+
+
+
+
+
+
+
+.
+und normiert erhalten wir
+w4 = w̃4 ·
+1
+||w̃4||
+= 105−1
+2
+
+
+
+
+
+
+
+
+0
+−2
+0
+10
+1
+
+
+
+
+
+
+
+
+.
+Die Vektoren w1,w2,w3,w4 bildet nun eine Orthonormalbasis zu dem in der Aufgabe betrach-
+teten Untervektorraum.
+Hinweis: Meistens ist es sinnvoll die Vektoren erst nach der Anwendung des Gram-Schmidt
+Verfahrens zu normalisieren, da durch die Normierung oft Zahlen auftreten, mit denen man
+schwerer rechnen kann.
+–6–Methoden der linearen Algebra in der Statistik
+Sommersemester 2024
+Blatt 10
+Prof. Dr. Thomas Nagler
+Nicolai Palm
+Aufgabe 5 (Beispiel - Orthogonaler Vektor)
+Betrachte die folgenden Vektoren
+B =
+
+ 
+ 
+
+
+
+1
+0
+0
+
+
+ ,
+
+
+
+0
+cos(α)
+sin(α)
+
+
+,
+
+
+
+x
+y
+z
+
+
+
+
+ 
+ 
+Finde alle möglichen Vektoren
+
+
+
+x
+y
+z
+
+
+ sodass B eine orthogonale Menge ist bzgl dem Stan-
+dardskalarprodukt auf R3
+.
+Lösungsskizze zu Aufgabe 5
+Für
+
+
+
+x
+y
+z
+
+
+ muss gelten, dass
+h
+
+
+
+1
+0
+0
+
+
+ ,
+
+
+
+x
+y
+z
+
+
+i = 0
+h
+
+
+
+0
+cos(α)
+sin(α)
+
+
+ ,
+
+
+
+x
+y
+z
+
+
+i = 0
+Daher muss nun x,y,z die folgenden Gleichungen erfüllen:
+x = 0
+cos(α)y + sin(α)z = 0
+Damit ist die Menge der folgenden Vektoren orthogonal zu
+
+
+
+1
+0
+0
+
+
+ und
+
+
+
+0
+cos(α)
+sin(α)
+
+
+:
+
+  
+  
+
+
+
+
+0
+−sin(α)
+cos(α)
+b
+b
+
+
+
+ | b ∈ R
+
+  
+  
+–7–

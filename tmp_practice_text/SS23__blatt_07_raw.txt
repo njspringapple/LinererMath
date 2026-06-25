@@ -1,0 +1,134 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2023
+Blatt 7
+Prof. Dr. Thomas Nagler
+Philipp Schiele
+Übungsaufgaben
+Aufgabe 1 (Kern einer Matrix)
+Finde eine Matrix A ∈ R3×3
+deren Kern
+(a) ein Punkt ist,
+(b) eine Linie ist,
+(c) eine Plane ist.
+Aufgabe 2 (Spaltenraum)
+Bestimme, ob b im Spaltenraum von A liegt. Falls dem so ist, stelle b als Linearkombi-
+nation der Spalten von A dar.
+(a) A =
+1 3
+4 −6
+!
+, b =
+−2
+10
+!
+(b) A =
+
+
+
+1 1 2
+1 0 1
+2 1 3
+
+
+, b =
+
+
+
+−1
+0
+2
+
+
+
+(c) A =
+
+
+
+1 −1 1
+9 3 1
+1 1 1
+
+
+, b =
+
+
+
+5
+1
+−1
+
+
+
+Übung: Mo 16–18 Uhr –1–Methoden der linearen Algebra in der Statistik
+Sommersemester 2023
+Blatt 7
+Prof. Dr. Thomas Nagler
+Philipp Schiele
+Hausaufgaben
+Aufgabe 3 (Rang, Kern einer Matrix)
+Betrachte die Funktion f : R3
+→ R2
+die gegeben ist durch die folgende Matrix
+A =
+1 2 3
+4 5 6
+!
+.
+(a) Bestimme den Rang von f.
+(b) Bestimme das Bild der Funktion f und gebe eine Basis des Bildes sowie die Dimen-
+sion an.
+(c) Bestimme den Kern von f und gebe eine Basis des Kerns sowie die Dimension an.
+Aufgabe 4 (Basis, Zeilen- und Spaltenraum)
+Sei A =
+
+
+
+0 1 3
+−1 0 1
+−1 2 7
+
+
+.
+(a) Bestimme eine Basis des Zeilenraums von A.
+(b) Bestimme eine Basis des Spaltenraums von A.
+(c) Fine eine Basis des Kerns von A (zur Erinngerung: ker(A) = {x ∈ Rn
+| Ax = 0}).
+(d) Bestimme, ob die Vektoren v =
+
+
+
+1
+1
+1
+
+
+ und w =
+
+
+
+2
+1
+1
+
+
+ im Zeilenraum von A liegen.
+(e) Bestimme, ob die Vektoren a =
+
+
+
+1
+1
+3
+
+
+ und b =
+
+
+
+3
+1
+1
+
+
+ im Spaltenraum von A
+liegen.

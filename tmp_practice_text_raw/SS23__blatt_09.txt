@@ -1,0 +1,95 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2023
+Blatt 9
+Prof. Dr. Thomas Nagler
+Philipp Schiele
+Übungsaufgaben
+Aufgabe 1 (Skalarprodukt auf dem Funktionenraum)
+In dieser Aufgabe betrachten wir den Raum aller stetigen Funktionen mit Definitionsbe-
+reich [a,b] ⊆ R (Notation C[a,b])). Analog zu Aufgabe 6 des 5ten Übungsblattes, kann
+man zeigen, dass diese Menge mit den in Beispiel 3.1.5 definierten Addition und Mulit-
+plikation einen Vektorraum ist.
+(a) Zeige, dass für f,g ∈ C[a,b]
+hf,gi :=
+Z b
+a
+f(x)g(x)dx
+ein Skalarprodukt auf C[a,b] definiert.
+Tipp: Um (iv) aus der Definition zu zeigen, benötigt man die Stetigkeit.
+(b) Verwende Teilaufgabe (a) um zu zeigen, dass für zwei Funktionen f,g ∈ C[a,b] die
+Ungleichung
+Z b
+a
+f(x)g(x)dx
+2
+≤
+Z b
+a
+f(x)2
+dx
+Z b
+a
+g(x)2
+dx
+gilt.
+(c) Betrachte nun die Funktionen
+f : [0,2π] → R,x 7→ 1 und
+g : [0,2π] → R,x 7→ cos(x).
+Dann sind f,g ∈ C[0,2π]. Beweise nun unter Verwendung des Skalarproduktes aus
+(a), dass f und g orthogonal zueinander sind.
+Aufgabe 2 (Orthogonalmatrix Matrizen)
+Nach Definition 5.5.12 nennen wir eine Matrix U ∈ Rn×n
+Orthogonalmatrix, wenn die
+Spaltenvektoren orthogonal zueinander sind und alle Spaltenvektoren die Länge 1 besit-
+zen. Zeige, dass jede Orthogonalmatrix U ∈ Rn×n
+invertierbar ist und U>
+die zugehörige
+Inverse ist.
+Übung: Mo 16–18 Uhr –1–Methoden der linearen Algebra in der Statistik
+Sommersemester 2023
+Blatt 9
+Prof. Dr. Thomas Nagler
+Philipp Schiele
+Hausaufgaben
+Aufgabe 3 (Cn
+als Vektorraum und das Standardskalarprodukt dazu)
+(a) Zeige, dass Cn
+ein Vektorraum ist.
+(b) Zeige, dass
+h·,·i : Cn
+→ C mit hw,vi :=
+n X
+i=1
+wivi
+wobei w = (w1,...,wn)>
+,v = (v1,...,vn)>
+∈ Cn
+ein Skalarprodukt auf Cn
+definiert.
+Bemerkung Da dieses Skalarprodukt nicht in die reellen sondern in die komplexen
+Zahlen abbildet, muss bei Definition 5.3.1 die Symmetrie durch die hermitesche
+Eigenschaft ersetzt werden, d.h. es gilt:
+hw,vi = hv,wi
+(c) Berechne für die Vektoren
+u = (1 + i,i,3 − i) und v = (1 + i,2,4i)
+hu,vi,hv,ui,||u|| und ||v||.
+Aufgabe 4 (Maximumsnorm auf Rn
+)
+Zeige, dass
+||x||∞ = max{|x1|,...,|xn|}
+für x = (x1,...,xn)>
+∈ Rn
+alle Eigenschaften aus Theorem 5.1.2 erfüllt.
+Hinweis: Eine Abbildung die diese Eigenschaften erfüllt, definiert direkt eine Norm.
+Aufgabe 5 (Skalarprodukt)
+Sei V ein Vektorraum mit Skalarprodukt h·,·i : V × V → R und der daraus induzierten
+Norm || · ||. Seien zudem v,w ∈ V . Dann gilt
+(a) hv + w,v − wi = ||v||2
+− ||w||2
+.
+(b) Falls v und w orthogonal sind, so ist
+||v + w||2
+= ||v||2
++ ||w||2
+.
+(Satz des Pythagoras)

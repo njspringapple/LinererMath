@@ -1,0 +1,75 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2023                                            Prof. Dr. Thomas Nagler
+Blatt 8                                                                  Philipp Schiele
+
+    Übungsaufgaben
+
+Aufgabe 1 (Matrixprodukt und stochastische Matrix)
+
+     (a) Sei A = P −1 DP ∈ Rn×n eine diagonalisierbare Matrix. Zeige, dass
+
+                                           An = P −1 Dn P.
+
+     (b) Sei A ∈ Rn×n eine Matrix mit A3 = A. Dann sind die einzig möglichen Eigenwerte
+         -1,0 und 1.
+     (c) Sei A ∈ Rn×n eine Matrix. Zeige, dass A und AT die selben Eigenwerte besitzen.
+     (d) Sei A ∈ Rn×n eine stochastische Matrix. Zeige, dass ein Eigenwert 1 sein muss. Tipp:
+         Nutze dafür (c).
+
+Aufgabe 2 (Diagonalisierbarkeit)
+    Nach Definition 4.4.1 ist eine Matrix A diagonalisierbar genau dann wenn eine Matrix P
+    und eine Diagonalmatrix D existieren sodass
+
+                                          A = P −1 DP.
+
+    Zeige, dass die Zerlegung von A nicht eindeutig ist. D.h das zwei Matrizen P1 , P2 und
+    eine Diagonalmatrix D existieren mit
+
+                                      P1−1 DP1 = P2−1 DP2 .
+
+Aufgabe 3 (Potenz einer Matrix)
+    Berechne A25 für
+                                                       !
+                                                 1 2
+                                         A=                .
+                                                 2 1
+
+
+
+
+Übung: Mo 16–18 Uhr                        –1–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2023                                               Prof. Dr. Thomas Nagler
+Blatt 8                                                                     Philipp Schiele
+
+
+
+    Hausaufgaben
+
+Aufgabe 4 (Diagonlisierbarkeit und Invertierbarkeit)
+    Beweise oder widerlege die folgenden Aussagen:
+
+     (a) Jede diagonalisierbare Matrix A ist auch invertierbar.
+     (b) Jede invertierbare Matrix A ist auch diagonalisierbar.
+
+Aufgabe 5 (Beispiel Eigenwerte, Eigenvektoren und Diagonalisierung)
+    Betrachte die Matrix
+                                                      
+                                             3 0 0
+                                       A =  1 2 2 .
+                                                  
+
+                                             1 0 4
+
+     (a) Gebe alle Eigenwerte und eine Eigenvektorbasis an.
+     (b) Bestimme eine Matrix P und eine Diagonalmatrix D sodass
+
+                                            A = P −1 DP.
+
+Aufgabe 6 (Eigenwerte von Inversen)
+
+Sei A ∈ Rn×n eine invertierbare Matrix. Zeige, dass
+
+      (i) λ ist Eigenwert von A ⇔ λ−1 ist Eigenwert von A−1 .
+     (ii) v ist Eigenvektor von A ⇔ v ist Eigenvektor von A−1 .
+

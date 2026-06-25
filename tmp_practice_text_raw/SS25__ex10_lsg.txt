@@ -1,0 +1,393 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025
+Blatt 10
+Prof. Dr. Thomas Nagler
+Jana Gauß
+Recap - Skalarprodukte & KQ-Problem
+1. Das Standardskalarprodukt ⟨x,y⟩ = xT
+y =
+Pn
+i=1 xiyi auf Rn
+erlaubt es, sehr viele kon-
+struktive Resultate abzuleiten.
+2. Zum Beispiel können wir über orthogonale Projektionen (induziert über das Standards-
+kalarprodukt) die Lösung des kleinsten Quadrate Problems untersuchen und berechnen
+(Theoreme 5.8.3, 5.8.4, 5.8.5). Das ist aus Anwendersicht sehr interessant und wird euch
+im Studium noch oft begegnen.
+3. Auch auf anderen Räumen als Rn
+können wir Skalarprodukte definieren. Dafür axio-
+matisieren wir die Kerneigenschaften des Standardskalarprodukts: Eine Abbildung g :
+V × V → R heißt Skalarprodukt wenn g
+(a) positiv definit ist, d.h. g(x,x) ≥ 0 und g(x,x) = 0 g.d.w. x = 0.
+(b) bilinear ist, d.h. für jedes y ist g(·,y) : V → R,x 7→ g(x,y) eine lineare Abbildung.
+(c) symmetrisch ist, d.h. g(x,y) = g(y,x).
+Diese Axiome sind, was Skalarpodukte so mächtig macht.
+Fingerübungen
+1. Sei A invertierbar. Was ist die Lösung des kleinste-Quadrate-Problems argminx ∥Ax−b∥?
+2. Ist die Lösung aus 1. eindeutig?
+3. Definiert g : R × R → R,(x,y) 7→ |x − y| ein Skalarprodukt auf R?
+Lösungsskizze zu Aufgabe 0
+1. Wenn A invertierbar ist, dann hat Ax = b eine Lösung, nämlich x̂ = A−1
+b. Für dieses x̂
+gilt Ax̂−b = 0, also ∥Ax̂−b∥ = 0. Da Normen nicht negativ sind, ist 0 der kleinstmögliche
+Wert und somit muss x̂ eine Lösung des KQ Problems sein.
+2. Die Lösung x = A−1
+b ist eindeutig, denn eine weitere Lösung müsste Ax−b = 0 erfüllen.
+Dieses LGS hat genau eine Lösung, wenn A invertierbar ist (Th. 4.3.1)
+3. Nein, die Positiv-Definitheit ist zum Beispiel verletzt: für alle x gilt g(x,x) = |x−x| = 0.
+Bei einem Skalarprodukt muss aus g(x,x) = 0 immer x = 0 folgen.
+Übungsaufgaben
+Aufgabe 1 (Projektionen sind lineare Operationen)
+Beweise Theorem 5.7.3 aus dem Skript:
+Ist U ∈ Rn×k
+eine Matrix, dessen Spalten eine Orthogonalbasis für einen Unterraum W ⊂ Rn
+bilden, dann gilt
+projW v = U(U⊤
+U)−1
+U⊤
+v.
+–1–Methoden der linearen Algebra in der Statistik
+Sommersemester 2025
+Blatt 10
+Prof. Dr. Thomas Nagler
+Jana Gauß
+Hinweis: projW v ist in Theorem 5.7.1 (ii) definiert. Zeige, dass U(U⊤
+U)−1
+U⊤
+v genau diese
+Definition ergibt. Berechne zunächst UT
+U unter Nutzung, dass die Spalten von U orthogonal
+sind.
+Lösungsskizze zu Aufgabe 1
+Seien u1,...,uk die (orthogonalen) Spalten von U. Dann gilt
+U⊤
+U =
+
+
+
+
+u⊤
+1 u1 ··· u⊤
+k u1
+. . .
+. . .
+u⊤
+1 uk ··· u⊤
+k uk
+
+
+
+ =
+
+
+
+
+
+
+
+⟨u1,u1⟩ 0 ··· 0
+0 ⟨u2,u2⟩ 0
+. . .
+. . .
+...
+...
+...
+0 ··· 0 ⟨uk,uk⟩
+
+
+
+
+
+
+
+.
+Das Inverse einer Diagonalmatrix ist leicht zu berechnen:
+(U⊤
+U)−1
+=
+
+
+
+
+
+
+
+
+1
+⟨u1,u1⟩
+0 ··· 0
+0 1
+⟨u2,u2⟩
+0
+. . .
+. . .
+... ... ...
+0 ··· 0 1
+⟨uk,uk⟩
+
+
+
+
+
+
+
+
+.
+Da die i-te Zeile von U⊤
+gegeben ist durch ui, gilt
+U⊤
+v =
+
+
+
+
+u⊤
+1 v
+. . .
+u⊤
+k v
+
+
+
+ =
+
+
+
+
+⟨u1,v⟩
+. . .
+⟨uk,v⟩
+
+
+
+
+und damit
+(U⊤
+U)−1
+U⊤
+v =
+
+
+
+
+
+⟨u1,v⟩
+⟨u1,u1⟩
+. . .
+⟨uk,v⟩
+⟨uk,uk⟩
+
+
+
+
+
+.
+Eine letzte Multiplikation mit U ergibt die Formel:
+U(U⊤
+U)−1
+U⊤
+v =
+⟨u1,v⟩
+⟨u1,u1⟩
+u1 + ··· +
+⟨uk,v⟩
+⟨uk,uk⟩
+uk = projW v.
+Aufgabe 2 (Positiv definite Matrizen und Skalarprodukte)
+Sei A eine symmetrische n × n-Matrix. Wir nehmen an, dass A positiv definit ist, das heißt
+xT
+Ax ≥ 0 für alle x ∈ Rn
+und xT
+Ax = 0 genau dann, wenn x = 0.
+1. Zeige, dass g : Rn
+× Rn
+→ R,(x,y) 7→ xT
+Ay ein Skalarprodukt auf Rn
+definiert.
+2. Folgere, dass das Standardskalarprodukt ⟨x,y⟩ = xT
+y =
+Pn
+i=1 xiyi und das gewichtete
+Skalarprodukt (⟨x,y⟩ =
+Pn
+i=1 wixiyi, w1,...,wn > 0) beides Skalarprodukte definieren.
+3. Zeige, dass auch die Rückrichtung gilt: Für jedes Skalarprodukt g auf Rn
+existiert genau
+eine positiv definite und symmetrische Matrix A, sodass g(x,y) = xT
+Ay gilt.
+Hinweis: Schreibe x =
+Pn
+i=1 xiei,y =
+Pn
+j=1 yjej und nutze dann Eigenschaften des Ska-
+larprodukts. Es gilt xT
+Ay =
+Pn
+i=1
+Pn
+j=1 xiyjaij.
+–2–Methoden der linearen Algebra in der Statistik
+Sommersemester 2025
+Blatt 10
+Prof. Dr. Thomas Nagler
+Jana Gauß
+Lösungsskizze zu Aufgabe 2
+1. Sei A symmetrisch und positiv definit und g wie oben definiert.
+• g ist positiv definit, da A positiv definit ist: g(x,x) = xT
+Ax ≥ 0 und
+g(x,x) = xT
+Ax = 0 ⇔ x = 0.
+• g ist symmetrisch, da A symmetrisch ist (d.h. AT
+= A):
+g(x,y) = xT
+Ay
+∈R
+= (xT
+Ay)T
+= yT
+AT
+x
+AT =A
+= yT
+Ax = g(y,x).
+• g ist per Definition bilinear: Sei y ∈ Rn
+fest. Die Abbildung f : Rn
+→ R,x 7→ xT
+Ay
+ist linear, denn für alle x ∈ Rn
+gilt: xT
+Ay = yT
+Ax = Bx mit B = yT
+A ∈ R1×n
+. f
+hat also die Form f(x) = Bx und ist somit linear (Th. 1.10.2).
+Somit erfüllt g alle Eigenschaften eines Skalarprodukts.
+2. Beide Skalarprodukte sind Spezialfälle (man beachte, dass man die Symmetrie und Positiv-
+Definitheit der jeweiligen Matrix A nachweisen muss!):
+Das Standardskalarprodukt erhält man mit A = In. In ist symmetrisch und positiv definit,
+denn xT
+Inx =
+Pn
+i=1 x2
+i ≥ 0, Gleichheit nur wenn x = 0.
+Das gewichtete Skalarprodukt erhält man durch eine Diagonalmatrix mit den Einträgen
+w1,...,wn auf der Diagonalen (A = diag(w)). Die Matrix diag(w) ist symmetrisch und
+positiv definit, denn xdiag(w)x =
+Pn
+i=1 wix2
+i ≥ 0 und Gleichheit nur wenn x = 0, da
+wi > 0 für alle i.
+3. Sei g(x,y) = ⟨x,y⟩ ein beliebiges Skalarprodukt auf Rn
+. Es gilt
+⟨x,y⟩ = ⟨
+n X
+i=1
+xiei,
+n X
+j=1
+yjej⟩ =
+n X
+i=1
+n X
+j=1
+xiyj⟨ei,ej⟩ =
+n X
+i=1
+n X
+j=1
+xiyjaij = xT
+Ay
+mit Matrix A mit aij = ⟨ei,ej⟩.
+A muss positiv definit und symmetrisch sein, da g positiv definit und symmetrisch ist.1
+A muss eindeutig sein: Angenommen es gäbe ein Ã, sodass auch g(x,y) = xT
+Ãy mit
+aij ̸= ãij für mindestens ein Paar (i,j). Es gilt (mit diesem Paar (i,j))
+g(ei,ej) = eT
+i Aej = aij und g(ei,ej) = eT
+i Ãej = ãij,
+also g(ei,ej) ̸= g(ei,ej) wenn aij ̸= ãij → Widerspruch.
+1
+Positiv-Definitheit: Angenommen, es gäbe ein x, sodass xT
+Ax < 0. Dann wäre g(x,x) < 0, was ein
+Widerspruch ist. Symmetrie analog oder durch aij = ⟨ei,ej⟩ = ⟨ej,ei⟩ = aji.
+–3–Methoden der linearen Algebra in der Statistik
+Sommersemester 2025
+Blatt 10
+Prof. Dr. Thomas Nagler
+Jana Gauß
+Hausaufgaben
+Aufgabe 3 (Methode der kleinsten Quadrate)
+Betrachte das folgende Gleichungssystem
+x1 − x2 = 4
+3x1 + 2x2 = 1
+−2x1 + 4x2 = 3
+und schreibe es als lineares Gleichungsystem Ax = b um. Nach der Vorlesung gibt es nun zwei
+Möglichkeiten eine Lösung für
+argmin
+x
+||Ax − b||
+zu finden:
+• Lösung über die Normalengleichung und
+• Durch Projektion von b auf col(A).
+Verifiziere für dieses Beispiel in R, dass tatsächlich mit beiden Methoden das selbe Ergebnis
+berechnet wird.
+Hinweis: t(A) ist die transponierte Matrix zu A. Matrizen multipliziert man mit %*%, bei
+Vektoren liefert einem dieser Befehl das Skalarprodukt (as.numeric(x %*% y), um eine Zahl
+statt einer 1 × 1 Matrix zu bekommen).
+Mit solve(A, b) bekommt man die Lösung von Ax = b. Beim Vorgehen über die Projektion
+von b auf col(A) erhält man ein LGS mit 3 Gleichungen, aber nur 2 Unbekannten. Um solve
+trotzdem zu nutzen, kann man nur die ersten zwei Gleichungen auswählen (hier macht das
+keinen Unterschied, da das LGS mit 3 Gleichungen, aber nur 2 Unbekannten per Konstruktion
+nur eine Lösung hat; diese ist auch durch 2 der 3 Gleichungen eindeutig festgelegt).
+Lösungsskizze zu Aufgabe 3
+Siehe R Code, die Lösung ist in etwa x̂ ≈ (0.18,0.50)T
+.
+Es gilt A =
+
+
+
+1 −1
+3 2
+−2 4
+
+
+,b =
+
+
+
+4
+1
+3
+
+
+.
+Für die Lösung mit der Normalengleichung löst man das LGS AT
+Ax = AT
+b. Da die Spalten
+von A linear unabhängig sind, hat das LGS die eindeutige Lösung x̂ = (AT
+A)1
+AT
+b.
+Bei der Lösung über die Projektion muss man zunächst per Gram-Schmidt-Verfahren die Spal-
+ten von A orthogonalisieren. Damit hat man dann eine Orthogonalbasis von col(A) und kann
+b̂ = projcol(A)(b) berechnen. Anschließend löst man das LGS Ax = b̂.
+Aufgabe 4 (Kleinste-Quadrate-Problem)
+Seien die Spalten von A ∈ Rn×m
+linear unabhängig. Zeige:
+(a) Sei x̂ eine Lösung des linearen Gleichungssystems Ax = b. Dann ist x̂ eine Lösung des
+kleinsten Quadrate Problems.
+(b) Sei b orthogonal zu den Spalten von A. Dann ist der kleinste Quadrate Schätzer zu Ax = b
+direkt x = 0.
+Lösungsskizze zu Aufgabe 4
+–4–Methoden der linearen Algebra in der Statistik
+Sommersemester 2025
+Blatt 10
+Prof. Dr. Thomas Nagler
+Jana Gauß
+1. Für x̂ gilt ∥Ax̂ − b∥ = ∥b − b∥ = 0. Da die Norm nicht-negativ ist, minimiert x̂ den
+Ausdruck ∥Ax − b∥.
+2. Wenn b orthogonal zu den Spalten von A ist, dann ist b̂ = projcol(A)b = 0. Die Lösung
+des KQ-Problems ist somit die Lösung von Ax̂ = b̂ = 0, da b⊥col(A) (alternativ kann
+man das durch Einsetzen in die Formel der Projektion erkennen). Da die Spalten von A
+per Annahme linear unabhängig sind, hat dieses LGS nur die Lösung x̂ = 0.
+–5–

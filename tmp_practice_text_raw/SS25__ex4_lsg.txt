@@ -1,0 +1,181 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2025
+Blatt 4
+Prof. Dr. Thomas Nagler
+Jana Gauß
+Recap - Determinanten und Vektorräume
+1. Die Determinante einer (quadratischen) Matrix ist ungleich 0 (det(A) ̸= 0) g.d.w. die
+Matrix invertierbar ist (Theorem 2.4.10)
+2. Wichtige Eigenschaften sind:
+det(AB) = det(A)det(B) Theorem 2.4.11
+det(A + B) ̸= det(A) + det(B) Fingerübung 3 & 4
+det(In) = 1,det(A−1
+) = det(A)−1
+Fingerübung 1 & 2
+3. Bisher haben wir LGS und alle Resultate für Teilmengen für Vektoren im Rn
+betrachtet.
+Bemerken wir aber, dass LGS und alle Resultate nur eine lineare Struktur voraussetzen
+so gelangen wir zur Definition eines (Unter)-Vektorraums ((U)VR).
+4. Das Konzept eines Vektorraums ist deutlich allgemeiner als der Rn
+. Z.B. bilden Polyno-
+me n-ten Grades, glatte Abbildungen und Matrizen Vektorräume. Gepaart mit unseren
+bisherigen Resultaten macht dieser Fakt LA zu einer bemerkenswert mächtigen Theorie.
+5. Um dann in der Praxis eine (U)VR Struktur zu zeigen, schreiben wir sie häufig als Kern
+einer linearen Abbildung (d.h. als die Menge {x ∈ V : f(x) = 0} für eine lineare Abbil-
+dung f). (Theorem 3.2.7)
+Fingerübungen
+1. Was ist die Determinante der Einheitsmatrix (det(In))? (Theorem 2.4.6)
+2. Folgere det(A−1
+) = det(A)−1
+. (Theorem 2.4.11)
+3. Zeige: det(A) = det(B) = 0 für A =
+"
+1 0
+0 0
+#
+,B =
+"
+0 0
+0 1
+#
+. (Theorem 2.4.6)
+4. Folgere daraus det(A + B) ̸= det(A) + det(B).
+Übungsaufgaben
+Aufgabe 1 (Der Span und die Struktur eines UVR)
+Sei W ⊂ V eine Teilmenge eines Vektorraums V . Zeige: W ⊂ V ist ein Untervektorraum (UVR)
+genau dann wenn W = span(W) gilt. Hinweis: Nutze Theorem 3.2.12.
+Lösungsskizze zu Aufgabe 1
+• Die Aussage W = span(W) =⇒ W UVR folgt direkt aus Th. 3.2.12 (jeder Spann einer
+Menge von Vektororen ist ein UVR). Alternativ kann man auch direkt zeigen, dass für
+u,v ∈ W folgt, dass u + v ∈ W, wenn W = span(W), analog für cu.
+• Es bleibt zu zeigen: W UVR =⇒ W = span(W). Sei W ein UVR. W ⊆ span(W) gilt
+per Definition für jede Menge W. Jedes Element von span(W) lässt sich per Definition
+des Spann als Linearkombination von Vektoren ∈ W schreiben. Aus der Definition des
+UVR folgt, dass jede Linearkombination von Vektoren aus W wieder in W liegt, somit
+muss jedes Element von span(W) in W liegen, also span(W) ⊆ W.
+–1–Methoden der linearen Algebra in der Statistik
+Sommersemester 2025
+Blatt 4
+Prof. Dr. Thomas Nagler
+Jana Gauß
+Aufgabe 2 (Symmetrische Matrizen bilden einen UVR)
+Sei Mn(R) der Vektorraum der quadratischen n × n Matrizen. Zeige, dass die Abbildung
+Mn(R) → Mn(R),A 7→ A − AT
+linear ist. Gehe wie folgt vor:
+1. Begründe warum die Abbildungen A 7→ A und A 7→ −AT
+linear sind (Regeln für trans-
+ponierte Matrizen: Theorem 2.1.15).
+2. Nutze dann Aufgabe 1 auf Blatt 2.
+Folgere dann mithilfe von Theorem 3.2.7, dass die Teilmenge der symmetrischen Matrizen
+{A ∈ Rn×n
+: AT
+= A} ⊂ Mn(R) ein Untervektorraum ist.
+Lösungsskizze zu Aufgabe 2
+1. Wir müssen f(cA + B) = cf(A) + f(B) zeigen für beliebige c ∈ R, n × n Matrizen A,B,
+und die Abbildungen f1(A) = A und f2(A) = −AT
+. Es gilt f1(cA + B) = cA + B =
+cf1(A) + f1(B) und f2(cA + B) = −(cA + B)T
+= −cAT
+− BT
+= cf2(A) + f2(B).
+2. In Aufgabe 1 auf Blatt 2 haben wir gezeigt, dass die Summe zweier linearer Abbildungen
+von Rn
+→ Rm
+wieder linear ist. Das gilt auch allgemein für lineare Abbildungen zwischen
+zwei Vektorräumen. Somit ist die Abbildung f : Mn(R) → Mn(R),A 7→ A − AT
+als
+Summe zweier linearer Abbildungen linear.
+Th. 3.2.7 besagt, dass der Kern einer linearen Abbildung von Rn
+→ Rm
+ein Untervektor-
+raum von Rn
+ist. Auch das gilt allgemein für lineare Abbildungen zwischen Vektorräumen. Die
+Menge der symmetrischen Matrizen lässt sich schreiben als {A ∈ Rn×n
+: AT
+= A} = {A ∈
+Rn×n
+: A − AT
+= 0} und ist somit der Kern der linearen Abbildung A 7→ A − AT
+und damit
+ein Untervektorraum von Mn(R).
+Anmerkung: Man könnte auch direkt die Eigenschaften eines UVR zeigen, also dass für A,B
+symmetrisch, c ∈ R auch A + B und cA symmetrisch sind.
+–2–Methoden der linearen Algebra in der Statistik
+Sommersemester 2025
+Blatt 4
+Prof. Dr. Thomas Nagler
+Jana Gauß
+Hausaufgaben
+Aufgabe 3 (Ganzzahlige Matrix und Determinante)
+Sei A eine Matrix, die nur aus ganzzahligen Einträgen besteht.
+(a) Nehme an, dass A in dieser Teilaufgabe eine 2 × 2 Matrix ist. Zeige für diesen Fall, dass
+det(A) wieder eine ganze Zahl Z ist.
+(b) Nutze Teilaufgabe (a) um zu zeigen, dass falls A eine ganzzahlige 3 × 3 Matrix ist, die
+Determinante det(A) auch eine ganze Zahl ist.
+(c) Nutze nun Induktion (siehe Vorlesung und/oder Analysis 1) um für allgemeine ganzzahlige
+n × n Matrizen A zu zeigen, dass die dazugehörige Determinante von A eine ganze Zahl
+ist.
+Lösungsskizze zu Aufgabe 3
+Anmerkung:
+• Eine Menge M ist abgeschlossen bzgl. einer Operation ∗ genau dann wenn für alle a,b ∈ M
+gilt, dass a ∗ b ∈ M ist.
+• Für Z gilt also
+– Z ist abgeschlossen bzgl +,− und ·.
+– Z ist nicht abgeschlossen z.B. bzgl \ (teilen).
+(a) Nach Abschnitt 2.4.1 im Skript gilt, dass die Determinante zu der 2 × 2 Matrix
+A =
+a b
+c d
+!
+∈ Z2×2
+gleich det(A) = ad − bc. Da Z abgeschlossen bzgl +,− und · ist, folgt det(A) ∈ Z.
+(b) Wir verwenden die Berechnung der Determinante über Kofaktoren. Sei A ∈ Z3×3
+. Dann
+gilt (siehe Abschnitt 2.4.2 im Skript)
+det(A) =
+3 X
+j=1
+(−1)1+j
+a1jdet(A1j)
+= (−1)2
+a11det(A11) + (−1)3
+a12det(A12) + (−1)4
+a13det(A13)
+Da für alle j = 1,2,3 die Matrix A1j ∈ Z2×2
+, folgt mit Teilaufgabe (a), dass det(A1j) ∈ Z.
+Und somit folgt aus der Abgeschlossenheit bzgl +,− und · von Z, dass det(A) ∈ Z.
+(c) Wir beweisen die Behauptung aus (a) und (b) nun für beliebige Matrizen A ∈ Zn×n
+. Dies
+erfolgt über vollständige Induktion.
+Induktionsanfang Zu zeigen ist, dass für alle Matrizen A ∈ Z2×2
+,det(A) ∈ Z gilt. Dies
+wurde bereits in Teilaufgabe (a) gezeigt.
+Induktionsschritt Wir gehen nun davon aus, dass die Behauptung für n = k ∈ N bereits
+gezeigt wurde, also, dass für A ∈ Zk×k
+,det(A) ∈ Z gilt. Nun wollen wir zeigen, dass auch
+für A ∈ Z(k+1)×(k+1)
+,det(A) ∈ Z gilt.
+–3–Methoden der linearen Algebra in der Statistik
+Sommersemester 2025
+Blatt 4
+Prof. Dr. Thomas Nagler
+Jana Gauß
+Sei also A ∈ Z(k+1)×(k+1)
+beliebig. Analog zu (b) verwenden wir die Berechnung der
+Determinante über die Kofaktoren. Daher
+det(A) =
+k+1 X
+j=1
+(−1)1+j
+a1jdet(A1j).
+Nun gilt für alle i,j ∈ {1,...,k + 1}:
+• (−1)1+j
+∈ Z
+• a1j ∈ Z
+• det(A1j) ∈ Z da A1j ∈ Zk×k
+und wir verwenden unsere obige Annahme aus dem
+Anfang des Induktionsschrittes.
+Wir nutzen jetzt wieder die Abgeschlossenheit bzgl +,− und · von Z, dass für alle n ∈ N
+und für alle ganzzahligen Matrizen A ∈ mathbbZn×n
+,det(A) ∈ Z.
+–4–

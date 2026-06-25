@@ -1,0 +1,119 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2023
+Blatt 6
+Prof. Dr. Thomas Nagler
+Philipp Schiele
+Übungsaufgaben
+Aufgabe 1 (Dimensionsformel für Untervektorräume)
+Seien U,W zwei Untervektorräume des Vektorraums V mit endlicher Dimension.
+(a) Zeige, dass die folgenden Aussagen äquivalent sind
+(i) Gilt für zwei Vektoren u ∈ U und w ∈ W, dass u + w = 0 so folgt u = 0 und
+w = 0.
+(ii) Sind w1,...,wn ∈ W linear unabhängig und u1,...um ∈ U linear unabhängig,
+dann sind auch w1,...,wn,u1,...um linear unabhängig in V .
+Tipp:
+• Für die Hinrichtung (i) ⇒ (ii) betrachte die Linearkombination
+n X
+i=1
+λiwi +
+m X
+j=1
+γjuj = 0, λi,γj ∈ R.
+Nun überlege, wie man die Linearkombination aufteilen kann, sodass die Linear-
+kombination auch geschrieben werden kann als zwei Vektorenu ∈ U und w ∈ W
+mit u + w = 0. Nutze nun die Aussage (i).
+• Für die Rückrichtung (ii) ⇒ (i) führe einen Beweis durch Widerspruch durch.
+Nehme also (ii) an und ohne Beschränkung der Allgemeinheit nehme an, dass
+es ein u ∈ U mit u 6= 0 und w ∈ W gibt sodass u + w = 0. Führe das zum
+Widerspruch zu (ii).
+(b) Sei nun U ∩ W = {0} und folgere aus (a) und Aufgabe 5 der Hausübung, dass
+dim(U + W) = dim(U) + dim(W)
+(c) Finde zwei Untervektoren U,W eines Vektorraumes V mit U ∩ W 6= {0} und zeige,
+dass dann die obige Dimensionsformel aus (b) nicht gilt!
+Übung: Mo 16–18 Uhr –1–Methoden der linearen Algebra in der Statistik
+Sommersemester 2023
+Blatt 6
+Prof. Dr. Thomas Nagler
+Philipp Schiele
+Hausaufgaben
+Aufgabe 2 (Basis und Basiswechsel)
+(a) Zeige, dass
+v1 =
+5
+8
+!
+, v2 =
+3
+5
+!
+eine Basis von R2
+und
+w1 =
+
+
+
+0
+1
+1
+
+
+ , w2 =
+
+
+
+1
+2
+1
+
+
+ , w3 =
+
+
+
+−4
+−1
+2
+
+
+
+eine Basis von R3
+ist.
+(b) Es sei f : R2
+→ R3
+die lineare Abbildung, die bezüglich der Basen (v1,v2) und
+(w1,w2,w3) durch die Matrix
+A =
+
+
+
+−3 2
+1 1
+0 −4
+
+
+
+gegeben ist. Bestimme die Matrix von f bezüglich der Standardbasen.
+Aufgabe 3 (Schnitt zweier Untervektorräume)
+Seien U,W zwei Untervektorräume des Vektorraums V mit endlicher Dimension. Zeige,
+dass die folgenden Aussagen äquivalent sind
+(i) U ∩ W = {0}
+(ii) Jedes Element v ∈ U +W hat eine eindeutige Darstellung. D.h. falls für u1,u2 ∈ U
+und w1,w2 ∈ W, u1 + w1 = u2 + w2 gilt so folgt direkt u1 = u2 und w1 = w2.
+(iii) Gilt für zwei Vektoren u ∈ U und w ∈ W, dass u + w = 0 so folgt u = 0 und
+w = 0.
+Tipp: Führe einen Ringschluss durch und zeige dazu
+• (i) ⇒ (ii): Nehme hier an es gäbe zwei Darstellungen und führe das dann zum
+Widerspruch zu Annahme (i).
+• (ii) ⇒ (iii): Nach Annahme (ii) wird auch die Null eindeutig dargestellt.
+• (iii) ⇒ (i): Nehme ein beliebiges Element aus U ∩ W und zeige, dass diese die Null
+sein muss.
+Aufgabe 4 (Beispiele für Untervektorräume)
+Begründe, welcher der angegeben Räume ein Untervektorraum zu dem jeweilig angege-
+benen Vektorraum ist.
+(a) M2 = {(x1,x2) | x2
+1 + x2
+2 ≥ 1} ⊆ R2
+,
+(b) M3 = {A ∈ Rn×n
+| A ist in Zeilenstufenform} ⊆ Rn×n
+.

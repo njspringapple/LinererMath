@@ -1,0 +1,76 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2023                                                        Prof. Dr. Thomas Nagler
+Blatt 10                                                                             Philipp Schiele
+
+    Übungsaufgaben
+
+Aufgabe 2 (Gram-Schmidt Verfahren)
+    Sei V ein Vektorraum und seien v1 , v2 , v3 ∈ V Vektoren. Auf die Vektoren {v1 , v2 , v3 }
+    wird das Gram-Schmidt Verfahren angewendet um die Vektoren {u1 , u2 , u3 } zu erhalten.
+    Beantworte die folgenden Aussagen.
+      1. Nehme an, dass v1 und v2 linear unabhängig sind und v3 ∈ span{v1 , v2 }. Wie sieht
+         der Vektor u3 aus?
+      2. Wie sehen die Vektoren nach der Anwendung des Gram-Schmidt Verfahrens aus,
+         wenn die Menge {v1 , v2 , v3 } bereits orthogonal ist?
+
+
+Lösungsskizze zu Aufgabe 2
+
+      1. Nach Skriptseite 110 erhalten wir:
+                                   u1 := v1
+                                                 hu1 , v2 i           hv2 , v1 i
+                                   u2 := v2 −               u1 = v2 −            v1
+                                                  ku1 k 2              kv1 k2
+
+
+         Es gilt span {v1 , v2 } = span {u1 , u2 }.
+         Aus der Definition von u1 , u2 folgt:
+          • u1 , u2 ∈ span {v1 , v2 } ⇒ span {u1 , u2 } ⊆ span {v1 , v2 }
+          • ebenso folgt v1 ∈ span {u1 , u2 }, da u1 = v1
+                                                      hu1 , v2 i
+                                       v2 = u2 +                 u1 ∈ span {u1 , u2 }
+                                                       ku1 k2
+                                                   |     {z   }
+                                                        ∈R
+                                          ⇒ span {v1 , v2 } ⊆ span {u1 , u2 }
+                                          ⇒ span {v1 , v2 } = span {u1 , u2 }
+          • Also gilt: v3 ∈ span {v1 , v2 } = span {u1 , u2 }
+          • ⇒ ∃a, b ∈ R : v3 = au1 + bu2
+          • Und nach dem Gram-Schmidt Verfahren gilt:
+                                hu1 , v3 i        hu2 , v3 i
+                      u3 = v3 −            u1 −              u2
+                                 ku1 k 2           ku2 k2
+                                           hu1 , au1 + bu2 i         hu2 , au1 + bu2 i
+                         = au1 + bu2 −                          u1 −                   u2
+                                                 ku1 k 2                   ku2 k2
+                                                                  :=0            :=0
+                                                              z }| {          z }| {
+                                       ahu1 , u1 i + b hu1 , u2 i      a hu2 , u1 i +bhu2 , u2 i
+                         = au1 + bu2 −                            u1 −                           u2
+                                                ku1 k 2                         ku2 k2
+                                       aku1 k2         bku2 k2
+                         = au1 + bu2 −         u  1 −          u2
+                                        ku1 k2          ku2 k2
+                         = au1 + bu2 − au1 − bu2
+                         =0
+                         ⇒ u3 = 0
+
+Übung: Mo 16–18 Uhr                               –1–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2023                                                     Prof. Dr. Thomas Nagler
+Blatt 10                                                                          Philipp Schiele
+
+
+
+      2. Nach Skriptseite 110 erhalten wir:
+
+                      u1 := v1
+                                  hu1 , v2 i
+                      u2 := v2 −             u1 = v2 ,        da hu1 , v2 i = hv1 , v2 i = 0
+                                    ku1 k2
+                                  hu1 , v3 i       hu2 , v3 i
+                      u3 := v3 −             u1 −             u2 = v3
+                                    ku1 k 2         ku2 k2
+                        da hu1 , v3 i = hu2 , v3 i = hv1 , v3 i = hv2 , v3 i = 0
+                         ⇒ u1 = v1 , u2 = v2 , u3 = v3
+

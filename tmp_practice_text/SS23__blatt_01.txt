@@ -1,0 +1,102 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2023                                                         Prof. Dr. Thomas Nagler
+Blatt 1                                                                               Philipp Schiele
+
+    Übungsaufgaben
+
+Aufgabe 1 (Einheitsvektoren)
+    Zeige, dass jeder Vektor x ∈ Rn mit n ∈ N darstellbar ist als Summe der Einheitsvektoren
+    e1 , . . . , en ∈ Rn mit Koeffizienten λ1 , . . . , λn ∈ R. Die Einheitsvektoren ei , i ∈ {1, . . . , n}
+    sind definiert als
+                                                                         
+                                     1             0                             0
+                                    0           1                       0
+                                                                         
+                                                                         
+                                                                            0
+                                          , e2 = 0 ,
+                                    0
+                               e1 =                            ...    en =     .
+                                                   
+                                    .           .                       .
+                                     ..          ..                      .. 
+                                                                         
+                                        0            0                           1
+
+    Somit ist zu zeige, dass für jedes x ∈ Rn , λ1 , . . . , λn ∈ R existieren sodass
+                                                      n
+                                                      X
+                                                x=           λi ei .
+                                                      i=1
+
+
+Aufgabe 2 (Spann)
+    Zeigen Sie, dass die folgenden Mengen identisch sind:
+                                              
+                              1 
+                                       3 
+                                                  1
+                                                          3 
+                                                             
+                         span 0 = span 0 = span 0 , 0
+                                                    
+                                                        
+                                 
+                                   0             
+                                                         0   
+                                                                             0        0
+
+Aufgabe 3 (Gleichungssystem)
+    Bestimmen Sie die Lösungsmenge des folgenden Gleichungssystems in Abhängigkeit von
+    dem fixen Wert a ∈ R. Verwende dazu das Gauß-Jordan Verfahren.
+
+                                         2x1 + 4x2 + 2x3 = 12a
+                                        2x1 + 12x2 + 7x3 = 12a + 7
+                                         x1 + 10x2 + 6x3 = 7a + 8
+
+
+
+
+Übung: Mo 16–18 Uhr                               –1–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2023                                             Prof. Dr. Thomas Nagler
+Blatt 1                                                                   Philipp Schiele
+
+
+
+    Hausaufgaben
+
+Aufgabe 4 (Quantoren)
+    Entscheiden Sie, ob die folgenden Aussagen wahr oder falsch sind
+
+     (a) ∀x ∈ N ∃y ∈ N sodass x = y.
+     (b) ∃y ∈ N ∀x ∈ N sodass x = y.
+     (c) @y ∈ N ∀x ∈ N sodass x = y.
+
+Aufgabe 5 (Beweistechniken)
+    Zeigen Sie, dass die folgenden Aussagen wahr sind. Verwenden Sie hierfür das jeweils
+    angegebene “Beweisverfahren".
+
+      1. Seien a, b, c ∈ N mit a Teiler von b und b Teiler von c. Dann ist auch a Teiler von c.
+         (direkter Beweise)
+      2. Sei a, b ∈ N. Ist a + b ungerade, so muss entweder a oder b gerade sein. (Beweis durch
+         Kontraposition)
+      3. Sei n ∈ N mit n3 gerade. Dann ist auch n gerade. (Widerspruchsbeweis)
+      4. Sei n ∈ N ungerade. Dann gibt es zwei Zahlen a, b ∈ N sodass
+
+                                      a + b = n und a2 − b2 = n
+
+         gilt. (konstruktiver Existenzbeweis)
+
+    Hinweis: Wenn wir schreiben dass a ein Teiler von b ist, so meinen wir hier Teilen ohne
+    Rest.
+
+Aufgabe 6 (Gleichungssystem)
+    Bestimmen Sie die Lösungsmenge des folgenden Gleichungssystems. Verwende dazu das
+    Gauß-Jordan Verfahren.
+
+
+                                       2x − 2z − 4y = 8
+                                       −3y + 2x + z = 10
+                                       11z − x + 5y = 3
+

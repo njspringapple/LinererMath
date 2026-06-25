@@ -1,0 +1,267 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2024                                                         Prof. Dr. Thomas Nagler
+Blatt 1                                                                                 Nicolai Palm
+
+Recap - Vektoren, Matrizen und der Spann
+   1. Wir können jedes Lineare Gleichungssystem (LGS) schreiben als Ax = b wobei A eine
+      Matrix und b ein Vektor ist.
+
+   2. Das Matrix-Vektor Produkt Ax ist linear in x (Theorem 1.7.5).
+
+   3. Die Anzahl von Lösungen eines LGS ist entweder 0,1 oder unendlich (Theorem 1.3.1)
+
+   4. Über den Spann können wir den Lösungsraum eines LGS beschreiben (Theorem 1.7.6)
+
+
+Fingerübungen
+   1. Wenn x eine Lösung für Ax = 0 ist und λ ∈ R, ist dann y = λx auch eine Lösung (d.h.
+      Ay = 0)? Gilt dasselbe auch für Ax = b (d.h. Ay = b)? (Theorem 1.7.5)
+
+   2. Wenn es nur endliche viele x1 , ..., xn gibt die das LGS Ax = 0 lösen, was ist dann n?
+      (Theorem 1.3.1 oder Fingerübung 1.)
+
+
+Übungsaufgaben
+Aufgabe 1 (Einheitsvektoren)
+Zeige, dass jeder Vektor x ∈ Rn mit n ∈ N darstellbar ist als Summe der Einheitsvektoren
+e1 , . . . , en ∈ Rn mit Koeffizienten λ1 , . . . , λn ∈ R. Die Einheitsvektoren ei , i ∈ {1, . . . , n} sind
+definiert als
+                                                                       
+                                     1         0                           0
+                                   0        1                        0
+                                                                      
+                                                                      
+                                   0 , e2 = 0 ,
+                              e1 =                          ...         0 .
+                                                                    en = 
+                                                                           
+                                   .        .                        .
+                                    ..       ..                       .. 
+                                                                      
+                                      0            0                       1
+
+Somit ist zu zeige, dass für jedes x ∈ Rn , λ1 , . . . , λn ∈ R existieren sodass
+                                                    n
+                                                    X
+                                               x=         λi ei .
+                                                    i=1
+
+Aufgabe 2 (Spann)
+Sei M = {m1 , . . . , mk }, N = {n1 , . . . , nl } ⊆ Rn mit n, k, l ∈ N. Beweise oder widerlege die
+folgenden Behauptungen.
+ (a) M ⊆ N ⇒ span(M ) ⊆ span(N ).
+
+ (b) span(M ) ⊆ span(N ) ⇒ M ⊆ N .
+
+  (c) span(M ∪ N ) = span(M ) ∪ span(N ).
+
+
+Lösungsskizze zu Aufgabe 2
+Zu (a):
+Die Aussage ist korrekt: Sei x ∈ span(M ). Per Definition gilt dann, dass
+
+                                     a1 , ..., ak ∈ R, m1 , ..., mk ∈ M
+
+                                                    –1–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2024                                                Prof. Dr. Thomas Nagler
+Blatt 1                                                                        Nicolai Palm
+
+existieren mit
+                                      x = a1 m1 + ..ak mk ,
+d.h. x ist eine Linearkombination von Vektoren aus M . Ein Vektor y ist genau dann in span(N ),
+wenn y als Linearkombination von Vektoren aus N schreiben lässt, d.h. y = b1 n1 + ... + bl nl .
+Da M ⊂ N gilt also x ∈ span(N ) (setze l = k, ai = bi , mi = ni ). Das zeigt die Behauptung.
+Zu (b):
+Die Aussage ist falsch: Es reicht ein Gegenbeispiel zu geben. Idee: 0 ist in jedem Spann enthalten
+- auch wenn die zugrundeliegende Menge an Vektoren die den Spann erzeugt nicht die 0 enthählt.
+In anderen Worten, M = {0}, N = {(1)} ⊂ R1 ist ein Gegenbeispiel denn M ist nicht in N
+enthalten aber span(M ) = {0} ⊂ span(N ).
+Zu (c):
+Die Aussage ist falsch: Es reicht wieder ein Gegenbeispiel zu geben. Definiere
+
+                                   M = {e1 }, N = {e2 } ⊂ R2 .
+
+Wir bemerken, dass
+                             span(M ) ∪ span(N ) ⊂ span(M ∪ N )
+gelten muss (nach (a)). Das heisst, damit unser Beispiel ein Gegenbeispiel ist, müssen wir ein x ∈
+span(N ∪ M ) finden (nicht in span(N ) ∪ span(M ) da das nach (a) ausgechlossen ist) das nicht
+in span(N ) ∪ span(M ) liegt. Setze e1 + e2 ∈ span(M ∪ N ). Dass e1 + e2 ∈ / span(M ) ∪ span(N )
+gilt ist per Definition dasselbe wie e1 + e2 ∈/ span(M ) und e1 + e2 ∈/ span(N ). Angenommen
+e1 + e2 ∈ span(N ). Dann gelte e1 + e2 = λe1 (per Definition von N und des spanns). In anderen
+Worten, die erste und zweite Komponente von e1 + e2 = (1, 1) sind dieselben wie von λe1 =
+(λ, 0). Das ist offensichtlich falsch. Mit analogen Argumenten zeigen wir e1 + e2 ∈  / span(M ).
+Das beweist die Behauptung.
+
+
+
+
+                                               –2–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2024                                              Prof. Dr. Thomas Nagler
+Blatt 1                                                                      Nicolai Palm
+
+Hausaufgaben
+
+Aufgabe 3 (Quantoren)
+Entscheiden Sie, ob die folgenden Aussagen wahr oder falsch sind
+
+ (a) ∀x ∈ N ∃y ∈ N sodass x = y.
+
+ (b) ∃y ∈ N ∀x ∈ N sodass x = y.
+
+ (c) @y ∈ N ∀x ∈ N sodass x = y.
+
+
+
+Lösungsskizze zu Aufgabe 3
+
+ (a) Ausformuliert besagt die Aussage: “Für alle x in den natürlichen Zahlen existiert ein y in
+     den natürlichen Zahlen sodass x = y wahr ist.”
+     Diese Aussage ist wahr (setze y gleich y).
+
+ (b) Ausformuliert besagt die Aussage: “Es existiert ein y in den natürlichen Zahlen, sodass
+     für alle x in den natürlichen Zahlen x = y gilt.
+     Diese Aussage ist falsch.
+
+ (c) Ausformuliert besagt die Aussage: “Es existiert kein y in den natürlichen Zahlen, sodass
+     für alle x in den natürlichen Zahlen x = y gilt.
+     Diese Aussage ist wahr.
+
+
+
+
+                                             –3–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2024                                              Prof. Dr. Thomas Nagler
+Blatt 1                                                                      Nicolai Palm
+
+Aufgabe 4 (Beweistechniken)
+Zeigen Sie, dass die folgenden Aussagen wahr sind. Verwenden Sie hierfür das jeweils angegebene
+“Beweisverfahren".
+  1. Seien a, b, c ∈ N mit a Teiler von b und b Teiler von c. Dann ist auch a Teiler von c.
+     (direkter Beweise)
+  2. Sei a, b ∈ N. Ist a + b ungerade, so muss entweder a oder b gerade sein. (Beweis durch
+     Kontraposition)
+  3. Sei n ∈ N mit n3 gerade. Dann ist auch n gerade. (Widerspruchsbeweis)
+  4. Sei n ∈ N ungerade. Dann gibt es zwei Zahlen a, b ∈ N sodass
+                                     a + b = n und a2 − b2 = n
+     gilt. (konstruktiver Existenzbeweis)
+Hinweis: Wenn wir schreiben dass a ein Teiler von b ist, so meinen wir hier Teilen ohne Rest.
+
+
+Lösungsskizze zu Aufgabe 4
+  1. Schritt 1: a, b, c ∈ N mit a teilt b und b teilt c ⇒ a teilt c.
+     Schritt 2: Eine Zahl d teilt eine Zahl e (ohne Rest) dann und genau dann, wenn ein
+     n ∈ N existiert sodass e = nd gilt.
+     Schritt 3: (direkter Beweis)
+     Da a teilt b und b teilt c, existieren m, n ∈ N sodass
+                                        b = ma und c = nb
+     gilt. Nun setzen wir b = ma in c = nb ein und erhalten a = n(ma). Da n, m ∈ N ⇒
+     n · m ∈ N. Daraus folgt:
+                             ∃k ∈ N (genauer k = mn) sodass c = ka.
+                              ⇒ a teilt c
+
+  2. Schritt 1: a, b ∈ N mit a + b ungerade ⇒ entweder a oder b ungerade.
+     Schritt 2: Eine Zahl k ∈ N ist ungerade wenn eine Zahl m ∈ N existiert sodass k = 2m+1.
+     Eine Zahl k ∈ N ist gerade wenn eine Zahl m ∈ N existiert sodass k = 2m.
+     Schritt 3: (Beweis durch Kontraposition)
+     Verneinung von “entweder a oder b ungerade”: “Entweder (a und b gerade) oder (a und
+     b ungerade)”.
+
+     Fall 1: (a und b ungerade)
+     ⇒ ∃m, n ∈ N sodass a = 2m und b = 2n.
+     ⇒ a + b = 2m + 2n = 2(m + n) und da m, n ∈ N ist auch m + n ∈ N. Daher ist a + b
+     wieder gerade.
+     Fall 2: (a und b ungerade)
+     ⇒ ∃m, n ∈ N sodass a = 2m + 1 und b = 2n + 1.
+     ⇒ a + b = (2m + 1) + (2n + 1) = 2(m + n + 1) und da m, n ∈ N ist auch m + n + 1 ∈ N.
+     Daher ist a + b wieder gerade.
+
+     Damit haben wir nun gezeigt, dass “Entweder (a und b gerade) oder (a und b ungerade)”
+     ⇒ “a + b gerade” wahr ist. Und somit folgt die Behauptung über Kontraposition.
+
+                                             –4–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2024                                           Prof. Dr. Thomas Nagler
+Blatt 1                                                                   Nicolai Palm
+
+  3. Schritt 1: n ∈ N mit n3 gerade ⇒ n gerade.
+     Schritt 2: Eine Zahl k ∈ N ist ungerade wenn eine Zahl m ∈ N existiert sodass k = 2m+1.
+     Eine Zahl k ∈ N ist gerade wenn eine Zahl m ∈ N existiert sodass k = 2m.
+     Schritt 3: (Beweis durch Widerspruch)
+     Wir nehmen an, dass n3 gerade ist und n ungerade. Da n ungerade ist existiert ein m ∈ N
+     sodass n = 2m + 1. Betrachte
+
+         n3 = (2m + 1)3 = 8m3 + 4m2 + 8m2 + 4m + 1 = 2(4m3 + 2m2 + 4m2 + 2m) + 1
+
+    Da m ∈ N gilt auch 4m3 + 2m2 + 4m2 + 2m ∈ N und somit ist n3 ungerade was ein
+    Widerspruch zur Annahme ist. Damit folgt die Behauptung.
+
+  4. Schritt 1: n ∈ N mit n ungerade ⇒ existieren a, b ∈ N sodass a + b = n und a2 − b2 = n.
+     Schritt 2: Eine Zahl k ∈ N ist ungerade wenn eine Zahl m ∈ N existiert sodass k = 2m+1.
+     Eine Zahl k ∈ N ist gerade wenn eine Zahl m ∈ N existiert sodass k = 2m.
+     Schritt 3: (konstruktiver Existenzbeweis)
+     Da n ungerade ⇒ ∃m ∈ N sodass n = 2m + 1. Betrachte nun
+
+                            n = 2m + 1    und    n2 = 4m2 + 4m + 1
+
+    Nach mehreren Versuchen betrachten wir nun n = 2m + 1 = m + m + 1 und setzen
+
+                                      b=m        a=m+1
+
+    und es gilt n = a + b und a2 − b2 = m2 + 2m + 1 − m2 = 2m + 1.
+
+
+
+
+                                           –5–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2024                                               Prof. Dr. Thomas Nagler
+Blatt 1                                                                       Nicolai Palm
+
+Aufgabe 5 (Gleichungssystem)
+Bestimmen Sie die Lösungsmenge des folgenden Gleichungssystems. Verwende dazu das Gauß-
+Jordan Verfahren.
+
+
+                                       2x − 2z − 4y = 8
+                                       −3y + 2x + z = 10
+                                       11z − x + 5y = 3
+
+
+
+Lösungsskizze zu Aufgabe 5
+Aufstellen der erweiterten Koeffizientenmatrix (Achtung: x, y, z sind oben durcheinander. Hier
+verwenden wir die Reihenfolge x, y, z.)
+
+                                                                    
+                 2 −4 −2 8                     2 −4 −2 8
+                            −1(2) und 2(3) 
+               2 −3 1 10         ∼         −2 3 −1 −10 
+                                                         
+
+                −1 5 11 3                     −2 10 22 6
+
+                                                                           
+                                    2 −4 −2 8               2 −4 −2 8
+              (2)+(1) und (3)+(1)              (3)+6(2) 
+                       ∼           0 −1 −3 −2  ∼  0 −1 −3 −2 
+                                                                      
+
+                                    0 6 20 14               0 0  2  2
+
+Schritt 1: Finde z sodass 2z = 2 ⇔ z = 1
+Schritt 2: Finde y sodass −y + (−3) · 1 = −2 ⇔ y = −1
+Schritt 3: Finde x sodass 2x + (−4) · (−1) − 2 = 8 ⇔ x = 3.
+
+
+Das lineare Gleichungssystem hat genau eine Lösung:
+
+                                    (3, −1, 1) = (x, y, z).
+
+
+
+
+                                             –6–
+

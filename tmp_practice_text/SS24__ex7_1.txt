@@ -1,0 +1,283 @@
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2024                                                         Prof. Dr. Thomas Nagler
+Blatt 7                                                                                 Nicolai Palm
+
+Recap - Spaltenraum und Kern
+  1. Kern und Spaltenraum sind wichtige Größen einer n × m-Matrix: ihre Dimensionen sum-
+     mieren sich zur Dimension des Startraums m = dim(ker(A))+rang(A). (Theorem 3.4.12)
+
+  2. Damit ist die Invertierbarkeit einer Matrix A äquivalent dazu, dass A vollen Rang (rang(A) =
+     n) bzw. einen trivialen Kern (ker(A) = {0}) hat. (Theorem 3.4.13)
+
+
+Fingerübungen
+  1. Sei A eine n × m-Matrix mit ker(A) = {0}. Was ist der Rang rang(A) von A? (Theorem
+     3.4.12)
+
+  2. Sei A eine n×m-Matrix mit ker(A) = Rm . Was ist der Spaltenraum col(A)? (Nachdenken)
+
+  3. Kann es eine 2023 × 2024-Matrix A geben mit ker(A) = {0}? (Theorem 3.4.12)
+
+
+Übungsaufgaben
+Aufgabe 1 (image, Spaltenraum und Dimensionsformel für lineare Abbildung)
+Sei f : Rn → Rm eine lineare Abbildung mit darstellender Matrix A. Zeige:
+
+  1. ker(A) = ker(f ) und im(f ) = col(A).
+
+  2. dim(Rn ) = dim(ker(f )) + dim(im(f )). Hinweis: Nutze Theorem 3.4.12.
+
+
+Aufgabe 2 (Produktraum)
+Seien U, V zwei Vektorräume. Wir definieren
+
+                                 U × V = {(u, v) : u ∈ U, v ∈ V }.
+
+Zeige:
+
+  1. U × V versehen mit Addition
+
+                                  (u1 , v1 ) + (u2 , v2 ) = (u1 + u2 , v1 + v2 )
+
+     und skalare Multiplication
+                                              λ(u, v) = (λu, λv)
+     ist ein Vektorraum.
+
+  2. sind {u1 , ..., un } ⊂ U und {v1 , ..., vm } ⊂ V Basen, so ist
+
+                            {(u1 , 0), ..., (un , 0), (0, v1 ), ...., (0, vm )} ⊂ U × V
+
+     eine Basis. Folgere dim(U × V ) = dim(U ) + dim(V ).
+
+
+
+
+                                                   –1–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2024                                                                                     Prof. Dr. Thomas Nagler
+Blatt 7                                                                                                             Nicolai Palm
+
+Hausaufgaben
+
+Aufgabe 3 (Rang, Kern einer Matrix)
+Betrachte die Funktion f : R3 → R2 die gegeben ist durch die folgende Matrix
+                                                                            !
+                                                        1 2 3
+                                               A=                                   .
+                                                        4 5 6
+
+ (a) Bestimme den Rang von f .
+
+ (b) Bestimme das Bild der Funktion f und gebe eine Basis des Bildes sowie die Dimension
+     an.
+
+ (c) Bestimme den Kern von f und gebe eine Basis des Kerns sowie die Dimension an.
+
+
+
+Lösungsskizze zu Aufgabe 3
+
+ (a) Behauptung: rang(A) = 2.
+     Nach Definition 3.4.4. gilt
+
+                                               dim(col(A)) = rang(A).
+
+     Nach Skriptseite 69 können wir aus der Zeilenstufenform die Dimension von col(A) be-
+     stimmen. In der reduzierten Zeilenstufenform bilden die Pivotspalten eine unabhängige
+     Menge
+                                                    !                                                     !
+                                       1 2 3            (2)−4(1)                1 2   3
+                                                                ∼
+                                       4 5 6                                    0 −3 −6
+                                       !            !
+                                   1            2
+     Dann sind die Vektoren                ,            sind linear unabhängig und es gilt
+                                   4            5
+                                                                        (               !               !)
+                                                                                1                   2
+                                   ⇒ col(A) = span                                          ,
+                                                                                4                   5
+                                   ⇒ rang(A) = dim(col(A)) = 2.
+
+
+
+     Zusätzlich überprüfen wir hier noch die Behauptung aus dem Skript und zeigen, dass
+                                                    (           !               !)
+                                                            1               2
+                                                                    ,
+                                                            4               5
+
+     eine Basis von
+                                                (           !               !                       !)
+                                                        1               2                       3
+                                       span                     ,                   ,
+                                                        4               5                       6
+
+     ist.
+
+
+                                                        –2–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2024                                                                                   Prof. Dr. Thomas Nagler
+Blatt 7                                                                                                           Nicolai Palm
+
+    Schritt 1: Wir zwigen, dass
+                            (       !                !               !)                       (               !           !)
+                                1                2               3                                    1               2
+                     span               ,                ,                    = span                              ,            .
+                                4                5               6                                    4               5
+
+    ‘⊆’ Folgt aus dem ersten Übungsblatt.
+    ‘⊇’ Es genügt zu zeigen, dass
+                                                !                    (            !               !)
+                                            3                                 1               2
+                                                     ∈ span                           ,                   .
+                                            6                                 4               5
+
+    Dies gilt genau dann wenn x1 , x2 ∈ R existieren sodass
+                                                 !                           !                        !
+                                             3                           1                        2
+                                                      = x1                        + x2
+                                             6                           4                        5
+
+    eine Lösung besitzt. x1 = −1 und x2 = 2 ist eine Lösung der Gleichung.
+                                            !                !
+                                 1        2
+    Schritt 2: Wir zeigen, dass        ,        linear unabhängig sind. Dies folgt direkt daraus,
+                                 4        5
+    dass es kein c ∈ R gibt sodass c · 1 = c · 2 und c · 4 = c · 5 gilt.
+
+ (b) Nach Skriptseite 68 entspricht der Spaltenraum von A der Bildmenge der zugehörigen
+     linearen Abbildung. Nach Teilaufgabe (a) gilt also
+                                                                     (            !               !)
+                                                                              1               2
+                                    Im(f ) = span                                     ,                   .
+                                                                              4               5
+
+    und
+                                                                     !               !
+                                                             1                   2
+                                                                         ,
+                                                             4                   5
+
+    bilden eine Basis der Bildmenge.
+
+ (c) Nach Theorem 3.4.12 gilt mit Teilaufgabe (a)
+
+                                            rang(A) + dim(ker(A)) = 3
+                                               ⇒ 2 + dim(ker(A)) = 3
+                                                  ⇒ dim(ker(A)) = 1.
+
+    Damit muss nur ein Vektor 0 6= v ∈ R3 gefunden werden sodass Av = 0. Damit ist dieser
+    Vektor v eine Basis des Kernes von f . Es gilt
+                                                                                             
+                                                                                 1
+                                                                             A  −2 
+                                                                               
+                                                                                    =0
+                                                                                 1
+                                                        
+                                                    
+                                                       1  
+                                                           
+                                    ⇒ ker(A) = span  −2  .
+                                                         
+                                                          
+                                                                                          1
+
+
+
+
+                                                             –3–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2024                                                  Prof. Dr. Thomas Nagler
+Blatt 7                                                                          Nicolai Palm
+
+Aufgabe 4 (Funktionenraum ist Vektorraum)
+Zeige, dass der Raum aller Funktionen mit der in Beispiel 3.1.5 definierten Addition und Ska-
+larmultiplikation ein Vektorraum ist. Beweise hierfür die Eigenschaften aus Definition 3.1.1.
+
+
+Lösungsskizze zu Aufgabe 4
+Sei im folgenden F der Funktionenraum
+                                        F := {f : R → R}.
+Dieser Raum ist nicht leer, da z.b. N : R → R, x 7→ 0 ein Element aus F ist. Ein Vektorraum
+benötigt eine Addition und eine Multiplikation, die wie folgt definiert sind:
+   1. Sei f, g ∈ F dann setzen wir (f + g) : R → R, x 7→ f (x) + g(x).
+   2. Sei f ∈ F und c ∈ R, dann definieren wir cf : R → R, x 7→ cf (x).
+Nun müssen wir alle Eigenschaften der der Definition 3.1.1 durchgehen: Seien dazu f, g, h ∈ F
+und d, c ∈ R.
+  (i) (f + g) definiert wieder eine Funktion zwischen R und R und somit ist f + g ∈ F.
+ (ii) Für alle x ∈ R gilt (R ist kommutativ):
+                         (f + g)(x) = f (x) + g(x) = g(x) + f (x) = (g + f )(x).
+      Daher gilt f + g = g + f .
+ (iii) Für alle x ∈ R gilt (R ist assoziativ):
+                      ((f + g) + h)(x) = (f + g)(x) + h(x) = f (x) + g(x) + h(x)
+                       = f (x) + (g + h)(x) = (f + (g + h))(x).
+
+ (iv) Die Funktion N von oben entspricht dem Nullvektor. Da für alle x ∈ R gilt
+                             (f + N )(x) = f (x) + N (x) = f (x) + 0 = f (x).
+
+  (v) Sei f ∈ F. Dann ist −f ∈ F (ist wieder eine Funktion zwischen R und R) und es gilt für
+      alle x ∈ R:
+                     (f + (−f ))(x) = f (x) + (−f (x)) = f (x) − f (x) = 0 = N (0).
+
+ (vi) cf definiert wieder eine Funktion zwischen R und R und somit ist cf ∈ F.
+(vii) Für alle x ∈ R gilt
+                             (c(f + g))(x) = cf (x) + cg(x) = (cf + cg)(x)
+
+(viii) Für alle x ∈ R gilt
+          ((c + d)f )(x) = (c + d)f (x) = cf (x) + df (x) = (cf )(x) + (df )(x) = (cf + df )(x).
+
+ (ix) Für alle x ∈ R gilt
+                             (c(df ))(x) = cdf (x) = (cd)f (x) = ((cd)f )(x).
+
+  (x) Für alle x ∈ R gilt
+                                        (1f )(x) = 1f (x) = f (x).
+
+Damit folgt mit Definition 3.1.1, dass F mit der oben definierten Addition und Skalarmulitpli-
+kation ein Vektorraum ist.
+
+                                                 –4–
+Methoden der linearen Algebra in der Statistik
+Sommersemester 2024                                                           Prof. Dr. Thomas Nagler
+Blatt 7                                                                                   Nicolai Palm
+
+Aufgabe 5 (Beispiele für Untervektorräume)
+Welcher der angegeben Räume ist ein Untervektorraum zu dem jeweilig angegebenen Vektor-
+raum.
+
+ (a) M2 = {(x1 , x2 ) | x21 + x22 ≥ 1} ⊆ R2 ,
+
+ (b) M3 = {A ∈ Rn×n | A ist in Zeilenstufenform} ⊆ Rn×n .
+
+
+
+Lösungsskizze zu Aufgabe 5
+                                                        !
+                                                    1
+ (a) M1 ist kein Untervektorraum, da x =                    ∈ M1 aber für c = 0.5
+                                                    0
+                                                    !                !
+                                                1              0.5
+                                    cx = 0.5            =                6∈ M1 .
+                                                0               0
+
+     Also ist nach Definition 3.2.1 ist M2 kein Untervektorraum.
+
+ (b) M2 ist ein Untervektorraum, da
+
+       1. Die Einheitsmatrix In ∈ M2 ⇒ M2 6= ∅.
+       2. M2 ⊆ Rn×n und Rn×n ein Vektorraum ist.
+       3. Seien A, B ∈ M2 . Dann ist A + B wieder in Zeilenstufenform (folgt aus Def 2.1.1)
+          und somit A + B ∈ M2 .
+       4. Sei A ∈ M2 und c ∈ R. Dann gilt nach Def 2.1.1, dass auch cA wieder in Zeilenstu-
+          fenform ist. Also ist cA ∈ M2 .
+
+     Aus 1.-4. folgt mit Definition 3.2.1, dass M2 ein Untervektorraum.
+
+
+
+
+                                                –5–
+
